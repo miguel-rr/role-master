@@ -1,6 +1,6 @@
 {
   "collection": "scenes-fr",
-  "generatedAt": "2026-09-07T21:08:50.764Z",
+  "generatedAt": "2026-09-07T22:45:52.818Z",
   "entries": [
     {
       "id": "scenes/fr/157984-elvencity-thomtenery",
@@ -2277,8 +2277,8 @@
     {
       "id": "scenes/fr/cragmaw-hideout",
       "src": "/art/scenes/fr/cragmaw-hideout.webp",
-      "width": 1500,
-      "height": 1046,
+      "width": 1600,
+      "height": 1116,
       "title": "Cragmaw Hideout",
       "tags": ["scene", "caves", "5e"],
       "cats": [
@@ -2295,8 +2295,8 @@
     {
       "id": "scenes/fr/crimman-club",
       "src": "/art/scenes/fr/crimman-club.webp",
-      "width": 1500,
-      "height": 1036,
+      "width": 1920,
+      "height": 1326,
       "title": "Crimman club",
       "tags": ["scene", "taverns", "female", "human", "male", "inns", "cities"],
       "cats": [
@@ -5114,8 +5114,8 @@
     {
       "id": "scenes/fr/klauthen-vale",
       "src": "/art/scenes/fr/klauthen-vale.webp",
-      "width": 1500,
-      "height": 1240,
+      "width": 1920,
+      "height": 1587,
       "title": "Klauthen Vale",
       "tags": ["scene", "ruins", "mountains"],
       "cats": [
@@ -6425,8 +6425,8 @@
     {
       "id": "scenes/fr/neverwinter-wood-drizzl",
       "src": "/art/scenes/fr/neverwinter-wood-drizzl.webp",
-      "width": 1500,
-      "height": 750,
+      "width": 1920,
+      "height": 960,
       "title": "Neverwinter Wood Drizzl",
       "tags": ["scene", "forests", "5e", "rivers"],
       "cats": [
@@ -6964,8 +6964,8 @@
     {
       "id": "scenes/fr/phandalin-welcome",
       "src": "/art/scenes/fr/phandalin-welcome.webp",
-      "width": 1159,
-      "height": 1500,
+      "width": 1484,
+      "height": 1920,
       "title": "Phandalin-welcome",
       "tags": ["scene", "taverns", "5e", "dwarf", "female", "human", "male"],
       "cats": [
@@ -9814,8 +9814,8 @@
     {
       "id": "scenes/fr/triboar-trail-klaus-pillon",
       "src": "/art/scenes/fr/triboar-trail-klaus-pillon.webp",
-      "width": 1500,
-      "height": 964,
+      "width": 1700,
+      "height": 1092,
       "title": "Triboar trail - Klaus Pillon",
       "tags": ["scene", "forests", "5e", "ruins", "roads"],
       "cats": [
@@ -10435,8 +10435,8 @@
     {
       "id": "scenes/fr/wave-echo-cave-entrance",
       "src": "/art/scenes/fr/wave-echo-cave-entrance.webp",
-      "width": 1159,
-      "height": 1500,
+      "width": 1484,
+      "height": 1920,
       "title": "Wave-echo-cave-entrance",
       "tags": ["scene", "wave-echo-cave", "5e", "bugbear", "dwarf"],
       "cats": [

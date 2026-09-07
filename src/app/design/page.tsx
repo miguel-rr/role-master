@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArtImage } from '@/components/theme/art';
+import { Caps } from '@/components/theme/display';
 import { SectionMark } from '@/components/theme/ornaments';
 import {
   artWithTags,
+  byId,
   catalogStats,
   collection,
   findByTitle,
@@ -295,6 +299,45 @@ const DesignPage = () => {
         ]}
         scene={heroScene}
       />
+
+      <section className="px-4 py-16 md:px-8" id="escenas">
+        <Link
+          className="group relative mx-auto block max-w-6xl overflow-hidden rounded-lg border border-brass/40 bg-charcoal-800 shadow-sheet"
+          href="/design/scenes"
+        >
+          <div className="absolute inset-0">
+            <ArtImage
+              alt=""
+              art={byId('scenes/fr/klauthen-vale')}
+              className="h-full w-full transition duration-700 group-hover:scale-[1.03]"
+              position="50% 40%"
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(90deg, rgba(18,24,28,0.95) 0%, rgba(18,24,28,0.75) 45%, rgba(18,24,28,0.2) 100%)',
+              }}
+            />
+          </div>
+          <div className="relative flex min-h-[18rem] flex-col justify-center gap-3 p-10 md:max-w-xl">
+            <span className="font-condensed text-strapline text-xs uppercase tracking-2xl">
+              Propuesta 08 · Nueva
+            </span>
+            <h2 className="font-nodesto text-5xl text-brass-pale uppercase leading-none">
+              <Caps>Escenas completas</Caps>
+            </h2>
+            <p className="font-book text-[1.05rem] text-parchment-text leading-relaxed">
+              Pasajes a pantalla completa, como una novela gráfica: fondo por
+              ambiente, personaje o criatura integrados, atmósfera animada y el
+              texto revelándose. Ocho escenas con selector.
+            </p>
+            <span className="btn-beyond mt-2 inline-block w-max px-5 py-2.5 uppercase">
+              Abrir /design/scenes
+            </span>
+          </div>
+        </Link>
+      </section>
 
       <Section
         eyebrow="Propuesta 01"

@@ -45,3 +45,6 @@ next-env.d.ts
 
 # env: keep the example committed
 !.env.example
+
+# local contact sheets for picking art
+.sheets/

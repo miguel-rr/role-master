@@ -94,6 +94,10 @@ const findItem = (name: string): ArtEntry | undefined => {
   );
 };
 
+/** One entry by its stable id (`collection/slug`), if downloaded. */
+const byId = (id: string): ArtEntry | undefined =>
+  allArt().find((e) => e.id === id);
+
 /** Entries whose source title matches (e.g. /innkeeper/i), optionally within collections. */
 const findByTitle = (re: RegExp, within?: string[]): ArtEntry[] => {
   const pool = within ? within.flatMap((c) => collection(c)) : allArt();
@@ -109,6 +113,7 @@ const catalogStats = () =>
 export {
   allArt,
   artWithTags,
+  byId,
   catalogStats,
   collection,
   findByTitle,

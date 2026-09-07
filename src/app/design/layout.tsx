@@ -17,6 +17,7 @@ const SECTIONS = [
   { href: '#tablero', label: 'Tablero' },
   { href: '#dados', label: 'Dados' },
   { href: '#estilo', label: 'Estilo' },
+  { href: '/design/scenes', label: 'Escenas' },
 ];
 
 const DesignLayout = ({
@@ -37,7 +38,7 @@ const DesignLayout = ({
         <nav className="ml-auto hidden items-center gap-1 lg:flex">
           {SECTIONS.map((s) => (
             <a
-              className="label-beyond rounded px-2 py-1 text-charcoal-300 text-xs hover:bg-charcoal-800 hover:text-white"
+              className={`label-beyond rounded px-2 py-1 text-xs hover:bg-charcoal-800 hover:text-white ${s.href.startsWith('/') ? 'text-brass' : 'text-charcoal-300'}`}
               href={s.href}
               key={s.href}
             >
