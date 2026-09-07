@@ -1,188 +1,196 @@
 # Role Master — plan de acción
 
-**Estado (2026-09-07): esqueleto montado, alcance en definición.** Este documento
-es la fuente de verdad del proyecto: se actualiza con cada decisión cerrada con
-Miguel. Las secciones marcadas `[ABIERTO]` esperan respuesta.
+**Estado (2026-09-07): esqueleto montado, alcance casi cerrado (ronda 2).**
+Este documento es la fuente de verdad del proyecto: se actualiza con cada
+decisión cerrada con Miguel. Las secciones `[ABIERTO]` esperan respuesta o
+investigación.
 
 ## 1. Qué es
 
-Una web privada que hace de Dungeon Master de una partida de Dungeons & Dragons
-para **dos jugadores en la misma pantalla** (Miguel y un amigo). La IA narra,
+Una web privada que hace de Dungeon Master de Dungeons & Dragons 5e para **dos
+jugadores en la misma pantalla** (Miguel y un amigo, novatos). La IA narra,
 interpreta PNJ, plantea decisiones y resuelve consecuencias. Dos pilares:
 
 1. **Narrativa** al nivel de Critical Role: original, sin muletillas, con voz
    propia, comprensiva cuando toca y dura cuando se lo merecen.
-2. **Diseño** de novela ilustrada: ilustraciones que acompañan los pasajes,
-   retratos por raza (con generador), y fichas de personaje que parezcan la
-   hoja de papel.
+2. **Diseño** de novela ilustrada, **sin escatimar detalle**: ilustración para
+   cada objeto de inventario, paisajes que cambian con la escena, retrato para
+   cada personaje y cada PNJ con el que se hable, tablero táctico en cuadrícula
+   con movimiento real por distancia, dados 3D animados, fichas que parecen
+   papel.
 
-Proyecto privado: corre en local o en un servidor gratuito. Sin base de datos.
+Privado, sin base de datos, desplegado solo como *preview* en Vercel.
 
-## 2. Stack (deducido de `frikiparty`, recortado a lo necesario)
+## 2. Stack (deducido de `frikiparty`, recortado a lo necesario) — CERRADO
 
-| Pieza | Decisión | Nota |
-|---|---|---|
-| Framework | Next.js 16 (App Router), React 19, TypeScript estricto | Igual que frikiparty. `src/`, alias `@/*`. |
-| Estilos | Tailwind CSS v4 vía `@tailwindcss/postcss`, sin `tailwind.config` | Tokens en `src/styles/globals.css`, temas en `src/styles/theme-*.css`. |
-| Lint/format | Biome 2 (`biome.jsonc` copiado de frikiparty: comillas simples, `;`, trailing commas, imports y clases ordenadas, `noDefaultExport` salvo ficheros de convención Next) | `pnpm check`, `pnpm check:write`, `pnpm typecheck`. |
-| Gestor | pnpm 11 | |
-| Fuentes | `next/font/google` | A elegir en la fase de diseño. |
-| Validación | Zod | Para las salidas estructuradas de la IA y el esquema de env. |
-| Env | `@t3-oss/env-nextjs` + `src/env.ts` | Misma convención que frikiparty: nunca `process.env` suelto. |
-| IA (texto) | `@anthropic-ai/sdk` (SDK oficial), modelo `claude-opus-5`, streaming, adaptive thinking, prompt caching, compaction para partidas largas | Ver §4. |
-| IA (imagen) | `[ABIERTO]` | Ver §5. |
+| Pieza | Decisión |
+|---|---|
+| Framework | Next.js 16 (App Router), React 19, TypeScript estricto, `src/`, alias `@/*` |
+| Estilos | Tailwind CSS v4 (`@tailwindcss/postcss`), tokens en `src/styles/` |
+| Lint/format | Biome 2, `biome.jsonc` de frikiparty. `pnpm check`, `pnpm check:write`, `pnpm typecheck` |
+| Gestor | pnpm 11 |
+| Validación / env | Zod 4 + `@t3-oss/env-nextjs` en `src/env.ts` (instalados 2026-09-07) |
+| IA (texto) | `@anthropic-ai/sdk` 0.124 (instalado). Modelo **elegible al crear la campaña**: `claude-opus-5` o `claude-fable-5-1`. Streaming, adaptive thinking, salidas estructuradas (`output_config.format`), prompt caching, compaction para partidas largas. Con Fable se activa `fallbacks: "default"` (si un turno es rechazado por los clasificadores, lo sirve otro modelo sin cortar la partida) |
+| Dados 3D | `[ABIERTO]` candidato `@3d-dice/dice-box` (física + temas), pendiente informe |
+| Imágenes | `[ABIERTO — en investigación]` ver §5 |
 
-**Descartado a propósito**: tRPC, TanStack Query, Drizzle/Neon, better-auth,
-R2/S3. No hay DB ni usuarios: las route handlers de Next (`src/app/api/*`)
-bastan para hablar con la IA desde el servidor (la clave nunca llega al
-navegador).
+**Descartado**: tRPC, TanStack Query, Drizzle/Neon, better-auth, R2/S3,
+generación de imágenes con IA (Miguel prefiere bancos de arte existentes).
 
 ### Convenciones (heredadas de frikiparty)
-- Literales de UI en **español**; código, variables, rutas y ficheros en **inglés**.
+- Literales de UI, prompts y docs en **español**; código, variables, rutas y
+  ficheros en **inglés**.
 - Server Components por defecto; `'use client'` solo con estado/efectos.
-- Sin `any`. Tipos inferidos de Zod.
-- Documentación de proyecto en `.claude/*.md`, en español.
+- Sin `any`. Tipos inferidos de Zod. Nunca `process.env` suelto.
 - `pnpm typecheck` y `pnpm check` en verde antes de dar algo por terminado.
+- Rama de trabajo **`develop`** (creada y subida 2026-09-07). `main` queda
+  como base; Miguel la marcará como rama por defecto en GitHub.
 
-## 3. Persistencia sin base de datos `[ABIERTO — propuesta]`
+## 3. Persistencia — CERRADO
 
-- El **estado de la partida** (historia, fichas, inventario, decisiones,
-  resúmenes de capítulo) vive en el navegador (IndexedDB/localStorage) con
-  **exportar/importar** a un fichero JSON ("guardar partida").
-- Los **datos de referencia** (razas, clases, campañas prefijadas, biblioteca
-  de ilustraciones) son ficheros TypeScript/JSON estáticos en el repo.
-- Ventaja: funciona igual en local que en Vercel Hobby, sin coste ni cuentas.
-- Riesgo: si se borra el almacenamiento del navegador se pierde la partida →
-  el botón de exportar es obligatorio y se recuerda al final de cada sesión.
+- Estado de la partida en el navegador (IndexedDB vía una capa fina propia;
+  localStorage solo para preferencias). Requisito mínimo: **sobrevivir al
+  refresco**. Extra barato: exportar/importar JSON como "guardar partida".
+- Datos de referencia (razas, clases, presets, campañas, catálogo de arte) como
+  módulos TypeScript/JSON estáticos en el repo.
 
-Alternativa si se juega siempre en local: guardar en `data/*.json` en disco
-(no funciona en Vercel).
+## 4. Despliegue — CERRADO
 
-## 4. Narrativa (motor de la IA)
+- Repo `git@github.com:miguel-rr/role-master.git`. Miguel crea el proyecto en
+  Vercel, lo asocia al repo y **`develop` → Preview**. Sin URL de producción.
+- **No indexable**: `robots: { index: false, follow: false }` en el layout raíz
+  (ya está), `robots.txt` con `Disallow: /`, y cabecera `X-Robots-Tag: noindex,
+  nofollow` desde `next.config.ts`. Vercel ya añade `noindex` a las previews;
+  lo reforzamos igualmente.
+- **Puerta de acceso**: contraseña única en `APP_PASSWORD` (cookie firmada) para
+  que nadie ajeno gaste la clave de Anthropic. Sin usuarios ni auth real.
+- Variables: `ANTHROPIC_API_KEY`, `APP_PASSWORD`, `APP_SECRET` (firma de la
+  cookie). En local en `.env`; en Vercel, entorno Preview.
 
-### Arquitectura
-- **Un narrador** (Opus 5) con system prompt largo y cacheado: biblia de estilo
-  + reglas de mesa + estado de la partida + campaña.
-- La respuesta de cada turno es **estructurada** (Zod): pasaje narrativo
-  (markdown ligero), estado de escena (lugar, hora, clima, tensión), cambios
-  de ficha (PV, oro, objetos, condiciones), tirada solicitada (si procede),
-  y el **bloque de interacción** (ver §4.3).
-- **Memoria de campaña**: además del historial reciente, un "diario" con hechos
-  fijos (PNJ conocidos, promesas, enemigos, hilos abiertos) que la IA actualiza
-  cada pocas escenas. Compaction del servidor para sesiones largas.
-- "Anteriormente en…": resumen automático al abrir sesión.
+## 5. Arte e ilustraciones `[ABIERTO — en investigación]`
 
-### 4.1 Biblia de estilo (lo que hará que no suene a IA)
-- Prohibiciones explícitas de muletillas y estructuras repetidas; rotación de
-  aperturas (nunca dos pasajes seguidos con la misma forma).
-- Registro: voz de narrador con opinión, humor seco cuando encaja, crudeza sin
-  regodeo. Los PNJ tienen dialecto y motivaciones, no son surtidores de misión.
-- Consecuencias reales: el mundo no espera, los fallos duelen, la muerte es
-  posible (regla a confirmar, §8).
-- Longitud variable a propósito: un pasaje corto y seco tras un golpe, uno
-  largo al entrar en un lugar nuevo.
-- Se le pide que **no pregunte "¿qué hacéis?"** salvo cuando el bloque de
-  interacción lo requiera: el diseño de la interfaz ya lo hace.
+Decisión de Miguel: **bancos de arte existentes**, licenciados sin problema
+(uso privado), a poder ser **una sola web** que cubra todo, descargada por
+script a `public/art` (no hotlink). Investigación en curso sobre:
 
-### 4.2 Reglas y dados `[ABIERTO]`
-Propuesta híbrida: la app es dueña de los números (fichas, PV, espacios de
-conjuro, dados visibles con animación); la IA narra y pide tiradas indicando
-característica, CD y qué se juega. Combate en "teatro de la mente" con
-rastreador de iniciativa, sin tablero táctico.
+- Objetos de inventario (todas las armas, armaduras, ropa, herramientas,
+  pociones, pergaminos, gemas, monedas, comida, objetos mágicos).
+- Retratos por raza básica (humano, elfo, enano, mediano, gnomo, semielfo,
+  semiorco, tiefling, dracónido), géneros, edades, clases; PNJ y monstruos.
+- Paisajes/escenas por lugar y momento.
+- Tiles, props y tokens para el tablero táctico.
+- Ornamentos de novela ilustrada (capitulares, viñetas, marcos, texturas).
 
-### 4.3 Modos de interacción (dos jugadores, una pantalla)
-La IA elige el modo en cada turno; la interfaz lo renderiza. Catálogo inicial:
+Candidatos en evaluación: bg3.wiki (iconos de objeto de todo el juego, PNJ,
+razas; MediaWiki con API), Forgotten Realms Wiki (arte oficial pintado),
+wikis de CRPG con packs de retratos (Pathfinder, Pillars, Baldur's Gate),
+Wikimedia Commons (Doré, Rackham, Bauer, Nielsen para el toque de grabado),
+Forgotten Adventures / 2-Minute Tabletop / Dyson Logos para mapas y tiles.
+
+Salida esperada: `scripts/sync-art.ts` que descarga por categorías y genera un
+**catálogo tipado** (`src/data/art/*.ts`) con id, ruta, etiquetas (raza,
+género, edad, tipo de objeto, bioma, hora, clima…) para que la IA y la UI
+elijan imagen por etiquetas, nunca por nombre suelto.
+
+## 6. Narrativa (motor de la IA) — CERRADO en lo esencial
+
+### 6.1 Arquitectura
+- **Un narrador** con system prompt largo y cacheado: biblia de estilo + reglas
+  de mesa + estado de la partida + biblia de campaña.
+- Cada turno devuelve una **respuesta estructurada** (Zod): pasaje (markdown
+  ligero), escena (lugar, hora, clima, tensión, etiquetas de ilustración),
+  PNJ presentes (con etiquetas para elegir retrato), cambios de ficha (PV,
+  oro, objetos, condiciones, XP), tirada solicitada, orden de tablero táctico
+  si arranca combate, y el **bloque de interacción** (§6.4).
+- **Memoria**: historial reciente + "diario de campaña" con hechos fijos (PNJ
+  conocidos, promesas, enemigos, hilos abiertos) que la IA actualiza cada pocas
+  escenas. Compaction del servidor en sesiones largas. "Anteriormente en…" al
+  abrir sesión.
+- Selección de modelo (Opus 5 / Fable 5.1) **solo al crear la campaña**; queda
+  fijada en el guardado.
+
+### 6.2 Biblia de estilo
+- Prohibición de muletillas y estructuras repetidas; rotación de aperturas.
+- Voz de narrador con opinión; humor cuando entra bien, nunca forzado.
+- **Tono adulto, sin límites de contenido** (violencia, temas duros) al servicio
+  de la historia, sin regodeo gratuito.
+- PNJ con dialecto, acento y motivaciones propias; **cada PNJ nos trata como
+  le encaje** (desprecio, miedo, adulación, indiferencia).
+- **El máster nos tutea** cuando se dirige a nosotros como jugadores ("tira los
+  dados", "busca en tu inventario"). Español de España.
+- Consecuencias reales. Longitud variable a propósito.
+- No pregunta "¿qué hacéis?": el bloque de interacción lo hace.
+
+### 6.3 Reglas, dados y combate — CERRADO
+- D&D 5e (SRD 5.1, reglas de 2014: es lo que siguen los tres módulos elegidos).
+- Híbrido: la app es dueña de los números (fichas, PV, espacios de conjuro,
+  inventario) y de los dados; la IA narra y pide tiradas indicando
+  característica, CD y qué se juega.
+- **Dados 3D animados** con física, temas por jugador, lectura automática del
+  resultado, ventaja/desventaja, críticos celebrados.
+- **Combate en tablero táctico con cuadrícula** (casillas de 5 pies): la IA
+  describe la escena como datos (tamaño, terreno, obstáculos, posiciones
+  iniciales), la app la renderiza con tiles y props; los tokens llevan el
+  retrato; movimiento real por velocidad (alcance resaltado, terreno difícil,
+  ataques de oportunidad), alcance de armas y conjuros, cobertura básica,
+  iniciativa, condiciones. La IA mueve a los PNJ y enemigos con intención
+  táctica y narra cada acción.
+- **Muerte permanente** configurable al crear la campaña: *No* / *Altamente
+  improbable* / *Puede pasar*. Se inyecta en el prompt y en las reglas de
+  salvación contra muerte.
+
+### 6.4 Modos de interacción (dos jugadores, una pantalla)
+La IA elige el modo en cada turno; la interfaz lo renderiza:
 
 | Modo | Quién actúa | Cómo se ve |
 |---|---|---|
 | `both-choose` | Ambos, cada uno sus opciones | Dos columnas, una por personaje |
-| `spotlight` | Solo uno (la escena le apunta) | La columna del otro se atenúa |
-| `group` | Decisión conjunta única | Una sola lista de opciones al centro |
-| `secret-agreement` | Cada uno elige a ciegas; se revela a la vez | Turno de "pásame la pantalla": uno elige con la opción oculta, luego el otro. Si coinciden, ventaja/bonus narrativo |
-| `whisper` | Solo uno ve información | El otro mira a otro lado; contenido desenfocado hasta pulsar |
-| `free-text` | Cualquiera / ambos | Campo de texto libre "hacéis otra cosa…" siempre disponible |
-| `roll` | Uno o ambos tiran | Dado grande animado; resultado con éxito/fallo |
+| `spotlight` | Solo uno | La columna del otro se atenúa |
+| `group` | Decisión conjunta única | Una lista al centro |
+| `secret-agreement` | Cada uno elige a ciegas; se revela a la vez | "Pásame la pantalla": opciones ocultas; si coinciden, ventaja narrativa |
+| `whisper` | Solo uno ve información | Contenido desenfocado hasta pulsar; el otro mira a otro lado |
+| `free-text` | Cualquiera | Campo "hacéis otra cosa…" siempre disponible |
+| `roll` | Uno o ambos tiran | Dados 3D; éxito/fallo/crítico |
 | `vote-veto` | Uno propone, el otro puede vetar una vez | Dos pasos |
-| `bid` / `haggle` | Cada uno ofrece algo (oro, favor) | Regateo con PNJ |
-| `timed` | Cuenta atrás | Presión en escenas de acción |
-| `split-party` | Escenas paralelas | Dos pasajes a la vez, alternando |
+| `haggle` | Ofertas a un PNJ | Regateo con oro/favores |
+| `timed` | Cuenta atrás | Presión en acción |
+| `split-party` | Escenas paralelas | Dos pasajes alternos |
+| `tactical` | Combate en cuadrícula | Tablero a pantalla completa |
 
-### 4.4 Coste orientativo
-Con caching, un turno son ~6-10k tokens de entrada (en gran parte cacheados) y
-~500-1.000 de salida. Con Opus 5, una sesión de 2 h (~60 turnos) queda en
-torno a 2-4 USD. Bajar a Sonnet 5 dividiría por 2,5 a costa de la prosa.
+## 7. Personajes — CERRADO
+- Se **crean en la app**, con **presets clásicos para principiantes** (el
+  guerrero humano, la pícara mediana, el clérigo enano, la maga elfa, el
+  explorador semielfo, el bárbaro semiorco…) editables paso a paso.
+- Razas básicas: humano, elfo, enano, mediano, gnomo, semielfo, semiorco,
+  tiefling, dracónido. Clases SRD. Nivel inicial según campaña (1).
+- Ficha "en papel": hoja doble para los dos, con retrato, inventario ilustrado,
+  conjuros, condiciones.
+- **Compañero PNJ** controlado por la IA para que los módulos de 4-5 PJ
+  funcionen con dos jugadores (regla de *sidekick* del Essentials Kit).
 
-## 5. Imágenes `[ABIERTO — decisión clave]`
+## 8. Dispositivos y maqueta — CERRADO
+- Portátil y **TV grande vista a varios metros**: tipografía generosa, alto
+  contraste, y un **modo TV** que escala la interfaz y simplifica los bloques
+  de interacción para que se lean desde el sofá. Dos columnas (una por
+  personaje) en horizontal.
 
-Necesidades: (a) ilustraciones de pasaje por lugar/ambiente/momento, (b)
-retratos por raza y variantes (género, edad, clase) con **generador**, (c)
-ornamentos de novela ilustrada (capitulares, viñetas, marcos, texturas de papel).
+## 9. Campañas — CERRADO (alcance) 
+Las **tres** desde el inicio, convertidas a biblias estructuradas (actos,
+lugares, PNJ con retrato, encuentros con mapa, secretos, ganchos), adaptadas
+a **dos jugadores + compañero PNJ**, en este orden:
+1. *El Dragón del Pico Escarcha* (Essentials Kit): diseñado explícitamente
+   para grupos pequeños con sidekicks; misiones modulares; niveles 1-6.
+2. *La Mina Perdida de Phandelver*: niveles 1-5, lineal y perfecto para novatos;
+   encuentros reescalados.
+3. *La Maldición de Strahd*: niveles 1-10, gótico; para dos jugadores se apoya
+   en aliados PNJ del propio módulo (Ireena, Ismark, Ezmerelda, Van Richten).
+Además, **campaña original** generada por la IA a partir de semillas.
 
-Opciones sobre la mesa:
-1. **Biblioteca pregenerada con IA** durante el desarrollo (estilo unificado:
-   tinta + acuarela / grabado), guardada en `public/art`. En tiempo de juego
-   es gratis e instantánea. Requiere una clave de un proveedor de imagen
-   (Anthropic no genera imágenes): OpenAI `gpt-image-1`, o Vercel AI Gateway
-   (con una sola clave se accede a Flux, Imagen, gpt-image…).
-2. **Generación en tiempo real** por pasaje/retrato (además de 1): espectacular
-   pero lenta (10-20 s) y con coste por imagen (~0,02-0,08 USD).
-3. **Arte de dominio público** curado: Doré, Rackham, John Bauer, Kay Nielsen,
-   Wyeth… encaja de lleno con "novela ilustrada" y no cuesta nada. Limitado
-   para retratos por raza.
-4. **Arte oficial de D&D / BG3** descargado a mano (uso privado). No lo puedo
-   descargar yo de forma fiable; podrías aportarlo tú a `public/art/official`.
+## 10. Fuera de alcance — CERRADO
+Voz/TTS, música ambiente, multi-dispositivo. El tablero táctico **sí** entra.
 
-Propuesta: 1 + 3 como base, 2 opcional tras un interruptor.
-
-## 6. Ruta `/design`
-
-Laboratorio de propuestas, no producto final:
-- **Portada y tipografía**: 3 direcciones (grabado victoriano; acuarela
-  cálida; grimorio oscuro dorado tipo frikiparty).
-- **Pasaje ilustrado**: cómo se ve un turno de narración con su ilustración.
-- **Galería de retratos por raza** + **generador** (raza, género, edad,
-  clase, rasgos → retrato).
-- **Ficha de personaje "en papel"**: hoja doble para dos jugadores.
-- **Bloques de interacción**: uno por modo de §4.3.
-- **Dados** y rastreador de iniciativa.
-
-## 7. Campañas `[ABIERTO]`
-
-Dos vías, ambas en el plan:
-- **Originales**: la IA genera una campaña a partir de semillas (tono, región,
-  villano, duración) y la desarrolla con un esqueleto de actos.
-- **Prefijadas** (petición de Miguel, 2026-09-07): módulos oficiales de D&D
-  convertidos a una "biblia de campaña" estructurada (actos, lugares, PNJ,
-  encuentros, secretos, ganchos) desde la que la IA dirige tal como está
-  diseñada. Candidatas que conozco bien y encajan con 2 jugadores:
-  - *La Mina Perdida de Phandelver* (niveles 1-5, el clásico de inicio).
-  - *El Dragón del Pico Escarcha* (Essentials Kit, 1-6, muy modular).
-  - *La Maldición de Strahd* (1-10, gótico, la más celebrada).
-  - Otras posibles: *Tumba de la Aniquilación*, *El Golpe de los Dragones*
-    (Waterdeep), *Descenso a Avernus*, *Rime of the Frostmaiden*.
-  Los módulos están pensados para 4-5 PJ: para dos jugadores se propone un
-  **compañero PNJ** controlado por la IA (regla de "sidekick" del Essentials
-  Kit) y reescalar encuentros.
-
-## 8. Decisiones abiertas (ronda 1, 2026-09-07)
-
-1. **Proveedor IA / clave**: clave directa de Anthropic (recomendado, SDK
-   oficial, todas las funciones) — necesitas una API key de console.anthropic.com
-   en `ANTHROPIC_API_KEY`. ¿Modelo por defecto Opus 5 asumiendo ~2-4 USD/sesión?
-2. **Imágenes**: ¿qué opción(es) de §5? ¿Tienes o quieres sacar una clave de
-   OpenAI o de Vercel AI Gateway para generar la biblioteca?
-3. **Persistencia**: ¿vale navegador + exportar JSON (§3)?
-4. **Despliegue**: ¿solo local, o también Vercel Hobby con una contraseña
-   sencilla para que nadie más gaste tu clave?
-5. **Edición de reglas**: ¿D&D 5e 2014 o 2024? ¿Nivel de "crunch" (§4.2)?
-6. **Personajes**: ¿ya los tenéis o los creáis en la app? ¿Nivel inicial?
-   ¿Lista de razas: solo SRD o ampliada (aasimar, goliat, tabaxi, genasi,
-   firbolg, kenku, tortle, forjado…)?
-7. **Dispositivo**: ¿TV/monitor grande en horizontal, portátil, tablet? Cambia
-   la maqueta a dos columnas.
-8. **Tono y límites**: ¿violencia explícita, temas adultos, humor? ¿Muerte de
-   personaje permanente?
-9. **Campañas**: ¿con cuál prefijada empezamos? ¿Compañero PNJ sí/no?
-10. **Español**: de España, tuteo, ¿los PNJ pueden tener acentos/dialectos?
-11. **Fuera de alcance por ahora** (confirmar): voz/TTS, música ambiente,
-    tablero táctico, multi-dispositivo.
+## 11. Pendiente de Miguel
+- [ ] API key de Anthropic (pasos en `.claude/setup-anthropic.md`).
+- [ ] Marcar `develop` como rama por defecto en GitHub.
+- [ ] Crear el proyecto en Vercel, asociar el repo y `develop` → Preview.
+- [ ] Confirmar la fuente de arte cuando llegue el informe (§5).
