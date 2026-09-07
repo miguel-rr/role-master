@@ -138,6 +138,23 @@ const DiceTray = ({ players }: DiceTrayProps) => {
     { type: DieType; value: number }[] | null
   >(null);
 
+  const loadedThemes = useRef(new Set<string>(['default']));
+
+  /** Themes must be loaded before a roll uses them, or the engine throws. */
+  const ensureTheme = useCallback(async (id: string): Promise<string> => {
+    const box = boxRef.current;
+    if (!box || loadedThemes.current.has(id)) return id;
+    try {
+      await box.loadTheme(id);
+      loadedThemes.current.add(id);
+      return id;
+    } catch {
+      setEngineNote(`El material «${id}» no ha cargado; se usa resina.`);
+      setTheme('default');
+      return 'default';
+    }
+  }, []);
+
   const initialColor = players[0].color;
 
   // ── Engine boot ─────────────────────────────────────────────────────────
@@ -180,6 +197,10 @@ const DiceTray = ({ players }: DiceTrayProps) => {
           offscreen: false,
         });
         boxRef.current = box;
+        if (process.env.NODE_ENV === 'development') {
+          // Handy for poking the engine from the console while iterating.
+          (window as unknown as { __diceBox?: DiceBoxType }).__diceBox = box;
+        }
         await box.init();
         if (settled) return;
         settled = true;
@@ -188,6 +209,10 @@ const DiceTray = ({ players }: DiceTrayProps) => {
         // sure that happens with the real layout.
         window.dispatchEvent(new Event('resize'));
         setEngine('3d');
+        // Warm the other materials so switching never stalls a roll.
+        for (const t of THEMES) {
+          if (t.id !== 'default') await ensureTheme(t.id);
+        }
       } catch (e) {
         if (settled) return;
         settled = true;
@@ -198,7 +223,7 @@ const DiceTray = ({ players }: DiceTrayProps) => {
         );
       }
     })();
-  }, [initialColor]);
+  }, [initialColor, ensureTheme]);
 
   // Keep the 3D canvas in step with the tray size.
   useEffect(() => {
@@ -301,8 +326,9 @@ const DiceTray = ({ players }: DiceTrayProps) => {
       if (!box || document.hidden) return roll2d(label, gs);
       box.clear();
       const notations = gs.map((g) => `${g.qty}d${PHYSICAL[g.type].sides}`);
+      const loadedTheme = await ensureTheme(theme);
       const settled = await withTimeout(
-        box.roll(notations, { theme, themeColor: player.color }),
+        box.roll(notations, { theme: loadedTheme, themeColor: player.color }),
         ROLL_TIMEOUT_MS,
       );
       let rolled: DieResult[];
@@ -349,7 +375,7 @@ const DiceTray = ({ players }: DiceTrayProps) => {
       }
       finish(label, results, '3d');
     },
-    [finish, player.color, roll2d, theme],
+    [ensureTheme, finish, player.color, roll2d, theme],
   );
 
   const roll = useCallback(
@@ -361,10 +387,11 @@ const DiceTray = ({ players }: DiceTrayProps) => {
         if (engine === '3d') await roll3d(label, gs);
         else await roll2d(label, gs);
       } catch (e) {
+        // One bad roll (a theme hiccup, a lost die) is resolved in 2D; the
+        // 3D engine stays for the next one.
         setEngineNote(
-          `Fallo en la tirada 3D (${(e as Error).message}); repetida en 2D.`,
+          `Fallo en la tirada 3D (${(e as Error).message}); resuelta en 2D.`,
         );
-        setEngine('2d');
         await roll2d(label, gs);
       } finally {
         setRolling(false);
@@ -659,7 +686,10 @@ const DiceTray = ({ players }: DiceTrayProps) => {
               <button
                 className={`rounded-full border px-3 py-1 font-condensed text-xs uppercase tracking-wider ${theme === t.id ? 'border-brass bg-brass/20 text-brass-pale' : 'border-charcoal-600 text-charcoal-300'}`}
                 key={t.id}
-                onClick={() => setTheme(t.id)}
+                onClick={() => {
+                  setTheme(t.id);
+                  void ensureTheme(t.id);
+                }}
                 type="button"
               >
                 {t.label}

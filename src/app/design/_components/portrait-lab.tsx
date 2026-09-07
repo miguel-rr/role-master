@@ -178,28 +178,43 @@ type Generated = {
 
 /** Gallery by race, gender and class, plus a one-click character generator. */
 const PortraitLab = ({ portraits }: PortraitLabProps) => {
-  const [race, setRace] = useState<string | null>('tiefling');
+  const [race, setRace] = useState<string | null>(null);
   const [gender, setGender] = useState<string | null>(null);
   const [cls, setCls] = useState<string | null>(null);
   const [generated, setGenerated] = useState<Generated | null>(null);
   const [series, setSeries] = useState<Set<string>>(new Set());
   const [hideWhite, setHideWhite] = useState(true);
   const [showAllSeries, setShowAllSeries] = useState(false);
+  const [visible, setVisible] = useState(48);
 
-  /** Source books present in the catalogue, most populated first. */
+  /** Pool after every filter except the series themselves. */
+  const poolForSeries = useMemo(
+    () =>
+      portraits.filter(
+        (p) =>
+          (!hideWhite || !p.tags.includes('white-bg')) &&
+          (!race || p.tags.includes(race)) &&
+          (!gender || p.tags.includes(gender)) &&
+          (!cls || p.tags.includes(cls)),
+      ),
+    [portraits, hideWhite, race, gender, cls],
+  );
+
+  /** Source books available for the current selection, most populated first. */
   const allSeries = useMemo(() => {
     const count = new Map<string, number>();
-    for (const p of portraits) {
+    for (const p of poolForSeries) {
       for (const c of p.cats) {
         if (c.startsWith('Images from ') && !GENERIC_SOURCES.has(c)) {
           count.set(c, (count.get(c) ?? 0) + 1);
         }
       }
     }
+    for (const c of series) if (!count.has(c)) count.set(c, 0);
     return [...count.entries()]
-      .filter(([, n]) => n >= 4)
+      .filter(([c, n]) => n >= 3 || series.has(c))
       .sort((a, b) => b[1] - a[1]);
-  }, [portraits]);
+  }, [poolForSeries, series]);
 
   const toggleSeries = (c: string) =>
     setSeries((s) => {
@@ -342,7 +357,7 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
         </div>
         <div className="mt-3 font-condensed text-charcoal-400 text-xs uppercase tracking-wider">
           {filtered.length} retratos
-          {filtered.length > 48 ? ' · mostrando 48' : ''}
+          {filtered.length > visible ? ` · mostrando ${visible}` : ''}
         </div>
         {filtered.length === 0 ? (
           <div className="mt-4 rounded border border-charcoal-700 border-dashed p-10 text-center font-book text-charcoal-400 italic">
@@ -351,7 +366,7 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
           </div>
         ) : null}
         <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
-          {filtered.slice(0, 48).map((p) => (
+          {filtered.slice(0, visible).map((p) => (
             <button
               className="group frame-brass relative aspect-[3/4] overflow-hidden rounded-sm bg-charcoal-800 text-left"
               key={p.id}
@@ -403,6 +418,17 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
             </button>
           ))}
         </div>
+        {filtered.length > visible ? (
+          <div className="mt-4 flex justify-center">
+            <button
+              className="btn-ghost px-5 py-2 text-xs uppercase"
+              onClick={() => setVisible((v) => v + 48)}
+              type="button"
+            >
+              Mostrar 48 más ({filtered.length - visible} restantes)
+            </button>
+          </div>
+        ) : null}
       </div>
 
       {/* Generator card */}

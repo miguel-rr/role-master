@@ -64,6 +64,9 @@ declare module '@3d-dice/dice-box' {
     constructor(container: string, config: DiceBoxConfig);
     constructor(config: DiceBoxConfig & { container: string });
     init(): Promise<DiceBox>;
+    /** Loads a theme folder from assetPath/themes/<name>; must run before rolling with it. */
+    loadTheme(theme: string): Promise<unknown>;
+    getThemeConfig(theme: string): unknown;
     /** Resolves with every die rolled (flat); grouped totals via getRollResults(). */
     roll(
       notation: string | string[],
