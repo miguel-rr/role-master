@@ -81,7 +81,10 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
   const [index, setIndex] = useState(0);
   const [prev, setPrev] = useState<number | null>(null);
   const [step, setStep] = useState(0);
-  const [picked, setPicked] = useState<number | null>(null);
+  const [picked, setPicked] = useState<number | 'custom' | null>(null);
+  const [customWho, setCustomWho] = useState<'bram' | 'nissa' | 'both'>('both');
+  const [customText, setCustomText] = useState('');
+  const [customSent, setCustomSent] = useState<string | null>(null);
   const [showStrip, setShowStrip] = useState(true);
   const stripTimer = useRef<number | null>(null);
   const scene = scenes[index];
@@ -106,6 +109,8 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
       setIndex(n);
       setStep(0);
       setPicked(null);
+      setCustomText('');
+      setCustomSent(null);
       window.setTimeout(() => setPrev(null), 1000);
     },
     [index, scenes.length],
@@ -121,6 +126,8 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && /^(INPUT|TEXTAREA)$/.test(target.tagName)) return;
       if (e.key === 'ArrowRight') go(index + 1);
       else if (e.key === 'ArrowLeft') go(index - 1);
       else if (e.key === ' ' || e.key === 'Enter') {
@@ -336,6 +343,65 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
               </button>
             );
           })}
+
+          {/* Free action: whatever the players want to do, in their words. */}
+          <form
+            className={`flex items-stretch gap-2 rounded-md border px-2 py-2 backdrop-blur transition ${picked === 'custom' ? 'border-brass bg-charcoal-950/85' : 'border-white/15 border-dashed bg-charcoal-950/60'}`}
+            onSubmit={(e) => {
+              e.preventDefault();
+              const text = customText.trim();
+              if (!text) return;
+              setPicked('custom');
+              setCustomSent(text);
+            }}
+          >
+            <div className="flex shrink-0 overflow-hidden rounded border border-white/15">
+              {(['bram', 'nissa', 'both'] as const).map((w) => {
+                const who = party.find((p) => p.id === w);
+                const on = customWho === w;
+                return (
+                  <button
+                    className="px-2.5 font-condensed text-[0.65rem] uppercase tracking-wider transition"
+                    key={w}
+                    onClick={() => setCustomWho(w)}
+                    style={{
+                      background: on
+                        ? (who?.color ?? '#c3a76e')
+                        : 'transparent',
+                      color: on ? '#12181c' : (who?.color ?? '#c3a76e'),
+                    }}
+                    type="button"
+                  >
+                    {w === 'both' ? 'Ambos' : who?.name}
+                  </button>
+                );
+              })}
+            </div>
+            <input
+              className="min-w-0 flex-1 bg-transparent px-2 font-book text-[1.05rem] text-white placeholder:text-charcoal-400 focus:outline-none"
+              onChange={(e) => {
+                setCustomText(e.target.value);
+                if (customSent) setCustomSent(null);
+              }}
+              placeholder="Otra cosa: escribe lo que hace tu personaje…"
+              value={customText}
+            />
+            <button
+              className="btn-beyond shrink-0 px-4 py-1.5 text-xs uppercase disabled:opacity-40"
+              disabled={!customText.trim()}
+              type="submit"
+            >
+              Actuar
+            </button>
+          </form>
+          {customSent ? (
+            <p className="px-2 font-book text-[0.95rem] text-parchment-text italic">
+              {customWho === 'both'
+                ? 'Los dos'
+                : party.find((p) => p.id === customWho)?.name}
+              {': '}«{customSent}». El máster toma nota.
+            </p>
+          ) : null}
         </div>
       </div>
 
