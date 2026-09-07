@@ -233,3 +233,18 @@ Pendiente: revisión de Miguel; escenas de paisaje llegan con el catálogo.
 Notas técnicas: los iconos de inventario del demo usan nombres de bg3
 (`icon` en `src/data/demo/characters.ts`); Nodesto no tiene mayúsculas
 acentuadas y `<Caps>` dibuja el acento; las previews de Vercel exigen login.
+
+### Revisión de Miguel (2026-09-08, ronda 1)
+- Diseño general: aprobado ("me encanta").
+- **Dados**: rehecha la bandeja (v2). Selector de tipo y cantidad con varios
+  grupos (p. ej. 6d6 + 2d3), d2/d3 virtuales sobre d4/d6, modificador,
+  atajos; arranque robusto (detección de WebGL, tiempo máximo de 20 s) con
+  **respaldo 2D** honesto y tiempo máximo por tirada de 9 s (si un dado no se
+  asienta, se completa por sorteo y se avisa). Pendiente que Miguel confirme
+  que ve la animación 3D en su navegador; desde la sesión automatizada no se
+  puede comprobar (la pestaña está oculta y el navegador pausa el render).
+- **Retratos**: Miguel quiere una sola línea visual. Añadido filtro por
+  **serie (libro de origen)** con conteos y un interruptor "ocultar fondo
+  blanco" (etiqueta `white-bg` calculada por luminancia de esquinas con
+  `pnpm art:tag-backgrounds`: 165/678 razas, 125/508 PNJ, 340/919 monstruos).
+  Cuando elija series, se fijan como conjunto por defecto del juego.
