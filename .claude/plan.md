@@ -62,10 +62,19 @@ generación de imágenes con IA (Miguel prefiere bancos de arte existentes).
   (ya está), `robots.txt` con `Disallow: /`, y cabecera `X-Robots-Tag: noindex,
   nofollow` desde `next.config.ts`. Vercel ya añade `noindex` a las previews;
   lo reforzamos igualmente.
-- **Puerta de acceso**: contraseña única en `APP_PASSWORD` (cookie firmada) para
-  que nadie ajeno gaste la clave de Anthropic. Sin usuarios ni auth real.
-- Variables: `ANTHROPIC_API_KEY`, `APP_PASSWORD`, `APP_SECRET` (firma de la
-  cookie). En local en `.env`; en Vercel, entorno Preview.
+- **Puerta de acceso**: las previews de Vercel ya exigen iniciar sesión con la
+  cuenta de Vercel de Miguel (*Deployment Protection*, activo por defecto y
+  verificado 2026-09-07: redirige a `vercel.com/sso-api`). Con eso basta: se
+  descarta la contraseña propia (`APP_PASSWORD`) salvo que se quiera abrir la
+  web a dispositivos del amigo sin la cuenta de Miguel.
+- Variables: `ANTHROPIC_API_KEY` en `.env` local y en Vercel (Preview y
+  Development, subida por CLI el 2026-09-07). Proyecto enlazado
+  (`.vercel/`, ignorado por git).
+- Verificado: cada push a `develop` genera una Preview (build ~16 s);
+  URL estable `https://role-master-git-develop-cangrejus.vercel.app`;
+  cabecera `X-Robots-Tag: noindex` presente. Existe un despliegue de
+  Production del primer import de `main`; queda inerte porque `main` no
+  recibe commits.
 
 ## 5. Arte e ilustraciones — PROPUESTA (pendiente de OK de Miguel)
 
@@ -203,8 +212,8 @@ Además, **campaña original** generada por la IA a partir de semillas.
 Voz/TTS, música ambiente, multi-dispositivo. El tablero táctico **sí** entra.
 
 ## 12. Pendiente de Miguel
-- [ ] API key de Anthropic (pasos en `.claude/setup-anthropic.md`).
-- [ ] Marcar `develop` como rama por defecto en GitHub.
-- [ ] Crear el proyecto en Vercel, asociar el repo y `develop` → Preview.
+- [x] API key de Anthropic (2026-09-07).
+- [x] `develop` rama por defecto en GitHub (2026-09-07).
+- [x] Proyecto en Vercel, `develop` → Preview verificado (2026-09-07).
 - [ ] Dar el OK a la propuesta de arte y dados (§5).
 - [ ] Descargar los zips de 2-Minute Tabletop y Forgotten Adventures (cuentas gratuitas) cuando toque el tablero.
