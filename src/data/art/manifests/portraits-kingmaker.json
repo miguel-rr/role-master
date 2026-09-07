@@ -8,14 +8,7 @@
       "width": 692,
       "height": 1024,
       "title": "AasimarFemaleMage",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "aasimar",
-        "wizard",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "aasimar", "wizard", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -28,14 +21,7 @@
       "width": 692,
       "height": 1024,
       "title": "AasimarMaleBloodrager",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "aasimar",
-        "barbarian",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "aasimar", "barbarian", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -48,13 +34,7 @@
       "width": 815,
       "height": 1100,
       "title": "AeonArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "aberration",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "aberration", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -67,13 +47,7 @@
       "width": 692,
       "height": 1024,
       "title": "AeonNoGenderMage",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "aberration",
-        "wizard"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "aberration", "wizard"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -86,13 +60,7 @@
       "width": 785,
       "height": 1100,
       "title": "AivuArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -105,12 +73,7 @@
       "width": 692,
       "height": 1024,
       "title": "Amiri",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -123,13 +86,7 @@
       "width": 815,
       "height": 1100,
       "title": "AneviaArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -142,14 +99,7 @@
       "width": 692,
       "height": 1024,
       "title": "AneviaFemaleRogue",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "rogue",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "rogue", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -162,14 +112,7 @@
       "width": 815,
       "height": 1100,
       "title": "AngelFemaleArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "celestial",
-        "female",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "celestial", "female", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -182,14 +125,7 @@
       "width": 816,
       "height": 1100,
       "title": "AngelMaleArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "celestial",
-        "male",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "celestial", "male", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -202,13 +138,7 @@
       "width": 753,
       "height": 1100,
       "title": "AreeluVorleshArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -221,14 +151,7 @@
       "width": 692,
       "height": 1024,
       "title": "AreeluVorleshHalfSuccubusFemaleWitch Before",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "warlock",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "warlock", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -241,14 +164,7 @@
       "width": 692,
       "height": 1024,
       "title": "AreeluVorleshHalfSuccubusFemaleWitch Now",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "warlock",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "warlock", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -261,12 +177,7 @@
       "width": 692,
       "height": 1024,
       "title": "Armag",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -279,13 +190,7 @@
       "width": 816,
       "height": 1100,
       "title": "ArueshalaeArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -298,13 +203,7 @@
       "width": 816,
       "height": 1100,
       "title": "ArueshalaeEvilArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -317,14 +216,7 @@
       "width": 692,
       "height": 1024,
       "title": "ArueshalaeFemaleSuccubusRanger",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "fiend",
-        "ranger",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "fiend", "ranger", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -337,14 +229,7 @@
       "width": 692,
       "height": 1024,
       "title": "ArueshalaeFemaleSuccubusRangerEvil",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "fiend",
-        "ranger",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "fiend", "ranger", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -357,12 +242,7 @@
       "width": 692,
       "height": 1024,
       "title": "Ashman",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -375,14 +255,7 @@
       "width": 815,
       "height": 1100,
       "title": "AzataFemaleArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "celestial",
-        "female",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "celestial", "female", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -395,14 +268,7 @@
       "width": 743,
       "height": 1100,
       "title": "AzataMaleArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "celestial",
-        "male",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "celestial", "male", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -415,13 +281,7 @@
       "width": 816,
       "height": 1100,
       "title": "BaphometArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -434,13 +294,7 @@
       "width": 692,
       "height": 1024,
       "title": "BaphometMaleDemonLord",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "fiend",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "fiend", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -453,12 +307,7 @@
       "width": 692,
       "height": 1024,
       "title": "Bartholomew",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -471,11 +320,7 @@
       "width": 692,
       "height": 1024,
       "title": "Bear",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -488,13 +333,7 @@
       "width": 744,
       "height": 1100,
       "title": "CamelliaArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -507,14 +346,7 @@
       "width": 692,
       "height": 1024,
       "title": "CamelliaFemaleHalfElfShaman",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "half-elf",
-        "druid",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "half-elf", "druid", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -527,11 +359,7 @@
       "width": 692,
       "height": 1024,
       "title": "Centipede",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -544,13 +372,7 @@
       "width": 815,
       "height": 1100,
       "title": "CiarArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -563,13 +385,7 @@
       "width": 692,
       "height": 1024,
       "title": "CiarMaleUndead",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "undead",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "undead", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -582,12 +398,7 @@
       "width": 692,
       "height": 1024,
       "title": "Collector",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -600,13 +411,7 @@
       "width": 816,
       "height": 1100,
       "title": "DaeranArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -619,14 +424,7 @@
       "width": 692,
       "height": 1024,
       "title": "DaeranMaleAasimarOracle",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "aasimar",
-        "cleric",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "aasimar", "cleric", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -639,11 +437,7 @@
       "width": 692,
       "height": 1024,
       "title": "Deer",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -656,13 +450,7 @@
       "width": 816,
       "height": 1100,
       "title": "DelamereArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -675,13 +463,7 @@
       "width": 692,
       "height": 1024,
       "title": "DelamereUndeadFemale",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "undead",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "undead", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -694,14 +476,7 @@
       "width": 816,
       "height": 1100,
       "title": "DemonFemaleArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "fiend",
-        "female",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "fiend", "female", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -714,14 +489,7 @@
       "width": 816,
       "height": 1100,
       "title": "DemonMaleArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "fiend",
-        "male",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "fiend", "male", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -734,13 +502,7 @@
       "width": 816,
       "height": 1100,
       "title": "DeskariArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -753,13 +515,7 @@
       "width": 692,
       "height": 1024,
       "title": "DeskariMaleDemonlord",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -772,14 +528,7 @@
       "width": 816,
       "height": 1100,
       "title": "DevilFemaleArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "fiend",
-        "female",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "fiend", "female", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -792,14 +541,7 @@
       "width": 816,
       "height": 1100,
       "title": "DevilMaleArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "fiend",
-        "male",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "fiend", "male", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -812,14 +554,7 @@
       "width": 692,
       "height": 1024,
       "title": "DhampirFemaleBard",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "dhampir",
-        "bard",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "dhampir", "bard", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -832,14 +567,7 @@
       "width": 692,
       "height": 1024,
       "title": "DhampirInquisitorMale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "dhampir",
-        "paladin",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "dhampir", "paladin", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -852,11 +580,7 @@
       "width": 692,
       "height": 1024,
       "title": "Dog",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -869,14 +593,7 @@
       "width": 692,
       "height": 1024,
       "title": "DwarfFemaleNoble",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "dwarf",
-        "noble",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "dwarf", "noble", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -889,14 +606,7 @@
       "width": 692,
       "height": 1024,
       "title": "DwarfMaleRogue",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "dwarf",
-        "rogue",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "dwarf", "rogue", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -909,14 +619,7 @@
       "width": 692,
       "height": 1024,
       "title": "DwarfMaleRogueUndead",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "undead",
-        "rogue",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "undead", "rogue", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -929,12 +632,7 @@
       "width": 692,
       "height": 1024,
       "title": "Ekun",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -947,14 +645,7 @@
       "width": 692,
       "height": 1024,
       "title": "ElfMaleNoble",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "elf",
-        "noble",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "elf", "noble", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -967,13 +658,7 @@
       "width": 815,
       "height": 1100,
       "title": "EmberArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -986,14 +671,7 @@
       "width": 692,
       "height": 1024,
       "title": "EmberFemaleElfWitch",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "elf",
-        "warlock",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "elf", "warlock", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1006,14 +684,7 @@
       "width": 692,
       "height": 1024,
       "title": "EmberFemaleElfWitchNoHand",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "elf",
-        "warlock",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "elf", "warlock", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1026,14 +697,7 @@
       "width": 692,
       "height": 1024,
       "title": "FemaleHalfElfWarrior",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "half-elf",
-        "fighter",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "half-elf", "fighter", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1046,13 +710,7 @@
       "width": 816,
       "height": 1100,
       "title": "FinneanArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1065,12 +723,7 @@
       "width": 692,
       "height": 1024,
       "title": "FinneanDismarSentientWeapon",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1083,13 +736,7 @@
       "width": 842,
       "height": 1100,
       "title": "GalfreyArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1102,14 +749,7 @@
       "width": 692,
       "height": 1024,
       "title": "GalfreyFemalePaladin",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "paladin",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "paladin", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1122,14 +762,7 @@
       "width": 692,
       "height": 1024,
       "title": "GalfreyFemalePaladinOldVersion",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "paladin",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "paladin", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1142,14 +775,7 @@
       "width": 692,
       "height": 1024,
       "title": "GalfreyFemalePaladinOldVersionUndead",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "undead",
-        "paladin",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "undead", "paladin", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1162,13 +788,7 @@
       "width": 816,
       "height": 1100,
       "title": "GalfreyUndeadArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "undead",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "undead", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1181,14 +801,7 @@
       "width": 692,
       "height": 1024,
       "title": "GnomeMaleNoble",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "gnome",
-        "noble",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "gnome", "noble", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1201,13 +814,7 @@
       "width": 815,
       "height": 1100,
       "title": "GoldDragonArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1220,13 +827,7 @@
       "width": 815,
       "height": 1100,
       "title": "GreyborArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1239,14 +840,7 @@
       "width": 692,
       "height": 1024,
       "title": "GreyborMaleDwarfSlayer",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "dwarf",
-        "ranger",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "dwarf", "ranger", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1259,14 +853,7 @@
       "width": 692,
       "height": 1024,
       "title": "HalfElfMaleMage",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "half-elf",
-        "wizard",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "half-elf", "wizard", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1279,14 +866,7 @@
       "width": 692,
       "height": 1024,
       "title": "HalflingFemaleRogue",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "halfling",
-        "rogue",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "halfling", "rogue", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1299,14 +879,7 @@
       "width": 692,
       "height": 1024,
       "title": "HalflingMaleTank",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "halfling",
-        "fighter",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "halfling", "fighter", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1319,14 +892,7 @@
       "width": 692,
       "height": 1024,
       "title": "HalfOrcFemaleTank",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "half-orc",
-        "fighter",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "half-orc", "fighter", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1339,14 +905,7 @@
       "width": 692,
       "height": 1024,
       "title": "HalfOrcFemaleTankScars",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "half-orc",
-        "fighter",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "half-orc", "fighter", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1359,13 +918,7 @@
       "width": 817,
       "height": 1100,
       "title": "HandoftheInheritorArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1378,12 +931,7 @@
       "width": 692,
       "height": 1024,
       "title": "Hargulka",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1396,12 +944,7 @@
       "width": 692,
       "height": 1024,
       "title": "Harrim",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1414,12 +957,7 @@
       "width": 692,
       "height": 1024,
       "title": "HeraldOfIomedae",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1432,12 +970,7 @@
       "width": 692,
       "height": 1024,
       "title": "HeraldOfIomedaeCorruptedVersion",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1450,13 +983,7 @@
       "width": 692,
       "height": 1024,
       "title": "HilorHumanMale",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1469,13 +996,7 @@
       "width": 816,
       "height": 1100,
       "title": "HorgusGwermArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1488,14 +1009,7 @@
       "width": 692,
       "height": 1024,
       "title": "HorgusMaleHumanNoble",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "noble",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "noble", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1508,13 +1022,7 @@
       "width": 816,
       "height": 1100,
       "title": "HulrunArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1527,13 +1035,7 @@
       "width": 692,
       "height": 1024,
       "title": "HulrunHumanInquisitor",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "paladin"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "paladin"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1546,14 +1048,7 @@
       "width": 692,
       "height": 1024,
       "title": "HumanFemaleArcher",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "ranger",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "ranger", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1566,14 +1061,7 @@
       "width": 692,
       "height": 1024,
       "title": "HumanMaleMagus",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "fighter",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "fighter", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1586,14 +1074,7 @@
       "width": 692,
       "height": 1024,
       "title": "HumanMaleTank",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "fighter",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "fighter", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1606,14 +1087,7 @@
       "width": 692,
       "height": 1024,
       "title": "HumanMwangiFemaleMage",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "wizard",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "wizard", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1626,14 +1100,7 @@
       "width": 692,
       "height": 1024,
       "title": "HumanTianXiaFemaleNoble",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "noble",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "noble", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1646,14 +1113,7 @@
       "width": 692,
       "height": 1024,
       "title": "HumanTianXiaMaleMonk",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "monk",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "monk", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1666,13 +1126,7 @@
       "width": 817,
       "height": 1100,
       "title": "IomedaeArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1685,13 +1139,7 @@
       "width": 692,
       "height": 1024,
       "title": "IomedaeGoddessFemale",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1704,13 +1152,7 @@
       "width": 816,
       "height": 1100,
       "title": "IrabethArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1723,13 +1165,7 @@
       "width": 692,
       "height": 1024,
       "title": "IrabethHalfOrcPaladin",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "half-orc",
-        "paladin"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "half-orc", "paladin"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1742,13 +1178,7 @@
       "width": 692,
       "height": 1024,
       "title": "IrabethHalfOrcPaladinScars",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "half-orc",
-        "paladin"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "half-orc", "paladin"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1761,12 +1191,7 @@
       "width": 692,
       "height": 1024,
       "title": "Irovetty",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1779,12 +1204,7 @@
       "width": 692,
       "height": 1024,
       "title": "Jaethal",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1797,12 +1217,7 @@
       "width": 692,
       "height": 1024,
       "title": "JamandiAldori",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1815,12 +1230,7 @@
       "width": 692,
       "height": 1024,
       "title": "Jhod",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1833,12 +1243,7 @@
       "width": 692,
       "height": 1024,
       "title": "Jubilost",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1851,12 +1256,7 @@
       "width": 692,
       "height": 1024,
       "title": "KassilAldori",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1869,12 +1269,7 @@
       "width": 692,
       "height": 1024,
       "title": "KestenGaress",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1887,13 +1282,7 @@
       "width": 692,
       "height": 1024,
       "title": "KestoglyrUndeadMale",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "undead",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "undead", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1906,14 +1295,7 @@
       "width": 692,
       "height": 1024,
       "title": "KitsuneFemaleRogue",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "kitsune",
-        "rogue",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "kitsune", "rogue", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1926,14 +1308,7 @@
       "width": 692,
       "height": 1024,
       "title": "KitsuneMaleSorcerer",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "kitsune",
-        "sorcerer",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "kitsune", "sorcerer", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1946,12 +1321,7 @@
       "width": 692,
       "height": 1024,
       "title": "LanderLebeda",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1964,13 +1334,7 @@
       "width": 816,
       "height": 1100,
       "title": "LannArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -1983,14 +1347,7 @@
       "width": 692,
       "height": 1024,
       "title": "LannMaleMongrelZenMonk",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "monk",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "monk", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2003,12 +1360,7 @@
       "width": 692,
       "height": 1024,
       "title": "LanternKing",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2021,11 +1373,7 @@
       "width": 692,
       "height": 1024,
       "title": "Leopard",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2038,13 +1386,7 @@
       "width": 816,
       "height": 1100,
       "title": "LichArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "undead",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "undead", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2057,14 +1399,7 @@
       "width": 692,
       "height": 1024,
       "title": "LichMaleMage",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "undead",
-        "wizard",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "undead", "wizard", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2077,12 +1412,7 @@
       "width": 692,
       "height": 1024,
       "title": "Linzi",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2095,11 +1425,7 @@
       "width": 692,
       "height": 1024,
       "title": "Lizard",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2112,12 +1438,7 @@
       "width": 692,
       "height": 1024,
       "title": "MaegarVarn",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2130,11 +1451,7 @@
       "width": 692,
       "height": 1024,
       "title": "Mammoth",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2147,13 +1464,7 @@
       "width": 692,
       "height": 1024,
       "title": "MephistofelesDevilMale",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "fiend",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "fiend", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2166,13 +1477,7 @@
       "width": 816,
       "height": 1100,
       "title": "MephistophelesArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2185,13 +1490,7 @@
       "width": 816,
       "height": 1100,
       "title": "MinaghoArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2204,13 +1503,7 @@
       "width": 692,
       "height": 1024,
       "title": "MinaghoFemaleDemon",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "fiend",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "fiend", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2223,13 +1516,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicAngelFemale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "celestial",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "celestial", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2242,13 +1529,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicAngelMale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "celestial",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "celestial", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2261,13 +1542,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicAzataFemale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "celestial",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "celestial", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2280,13 +1555,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicAzataMale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "celestial",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "celestial", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2299,13 +1568,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicDemonFemale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "fiend",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "fiend", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2318,13 +1581,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicDemonMale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "fiend",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "fiend", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2337,13 +1594,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicDevilFemale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "fiend",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "fiend", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2356,13 +1607,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicDevilMale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "fiend",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "fiend", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2375,12 +1620,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicDragon",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2393,12 +1633,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicDragonCorrupted",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2411,12 +1646,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicLocustNoGender",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2429,13 +1659,7 @@
       "width": 692,
       "height": 1024,
       "title": "MythicTricksterFemale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "fey",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "fey", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2448,13 +1672,7 @@
       "width": 816,
       "height": 1100,
       "title": "NenioArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2467,14 +1685,7 @@
       "width": 692,
       "height": 1024,
       "title": "NenioFemaleHumanWizard",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "wizard",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "wizard", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2487,14 +1698,7 @@
       "width": 692,
       "height": 1024,
       "title": "NenioFemaleKitsuneWizard",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "kitsune",
-        "wizard",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "kitsune", "wizard", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2507,13 +1711,7 @@
       "width": 816,
       "height": 1100,
       "title": "NenioKitsuneArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "kitsune",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "kitsune", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2526,13 +1724,7 @@
       "width": 816,
       "height": 1100,
       "title": "NocticulaArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2545,13 +1737,7 @@
       "width": 692,
       "height": 1024,
       "title": "NocticulaFemaleDemonlord",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2564,12 +1750,7 @@
       "width": 692,
       "height": 1024,
       "title": "NokNok",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2582,13 +1763,7 @@
       "width": 816,
       "height": 1100,
       "title": "NurahDendiwharArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2601,14 +1776,7 @@
       "width": 692,
       "height": 1024,
       "title": "NurahHalflingFemaleBard",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "halfling",
-        "bard",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "halfling", "bard", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2621,12 +1789,7 @@
       "width": 692,
       "height": 1024,
       "title": "NyrissaEvil",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2639,12 +1802,7 @@
       "width": 692,
       "height": 1024,
       "title": "NyrissaGood",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2657,12 +1815,7 @@
       "width": 692,
       "height": 1024,
       "title": "NyrissaSisterHide",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2675,12 +1828,7 @@
       "width": 692,
       "height": 1024,
       "title": "NyrissaSisterShow",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2693,12 +1841,7 @@
       "width": 692,
       "height": 1024,
       "title": "Octavia",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2711,13 +1854,7 @@
       "width": 692,
       "height": 1024,
       "title": "OdanHalfelfMale",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "half-elf",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "half-elf", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2730,14 +1867,7 @@
       "width": 692,
       "height": 1024,
       "title": "OreadFemaleWarpriest",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "genasi",
-        "cleric",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "genasi", "cleric", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2750,14 +1880,7 @@
       "width": 692,
       "height": 1024,
       "title": "OreadMonkMale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "genasi",
-        "monk",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "genasi", "monk", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2770,14 +1893,7 @@
       "width": 692,
       "height": 1024,
       "title": "PentaFemaleAndroidBard",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "bard",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "bard", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2790,12 +1906,7 @@
       "width": 692,
       "height": 1024,
       "title": "PetAzataDragon",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "celestial"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "celestial"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2808,11 +1919,7 @@
       "width": 692,
       "height": 1024,
       "title": "PetTriceratops",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2825,11 +1932,7 @@
       "width": 692,
       "height": 1024,
       "title": "PetUndeadSkeleton",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "undead"
-      ],
+      "tags": ["portrait", "owlcat", "undead"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2842,11 +1945,7 @@
       "width": 692,
       "height": 1024,
       "title": "PetVelociraptor",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2859,13 +1958,7 @@
       "width": 692,
       "height": 1024,
       "title": "PharasmaGoddessFemale",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2878,11 +1971,7 @@
       "width": 692,
       "height": 1024,
       "title": "Pig",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2895,13 +1984,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerAasimarMonk01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "aasimar",
-        "monk"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "aasimar", "monk"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2914,13 +1997,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerAasimarPaladin01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "aasimar",
-        "paladin"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "aasimar", "paladin"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2933,13 +2010,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerAasimarPriest01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "aasimar",
-        "cleric"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "aasimar", "cleric"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2952,13 +2023,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerArcher01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "ranger"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "ranger"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2971,13 +2036,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerArcher02",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "ranger"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "ranger"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -2990,13 +2049,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerArcher03",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "ranger"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "ranger"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3009,13 +2062,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerArcher04",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "ranger"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "ranger"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3028,13 +2075,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerBarbarian",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "barbarian"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "barbarian"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3047,13 +2088,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerCleric01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "cleric"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "cleric"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3066,13 +2101,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerDruid01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "druid"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "druid"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3085,13 +2114,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerFighter01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "fighter"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "fighter"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3104,13 +2127,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerFighter02",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "fighter"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "fighter"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3123,13 +2140,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerFighter03",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "fighter"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "fighter"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3142,13 +2153,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerMonk01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "monk"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "monk"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3161,13 +2166,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerPaladin01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "paladin"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "paladin"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3180,13 +2179,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerPriest01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "cleric"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "cleric"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3199,13 +2192,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerPriest02",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "cleric"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "cleric"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3218,13 +2205,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerRogue01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "rogue"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "rogue"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3237,13 +2218,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerTieflingNoble01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "tiefling",
-        "noble"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "tiefling", "noble"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3256,13 +2231,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerTieflingRogue01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "tiefling",
-        "rogue"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "tiefling", "rogue"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3275,13 +2244,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerTrapmaster",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "rogue"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "rogue"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3294,13 +2257,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerWizard01",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "wizard"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "wizard"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3313,13 +2270,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerWizard02",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "wizard"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "wizard"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3332,13 +2283,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerWizard03",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "wizard"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "wizard"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3351,13 +2296,7 @@
       "width": 692,
       "height": 1024,
       "title": "PlayerWizard04",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "human",
-        "wizard"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "human", "wizard"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3370,13 +2309,7 @@
       "width": 692,
       "height": 1024,
       "title": "QuartermasterMaleHuman",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3389,12 +2322,7 @@
       "width": 692,
       "height": 1024,
       "title": "Raven",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3407,13 +2335,7 @@
       "width": 816,
       "height": 1100,
       "title": "RegillArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3426,13 +2348,7 @@
       "width": 692,
       "height": 1024,
       "title": "RegillMaleGnomeHellknight",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "gnome",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "gnome", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3445,12 +2361,7 @@
       "width": 692,
       "height": 1024,
       "title": "Regongar",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3463,14 +2374,7 @@
       "width": 692,
       "height": 1024,
       "title": "RekarthTieflingMaleRogue",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "tiefling",
-        "rogue",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "tiefling", "rogue", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3483,13 +2387,7 @@
       "width": 748,
       "height": 1100,
       "title": "SeelahArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3502,14 +2400,7 @@
       "width": 692,
       "height": 1024,
       "title": "SeelahFemalePaladin",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "paladin",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "paladin", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3522,14 +2413,7 @@
       "width": 692,
       "height": 1024,
       "title": "SendriGnomeMaleSorcerer",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "gnome",
-        "sorcerer",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "gnome", "sorcerer", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3542,14 +2426,7 @@
       "width": 692,
       "height": 1024,
       "title": "SendriGnomeMaleSorcererWithEye",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "gnome",
-        "sorcerer",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "gnome", "sorcerer", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3562,12 +2439,7 @@
       "width": 692,
       "height": 1024,
       "title": "SepalLorentus",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3580,12 +2452,7 @@
       "width": 692,
       "height": 1024,
       "title": "Shandra",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3598,11 +2465,7 @@
       "width": 692,
       "height": 1024,
       "title": "Smilodon",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3615,13 +2478,7 @@
       "width": 815,
       "height": 1100,
       "title": "SosielArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3634,14 +2491,7 @@
       "width": 692,
       "height": 1024,
       "title": "SosielMaleHumanCleric",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "cleric",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "cleric", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3654,12 +2504,7 @@
       "width": 692,
       "height": 1024,
       "title": "StagLord",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3672,13 +2517,7 @@
       "width": 692,
       "height": 1024,
       "title": "StauntonMaleDwarf",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "dwarf",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "dwarf", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3691,13 +2530,7 @@
       "width": 692,
       "height": 1024,
       "title": "StauntonMaleDwarfUndead",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "undead",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "undead", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3710,13 +2543,7 @@
       "width": 815,
       "height": 1100,
       "title": "StauntonVhaneArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3729,13 +2556,7 @@
       "width": 743,
       "height": 1100,
       "title": "SwarmMythicArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3748,12 +2569,7 @@
       "width": 692,
       "height": 1024,
       "title": "Tartuccio",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3766,12 +2582,7 @@
       "width": 692,
       "height": 1024,
       "title": "Tartuk",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3784,12 +2595,7 @@
       "width": 692,
       "height": 1024,
       "title": "Tiefling Twin Evil",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "tiefling"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "tiefling"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3802,12 +2608,7 @@
       "width": 692,
       "height": 1024,
       "title": "Tiefling Twin Evil Magic",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "tiefling"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "tiefling"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3820,12 +2621,7 @@
       "width": 692,
       "height": 1024,
       "title": "Tiefling Twin Good",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "tiefling"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "tiefling"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3838,12 +2634,7 @@
       "width": 692,
       "height": 1024,
       "title": "Tiefling Twin Good Magic",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "tiefling"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "tiefling"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3856,14 +2647,7 @@
       "width": 692,
       "height": 1024,
       "title": "TieflingFemalePriest",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "tiefling",
-        "cleric",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "tiefling", "cleric", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3876,14 +2660,7 @@
       "width": 692,
       "height": 1024,
       "title": "TieflingMaleArcher",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "tiefling",
-        "ranger",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "tiefling", "ranger", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3896,14 +2673,7 @@
       "width": 692,
       "height": 1024,
       "title": "TreverHumanMwangiMaleWarrior",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "fighter",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "fighter", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3916,14 +2686,7 @@
       "width": 815,
       "height": 1100,
       "title": "TricksterFemaleArtbook",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "fey",
-        "female",
-        "artbook"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "fey", "female", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3936,13 +2699,7 @@
       "width": 692,
       "height": 1024,
       "title": "TricksterMythicMale",
-      "tags": [
-        "portrait",
-        "pc",
-        "owlcat",
-        "fey",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "owlcat", "fey", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3955,12 +2712,7 @@
       "width": 692,
       "height": 1024,
       "title": "Tristian",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3973,12 +2725,7 @@
       "width": 692,
       "height": 1024,
       "title": "Tristian Blind",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -3991,12 +2738,7 @@
       "width": 692,
       "height": 1024,
       "title": "Tsana",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4009,13 +2751,7 @@
       "width": 692,
       "height": 1024,
       "title": "UlbrigMaleHumanShifter",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4028,12 +2764,7 @@
       "width": 692,
       "height": 1024,
       "title": "Valerie",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4046,12 +2777,7 @@
       "width": 692,
       "height": 1024,
       "title": "Valerie Scar",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4064,12 +2790,7 @@
       "width": 692,
       "height": 1024,
       "title": "VillasGunderson",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4082,12 +2803,7 @@
       "width": 692,
       "height": 1024,
       "title": "Vordakai",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4100,12 +2816,7 @@
       "width": 692,
       "height": 1024,
       "title": "VordakaiBlind",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4118,13 +2829,7 @@
       "width": 815,
       "height": 1100,
       "title": "WenduagArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4137,14 +2842,7 @@
       "width": 692,
       "height": 1024,
       "title": "WenduagFemaleMongrelRanger",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "human",
-        "ranger",
-        "female"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "human", "ranger", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4157,11 +2855,7 @@
       "width": 692,
       "height": 1024,
       "title": "Wolf",
-      "tags": [
-        "portrait",
-        "owlcat",
-        "companion"
-      ],
+      "tags": ["portrait", "owlcat", "companion"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4174,13 +2868,7 @@
       "width": 816,
       "height": 1100,
       "title": "WoljifArtbook",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "companion",
-        "artbook"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "companion", "artbook"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4193,14 +2881,7 @@
       "width": 692,
       "height": 1024,
       "title": "WoljifMaleTieflingRogue",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "tiefling",
-        "rogue",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "tiefling", "rogue", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -4213,14 +2894,7 @@
       "width": 692,
       "height": 1024,
       "title": "WoljifMaleTieflingRogueDemonic",
-      "tags": [
-        "portrait",
-        "npc",
-        "owlcat",
-        "tiefling",
-        "rogue",
-        "male"
-      ],
+      "tags": ["portrait", "npc", "owlcat", "tiefling", "rogue", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",

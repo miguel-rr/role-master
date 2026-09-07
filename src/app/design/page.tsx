@@ -9,6 +9,7 @@ import {
   pickArt,
   sampleArt,
 } from '@/data/art/catalog';
+import { buildPortraitPool } from '@/data/art/portrait-pool';
 import type { ArtEntry } from '@/data/art/schema';
 import { DEMO_CHARACTERS } from '@/data/demo/characters';
 import { CharacterSheet } from './_components/character-sheet';
@@ -59,7 +60,8 @@ const portraitQuality = (p: ArtEntry) => {
 const firstOf = (...pools: ArtEntry[][]) =>
   pools.find((p) => p.length > 0) ?? [];
 
-const portraitFor = (
+const portraitFrom = (
+  pool: ArtEntry[],
   raceTag: string,
   gender: string,
   classTag: string,
@@ -67,15 +69,14 @@ const portraitFor = (
 ) =>
   pickArt(
     firstOf(
-      artWithTags([raceTag, gender, classTag], {
-        within: ['portraits-kingmaker'],
-      }),
-      artWithTags([raceTag, gender], { within: ['portraits-kingmaker'] }),
-      artWithTags([raceTag, gender, classTag], { within: ['portraits-fr'] }),
-      artWithTags([raceTag, gender], { within: ['portraits-fr'] }),
-      artWithTags([raceTag], {
-        within: ['portraits-fr', 'portraits-kingmaker'],
-      }),
+      pool.filter(
+        (p) =>
+          p.tags.includes(raceTag) &&
+          p.tags.includes(gender) &&
+          p.tags.includes(classTag),
+      ),
+      pool.filter((p) => p.tags.includes(raceTag) && p.tags.includes(gender)),
+      pool.filter((p) => p.tags.includes(raceTag)),
     ),
     seed,
   );
@@ -122,13 +123,16 @@ const DesignPage = () => {
   const [bram, nissa] = DEMO_CHARACTERS;
   if (!bram || !nissa) return null;
 
-  const bramPortrait = portraitFor(
+  const portraitPool = buildPortraitPool();
+  const bramPortrait = portraitFrom(
+    portraitPool.entries,
     bram.raceTag,
     bram.gender,
     bram.classTag,
     bram.portraitSeed,
   );
-  const nissaPortrait = portraitFor(
+  const nissaPortrait = portraitFrom(
+    portraitPool.entries,
     nissa.raceTag,
     nissa.gender,
     nissa.classTag,
@@ -183,18 +187,11 @@ const DesignPage = () => {
     cp: findItem('Copper Coin Pile'),
   };
 
-  const portraits = [
-    ...collection('portraits-kingmaker'),
-    ...collection('portraits-fr'),
-    ...collection('npcs-fr'),
-  ]
-    .filter((p) => p.width >= 300)
-    // The NPC and race collections overlap on the wiki: keep one per source page.
-    .filter(
-      (p, i, all) =>
-        all.findIndex((q) => q.source.page === p.source.page) === i,
-    )
-    .sort((a, b) => portraitQuality(b) - portraitQuality(a));
+  // The portrait line decided with Miguel: Owlcat first, Wizards only where
+  // Owlcat is thin (see src/data/art/portrait-pool.ts).
+  const portraits = [...portraitPool.entries].sort(
+    (a, b) => portraitQuality(b) - portraitQuality(a),
+  );
 
   const players = [
     {
@@ -323,7 +320,7 @@ const DesignPage = () => {
         title="Retratos y generador"
         tone="darker"
       >
-        <PortraitLab portraits={portraits} />
+        <PortraitLab perRace={portraitPool.perRace} portraits={portraits} />
       </Section>
 
       <Section

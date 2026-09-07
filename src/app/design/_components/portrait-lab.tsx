@@ -5,6 +5,8 @@ import type { ArtEntry } from '@/data/art/schema';
 
 type PortraitLabProps = {
   portraits: ArtEntry[];
+  /** Owlcat vs Wizards counts per race, for the summary line. */
+  perRace: Record<string, { owlcat: number; wizards: number }>;
 };
 
 const RACES = [
@@ -189,14 +191,13 @@ type Generated = {
 };
 
 /** Gallery by race, gender and class, plus a one-click character generator. */
-const PortraitLab = ({ portraits }: PortraitLabProps) => {
+const PortraitLab = ({ portraits, perRace }: PortraitLabProps) => {
   const [race, setRace] = useState<string | null>(null);
   const [gender, setGender] = useState<string | null>(null);
   const [cls, setCls] = useState<string | null>(null);
   const [generated, setGenerated] = useState<Generated | null>(null);
-  const [series, setSeries] = useState<Set<string>>(new Set([OWLCAT_SERIES]));
-  const [hideWhite, setHideWhite] = useState(true);
-  const [showAllSeries, setShowAllSeries] = useState(false);
+  const [series] = useState<Set<string>>(new Set());
+  const [hideWhite] = useState(false);
   const [visible, setVisible] = useState(48);
   const [favorites, setFavorites] = useState<ArtEntry[]>([]);
   const [copied, setCopied] = useState(false);
@@ -255,39 +256,6 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
       /* clipboard blocked: the text is visible anyway */
     }
   };
-
-  /** Pool after every filter except the series themselves. */
-  const poolForSeries = useMemo(
-    () =>
-      portraits.filter(
-        (p) =>
-          (!hideWhite || !p.tags.includes('white-bg')) &&
-          (!race || p.tags.includes(race)) &&
-          (!gender || p.tags.includes(gender)) &&
-          (!cls || p.tags.includes(cls)),
-      ),
-    [portraits, hideWhite, race, gender, cls],
-  );
-
-  /** Source books available for the current selection, most populated first. */
-  const allSeries = useMemo(() => {
-    const count = new Map<string, number>();
-    for (const p of poolForSeries) {
-      for (const c of seriesKeysOf(p)) count.set(c, (count.get(c) ?? 0) + 1);
-    }
-    for (const c of series) if (!count.has(c)) count.set(c, 0);
-    return [...count.entries()]
-      .filter(([c, n]) => n >= 3 || series.has(c))
-      .sort((a, b) => b[1] - a[1]);
-  }, [poolForSeries, series]);
-
-  const toggleSeries = (c: string) =>
-    setSeries((s) => {
-      const next = new Set(s);
-      if (next.has(c)) next.delete(c);
-      else next.add(c);
-      return next;
-    });
 
   const matchesBase = useCallback(
     (p: ArtEntry) =>
@@ -364,62 +332,21 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
           />
         </div>
 
-        <div className="mt-4 rounded-md border border-charcoal-700 bg-charcoal-900/50 p-3">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <div className="font-condensed text-strapline text-xs uppercase tracking-2xl">
-              Serie · libro de origen
-              {series.size > 0 ? ` · ${series.size} elegidas` : ''}
-            </div>
-            <label className="flex cursor-pointer items-center gap-2 font-scaly text-charcoal-300 text-xs">
-              <input
-                checked={hideWhite}
-                className="accent-brass"
-                onChange={(e) => setHideWhite(e.target.checked)}
-                type="checkbox"
-              />
-              Ocultar fondo blanco
-            </label>
-          </div>
-          <div className="mt-2 flex flex-wrap gap-1.5">
-            {(showAllSeries ? allSeries : allSeries.slice(0, 18)).map(
-              ([c, n]) => (
-                <button
-                  className={`rounded-full border px-2.5 py-1 font-scaly text-xs transition ${
-                    series.has(c)
-                      ? 'border-brass bg-brass/20 text-brass-pale'
-                      : 'border-charcoal-600 text-charcoal-300 hover:border-brass/60'
-                  }`}
-                  key={c}
-                  onClick={() => toggleSeries(c)}
-                  type="button"
-                >
-                  {seriesLabel(c)}{' '}
-                  <span className="text-charcoal-500">{n}</span>
-                </button>
-              ),
-            )}
-            {allSeries.length > 18 ? (
-              <button
-                className="rounded-full border border-charcoal-700 border-dashed px-2.5 py-1 font-scaly text-charcoal-400 text-xs"
-                onClick={() => setShowAllSeries((v) => !v)}
-                type="button"
-              >
-                {showAllSeries
-                  ? 'Ver menos'
-                  : `Ver ${allSeries.length - 18} más`}
-              </button>
-            ) : null}
-            {series.size > 0 ? (
-              <button
-                className="rounded-full px-2.5 py-1 font-condensed text-brand-300 text-xs uppercase"
-                onClick={() => setSeries(new Set())}
-                type="button"
-              >
-                Quitar series
-              </button>
-            ) : null}
-          </div>
-        </div>
+        <p className="mt-3 font-scaly text-charcoal-400 text-xs">
+          Conjunto definitivo:{' '}
+          {portraits.filter((p) => p.source.site === 'kingmaker').length}{' '}
+          retratos de Owlcat y{' '}
+          {portraits.filter((p) => p.source.site !== 'kingmaker').length} de
+          Wizards solo para las razas donde Owlcat escasea (
+          {Object.entries(perRace)
+            .filter(([, v]) => v.wizards > 0)
+            .map(
+              ([r, v]) =>
+                `${RACES.find((x) => x.tag === r)?.label ?? r} +${v.wizards}`,
+            )
+            .join(', ')}
+          ).
+        </p>
         <div className="mt-3 font-condensed text-charcoal-400 text-xs uppercase tracking-wider">
           {filtered.length} retratos
           {filtered.length > visible ? ` · mostrando ${visible}` : ''}
