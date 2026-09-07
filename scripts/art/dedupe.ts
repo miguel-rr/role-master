@@ -177,6 +177,21 @@ const OWLCAT_STRIP = [
   'trapmaster',
   'barbarian',
   'community',
+  // Golarion ethnicities used in generic portrait names, not character names.
+  'tianxia',
+  'tian',
+  'ulfen',
+  'varisian',
+  'garundi',
+  'mwangi',
+  'shoanti',
+  'vudrani',
+  'kellid',
+  'taldan',
+  'chelaxian',
+  'keleshite',
+  'qadiran',
+  'osirian',
 ];
 
 const owlcatCharacterKey = (id: string) => {

@@ -1,6 +1,6 @@
 {
   "collection": "portraits-kingmaker",
-  "generatedAt": "2026-09-07T22:34:32.866Z",
+  "generatedAt": "2026-09-07T22:35:10.841Z",
   "entries": [
     {
       "id": "portraits/pc/aasimarfemalemage",
@@ -1670,8 +1670,7 @@
         "owlcat",
         "human",
         "noble",
-        "female",
-        "duplicate"
+        "female"
       ],
       "cats": [],
       "source": {
