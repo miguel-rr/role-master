@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Code (local-only, personal settings/scratch files)
+.claude/settings.local.json
+
+# env: keep the example committed
+!.env.example
