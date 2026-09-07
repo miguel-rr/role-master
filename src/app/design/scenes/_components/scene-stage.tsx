@@ -24,6 +24,8 @@ type Scene = {
   background: ArtEntry | undefined;
   /** Where the background's focal point sits, as CSS object-position. */
   focus: string;
+  /** Extra magnification, e.g. to push a watermark or a hard edge out of frame. */
+  zoom?: number;
   figure: ArtEntry | undefined;
   figureSide: 'left' | 'right';
   figureKind: 'character' | 'creature';
@@ -456,15 +458,23 @@ const Backdrop = ({
     className={`absolute inset-0 ${state === 'leaving' ? 'animate-bg-out' : 'animate-bg-in'}`}
   >
     {scene.background ? (
-      // biome-ignore lint/performance/noImgElement: pre-sized local art
-      <img
-        alt=""
-        className="absolute inset-0 h-full w-full animate-kenburns object-cover"
-        height={scene.background.height}
-        src={scene.background.src}
-        style={{ objectPosition: scene.focus }}
-        width={scene.background.width}
-      />
+      <div
+        className="absolute inset-0"
+        style={{
+          transform: `scale(${scene.zoom ?? 1})`,
+          transformOrigin: scene.focus,
+        }}
+      >
+        {/* biome-ignore lint/performance/noImgElement: pre-sized local art */}
+        <img
+          alt=""
+          className="absolute inset-0 h-full w-full animate-kenburns object-cover"
+          height={scene.background.height}
+          src={scene.background.src}
+          style={{ objectPosition: scene.focus }}
+          width={scene.background.width}
+        />
+      </div>
     ) : (
       <div className="absolute inset-0 bg-charcoal-900" />
     )}

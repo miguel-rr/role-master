@@ -17,7 +17,7 @@ export const metadata: Metadata = {
  * choices) and the stage renders it. Backgrounds and figures are hand-picked
  * ids from the catalogue for this showcase.
  */
-const SCENES: Scene[] = [
+const buildScenes = (): Scene[] => [
   {
     id: 'tavern',
     label: 'Taberna',
@@ -137,7 +137,8 @@ const SCENES: Scene[] = [
     chapter: 'Capítulo IX · Audiencia',
     time: 'Mañana · Velas aún encendidas',
     background: byId('scenes/fr/cloister-of-sombre-embrace7'),
-    focus: '50% 45%',
+    focus: '50% 58%',
+    zoom: 1.22,
     figure: byId('portraits/pc/galfreyfemalepaladin'),
     figureSide: 'right',
     figureKind: 'character',
@@ -357,7 +358,7 @@ const ScenesPage = () => {
           maxHp: 9,
         },
       ]}
-      scenes={SCENES}
+      scenes={buildScenes()}
     />
   );
 };
