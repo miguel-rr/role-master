@@ -91,7 +91,9 @@
         "src/app/**/default.tsx",
         "src/app/**/route.ts",
         "next.config.ts",
-        "postcss.config.mjs"
+        "postcss.config.mjs",
+        // Ambient module declarations mirror the package's own default export.
+        "src/types/**/*.d.ts"
       ],
       "linter": {
         "rules": {

@@ -1,0 +1,967 @@
+{
+  "collection": "portraits-kingmaker",
+  "generatedAt": "2026-09-07T20:50:19.734Z",
+  "entries": [
+    {
+      "id": "portraits/pc/aasimarfemalemage",
+      "src": "/art/portraits/pc/aasimarfemalemage.webp",
+      "width": 608,
+      "height": 900,
+      "title": "AasimarFemaleMage",
+      "tags": [
+        "portrait",
+        "pc",
+        "aasimar",
+        "wizard",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AAasimarFemaleMage.png"
+      }
+    },
+    {
+      "id": "portraits/pc/aasimarmalebloodrager",
+      "src": "/art/portraits/pc/aasimarmalebloodrager.webp",
+      "width": 608,
+      "height": 900,
+      "title": "AasimarMaleBloodrager",
+      "tags": [
+        "portrait",
+        "pc",
+        "aasimar",
+        "barbarian",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AAasimarMaleBloodrager.png"
+      }
+    },
+    {
+      "id": "portraits/pc/aeonnogendermage",
+      "src": "/art/portraits/pc/aeonnogendermage.webp",
+      "width": 608,
+      "height": 900,
+      "title": "AeonNoGenderMage",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "wizard"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AAeonNoGenderMage.png"
+      }
+    },
+    {
+      "id": "portraits/pc/dhampirfemalebard",
+      "src": "/art/portraits/pc/dhampirfemalebard.webp",
+      "width": 608,
+      "height": 900,
+      "title": "DhampirFemaleBard",
+      "tags": [
+        "portrait",
+        "pc",
+        "dhampir",
+        "bard",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3ADhampirFemaleBard.png"
+      }
+    },
+    {
+      "id": "portraits/pc/dhampirinquisitormale",
+      "src": "/art/portraits/pc/dhampirinquisitormale.webp",
+      "width": 608,
+      "height": 900,
+      "title": "DhampirInquisitorMale",
+      "tags": [
+        "portrait",
+        "pc",
+        "dhampir",
+        "paladin",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3ADhampirInquisitorMale.png"
+      }
+    },
+    {
+      "id": "portraits/pc/dwarffemalenoble",
+      "src": "/art/portraits/pc/dwarffemalenoble.webp",
+      "width": 608,
+      "height": 900,
+      "title": "DwarfFemaleNoble",
+      "tags": [
+        "portrait",
+        "pc",
+        "dwarf",
+        "noble",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3ADwarfFemaleNoble.png"
+      }
+    },
+    {
+      "id": "portraits/pc/dwarfmalerogue",
+      "src": "/art/portraits/pc/dwarfmalerogue.webp",
+      "width": 608,
+      "height": 900,
+      "title": "DwarfMaleRogue",
+      "tags": [
+        "portrait",
+        "pc",
+        "dwarf",
+        "rogue",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3ADwarfMaleRogue.png"
+      }
+    },
+    {
+      "id": "portraits/pc/elfmalenoble",
+      "src": "/art/portraits/pc/elfmalenoble.webp",
+      "width": 608,
+      "height": 900,
+      "title": "ElfMaleNoble",
+      "tags": [
+        "portrait",
+        "pc",
+        "elf",
+        "noble",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AElfMaleNoble.png"
+      }
+    },
+    {
+      "id": "portraits/pc/femalehalfelfwarrior",
+      "src": "/art/portraits/pc/femalehalfelfwarrior.webp",
+      "width": 608,
+      "height": 900,
+      "title": "FemaleHalfElfWarrior",
+      "tags": [
+        "portrait",
+        "pc",
+        "half-elf",
+        "fighter",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AFemaleHalfElfWarrior.png"
+      }
+    },
+    {
+      "id": "portraits/pc/gnomemalenoble",
+      "src": "/art/portraits/pc/gnomemalenoble.webp",
+      "width": 608,
+      "height": 900,
+      "title": "GnomeMaleNoble",
+      "tags": [
+        "portrait",
+        "pc",
+        "gnome",
+        "noble",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AGnomeMaleNoble.png"
+      }
+    },
+    {
+      "id": "portraits/pc/halfelfmalemage",
+      "src": "/art/portraits/pc/halfelfmalemage.webp",
+      "width": 608,
+      "height": 900,
+      "title": "HalfElfMaleMage",
+      "tags": [
+        "portrait",
+        "pc",
+        "half-elf",
+        "wizard",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AHalfElfMaleMage.png"
+      }
+    },
+    {
+      "id": "portraits/pc/halflingfemalerogue",
+      "src": "/art/portraits/pc/halflingfemalerogue.webp",
+      "width": 608,
+      "height": 900,
+      "title": "HalflingFemaleRogue",
+      "tags": [
+        "portrait",
+        "pc",
+        "halfling",
+        "rogue",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AHalflingFemaleRogue.png"
+      }
+    },
+    {
+      "id": "portraits/pc/halflingmaletank",
+      "src": "/art/portraits/pc/halflingmaletank.webp",
+      "width": 608,
+      "height": 900,
+      "title": "HalflingMaleTank",
+      "tags": [
+        "portrait",
+        "pc",
+        "halfling",
+        "fighter",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AHalflingMaleTank.png"
+      }
+    },
+    {
+      "id": "portraits/pc/halforcfemaletank",
+      "src": "/art/portraits/pc/halforcfemaletank.webp",
+      "width": 608,
+      "height": 900,
+      "title": "HalfOrcFemaleTank",
+      "tags": [
+        "portrait",
+        "pc",
+        "half-orc",
+        "fighter",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AHalfOrcFemaleTank.png"
+      }
+    },
+    {
+      "id": "portraits/pc/humanfemalearcher",
+      "src": "/art/portraits/pc/humanfemalearcher.webp",
+      "width": 608,
+      "height": 900,
+      "title": "HumanFemaleArcher",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "ranger",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AHumanFemaleArcher.png"
+      }
+    },
+    {
+      "id": "portraits/pc/humanmalemagus",
+      "src": "/art/portraits/pc/humanmalemagus.webp",
+      "width": 608,
+      "height": 900,
+      "title": "HumanMaleMagus",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "fighter",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AHumanMaleMagus.png"
+      }
+    },
+    {
+      "id": "portraits/pc/humanmaletank",
+      "src": "/art/portraits/pc/humanmaletank.webp",
+      "width": 608,
+      "height": 900,
+      "title": "HumanMaleTank",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "fighter",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AHumanMaleTank.png"
+      }
+    },
+    {
+      "id": "portraits/pc/humanmwangifemalemage",
+      "src": "/art/portraits/pc/humanmwangifemalemage.webp",
+      "width": 608,
+      "height": 900,
+      "title": "HumanMwangiFemaleMage",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "wizard",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AHumanMwangiFemaleMage.png"
+      }
+    },
+    {
+      "id": "portraits/pc/humantianxiafemalenoble",
+      "src": "/art/portraits/pc/humantianxiafemalenoble.webp",
+      "width": 608,
+      "height": 900,
+      "title": "HumanTianXiaFemaleNoble",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "noble",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AHumanTianXiaFemaleNoble.png"
+      }
+    },
+    {
+      "id": "portraits/pc/humantianxiamalemonk",
+      "src": "/art/portraits/pc/humantianxiamalemonk.webp",
+      "width": 608,
+      "height": 900,
+      "title": "HumanTianXiaMaleMonk",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "monk",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AHumanTianXiaMaleMonk.png"
+      }
+    },
+    {
+      "id": "portraits/pc/kitsunefemalerogue",
+      "src": "/art/portraits/pc/kitsunefemalerogue.webp",
+      "width": 608,
+      "height": 900,
+      "title": "KitsuneFemaleRogue",
+      "tags": [
+        "portrait",
+        "pc",
+        "kitsune",
+        "rogue",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AKitsuneFemaleRogue.png"
+      }
+    },
+    {
+      "id": "portraits/pc/kitsunemalesorcerer",
+      "src": "/art/portraits/pc/kitsunemalesorcerer.webp",
+      "width": 608,
+      "height": 900,
+      "title": "KitsuneMaleSorcerer",
+      "tags": [
+        "portrait",
+        "pc",
+        "kitsune",
+        "sorcerer",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AKitsuneMaleSorcerer.png"
+      }
+    },
+    {
+      "id": "portraits/pc/lichmalemage",
+      "src": "/art/portraits/pc/lichmalemage.webp",
+      "width": 608,
+      "height": 900,
+      "title": "LichMaleMage",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "wizard",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3ALichMaleMage.png"
+      }
+    },
+    {
+      "id": "portraits/pc/oreadfemalewarpriest",
+      "src": "/art/portraits/pc/oreadfemalewarpriest.webp",
+      "width": 608,
+      "height": 900,
+      "title": "OreadFemaleWarpriest",
+      "tags": [
+        "portrait",
+        "pc",
+        "genasi",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AOreadFemaleWarpriest.png"
+      }
+    },
+    {
+      "id": "portraits/pc/oreadmonkmale",
+      "src": "/art/portraits/pc/oreadmonkmale.webp",
+      "width": 608,
+      "height": 900,
+      "title": "OreadMonkMale",
+      "tags": [
+        "portrait",
+        "pc",
+        "genasi",
+        "monk",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3AOreadMonkMale.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playeraasimarmonk01",
+      "src": "/art/portraits/pc/playeraasimarmonk01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerAasimarMonk01",
+      "tags": [
+        "portrait",
+        "pc",
+        "aasimar",
+        "monk"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerAasimarMonk01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playeraasimarpaladin01",
+      "src": "/art/portraits/pc/playeraasimarpaladin01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerAasimarPaladin01",
+      "tags": [
+        "portrait",
+        "pc",
+        "aasimar",
+        "paladin"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerAasimarPaladin01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playeraasimarpriest01",
+      "src": "/art/portraits/pc/playeraasimarpriest01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerAasimarPriest01",
+      "tags": [
+        "portrait",
+        "pc",
+        "aasimar",
+        "cleric"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerAasimarPriest01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerarcher01",
+      "src": "/art/portraits/pc/playerarcher01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerArcher01",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "ranger"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerArcher01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerarcher02",
+      "src": "/art/portraits/pc/playerarcher02.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerArcher02",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "ranger"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerArcher02.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerarcher03",
+      "src": "/art/portraits/pc/playerarcher03.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerArcher03",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "ranger"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerArcher03.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerarcher04",
+      "src": "/art/portraits/pc/playerarcher04.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerArcher04",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "ranger"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerArcher04.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerbarbarian",
+      "src": "/art/portraits/pc/playerbarbarian.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerBarbarian",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "barbarian"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerBarbarian.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playercleric01",
+      "src": "/art/portraits/pc/playercleric01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerCleric01",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "cleric"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerCleric01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerdruid01",
+      "src": "/art/portraits/pc/playerdruid01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerDruid01",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "druid"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerDruid01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerfighter01",
+      "src": "/art/portraits/pc/playerfighter01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerFighter01",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "fighter"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerFighter01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerfighter02",
+      "src": "/art/portraits/pc/playerfighter02.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerFighter02",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "fighter"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerFighter02.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerfighter03",
+      "src": "/art/portraits/pc/playerfighter03.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerFighter03",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "fighter"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerFighter03.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playermonk01",
+      "src": "/art/portraits/pc/playermonk01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerMonk01",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "monk"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerMonk01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerpaladin01",
+      "src": "/art/portraits/pc/playerpaladin01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerPaladin01",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "paladin"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerPaladin01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerpriest01",
+      "src": "/art/portraits/pc/playerpriest01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerPriest01",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "cleric"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerPriest01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerpriest02",
+      "src": "/art/portraits/pc/playerpriest02.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerPriest02",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "cleric"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerPriest02.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerrogue01",
+      "src": "/art/portraits/pc/playerrogue01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerRogue01",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "rogue"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerRogue01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playertieflingnoble01",
+      "src": "/art/portraits/pc/playertieflingnoble01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerTieflingNoble01",
+      "tags": [
+        "portrait",
+        "pc",
+        "tiefling",
+        "noble"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerTieflingNoble01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playertieflingrogue01",
+      "src": "/art/portraits/pc/playertieflingrogue01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerTieflingRogue01",
+      "tags": [
+        "portrait",
+        "pc",
+        "tiefling",
+        "rogue"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerTieflingRogue01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playertrapmaster",
+      "src": "/art/portraits/pc/playertrapmaster.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerTrapmaster",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "rogue"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerTrapmaster.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerwizard01",
+      "src": "/art/portraits/pc/playerwizard01.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerWizard01",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "wizard"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerWizard01.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerwizard02",
+      "src": "/art/portraits/pc/playerwizard02.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerWizard02",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "wizard"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerWizard02.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerwizard03",
+      "src": "/art/portraits/pc/playerwizard03.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerWizard03",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "wizard"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerWizard03.png"
+      }
+    },
+    {
+      "id": "portraits/pc/playerwizard04",
+      "src": "/art/portraits/pc/playerwizard04.webp",
+      "width": 608,
+      "height": 900,
+      "title": "PlayerWizard04",
+      "tags": [
+        "portrait",
+        "pc",
+        "human",
+        "wizard"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3APlayerWizard04.png"
+      }
+    },
+    {
+      "id": "portraits/pc/tieflingfemalepriest",
+      "src": "/art/portraits/pc/tieflingfemalepriest.webp",
+      "width": 608,
+      "height": 900,
+      "title": "TieflingFemalePriest",
+      "tags": [
+        "portrait",
+        "pc",
+        "tiefling",
+        "cleric",
+        "female"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3ATieflingFemalePriest.png"
+      }
+    },
+    {
+      "id": "portraits/pc/tieflingmalearcher",
+      "src": "/art/portraits/pc/tieflingmalearcher.webp",
+      "width": 608,
+      "height": 900,
+      "title": "TieflingMaleArcher",
+      "tags": [
+        "portrait",
+        "pc",
+        "tiefling",
+        "ranger",
+        "male"
+      ],
+      "cats": [],
+      "source": {
+        "site": "kingmaker",
+        "page": "https://pathfinderkingmaker.fandom.com/wiki/File%3ATieflingMaleArcher.png"
+      }
+    }
+  ]
+}

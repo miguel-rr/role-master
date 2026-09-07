@@ -6,7 +6,7 @@ de tocar nada y actualízalo cuando se cierre una decisión.
 
 # Commands
 
-- Dev: `pnpm dev`
+- Dev: `pnpm dev` (puerto **3001**, fijado por Miguel)
 - Build: `pnpm build`
 - Lint + format: `pnpm check` (auto-fix: `pnpm check:write`)
 - Typecheck: `pnpm typecheck`

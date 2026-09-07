@@ -1,0 +1,375 @@
+'use client';
+
+import { useMemo, useState } from 'react';
+import type { ArtEntry } from '@/data/art/schema';
+
+type PortraitLabProps = {
+  portraits: ArtEntry[];
+};
+
+const RACES = [
+  { tag: 'human', label: 'Humano' },
+  { tag: 'elf', label: 'Elfo' },
+  { tag: 'dwarf', label: 'Enano' },
+  { tag: 'halfling', label: 'Mediano' },
+  { tag: 'gnome', label: 'Gnomo' },
+  { tag: 'half-elf', label: 'Semielfo' },
+  { tag: 'half-orc', label: 'Semiorco' },
+  { tag: 'tiefling', label: 'Tiefling' },
+  { tag: 'dragonborn', label: 'Dracónido' },
+] as const;
+
+const GENDERS = [
+  { tag: 'male', label: 'Masculino' },
+  { tag: 'female', label: 'Femenino' },
+] as const;
+
+const CLASSES = [
+  { tag: 'fighter', label: 'Guerrero' },
+  { tag: 'rogue', label: 'Pícaro' },
+  { tag: 'wizard', label: 'Mago' },
+  { tag: 'cleric', label: 'Clérigo' },
+  { tag: 'ranger', label: 'Explorador' },
+  { tag: 'paladin', label: 'Paladín' },
+  { tag: 'barbarian', label: 'Bárbaro' },
+  { tag: 'bard', label: 'Bardo' },
+  { tag: 'druid', label: 'Druida' },
+  { tag: 'monk', label: 'Monje' },
+  { tag: 'sorcerer', label: 'Hechicero' },
+  { tag: 'warlock', label: 'Brujo' },
+] as const;
+
+const NAMES: Record<
+  string,
+  { male: string[]; female: string[]; family: string[] }
+> = {
+  human: {
+    male: ['Bram', 'Darvin', 'Halric', 'Tomas', 'Gareth', 'Ulric'],
+    female: ['Mara', 'Elsbeth', 'Ilena', 'Sabra', 'Teodora', 'Vela'],
+    family: [
+      'Piedrahonda',
+      'Valcarce',
+      'del Roble',
+      'Brezal',
+      'Cienfuegos',
+      'Marlow',
+    ],
+  },
+  elf: {
+    male: ['Aelar', 'Theren', 'Varis', 'Ivellios', 'Erevan'],
+    female: ['Sariel', 'Naivara', 'Lia', 'Quelenna', 'Thia'],
+    family: ['Amakiir', 'Galanodel', 'Liadon', 'Siannodel', 'Xiloscient'],
+  },
+  dwarf: {
+    male: ['Thorin', 'Baern', 'Rurik', 'Eberk', 'Vondal'],
+    female: ['Helja', 'Diesa', 'Torbera', 'Vistra', 'Gunnloda'],
+    family: [
+      'Yunquebronce',
+      'Barbafuego',
+      'Puñodehierro',
+      'Rocafirme',
+      'Vetadorada',
+    ],
+  },
+  halfling: {
+    male: ['Milo', 'Perrin', 'Cade', 'Osborn', 'Wellby'],
+    female: ['Nissa', 'Lidda', 'Merla', 'Verna', 'Seraphina'],
+    family: ['Brisaverde', 'Piedecoraje', 'Buenbarril', 'Colinalta', 'Tozudo'],
+  },
+  gnome: {
+    male: ['Boddynock', 'Fonkin', 'Zook', 'Wrenn', 'Alston'],
+    female: ['Bimpnottin', 'Nissa', 'Zanna', 'Ellyjobell', 'Roywyn'],
+    family: ['Chispaverde', 'Nackle', 'Timbers', 'Garrick', 'Follaje'],
+  },
+  'half-elf': {
+    male: ['Corran', 'Aramil', 'Davos', 'Leif'],
+    female: ['Aryn', 'Celeste', 'Mirabel', 'Ysolde'],
+    family: ['Sombraluz', 'Vientocorto', 'Dosríos', 'Alamar'],
+  },
+  'half-orc': {
+    male: ['Dench', 'Krusk', 'Thokk', 'Ront', 'Holg'],
+    female: ['Baggi', 'Emen', 'Ovak', 'Shautha', 'Vola'],
+    family: ['Rompeyelmos', 'Grancolmillo', 'Lobogris', 'Sinmiedo'],
+  },
+  tiefling: {
+    male: ['Akmenos', 'Damakos', 'Leucis', 'Morthos', 'Skamos'],
+    female: ['Akta', 'Kallista', 'Nemeia', 'Orianna', 'Rieta'],
+    family: ['Penumbra', 'Ceniza', 'Desdén', 'Promesa', 'Vísperas'],
+  },
+  dragonborn: {
+    male: ['Arjhan', 'Balasar', 'Donaar', 'Kriv', 'Torinn'],
+    female: ['Akra', 'Biri', 'Harann', 'Kava', 'Sora'],
+    family: ['Clethtinthiallor', 'Kepeshkmolik', 'Myastan', 'Turnuroth'],
+  },
+};
+
+const rnd = <T,>(arr: readonly T[]): T | undefined =>
+  arr[Math.floor(Math.random() * arr.length)];
+
+type Chip = { tag: string; label: string };
+
+const ChipRow = ({
+  items,
+  value,
+  onChange,
+  allLabel,
+}: {
+  items: readonly Chip[];
+  value: string | null;
+  onChange: (v: string | null) => void;
+  allLabel: string;
+}) => (
+  <div className="flex flex-wrap gap-1.5">
+    <button
+      className={`rounded-full border px-3 py-1 font-condensed text-xs uppercase tracking-wider transition ${
+        value === null
+          ? 'border-brass bg-brass/20 text-brass-pale'
+          : 'border-charcoal-600 text-charcoal-300 hover:border-brass/60'
+      }`}
+      onClick={() => onChange(null)}
+      type="button"
+    >
+      {allLabel}
+    </button>
+    {items.map((it) => (
+      <button
+        className={`rounded-full border px-3 py-1 font-condensed text-xs uppercase tracking-wider transition ${
+          value === it.tag
+            ? 'border-brass bg-brass/20 text-brass-pale'
+            : 'border-charcoal-600 text-charcoal-300 hover:border-brass/60'
+        }`}
+        key={it.tag}
+        onClick={() => onChange(value === it.tag ? null : it.tag)}
+        type="button"
+      >
+        {it.label}
+      </button>
+    ))}
+  </div>
+);
+
+type Generated = {
+  art: ArtEntry;
+  name: string;
+  race: Chip;
+  gender: Chip;
+  cls: Chip;
+};
+
+/** Gallery by race, gender and class, plus a one-click character generator. */
+const PortraitLab = ({ portraits }: PortraitLabProps) => {
+  const [race, setRace] = useState<string | null>('tiefling');
+  const [gender, setGender] = useState<string | null>(null);
+  const [cls, setCls] = useState<string | null>(null);
+  const [generated, setGenerated] = useState<Generated | null>(null);
+
+  const filtered = useMemo(
+    () =>
+      portraits.filter(
+        (p) =>
+          (!race || p.tags.includes(race)) &&
+          (!gender || p.tags.includes(gender)) &&
+          (!cls || p.tags.includes(cls)),
+      ),
+    [portraits, race, gender, cls],
+  );
+
+  const generate = () => {
+    const r = race ? RACES.find((x) => x.tag === race) : rnd(RACES);
+    const g = gender ? GENDERS.find((x) => x.tag === gender) : rnd(GENDERS);
+    const k = cls ? CLASSES.find((x) => x.tag === cls) : rnd(CLASSES);
+    if (!r || !g || !k) return;
+    const strict = portraits.filter(
+      (p) =>
+        p.tags.includes(r.tag) &&
+        p.tags.includes(g.tag) &&
+        p.tags.includes(k.tag),
+    );
+    const loose = portraits.filter(
+      (p) => p.tags.includes(r.tag) && p.tags.includes(g.tag),
+    );
+    const any = portraits.filter((p) => p.tags.includes(r.tag));
+    const pool = strict.length > 0 ? strict : loose.length > 0 ? loose : any;
+    const art = rnd(pool);
+    if (!art) return;
+    const names = NAMES[r.tag] ?? NAMES.human;
+    const first =
+      rnd(names?.[g.tag as 'male' | 'female'] ?? []) ?? 'Sin nombre';
+    const family = rnd(names?.family ?? []) ?? '';
+    setGenerated({
+      art,
+      name: `${first} ${family}`.trim(),
+      race: r,
+      gender: g,
+      cls: k,
+    });
+  };
+
+  return (
+    <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_22rem]">
+      <div>
+        <div className="space-y-2">
+          <ChipRow
+            allLabel="Todas las razas"
+            items={RACES}
+            onChange={setRace}
+            value={race}
+          />
+          <ChipRow
+            allLabel="Cualquier género"
+            items={GENDERS}
+            onChange={setGender}
+            value={gender}
+          />
+          <ChipRow
+            allLabel="Cualquier clase"
+            items={CLASSES}
+            onChange={setCls}
+            value={cls}
+          />
+        </div>
+        <div className="mt-3 font-condensed text-charcoal-400 text-xs uppercase tracking-wider">
+          {filtered.length} retratos
+          {filtered.length > 48 ? ' · mostrando 48' : ''}
+        </div>
+        {filtered.length === 0 ? (
+          <div className="mt-4 rounded border border-charcoal-700 border-dashed p-10 text-center font-book text-charcoal-400 italic">
+            Todavía no hay retratos con esas etiquetas. La descarga del catálogo
+            sigue en marcha, o esta combinación no existe en el arte oficial.
+          </div>
+        ) : null}
+        <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
+          {filtered.slice(0, 48).map((p) => (
+            <button
+              className="group frame-brass relative aspect-[3/4] overflow-hidden rounded-sm bg-charcoal-800 text-left"
+              key={p.id}
+              onClick={() =>
+                setGenerated({
+                  art: p,
+                  name: p.title
+                    .replace(/[-_]/g, ' ')
+                    .replace(/\b\d+\b/g, '')
+                    .trim(),
+                  race: RACES.find((r) => p.tags.includes(r.tag)) ?? {
+                    tag: '',
+                    label: '',
+                  },
+                  gender: GENDERS.find((g) => p.tags.includes(g.tag)) ?? {
+                    tag: '',
+                    label: '',
+                  },
+                  cls: CLASSES.find((c) => p.tags.includes(c.tag)) ?? {
+                    tag: '',
+                    label: '',
+                  },
+                })
+              }
+              title={p.title}
+              type="button"
+            >
+              {/* biome-ignore lint/performance/noImgElement: pre-sized local art */}
+              <img
+                alt={p.title}
+                className="h-full w-full object-cover object-[50%_20%] transition duration-300 group-hover:scale-[1.04]"
+                height={p.height}
+                loading="lazy"
+                src={p.src}
+                width={p.width}
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal-950/90 to-transparent px-2 pt-6 pb-1.5">
+                <div className="font-condensed text-[0.62rem] text-brass-pale uppercase tracking-wider">
+                  {p.tags
+                    .filter(
+                      (t) =>
+                        RACES.some((r) => r.tag === t) ||
+                        CLASSES.some((c) => c.tag === t),
+                    )
+                    .slice(0, 2)
+                    .join(' · ')}
+                </div>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Generator card */}
+      <aside className="lg:sticky lg:top-20 lg:self-start">
+        <div className="rounded-lg border border-brass/40 bg-charcoal-800 p-5">
+          <div className="font-condensed text-strapline text-xs uppercase tracking-2xl">
+            Generador
+          </div>
+          <h3 className="font-nodesto text-2xl text-brass-pale uppercase">
+            Un personaje al azar
+          </h3>
+          <p className="mt-1 font-scaly text-charcoal-400 text-sm">
+            Usa los filtros de la izquierda o déjalo todo en manos del destino.
+          </p>
+          <button
+            className="btn-beyond mt-4 w-full px-4 py-3 uppercase"
+            onClick={generate}
+            type="button"
+          >
+            Generar personaje
+          </button>
+
+          {generated ? (
+            <div className="paper mt-5 rounded-[3px] p-4">
+              <div className="flex gap-4">
+                <div className="frame-brass h-36 w-28 shrink-0 overflow-hidden rounded-sm outline-gold-page">
+                  {/* biome-ignore lint/performance/noImgElement: pre-sized local art */}
+                  <img
+                    alt={generated.name}
+                    className="h-full w-full object-cover object-[50%_15%]"
+                    height={generated.art.height}
+                    src={generated.art.src}
+                    width={generated.art.width}
+                  />
+                </div>
+                <div className="min-w-0">
+                  <div className="font-caps text-[1.4rem] text-maroon leading-tight">
+                    {generated.name}
+                  </div>
+                  <div className="font-scaly text-ink-muted text-sm">
+                    {[
+                      generated.race.label,
+                      generated.gender.label,
+                      generated.cls.label,
+                    ]
+                      .filter(Boolean)
+                      .join(' · ')}
+                  </div>
+                  <div className="mt-3 flex items-center gap-3">
+                    <div className="relative h-14 w-14 overflow-hidden rounded-full ring-[3px] ring-brass-gold ring-offset-2 ring-offset-paper">
+                      {/* biome-ignore lint/performance/noImgElement: pre-sized local art */}
+                      <img
+                        alt=""
+                        className="h-full w-full object-cover object-[50%_15%]"
+                        height={generated.art.height}
+                        src={generated.art.src}
+                        width={generated.art.width}
+                      />
+                    </div>
+                    <div className="font-scaly text-ink-muted text-xs leading-tight">
+                      Token para el tablero,
+                      <br />
+                      generado del retrato.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-3 border-gold-rule border-t pt-2 font-scaly text-[0.7rem] text-ink-muted">
+                Arte: {generated.art.artist ?? 'Wizards of the Coast'} ·{' '}
+                {generated.art.source.site === 'kingmaker'
+                  ? 'Pathfinder: Kingmaker'
+                  : 'Forgotten Realms Wiki'}
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </aside>
+    </div>
+  );
+};
+
+export { PortraitLab, RACES };

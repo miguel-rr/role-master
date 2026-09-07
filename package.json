@@ -3,21 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "preview": "next build && next start",
     "start": "next start",
     "check": "biome check .",
     "check:write": "biome check --write .",
     "check:unsafe": "biome check --write --unsafe .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "art:sync": "tsx scripts/art/sync.ts",
+    "postinstall": "node scripts/copy-dice-assets.mjs"
   },
   "dependencies": {
+    "@3d-dice/dice-box": "^1.1.4",
     "@anthropic-ai/sdk": "^0.124.0",
     "@t3-oss/env-nextjs": "^0.13.11",
     "next": "16.3.4",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "server-only": "^0.0.1",
     "zod": "^4.5.4"
   },
   "devDependencies": {
@@ -26,7 +30,9 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4",
+    "tsx": "^4.23.13",
     "typescript": "^5"
   },
   "packageManager": "pnpm@11.18.0",

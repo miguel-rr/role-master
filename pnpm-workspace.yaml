@@ -1,3 +1,4 @@
 allowBuilds:
-  sharp: false
-  unrs-resolver: false
+  '@3d-dice/dice-box': set this to true or false
+  esbuild: true
+  sharp: true
