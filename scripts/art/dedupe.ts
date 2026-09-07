@@ -80,6 +80,117 @@ const hamming = (a: bigint, b: bigint) => {
   return n;
 };
 
+/**
+ * Owlcat re-paints named characters in variants (artbook, evil, undead,
+ * scarred, before/after) that a hash may not pair. Group those by character
+ * name and keep one. Generic portraits ("PlayerFighter02", "DwarfMaleRogue")
+ * reduce to an empty key and are left to the hash pass.
+ */
+const OWLCAT_STRIP = [
+  'artbook',
+  'player',
+  'female',
+  'male',
+  'nogender',
+  'human',
+  'elf',
+  'dwarf',
+  'gnome',
+  'halfling',
+  'halfelf',
+  'halforc',
+  'aasimar',
+  'tiefling',
+  'dhampir',
+  'kitsune',
+  'oread',
+  'halfsuccubus',
+  'succubus',
+  'demonlord',
+  'demonic',
+  'demon',
+  'devil',
+  'undead',
+  'lich',
+  'angel',
+  'azata',
+  'aeon',
+  'trickster',
+  'golddragon',
+  'dragon',
+  'mongrel',
+  'android',
+  'mythic',
+  'locust',
+  'swarm',
+  'goddess',
+  'evil',
+  'good',
+  'magic',
+  'twin',
+  'scars',
+  'scar',
+  'blind',
+  'oldversion',
+  'old',
+  'version',
+  'hide',
+  'show',
+  'corrupted',
+  'pet',
+  'sentient',
+  'weapon',
+  'hellknight',
+  'witheye',
+  'nohand',
+  'now',
+  'before',
+  'witch',
+  'shaman',
+  'oracle',
+  'mage',
+  'tank',
+  'archer',
+  'noble',
+  'priest',
+  'rogue',
+  'fighter',
+  'monk',
+  'zen',
+  'ranger',
+  'paladin',
+  'cleric',
+  'wizard',
+  'bard',
+  'druid',
+  'sorcerer',
+  'warlock',
+  'slayer',
+  'bloodrager',
+  'magus',
+  'alchemist',
+  'inquisitor',
+  'kineticist',
+  'hunter',
+  'warrior',
+  'knight',
+  'trapmaster',
+  'barbarian',
+  'community',
+];
+
+const owlcatCharacterKey = (id: string) => {
+  let key = (id.split('/').at(-1) ?? '')
+    .toLowerCase()
+    .replace(/[-_]/g, '')
+    .replace(/\d+$/, '');
+  for (const w of OWLCAT_STRIP) key = key.replaceAll(w, '');
+  return key.length >= 3 ? key : null;
+};
+
+const VARIANT =
+  /artbook|evil|undead|demonic|scar|blind|old|before|now|corrupted|hide|witheye|nohand/i;
+
 const main = async () => {
   const all: {
     entry: ArtEntry;
@@ -146,6 +257,29 @@ const main = async () => {
       console.log(`  ${item.entry.id}  ≈  ${twin.entry.id}`);
     } else {
       kept.push(item);
+    }
+  }
+
+  // Second pass: one portrait per named Owlcat character.
+  const groups = new Map<string, ArtEntry[]>();
+  for (const k of kept) {
+    if (k.entry.source.site !== 'kingmaker') continue;
+    const key = owlcatCharacterKey(k.entry.id);
+    if (!key) continue;
+    groups.set(key, [...(groups.get(key) ?? []), k.entry]);
+  }
+  for (const [key, entries] of groups) {
+    if (entries.length < 2) continue;
+    const ranked = [...entries].sort((a, b) => {
+      const av = VARIANT.test(a.id) ? 1 : 0;
+      const bv = VARIANT.test(b.id) ? 1 : 0;
+      if (av !== bv) return av - bv;
+      return a.id.length - b.id.length;
+    });
+    for (const extra of ranked.slice(1)) {
+      extra.tags.push(TAG);
+      dupes += 1;
+      console.log(`  ${extra.id}  ≈  ${ranked[0]?.id}  (personaje: ${key})`);
     }
   }
 
