@@ -168,13 +168,23 @@ La IA elige el modo en cada turno; la interfaz lo renderiza:
 - **Compañero PNJ** controlado por la IA para que los módulos de 4-5 PJ
   funcionen con dos jugadores (regla de *sidekick* del Essentials Kit).
 
-## 8. Dispositivos y maqueta — CERRADO
+## 8. Nivel de acabado visual — CERRADO (2026-09-07)
+**Listón**: que al abrir la web se pueda pensar que es una **página oficial de
+Dungeons & Dragons**. Implica estudiar el lenguaje visual oficial (dndbeyond.com,
+dnd.wizards.com, las maquetas de los manuales de 5e: cabeceras en serif con
+versalitas, rojo D&D sobre carbón, dorados, filigranas, bloques de estadísticas
+en pergamino, capitulares, marcos de sección), sacar una **guía de estilo**
+propia (`.claude/design-system.md`) con tokens, tipografías equivalentes en
+Google Fonts y ornamentos SVG, y aplicarla con rigor en cada pantalla. Sin
+prisa: el tiempo que haga falta para reunir referencias y acertar.
+
+## 9. Dispositivos y maqueta — CERRADO
 - Portátil y **TV grande vista a varios metros**: tipografía generosa, alto
   contraste, y un **modo TV** que escala la interfaz y simplifica los bloques
   de interacción para que se lean desde el sofá. Dos columnas (una por
   personaje) en horizontal.
 
-## 9. Campañas — CERRADO (alcance) 
+## 10. Campañas — CERRADO (alcance)
 Las **tres** desde el inicio, convertidas a biblias estructuradas (actos,
 lugares, PNJ con retrato, encuentros con mapa, secretos, ganchos), adaptadas
 a **dos jugadores + compañero PNJ**, en este orden:
@@ -186,10 +196,10 @@ a **dos jugadores + compañero PNJ**, en este orden:
    en aliados PNJ del propio módulo (Ireena, Ismark, Ezmerelda, Van Richten).
 Además, **campaña original** generada por la IA a partir de semillas.
 
-## 10. Fuera de alcance — CERRADO
+## 11. Fuera de alcance — CERRADO
 Voz/TTS, música ambiente, multi-dispositivo. El tablero táctico **sí** entra.
 
-## 11. Pendiente de Miguel
+## 12. Pendiente de Miguel
 - [ ] API key de Anthropic (pasos en `.claude/setup-anthropic.md`).
 - [ ] Marcar `develop` como rama por defecto en GitHub.
 - [ ] Crear el proyecto en Vercel, asociar el repo y `develop` → Preview.
