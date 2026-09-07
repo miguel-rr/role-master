@@ -3,12 +3,14 @@
  * full-screen use (the bulk sync caps scenes at 1500).
  *
  *   pnpm art:hd scenes/fr/crimman-club scenes/fr/klauthen-vale …
+ *   pnpm art:hd "File:Underdark Forest AFR.jpg"   # adds a new scene entry
  */
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { artManifestSchema } from '../../src/data/art/schema';
+import { slugify } from './jobs';
 import { politeFetch } from './wiki';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -22,14 +24,33 @@ const main = async () => {
     JSON.parse(await readFile(file, 'utf8')),
   );
   for (const id of ids) {
-    const entry = manifest.entries.find((e) => e.id === id);
-    if (!entry) {
+    let entry = manifest.entries.find((e) => e.id === id);
+    let title: string;
+    if (entry) {
+      title = decodeURIComponent(entry.source.page.split('/wiki/')[1] ?? '');
+    } else if (id.startsWith('File:')) {
+      // A hand-picked wiki file the bulk sync did not bring: add it.
+      title = id;
+      const stem = id.replace(/^File:/, '').replace(/\.[a-z0-9]+$/i, '');
+      const slug = slugify(stem);
+      entry = {
+        id: `scenes/fr/${slug}`,
+        src: `/art/scenes/fr/${slug}.webp`,
+        width: 1,
+        height: 1,
+        title: stem,
+        tags: ['scene', 'picked'],
+        cats: [],
+        source: {
+          site: 'fr',
+          page: `https://forgottenrealms.fandom.com/wiki/${encodeURIComponent(id.replace(/ /g, '_'))}`,
+        },
+      };
+      manifest.entries.push(entry);
+    } else {
       console.warn(`! ${id}: no está en scenes-fr`);
       continue;
     }
-    const title = decodeURIComponent(
-      entry.source.page.split('/wiki/')[1] ?? '',
-    );
     const api = `https://forgottenrealms.fandom.com/api.php?${new URLSearchParams(
       {
         action: 'query',
