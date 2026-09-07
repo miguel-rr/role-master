@@ -1,6 +1,6 @@
 # Role Master — plan de acción
 
-**Estado (2026-09-07): esqueleto montado, alcance casi cerrado (ronda 2).**
+**Estado (2026-09-08): alcance cerrado; laboratorio `/design` construido y pendiente de revisión de Miguel; catálogo de arte descargándose.**
 Este documento es la fuente de verdad del proyecto: se actualiza con cada
 decisión cerrada con Miguel. Las secciones `[ABIERTO]` esperan respuesta o
 investigación.
@@ -76,7 +76,7 @@ generación de imágenes con IA (Miguel prefiere bancos de arte existentes).
   Production del primer import de `main`; queda inerte porque `main` no
   recibe commits.
 
-## 5. Arte e ilustraciones — PROPUESTA (pendiente de OK de Miguel)
+## 5. Arte e ilustraciones — CERRADO (OK de Miguel 2026-09-07)
 
 Decisión de Miguel: bancos de arte existentes (uso privado, se acepta
 material con copyright), descargados por script a `public/art`, nunca hotlink.
@@ -99,7 +99,7 @@ tipado `src/data/art/*.ts` con id, ruta, etiquetas (raza, género, edad, clase,
 tipo de objeto, bioma, hora, clima, ambiente) para que la IA y la UI elijan
 imagen **por etiquetas**. Estándar interno del tablero: **70 px = 5 pies**.
 
-### Dados 3D — PROPUESTA
+### Dados 3D — CERRADO
 `@3d-dice/dice-box` (MIT, BabylonJS + física, d4-d100, temas con textura,
 color por jugador). Es la única librería mantenida; integración verificada en
 Next 16 / React 19 con carga dinámica sin SSR y copia de assets a `public/`.
@@ -196,17 +196,22 @@ prisa: el tiempo que haga falta para reunir referencias y acertar.
   de interacción para que se lean desde el sofá. Dos columnas (una por
   personaje) en horizontal.
 
-## 10. Campañas — CERRADO (alcance)
-Las **tres** desde el inicio, convertidas a biblias estructuradas (actos,
-lugares, PNJ con retrato, encuentros con mapa, secretos, ganchos), adaptadas
-a **dos jugadores + compañero PNJ**, en este orden:
-1. *El Dragón del Pico Escarcha* (Essentials Kit): diseñado explícitamente
-   para grupos pequeños con sidekicks; misiones modulares; niveles 1-6.
-2. *La Mina Perdida de Phandelver*: niveles 1-5, lineal y perfecto para novatos;
-   encuentros reescalados.
-3. *La Maldición de Strahd*: niveles 1-10, gótico; para dos jugadores se apoya
-   en aliados PNJ del propio módulo (Ireena, Ismark, Ezmerelda, Van Richten).
+## 10. Campañas — CERRADO (alcance, revisado 2026-09-07)
+Investigación completa en `.claude/campaigns-research.md`. Biblias
+estructuradas (actos, lugares, PNJ con retrato, encuentros con mapa,
+secretos, ganchos), adaptadas a **dos jugadores + compañero PNJ**, en este
+orden:
+1. *El Dragón del Pico Escarcha* (Essentials Kit, 1-6): la única oficial
+   pensada para 1-2 jugadores, con reglas de *sidekick*; misiones modulares.
+2. *La Mina Perdida de Phandelver* (1-5): la más recomendada para dos; Sildar
+   y Gundren como compañeros, nivel 2 pronto, encuentros recortados.
+3. *First Blush* (D&D Duet, 1-2, dos sesiones): tutorial para dos novatos,
+   diseñada para enseñar a jugar.
+4. *La Maldición de Strahd* (3+): segunda campaña; Ismark e Ireena como
+   compañeros y el aliado de la Tarokka como PJ de apoyo; Death House suavizada.
 Además, **campaña original** generada por la IA a partir de semillas.
+Escalado a dos PJ: multiplicador siguiente del DMG 2014, sanador o pociones
+siempre a mano, salida posible de cada combate.
 
 ## 11. Fuera de alcance — CERRADO
 Voz/TTS, música ambiente, multi-dispositivo. El tablero táctico **sí** entra.
@@ -215,5 +220,16 @@ Voz/TTS, música ambiente, multi-dispositivo. El tablero táctico **sí** entra.
 - [x] API key de Anthropic (2026-09-07).
 - [x] `develop` rama por defecto en GitHub (2026-09-07).
 - [x] Proyecto en Vercel, `develop` → Preview verificado (2026-09-07).
-- [ ] Dar el OK a la propuesta de arte y dados (§5).
+- [x] OK a arte y dados (2026-09-07).
 - [ ] Descargar los zips de 2-Minute Tabletop y Forgotten Adventures (cuentas gratuitas) cuando toque el tablero.
+
+## 13. Estado del laboratorio `/design` (2026-09-08)
+Construido y revisado en navegador (portátil 1600 px). Secciones: portada,
+pasaje ilustrado (manual + variante TV), retratos con generador, inventario
+ilustrado, fichas en papel de los dos PJ, nueve bloques de decisión
+interactivos, tablero táctico con movimiento real, bandeja de dados 3D, guía
+de color y tipografía. Fuentes de 5e auto-alojadas (`src/fonts/5e`).
+Pendiente: revisión de Miguel; escenas de paisaje llegan con el catálogo.
+Notas técnicas: los iconos de inventario del demo usan nombres de bg3
+(`icon` en `src/data/demo/characters.ts`); Nodesto no tiene mayúsculas
+acentuadas y `<Caps>` dibuja el acento; las previews de Vercel exigen login.

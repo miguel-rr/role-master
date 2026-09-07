@@ -1,6 +1,6 @@
 {
   "collection": "portraits-kingmaker",
-  "generatedAt": "2026-09-07T20:50:19.734Z",
+  "generatedAt": "2026-09-07T20:57:59.226Z",
   "entries": [
     {
       "id": "portraits/pc/aasimarfemalemage",
@@ -8,13 +8,7 @@
       "width": 608,
       "height": 900,
       "title": "AasimarFemaleMage",
-      "tags": [
-        "portrait",
-        "pc",
-        "aasimar",
-        "wizard",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "aasimar", "wizard", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -27,13 +21,7 @@
       "width": 608,
       "height": 900,
       "title": "AasimarMaleBloodrager",
-      "tags": [
-        "portrait",
-        "pc",
-        "aasimar",
-        "barbarian",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "aasimar", "barbarian", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -46,12 +34,7 @@
       "width": 608,
       "height": 900,
       "title": "AeonNoGenderMage",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "wizard"
-      ],
+      "tags": ["portrait", "pc", "human", "wizard"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -64,13 +47,7 @@
       "width": 608,
       "height": 900,
       "title": "DhampirFemaleBard",
-      "tags": [
-        "portrait",
-        "pc",
-        "dhampir",
-        "bard",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "dhampir", "bard", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -83,13 +60,7 @@
       "width": 608,
       "height": 900,
       "title": "DhampirInquisitorMale",
-      "tags": [
-        "portrait",
-        "pc",
-        "dhampir",
-        "paladin",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "dhampir", "paladin", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -102,13 +73,7 @@
       "width": 608,
       "height": 900,
       "title": "DwarfFemaleNoble",
-      "tags": [
-        "portrait",
-        "pc",
-        "dwarf",
-        "noble",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "dwarf", "noble", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -121,13 +86,7 @@
       "width": 608,
       "height": 900,
       "title": "DwarfMaleRogue",
-      "tags": [
-        "portrait",
-        "pc",
-        "dwarf",
-        "rogue",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "dwarf", "rogue", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -140,13 +99,7 @@
       "width": 608,
       "height": 900,
       "title": "ElfMaleNoble",
-      "tags": [
-        "portrait",
-        "pc",
-        "elf",
-        "noble",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "elf", "noble", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -159,13 +112,7 @@
       "width": 608,
       "height": 900,
       "title": "FemaleHalfElfWarrior",
-      "tags": [
-        "portrait",
-        "pc",
-        "half-elf",
-        "fighter",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "half-elf", "fighter", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -178,13 +125,7 @@
       "width": 608,
       "height": 900,
       "title": "GnomeMaleNoble",
-      "tags": [
-        "portrait",
-        "pc",
-        "gnome",
-        "noble",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "gnome", "noble", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -197,13 +138,7 @@
       "width": 608,
       "height": 900,
       "title": "HalfElfMaleMage",
-      "tags": [
-        "portrait",
-        "pc",
-        "half-elf",
-        "wizard",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "half-elf", "wizard", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -216,13 +151,7 @@
       "width": 608,
       "height": 900,
       "title": "HalflingFemaleRogue",
-      "tags": [
-        "portrait",
-        "pc",
-        "halfling",
-        "rogue",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "halfling", "rogue", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -235,13 +164,7 @@
       "width": 608,
       "height": 900,
       "title": "HalflingMaleTank",
-      "tags": [
-        "portrait",
-        "pc",
-        "halfling",
-        "fighter",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "halfling", "fighter", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -254,13 +177,7 @@
       "width": 608,
       "height": 900,
       "title": "HalfOrcFemaleTank",
-      "tags": [
-        "portrait",
-        "pc",
-        "half-orc",
-        "fighter",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "half-orc", "fighter", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -273,13 +190,7 @@
       "width": 608,
       "height": 900,
       "title": "HumanFemaleArcher",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "ranger",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "human", "ranger", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -292,13 +203,7 @@
       "width": 608,
       "height": 900,
       "title": "HumanMaleMagus",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "fighter",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "human", "fighter", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -311,13 +216,7 @@
       "width": 608,
       "height": 900,
       "title": "HumanMaleTank",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "fighter",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "human", "fighter", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -330,13 +229,7 @@
       "width": 608,
       "height": 900,
       "title": "HumanMwangiFemaleMage",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "wizard",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "human", "wizard", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -349,13 +242,7 @@
       "width": 608,
       "height": 900,
       "title": "HumanTianXiaFemaleNoble",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "noble",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "human", "noble", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -368,13 +255,7 @@
       "width": 608,
       "height": 900,
       "title": "HumanTianXiaMaleMonk",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "monk",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "human", "monk", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -387,13 +268,7 @@
       "width": 608,
       "height": 900,
       "title": "KitsuneFemaleRogue",
-      "tags": [
-        "portrait",
-        "pc",
-        "kitsune",
-        "rogue",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "kitsune", "rogue", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -406,13 +281,7 @@
       "width": 608,
       "height": 900,
       "title": "KitsuneMaleSorcerer",
-      "tags": [
-        "portrait",
-        "pc",
-        "kitsune",
-        "sorcerer",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "kitsune", "sorcerer", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -425,13 +294,7 @@
       "width": 608,
       "height": 900,
       "title": "LichMaleMage",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "wizard",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "human", "wizard", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -444,12 +307,7 @@
       "width": 608,
       "height": 900,
       "title": "OreadFemaleWarpriest",
-      "tags": [
-        "portrait",
-        "pc",
-        "genasi",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "genasi", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -462,13 +320,7 @@
       "width": 608,
       "height": 900,
       "title": "OreadMonkMale",
-      "tags": [
-        "portrait",
-        "pc",
-        "genasi",
-        "monk",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "genasi", "monk", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -481,12 +333,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerAasimarMonk01",
-      "tags": [
-        "portrait",
-        "pc",
-        "aasimar",
-        "monk"
-      ],
+      "tags": ["portrait", "pc", "aasimar", "monk"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -499,12 +346,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerAasimarPaladin01",
-      "tags": [
-        "portrait",
-        "pc",
-        "aasimar",
-        "paladin"
-      ],
+      "tags": ["portrait", "pc", "aasimar", "paladin"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -517,12 +359,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerAasimarPriest01",
-      "tags": [
-        "portrait",
-        "pc",
-        "aasimar",
-        "cleric"
-      ],
+      "tags": ["portrait", "pc", "aasimar", "cleric"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -535,12 +372,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerArcher01",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "ranger"
-      ],
+      "tags": ["portrait", "pc", "human", "ranger"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -553,12 +385,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerArcher02",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "ranger"
-      ],
+      "tags": ["portrait", "pc", "human", "ranger"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -571,12 +398,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerArcher03",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "ranger"
-      ],
+      "tags": ["portrait", "pc", "human", "ranger"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -589,12 +411,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerArcher04",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "ranger"
-      ],
+      "tags": ["portrait", "pc", "human", "ranger"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -607,12 +424,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerBarbarian",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "barbarian"
-      ],
+      "tags": ["portrait", "pc", "human", "barbarian"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -625,12 +437,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerCleric01",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "cleric"
-      ],
+      "tags": ["portrait", "pc", "human", "cleric"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -643,12 +450,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerDruid01",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "druid"
-      ],
+      "tags": ["portrait", "pc", "human", "druid"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -661,12 +463,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerFighter01",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "fighter"
-      ],
+      "tags": ["portrait", "pc", "human", "fighter"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -679,12 +476,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerFighter02",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "fighter"
-      ],
+      "tags": ["portrait", "pc", "human", "fighter"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -697,12 +489,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerFighter03",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "fighter"
-      ],
+      "tags": ["portrait", "pc", "human", "fighter"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -715,12 +502,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerMonk01",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "monk"
-      ],
+      "tags": ["portrait", "pc", "human", "monk"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -733,12 +515,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerPaladin01",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "paladin"
-      ],
+      "tags": ["portrait", "pc", "human", "paladin"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -751,12 +528,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerPriest01",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "cleric"
-      ],
+      "tags": ["portrait", "pc", "human", "cleric"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -769,12 +541,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerPriest02",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "cleric"
-      ],
+      "tags": ["portrait", "pc", "human", "cleric"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -787,12 +554,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerRogue01",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "rogue"
-      ],
+      "tags": ["portrait", "pc", "human", "rogue"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -805,12 +567,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerTieflingNoble01",
-      "tags": [
-        "portrait",
-        "pc",
-        "tiefling",
-        "noble"
-      ],
+      "tags": ["portrait", "pc", "tiefling", "noble"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -823,12 +580,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerTieflingRogue01",
-      "tags": [
-        "portrait",
-        "pc",
-        "tiefling",
-        "rogue"
-      ],
+      "tags": ["portrait", "pc", "tiefling", "rogue"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -841,12 +593,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerTrapmaster",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "rogue"
-      ],
+      "tags": ["portrait", "pc", "human", "rogue"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -859,12 +606,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerWizard01",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "wizard"
-      ],
+      "tags": ["portrait", "pc", "human", "wizard"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -877,12 +619,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerWizard02",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "wizard"
-      ],
+      "tags": ["portrait", "pc", "human", "wizard"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -895,12 +632,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerWizard03",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "wizard"
-      ],
+      "tags": ["portrait", "pc", "human", "wizard"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -913,12 +645,7 @@
       "width": 608,
       "height": 900,
       "title": "PlayerWizard04",
-      "tags": [
-        "portrait",
-        "pc",
-        "human",
-        "wizard"
-      ],
+      "tags": ["portrait", "pc", "human", "wizard"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -931,13 +658,7 @@
       "width": 608,
       "height": 900,
       "title": "TieflingFemalePriest",
-      "tags": [
-        "portrait",
-        "pc",
-        "tiefling",
-        "cleric",
-        "female"
-      ],
+      "tags": ["portrait", "pc", "tiefling", "cleric", "female"],
       "cats": [],
       "source": {
         "site": "kingmaker",
@@ -950,13 +671,7 @@
       "width": 608,
       "height": 900,
       "title": "TieflingMaleArcher",
-      "tags": [
-        "portrait",
-        "pc",
-        "tiefling",
-        "ranger",
-        "male"
-      ],
+      "tags": ["portrait", "pc", "tiefling", "ranger", "male"],
       "cats": [],
       "source": {
         "site": "kingmaker",

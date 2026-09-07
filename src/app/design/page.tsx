@@ -21,6 +21,10 @@ import { PortraitLab } from './_components/portrait-lab';
 import { StyleGuide } from './_components/style-guide';
 import { TacticalBoard, type Token } from './_components/tactical-board';
 
+// The lab reads the art catalogue from disk on every request: while the
+// sync is running, the page must never serve a stale prerender.
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   robots: { index: false },
   title: 'Role Master — Propuestas de diseño',
@@ -185,6 +189,11 @@ const DesignPage = () => {
     ...collection('npcs-fr'),
   ]
     .filter((p) => p.width >= 300)
+    // The NPC and race collections overlap on the wiki: keep one per source page.
+    .filter(
+      (p, i, all) =>
+        all.findIndex((q) => q.source.page === p.source.page) === i,
+    )
     .sort((a, b) => portraitQuality(b) - portraitQuality(a));
 
   const players = [

@@ -71,6 +71,7 @@ const Hero = ({ scene, players }: HeroProps) => (
                 alt={p.name}
                 art={p.portrait}
                 className="h-full w-full"
+                loading="eager"
               />
             </div>
             <div className="min-w-0">
