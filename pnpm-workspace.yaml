@@ -1,4 +1,6 @@
 allowBuilds:
-  '@3d-dice/dice-box': set this to true or false
   esbuild: true
   sharp: true
+  # Its postinstall only offers to copy assets (we do that ourselves in
+  # scripts/copy-dice-assets.mjs); declining it explicitly keeps pnpm quiet on Vercel.
+  "@3d-dice/dice-box": false
