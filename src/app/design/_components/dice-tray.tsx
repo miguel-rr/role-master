@@ -379,9 +379,11 @@ const DiceTray = ({ players }: DiceTrayProps) => {
     void roll(p.label, p.groups);
   };
 
+  // 2D faces: while spinning, and as the final face whenever the roll was
+  // resolved without the 3D engine (no WebGL, hidden tab, timeout).
   const faces =
     spinning ??
-    (engine === '2d' && outcome
+    (outcome?.engine === '2d'
       ? outcome.groups.flatMap((g) =>
           g.values.map((value) => ({ type: g.type, value })),
         )
