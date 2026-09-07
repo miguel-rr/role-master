@@ -248,3 +248,14 @@ acentuadas y `<Caps>` dibuja el acento; las previews de Vercel exigen login.
   blanco" (etiqueta `white-bg` calculada por luminancia de esquinas con
   `pnpm art:tag-backgrounds`: 165/678 razas, 125/508 PNJ, 340/919 monstruos).
   Cuando elija series, se fijan como conjunto por defecto del juego.
+
+### Serie de retratos elegida (2026-09-08)
+Favoritos de Miguel (todos de la misma serie): `portraits/pc/aeonnogendermage`,
+`portraits/pc/dwarfmalerogue`, `portraits/pc/lichmalemage`,
+`portraits/pc/playerdruid01`, `portraits/pc/playerfighter01` — retratos
+pintados de **Owlcat Games** (Pathfinder: Kingmaker y Wrath of the Righteous,
+wiki `pathfinderkingmaker.fandom.com`). **Decisión**: esa serie es la línea
+visual de los retratos de PJ y PNJ (formato vertical, fondo pintado, misma
+mano). El arte oficial de Wizards queda para monstruos, escenas y como reserva
+cuando falte una combinación. Se amplía la descarga a compañeros, personajes,
+versiones *artbook* (1.800 px) y las categorías de retratos de ambos juegos.

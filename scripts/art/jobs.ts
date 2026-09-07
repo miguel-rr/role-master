@@ -564,6 +564,17 @@ const KINGMAKER_RACE: Record<string, string> = {
   dhampir: 'dhampir',
   kitsune: 'kitsune',
   oread: 'genasi',
+  succubus: 'fiend',
+  demon: 'fiend',
+  devil: 'fiend',
+  undead: 'undead',
+  lich: 'undead',
+  angel: 'celestial',
+  azata: 'celestial',
+  aeon: 'aberration',
+  trickster: 'fey',
+  golddragon: 'dragon',
+  nogender: 'human',
 };
 
 const KINGMAKER_CLASS: Record<string, string> = {
@@ -593,6 +604,24 @@ const KINGMAKER_CLASS: Record<string, string> = {
   hunter: 'ranger',
   warrior: 'fighter',
   knight: 'paladin',
+  shaman: 'druid',
+  witch: 'warlock',
+  oracle: 'cleric',
+  warpriest: 'cleric',
+  arcanist: 'wizard',
+  skald: 'bard',
+  cavalier: 'paladin',
+  investigator: 'rogue',
+  ninja: 'rogue',
+  swashbuckler: 'rogue',
+  gunslinger: 'ranger',
+  summoner: 'sorcerer',
+  spiritualist: 'warlock',
+  mesmerist: 'bard',
+  occultist: 'wizard',
+  psychic: 'sorcerer',
+  medium: 'cleric',
+  vivisectionist: 'rogue',
 };
 
 /**
@@ -600,8 +629,12 @@ const KINGMAKER_CLASS: Record<string, string> = {
  * `PlayerAasimarMonk01.png` / `PlayerFighter02.png` (race and gender optional).
  */
 const kingmakerTags = (title: string): string[] | null => {
-  if (/Placeholder|Artbook|Community/i.test(title)) return null;
-  const base = title.replace(/\.png$/i, '').replace(/^Player/, '');
+  if (/Placeholder|Community/i.test(title)) return null;
+  const base = title
+    .replace(/\.(png|jpe?g)$/i, '')
+    .replace(/^Player/, '')
+    .replace(/Artbook$/i, '')
+    .replace(/ (Half|Portrait)$/i, '');
   // Split CamelCase: "HalfOrcFemaleTank" → Half, Orc, Female, Tank.
   const raw = base.match(/[A-Z][a-z]+/g) ?? [];
   const tokens: string[] = [];
@@ -623,10 +656,15 @@ const kingmakerTags = (title: string): string[] | null => {
     else if (KINGMAKER_RACE[k]) race = KINGMAKER_RACE[k];
     else if (KINGMAKER_CLASS[k]) cls = KINGMAKER_CLASS[k];
   }
-  if (!race && !cls) return null;
-  const tags = [race ?? 'human'];
+  // Named companions ("Amiri", "CamelliaArtbook") carry no race in the file
+  // name: keep them as NPC-grade portraits without guessing a race.
+  const tags: string[] = ['owlcat'];
+  if (race) tags.push(race);
+  else if (cls || gender) tags.push('human');
+  else tags.push('companion');
   if (cls) tags.push(cls);
   if (gender) tags.push(gender);
+  if (/Artbook/i.test(title)) tags.push('artbook');
   return tags;
 };
 
@@ -635,10 +673,15 @@ const kingmakerPortraits: Job = {
   site: 'kingmaker',
   apiUrl: KINGMAKER_API,
   outDir: 'portraits/pc',
-  categories: [{ name: 'Portraits - Player', tags: ['portrait', 'pc'] }],
-  transform: PORTRAIT_TRANSFORM,
+  categories: [
+    { name: 'Portraits - Player', tags: ['portrait', 'pc'] },
+    { name: 'Portraits - Companions', tags: ['portrait', 'npc'] },
+    { name: 'Portraits - Characters', tags: ['portrait', 'npc'] },
+    { name: 'Pathfinder: Kingmaker images - Portraits', tags: ['portrait'] },
+    { name: 'Pathfinder: WotR images - Portraits', tags: ['portrait'] },
+  ],
+  transform: { maxSide: 1100, quality: 82 },
   minWidth: 600,
-  excludeTitles: /\.(jpg|jpeg)$/i,
   tag: (file) => kingmakerTags(file.title),
 };
 

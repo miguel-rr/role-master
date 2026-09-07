@@ -51,13 +51,25 @@ const GENERIC_SOURCES = new Set([
   'Images from video games',
 ]);
 
+/** Owlcat portraits carry no wiki book category; they form their own series. */
+const OWLCAT_SERIES = 'owlcat';
+
+const seriesKeysOf = (p: ArtEntry): string[] =>
+  p.source.site === 'kingmaker'
+    ? [OWLCAT_SERIES]
+    : p.cats.filter(
+        (c) => c.startsWith('Images from ') && !GENERIC_SOURCES.has(c),
+      );
+
 const seriesLabel = (cat: string) =>
-  cat
-    .replace(/^Images from (the )?/, '')
-    .replace(/ 5th edition( \(revised\))?/, (m) =>
-      m.includes('revised') ? ' (2024)' : ' (2014)',
-    )
-    .replace(/ sourcebooks$/, '');
+  cat === OWLCAT_SERIES
+    ? 'Pathfinder (Owlcat)'
+    : cat
+        .replace(/^Images from (the )?/, '')
+        .replace(/ 5th edition( \(revised\))?/, (m) =>
+          m.includes('revised') ? ' (2024)' : ' (2014)',
+        )
+        .replace(/ sourcebooks$/, '');
 
 const NAMES: Record<
   string,
@@ -182,7 +194,7 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
   const [gender, setGender] = useState<string | null>(null);
   const [cls, setCls] = useState<string | null>(null);
   const [generated, setGenerated] = useState<Generated | null>(null);
-  const [series, setSeries] = useState<Set<string>>(new Set());
+  const [series, setSeries] = useState<Set<string>>(new Set([OWLCAT_SERIES]));
   const [hideWhite, setHideWhite] = useState(true);
   const [showAllSeries, setShowAllSeries] = useState(false);
   const [visible, setVisible] = useState(48);
@@ -261,11 +273,7 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
   const allSeries = useMemo(() => {
     const count = new Map<string, number>();
     for (const p of poolForSeries) {
-      for (const c of p.cats) {
-        if (c.startsWith('Images from ') && !GENERIC_SOURCES.has(c)) {
-          count.set(c, (count.get(c) ?? 0) + 1);
-        }
-      }
+      for (const c of seriesKeysOf(p)) count.set(c, (count.get(c) ?? 0) + 1);
     }
     for (const c of series) if (!count.has(c)) count.set(c, 0);
     return [...count.entries()]
@@ -284,7 +292,7 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
   const matchesBase = useCallback(
     (p: ArtEntry) =>
       (!hideWhite || !p.tags.includes('white-bg')) &&
-      (series.size === 0 || p.cats.some((c) => series.has(c))),
+      (series.size === 0 || seriesKeysOf(p).some((c) => series.has(c))),
     [hideWhite, series],
   );
 
