@@ -259,3 +259,16 @@ visual de los retratos de PJ y PNJ (formato vertical, fondo pintado, misma
 mano). El arte oficial de Wizards queda para monstruos, escenas y como reserva
 cuando falte una combinación. Se amplía la descarga a compañeros, personajes,
 versiones *artbook* (1.800 px) y las categorías de retratos de ambos juegos.
+
+### Propuesta 08 · Escenas completas (2026-09-08)
+Ruta `/design/scenes` (enlazada desde `/design`): pasajes a pantalla completa
+estilo novela gráfica. Cada escena es un registro de datos (lugar, capítulo,
+hora, fondo + foco, figura y lado, hablante, párrafos, cita, decisiones,
+atmósfera, gradación de color, acento) y el escenario lo renderiza: fondo con
+movimiento lento y fundido, figura integrada con máscara y luz de borde,
+partículas por ambiente (brasas, polvo, nieve, luciérnagas, niebla), texto que
+se revela con clic para completar, decisiones por jugador, HUD del grupo y
+tira de escenas con teclado. Ocho escenas: taberna, mina, cueva (lechuzo-oso),
+palacio, bosque, montañas (dragón blanco), camino (Señor Ciervo), noche
+(Ravenloft). Fondos elegidos a mano con `pnpm art:sheet` y bajados a 1920 px
+con `pnpm art:hd`. Este contrato de datos es el que emitirá el narrador.
