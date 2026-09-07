@@ -45,8 +45,12 @@ const fallbackQuality = (e: ArtEntry) => {
 };
 
 const buildPortraitPool = (): PortraitPool => {
-  const owlcat = collection('portraits-kingmaker');
-  const wizards = [...collection('portraits-fr'), ...collection('npcs-fr')];
+  const notDuplicate = (e: ArtEntry) => !e.tags.includes('duplicate');
+  const owlcat = collection('portraits-kingmaker').filter(notDuplicate);
+  const wizards = [
+    ...collection('portraits-fr'),
+    ...collection('npcs-fr'),
+  ].filter(notDuplicate);
 
   const perRace: PortraitPool['perRace'] = {};
   const entries: ArtEntry[] = [...owlcat];

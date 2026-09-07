@@ -13,7 +13,8 @@
     "typecheck": "tsc --noEmit",
     "art:sync": "tsx scripts/art/sync.ts",
     "postinstall": "node scripts/copy-dice-assets.mjs",
-    "art:tag-backgrounds": "tsx scripts/art/tag-backgrounds.ts"
+    "art:tag-backgrounds": "tsx scripts/art/tag-backgrounds.ts",
+    "art:dedupe": "tsx scripts/art/dedupe.ts"
   },
   "dependencies": {
     "@3d-dice/dice-box": "^1.1.4",
