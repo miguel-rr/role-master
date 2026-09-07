@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { ArtEntry } from '@/data/art/schema';
 
 type PortraitLabProps = {
@@ -186,6 +186,63 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
   const [hideWhite, setHideWhite] = useState(true);
   const [showAllSeries, setShowAllSeries] = useState(false);
   const [visible, setVisible] = useState(48);
+  const [favorites, setFavorites] = useState<ArtEntry[]>([]);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('role-master:portrait-favorites');
+      if (raw) {
+        const ids = JSON.parse(raw) as string[];
+        setFavorites(
+          ids
+            .map((id) => portraits.find((p) => p.id === id))
+            .filter((p): p is ArtEntry => Boolean(p)),
+        );
+      }
+    } catch {
+      /* no storage */
+    }
+  }, [portraits]);
+
+  const toggleFavorite = (art: ArtEntry) =>
+    setFavorites((fs) => {
+      const next = fs.some((f) => f.id === art.id)
+        ? fs.filter((f) => f.id !== art.id)
+        : [...fs, art];
+      try {
+        localStorage.setItem(
+          'role-master:portrait-favorites',
+          JSON.stringify(next.map((f) => f.id)),
+        );
+      } catch {
+        /* ignore */
+      }
+      return next;
+    });
+
+  const seriesOf = (art: ArtEntry) =>
+    art.source.site === 'kingmaker'
+      ? ['Pathfinder: Kingmaker']
+      : art.cats
+          .filter(
+            (c) => c.startsWith('Images from ') && !GENERIC_SOURCES.has(c),
+          )
+          .map(seriesLabel);
+
+  const favoritesText = favorites
+    .map((f) => `${f.id} · ${seriesOf(f).join(' / ') || 'sin serie'}`)
+    .join('\n');
+
+  const copyFavorites = async () => {
+    try {
+      await navigator.clipboard.writeText(favoritesText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      /* clipboard blocked: the text is visible anyway */
+    }
+  };
 
   /** Pool after every filter except the series themselves. */
   const poolForSeries = useMemo(
@@ -496,21 +553,81 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
                   </div>
                 </div>
               </div>
-              <div className="mt-3 border-gold-rule border-t pt-2 font-scaly text-[0.7rem] text-ink-muted">
-                Arte: {generated.art.artist ?? 'Wizards of the Coast'} ·{' '}
-                {generated.art.source.site === 'kingmaker'
-                  ? 'Pathfinder: Kingmaker'
-                  : (generated.art.cats
-                      .filter(
-                        (c) =>
-                          c.startsWith('Images from ') &&
-                          !GENERIC_SOURCES.has(c),
-                      )
-                      .map(seriesLabel)[0] ?? 'Forgotten Realms Wiki')}
+              <div className="mt-3 space-y-1 border-gold-rule border-t pt-2 font-scaly text-[0.72rem] text-ink-muted">
+                <div>
+                  <span className="text-ink">Clave:</span>{' '}
+                  <code className="rounded bg-paper-stat px-1 py-0.5 font-mono text-[0.7rem] text-maroon">
+                    {generated.art.id}
+                  </code>
+                </div>
+                <div>
+                  <span className="text-ink">Serie:</span>{' '}
+                  {seriesOf(generated.art).join(' · ') ||
+                    'sin libro identificado'}
+                </div>
+                <div>
+                  <span className="text-ink">Arte:</span>{' '}
+                  {generated.art.artist ?? 'Wizards of the Coast'}
+                </div>
+                <button
+                  className={`mt-1 w-full rounded border px-2 py-1.5 font-condensed text-xs uppercase tracking-wider ${
+                    favorites.some((f) => f.id === generated.art.id)
+                      ? 'border-maroon bg-maroon text-paper-light'
+                      : 'border-maroon/50 text-maroon hover:bg-maroon/10'
+                  }`}
+                  onClick={() => toggleFavorite(generated.art)}
+                  type="button"
+                >
+                  {favorites.some((f) => f.id === generated.art.id)
+                    ? '★ En favoritos'
+                    : '☆ Marcar favorito'}
+                </button>
               </div>
             </div>
           ) : null}
         </div>
+
+        {favorites.length > 0 ? (
+          <div className="mt-4 rounded-lg border border-charcoal-700 bg-charcoal-800 p-4">
+            <div className="flex items-center justify-between">
+              <div className="font-condensed text-strapline text-xs uppercase tracking-2xl">
+                Favoritos · {favorites.length}
+              </div>
+              <button
+                className="btn-ghost px-2 py-1 text-xs uppercase"
+                onClick={copyFavorites}
+                type="button"
+              >
+                {copied ? 'Copiado' : 'Copiar lista'}
+              </button>
+            </div>
+            <div className="mt-2 grid grid-cols-6 gap-1">
+              {favorites.map((f) => (
+                <button
+                  className="frame-brass aspect-[3/4] overflow-hidden rounded-sm"
+                  key={f.id}
+                  onClick={() => toggleFavorite(f)}
+                  title={`Quitar ${f.id}`}
+                  type="button"
+                >
+                  {/* biome-ignore lint/performance/noImgElement: pre-sized local art */}
+                  <img
+                    alt=""
+                    className="h-full w-full object-cover object-[50%_20%]"
+                    height={f.height}
+                    src={f.src}
+                    width={f.width}
+                  />
+                </button>
+              ))}
+            </div>
+            <textarea
+              className="mt-2 h-24 w-full resize-y rounded border border-charcoal-700 bg-charcoal-900 p-2 font-mono text-[0.68rem] text-charcoal-200"
+              readOnly
+              value={favoritesText}
+            />
+          </div>
+        ) : null}
       </aside>
     </div>
   );
