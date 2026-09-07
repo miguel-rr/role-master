@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import type { ArtEntry } from '@/data/art/schema';
 
 type PortraitLabProps = {
@@ -38,6 +38,26 @@ const CLASSES = [
   { tag: 'sorcerer', label: 'Hechicero' },
   { tag: 'warlock', label: 'Brujo' },
 ] as const;
+
+/** Categories that group many books; too broad to be a "series". */
+const GENERIC_SOURCES = new Set([
+  'Images from sourcebooks',
+  'Images from 5th edition sourcebooks',
+  'Images from adventures',
+  'Images from magazines',
+  'Images from novels',
+  'Images from board games',
+  'Images from card games',
+  'Images from video games',
+]);
+
+const seriesLabel = (cat: string) =>
+  cat
+    .replace(/^Images from (the )?/, '')
+    .replace(/ 5th edition( \(revised\))?/, (m) =>
+      m.includes('revised') ? ' (2024)' : ' (2014)',
+    )
+    .replace(/ sourcebooks$/, '');
 
 const NAMES: Record<
   string,
@@ -162,16 +182,50 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
   const [gender, setGender] = useState<string | null>(null);
   const [cls, setCls] = useState<string | null>(null);
   const [generated, setGenerated] = useState<Generated | null>(null);
+  const [series, setSeries] = useState<Set<string>>(new Set());
+  const [hideWhite, setHideWhite] = useState(true);
+  const [showAllSeries, setShowAllSeries] = useState(false);
+
+  /** Source books present in the catalogue, most populated first. */
+  const allSeries = useMemo(() => {
+    const count = new Map<string, number>();
+    for (const p of portraits) {
+      for (const c of p.cats) {
+        if (c.startsWith('Images from ') && !GENERIC_SOURCES.has(c)) {
+          count.set(c, (count.get(c) ?? 0) + 1);
+        }
+      }
+    }
+    return [...count.entries()]
+      .filter(([, n]) => n >= 4)
+      .sort((a, b) => b[1] - a[1]);
+  }, [portraits]);
+
+  const toggleSeries = (c: string) =>
+    setSeries((s) => {
+      const next = new Set(s);
+      if (next.has(c)) next.delete(c);
+      else next.add(c);
+      return next;
+    });
+
+  const matchesBase = useCallback(
+    (p: ArtEntry) =>
+      (!hideWhite || !p.tags.includes('white-bg')) &&
+      (series.size === 0 || p.cats.some((c) => series.has(c))),
+    [hideWhite, series],
+  );
 
   const filtered = useMemo(
     () =>
       portraits.filter(
         (p) =>
+          matchesBase(p) &&
           (!race || p.tags.includes(race)) &&
           (!gender || p.tags.includes(gender)) &&
           (!cls || p.tags.includes(cls)),
       ),
-    [portraits, race, gender, cls],
+    [portraits, race, gender, cls, matchesBase],
   );
 
   const generate = () => {
@@ -179,16 +233,17 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
     const g = gender ? GENDERS.find((x) => x.tag === gender) : rnd(GENDERS);
     const k = cls ? CLASSES.find((x) => x.tag === cls) : rnd(CLASSES);
     if (!r || !g || !k) return;
-    const strict = portraits.filter(
+    const base = portraits.filter(matchesBase);
+    const strict = base.filter(
       (p) =>
         p.tags.includes(r.tag) &&
         p.tags.includes(g.tag) &&
         p.tags.includes(k.tag),
     );
-    const loose = portraits.filter(
+    const loose = base.filter(
       (p) => p.tags.includes(r.tag) && p.tags.includes(g.tag),
     );
-    const any = portraits.filter((p) => p.tags.includes(r.tag));
+    const any = base.filter((p) => p.tags.includes(r.tag));
     const pool = strict.length > 0 ? strict : loose.length > 0 ? loose : any;
     const art = rnd(pool);
     if (!art) return;
@@ -227,6 +282,63 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
             onChange={setCls}
             value={cls}
           />
+        </div>
+
+        <div className="mt-4 rounded-md border border-charcoal-700 bg-charcoal-900/50 p-3">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="font-condensed text-strapline text-xs uppercase tracking-2xl">
+              Serie · libro de origen
+              {series.size > 0 ? ` · ${series.size} elegidas` : ''}
+            </div>
+            <label className="flex cursor-pointer items-center gap-2 font-scaly text-charcoal-300 text-xs">
+              <input
+                checked={hideWhite}
+                className="accent-brass"
+                onChange={(e) => setHideWhite(e.target.checked)}
+                type="checkbox"
+              />
+              Ocultar fondo blanco
+            </label>
+          </div>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {(showAllSeries ? allSeries : allSeries.slice(0, 18)).map(
+              ([c, n]) => (
+                <button
+                  className={`rounded-full border px-2.5 py-1 font-scaly text-xs transition ${
+                    series.has(c)
+                      ? 'border-brass bg-brass/20 text-brass-pale'
+                      : 'border-charcoal-600 text-charcoal-300 hover:border-brass/60'
+                  }`}
+                  key={c}
+                  onClick={() => toggleSeries(c)}
+                  type="button"
+                >
+                  {seriesLabel(c)}{' '}
+                  <span className="text-charcoal-500">{n}</span>
+                </button>
+              ),
+            )}
+            {allSeries.length > 18 ? (
+              <button
+                className="rounded-full border border-charcoal-700 border-dashed px-2.5 py-1 font-scaly text-charcoal-400 text-xs"
+                onClick={() => setShowAllSeries((v) => !v)}
+                type="button"
+              >
+                {showAllSeries
+                  ? 'Ver menos'
+                  : `Ver ${allSeries.length - 18} más`}
+              </button>
+            ) : null}
+            {series.size > 0 ? (
+              <button
+                className="rounded-full px-2.5 py-1 font-condensed text-brand-300 text-xs uppercase"
+                onClick={() => setSeries(new Set())}
+                type="button"
+              >
+                Quitar series
+              </button>
+            ) : null}
+          </div>
         </div>
         <div className="mt-3 font-condensed text-charcoal-400 text-xs uppercase tracking-wider">
           {filtered.length} retratos
@@ -362,7 +474,13 @@ const PortraitLab = ({ portraits }: PortraitLabProps) => {
                 Arte: {generated.art.artist ?? 'Wizards of the Coast'} ·{' '}
                 {generated.art.source.site === 'kingmaker'
                   ? 'Pathfinder: Kingmaker'
-                  : 'Forgotten Realms Wiki'}
+                  : (generated.art.cats
+                      .filter(
+                        (c) =>
+                          c.startsWith('Images from ') &&
+                          !GENERIC_SOURCES.has(c),
+                      )
+                      .map(seriesLabel)[0] ?? 'Forgotten Realms Wiki')}
               </div>
             </div>
           ) : null}
