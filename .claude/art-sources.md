@@ -62,3 +62,71 @@ privado: se acepta material con copyright (arte de WotC/Larian) por *fan use*.
    Kingmaker como set limpio de retratos de PJ.
 3. game-icons.net solo para huecos.
 Dos webs, pero cada una cubre su necesidad al completo con estilo coherente.
+
+---
+
+# Paisajes, tablero táctico y dados — investigación (2026-09-07)
+
+## Paisajes y escenas
+
+| Fuente | Conteo verificado | Estilo / tamaño | Licencia | Descarga |
+|---|---|---|---|---|
+| **Forgotten Realms Wiki** | `Images of locations` 843; `buildings` 918; `settlements` 567; `forests` 130; `taverns` 135; `caves` 121; subcats (dungeons, fortresses, mines, sewers, tombs, jungles…) | Arte oficial pintado, 600-1920 px | Fair use (WotC) | Misma API que retratos, `generator=categorymembers`, paginar con `gcmcontinue` |
+| **Wikimedia Commons** | Doré 4.066; Rackham 2.841; N.C. Wyeth 538; Bilibin 333; John Bauer 156; Kay Nielsen 144; John Martin 42; C.D. Friedrich 46. Subcats útiles: *Paradise Lost* (63), *Don Quijote* (46), *Orlando Furioso* (68), *Idylls of the King* (23) de Doré | Doré: grabados b/n (bosques, montañas, castillos, cavernas: la estética de novela ilustrada). Bauer/Bilibin/Rackham/Nielsen: cuento en color. Hasta 6.000 px | Dominio público (verificar `extmetadata.LicenseShortName`) | `commons.wikimedia.org/w/api.php` con `iiurlwidth=1600` → `thumburl` (evita TIFF de 50 MB). ~1 req/s, UA descriptivo (429 si se acelera). Filtrar ancho ≥ 1200 |
+| bg3.wiki | `Location screenshots` 454; `Location map images` 136 | Capturas 3D 1920-2560 px | Larian | Relleno para entornos tipo Baldur's Gate |
+
+## Tablero táctico (tiles, props, tokens, mapas)
+
+- **2-Minute Tabletop** — 386 productos gratuitos (mapas y packs de assets:
+  "Grime & Shine", "Modular Jail"…). Tinta + acuarela, **70 px/casilla**
+  (versión Roll20) y 140 px (Foundry). CC BY-NC 4.0 con atribución.
+  https://2minutetabletop.com/product-category/free/ · licencia:
+  https://2minutetabletop.com/license/ · "The Free Map Pack" (10 mapas:
+  cantera, puente del dragón, ruinas, pueblo costero, mercado, torre de mago,
+  galeón, murallas…): https://2minutetabletop.com/product/the-free-map-pack/
+- **Forgotten Adventures** — `!Core Mapmaking Pack` gratuito: 140.000+ assets
+  (suelos, muros, puertas, árboles, rocas, mobiliario, decoración de mazmorra),
+  pintado cenital, **200 px/casilla; tokens 400 px**. Descarga con cuenta de
+  Patreon (tier gratuito). Gratis para uso personal.
+  https://www.forgotten-adventures.net/product/map-making/assets/core-mapmaking-pack/
+  Tokens gratuitos (una variante de color de casi todos: criaturas, PNJ,
+  héroes): https://www.forgotten-adventures.net/product-category/tokens/
+  Mapas gratuitos con rejilla: https://www.forgotten-adventures.net/battlemaps/
+- **Mark Gosbell "Free Flat Greyscale Dungeon Assets"** — CC0, tinta/gris,
+  70 px/casilla: https://markgosbell.itch.io/free-flat-greyscale-dungeon-assets
+- **Dyson Logos** — 1.601 mapas dibujados a tinta, ~707 con licencia libre
+  (crédito): https://dysonlogos.blog/maps/commercial-maps/ . El paso de rejilla
+  varía por mapa: medir px/casilla una vez por mapa.
+- **Devin Night** — packs de tokens pintados gratuitos (mirror verificado:
+  https://github.com/SirNiloc/devin-nights-free-tokens-fantasy/releases/download/3.0.0/module.zip)
+- **Tokens desde retratos**: recorte circular + anillo en Canvas sobre
+  cualquier retrato (FR wiki / Kingmaker). Trivial y consistente.
+- game-icons.net: siluetas SVG CC-BY como token de emergencia.
+- Descartados: Kenney / Dungeon Crawl / LPC (pixel art, rompe la estética),
+  Dungeondraft / Dungeon Alchemist (assets no extraíbles).
+
+**Combinación recomendada**: 2-Minute Tabletop (tinta+acuarela, 70 px) como
+tile set procedural principal; Gosbell CC0 para decoración de mazmorra a
+tinta; FA `!Core` para lo que falte (reescalar 200→70 px); tokens FA + tokens
+sellados desde retrato para PJ/PNJ; Dyson para encuentros señalados.
+**Estándar interno: 70 px = 5 pies.**
+
+## Dados 3D
+
+| Paquete | Versión / fecha | Descargas/sem | Motor | Dados | Licencia |
+|---|---|---|---|---|---|
+| **@3d-dice/dice-box** | 1.1.4 / 2024-08 (repo activo hasta 2024-10, 249★) | 5.525 | BabylonJS + AmmoJS WASM, web worker + OffscreenCanvas | d4 d6 d8 d10 d12 d20 **d100** | MIT |
+| @3d-dice/dice-box-threejs | 0.0.12 / 2022 | 4.211 | three + cannon-es | estándar | MIT (permite resultado predeterminado `1d20@17`) |
+| threejs-dice | 2019 | 66 | — | — | muerto |
+| react-dice-complete | 2026 | 232 | CSS, solo d6 | d6 | no sirve |
+
+`@3d-dice/dice-box`: ~600 KB de assets (ammo.wasm + tema por defecto); temas
+con textura en https://github.com/3d-dice/dice-themes (MIT: rock, rust,
+gemstone, wooden, smooth…); `themeColor` por jugador; resultados con
+`await box.roll('1d20+5')` → `{ sides, value, … }` o `onRollComplete`. Sin
+tipos TS (issue #94): escribir `dice-box.d.ts` propio.
+Integración Next 16 / React 19 verificada (demo enlazada por el mantenedor):
+componente cliente con `dynamic(..., { ssr: false })`; copiar
+`node_modules/@3d-dice/dice-box/dist/assets/*` a `public/assets/dice-box/`
+con un script `postinstall`; inicializar una sola vez (StrictMode);
+`offscreen: false` si OffscreenCanvas falla.

@@ -31,8 +31,8 @@ Privado, sin base de datos, desplegado solo como *preview* en Vercel.
 | Gestor | pnpm 11 |
 | Validación / env | Zod 4 + `@t3-oss/env-nextjs` en `src/env.ts` (instalados 2026-09-07) |
 | IA (texto) | `@anthropic-ai/sdk` 0.124 (instalado). Modelo **elegible al crear la campaña**: `claude-opus-5` o `claude-fable-5-1`. Streaming, adaptive thinking, salidas estructuradas (`output_config.format`), prompt caching, compaction para partidas largas. Con Fable se activa `fallbacks: "default"` (si un turno es rechazado por los clasificadores, lo sirve otro modelo sin cortar la partida) |
-| Dados 3D | `[ABIERTO]` candidato `@3d-dice/dice-box` (física + temas), pendiente informe |
-| Imágenes | `[ABIERTO — en investigación]` ver §5 |
+| Dados 3D | `@3d-dice/dice-box` (propuesta, ver §5) |
+| Imágenes | Bancos de arte por script (propuesta, ver §5) |
 
 **Descartado**: tRPC, TanStack Query, Drizzle/Neon, better-auth, R2/S3,
 generación de imágenes con IA (Miguel prefiere bancos de arte existentes).
@@ -67,30 +67,33 @@ generación de imágenes con IA (Miguel prefiere bancos de arte existentes).
 - Variables: `ANTHROPIC_API_KEY`, `APP_PASSWORD`, `APP_SECRET` (firma de la
   cookie). En local en `.env`; en Vercel, entorno Preview.
 
-## 5. Arte e ilustraciones `[ABIERTO — en investigación]`
+## 5. Arte e ilustraciones — PROPUESTA (pendiente de OK de Miguel)
 
-Decisión de Miguel: **bancos de arte existentes**, licenciados sin problema
-(uso privado), a poder ser **una sola web** que cubra todo, descargada por
-script a `public/art` (no hotlink). Investigación en curso sobre:
+Decisión de Miguel: bancos de arte existentes (uso privado, se acepta
+material con copyright), descargados por script a `public/art`, nunca hotlink.
+Investigación completa en `.claude/art-sources.md`. No existe una única web
+que lo cubra todo con calidad; la combinación mínima es:
 
-- Objetos de inventario (todas las armas, armaduras, ropa, herramientas,
-  pociones, pergaminos, gemas, monedas, comida, objetos mágicos).
-- Retratos por raza básica (humano, elfo, enano, mediano, gnomo, semielfo,
-  semiorco, tiefling, dracónido), géneros, edades, clases; PNJ y monstruos.
-- Paisajes/escenas por lugar y momento.
-- Tiles, props y tokens para el tablero táctico.
-- Ornamentos de novela ilustrada (capitulares, viñetas, marcos, texturas).
+| Necesidad | Fuente | Cómo |
+|---|---|---|
+| Objetos de inventario (~2.100, 380 px, transparentes, estilo único) | **bg3.wiki** | Script por API MediaWiki |
+| Retratos PJ/PNJ y monstruos (miles, arte oficial pintado, etiquetado por raza/género/clase/criatura) | **Forgotten Realms Wiki** | Script por API Fandom |
+| Selector limpio de retrato de PJ (80 retratos 692×1024 por raza/género/clase) | **Pathfinder Kingmaker wiki** | Script por API Fandom |
+| Paisajes por lugar (tabernas, bosques, cuevas, ciudades, mazmorras…) | **Forgotten Realms Wiki** (categorías de lugares) + **Wikimedia Commons** (Doré, Bauer, Bilibin, Rackham: dominio público, para el toque de grabado) | Script por API |
+| Tiles y props del tablero (tinta + acuarela, 70 px/casilla) | **2-Minute Tabletop** (gratis, CC BY-NC) + **Gosbell** CC0 + **Forgotten Adventures** `!Core` para huecos | Zips que descarga Miguel (requieren cuenta gratuita) y deja en `art-src/` |
+| Tokens | Forgotten Adventures gratuitos + **tokens generados desde retrato** (recorte circular en Canvas) | Zip + código |
+| Mapas de encuentro señalados | **Dyson Logos** (tinta) y 2-Minute Tabletop | Selección manual |
+| Ornamentos (capitulares, marcos, filigranas) | Doré/Commons + SVG propio | Código |
 
-Candidatos en evaluación: bg3.wiki (iconos de objeto de todo el juego, PNJ,
-razas; MediaWiki con API), Forgotten Realms Wiki (arte oficial pintado),
-wikis de CRPG con packs de retratos (Pathfinder, Pillars, Baldur's Gate),
-Wikimedia Commons (Doré, Rackham, Bauer, Nielsen para el toque de grabado),
-Forgotten Adventures / 2-Minute Tabletop / Dyson Logos para mapas y tiles.
+Salida: `scripts/sync-art.ts` (descarga con throttle y User-Agent) + catálogo
+tipado `src/data/art/*.ts` con id, ruta, etiquetas (raza, género, edad, clase,
+tipo de objeto, bioma, hora, clima, ambiente) para que la IA y la UI elijan
+imagen **por etiquetas**. Estándar interno del tablero: **70 px = 5 pies**.
 
-Salida esperada: `scripts/sync-art.ts` que descarga por categorías y genera un
-**catálogo tipado** (`src/data/art/*.ts`) con id, ruta, etiquetas (raza,
-género, edad, tipo de objeto, bioma, hora, clima…) para que la IA y la UI
-elijan imagen por etiquetas, nunca por nombre suelto.
+### Dados 3D — PROPUESTA
+`@3d-dice/dice-box` (MIT, BabylonJS + física, d4-d100, temas con textura,
+color por jugador). Es la única librería mantenida; integración verificada en
+Next 16 / React 19 con carga dinámica sin SSR y copia de assets a `public/`.
 
 ## 6. Narrativa (motor de la IA) — CERRADO en lo esencial
 
@@ -203,4 +206,5 @@ Voz/TTS, música ambiente, multi-dispositivo. El tablero táctico **sí** entra.
 - [ ] API key de Anthropic (pasos en `.claude/setup-anthropic.md`).
 - [ ] Marcar `develop` como rama por defecto en GitHub.
 - [ ] Crear el proyecto en Vercel, asociar el repo y `develop` → Preview.
-- [ ] Confirmar la fuente de arte cuando llegue el informe (§5).
+- [ ] Dar el OK a la propuesta de arte y dados (§5).
+- [ ] Descargar los zips de 2-Minute Tabletop y Forgotten Adventures (cuentas gratuitas) cuando toque el tablero.
