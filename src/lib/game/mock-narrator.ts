@@ -34,7 +34,7 @@ const outcomeLine = (req: TurnRequest): string => {
 
 const custom = (req: TurnRequest): string =>
   req.action.kind === 'custom'
-    ? `«${req.action.text}», dice ${short(req.action.who) === BOTH ? 'la compañía' : short(req.action.who)}. El máster se toma un segundo y mueve las piezas.`
+    ? `«${req.action.text}», dice ${req.action.who === BOTH ? 'la compañía' : short(req.action.who)}. El máster se toma un segundo y mueve las piezas.`
     : '';
 
 /** Turn N of the scripted story, given the table's two character ids. */
