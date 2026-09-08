@@ -232,6 +232,22 @@ test('Loncio and JasspeR play a complete short story', async ({ page }) => {
   );
   await page.screenshot({ path: `${SHOTS}/09-last-decision.png` });
   await readThrough(page);
+  // Re-reading: one page back shows the previous text at once; before the
+  // first page, the log of everything read so far opens. Nothing replays.
+  const counter = page.getByTestId('page-counter');
+  const lastPage = await counter.textContent();
+  await page.keyboard.press('ArrowLeft');
+  await expect(counter).not.toHaveText(lastPage ?? '');
+  await expect(page.getByTestId('choices')).not.toHaveClass(/opacity-100/);
+  for (let i = 0; i < 8; i += 1) await page.keyboard.press('ArrowLeft');
+  const log = page.getByTestId('reading-log');
+  await expect(log).toBeVisible();
+  await expect(log).toContainText('Dos camas, cena caliente');
+  await expect(log).toContainText('Decisión');
+  await page.screenshot({ path: `${SHOTS}/21-reading-log.png` });
+  await page.keyboard.press('Escape');
+  await expect(log).toHaveCount(0);
+  await readThrough(page);
   const noRoll = page
     .getByTestId('choice')
     .and(page.locator('[data-roll="no"]'));

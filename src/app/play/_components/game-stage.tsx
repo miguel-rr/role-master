@@ -25,9 +25,11 @@ import {
   type Who,
 } from '@/lib/game/schema';
 import { saveGame } from '@/lib/game/storage';
+import { cueNamed, pageNamesCue } from '@/lib/sound/cue-words';
 import { soundEngine } from '@/lib/sound/engine';
 import { useSound } from '@/lib/sound/use-sound';
 import { type CoinArt, PartyOverlay } from './party-overlay';
+import { ReadingLog } from './reading-log';
 
 type GameStageProps = {
   initial: GameState;
@@ -42,12 +44,15 @@ type GameStageProps = {
 
 const TYPE_MS = 16;
 
-const useTypewriter = (text: string, cue: string) => {
+const useTypewriter = (text: string, cue: string, instant = false) => {
   const [shown, setShown] = useState(0);
   // biome-ignore lint/correctness/useExhaustiveDependencies: `cue` restarts the reveal on purpose
   useEffect(() => {
     setShown(0);
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      instant ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       setShown(text.length);
       return;
     }
@@ -116,6 +121,9 @@ const GameStage = ({
   const [customText, setCustomText] = useState('');
   const [showStrip, setShowStrip] = useState(true);
   const [overlay, setOverlay] = useState<string | null>(null);
+  /** Furthest page reached in this turn: pages before it are re-reads. */
+  const [maxStep, setMaxStep] = useState(0);
+  const [log, setLog] = useState(false);
   const stripTimer = useRef<number | null>(null);
   const startedRef = useRef(false);
   const ids = useMemo(() => party.map((p) => p.id), [party]);
@@ -127,9 +135,11 @@ const GameStage = ({
   const pages = useMemo(() => paginate(beats), [beats]);
   const current = pages[Math.min(step, Math.max(0, pages.length - 1))];
   const atEnd = step >= pages.length - 1;
+  const rereading = step < maxStep;
   const { visible, done, finish } = useTypewriter(
     current?.text ?? '',
     `${turn?.id ?? ''}:${step}`,
+    rereading,
   );
   const currentBeat = current?.beat ?? 0;
   const figureVisible =
@@ -193,6 +203,7 @@ const GameStage = ({
         setState(next);
         saveGame(next);
         setStep(0);
+        setMaxStep(0);
         setCustomText('');
       } catch (e) {
         setError((e as Error).message);
@@ -238,16 +249,25 @@ const GameStage = ({
     engine.preload(st.cues.map((c) => c.entry));
   }, [turn?.id]);
 
+  // A cue fires on the page of its beat that names it, the moment the
+  // typewriter reveals the word; a page that never names it fires on open.
   useEffect(() => {
-    if (!turn?.soundtrack) return;
+    if (!turn?.soundtrack || !current) return;
     for (const c of turn.soundtrack.cues) {
+      if (c.beat !== currentBeat) continue;
       const key = `${turn.id}:${c.beat}:${c.sfx}`;
-      if (c.beat === currentBeat && !firedCues.current.has(key)) {
+      if (firedCues.current.has(key)) continue;
+      const beatPages = pages.filter((p) => p.beat === c.beat);
+      const target =
+        beatPages.find((p) => pageNamesCue(c.sfx, p.text)) ?? beatPages[0];
+      if (!target || target !== current) continue;
+      const named = pageNamesCue(c.sfx, current.text);
+      if (!named || rereading || cueNamed(c.sfx, visible)) {
         firedCues.current.add(key);
         engine.playSfx(c.entry);
       }
     }
-  }, [turn, currentBeat, engine]);
+  }, [turn, current, currentBeat, pages, visible, rereading, engine]);
 
   const creatureShown = useRef<string | null>(null);
   useEffect(() => {
@@ -326,17 +346,32 @@ const GameStage = ({
       finish();
       return;
     }
-    if (!atEnd) setStep((s) => s + 1);
+    if (!atEnd) {
+      setStep((s) => {
+        setMaxStep((m) => Math.max(m, s + 1));
+        return s + 1;
+      });
+    }
+  };
+
+  /** One page back to re-read; before the first page, the whole log. */
+  const back = () => {
+    if (thinking) return;
+    if (step > 0) setStep((s) => s - 1);
+    else setLog(true);
   };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null;
       if (target && /^(INPUT|TEXTAREA)$/.test(target.tagName)) return;
-      if (overlay || dice) return;
-      if (e.key === ' ' || e.key === 'Enter') {
+      if (overlay || dice || log) return;
+      if (e.key === ' ' || e.key === 'Enter' || e.key === 'ArrowRight') {
         e.preventDefault();
         advance();
+      } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
+        e.preventDefault();
+        back();
       } else if (e.key === 'i' || e.key === 'f') {
         setOverlay(ids[0] ?? null);
       } else if (e.key === 'm') {
@@ -367,11 +402,13 @@ const GameStage = ({
   };
 
   const showChoices = !!turn && done && atEnd && !thinking && !dice;
-  const hint = !done
-    ? 'Pulsa para leer todo'
-    : atEnd
-      ? 'Decidid'
-      : 'Continuar ▸';
+  const hint = rereading
+    ? 'Releyendo · Continuar ▸'
+    : !done
+      ? 'Pulsa para leer todo'
+      : atEnd
+        ? 'Decidid'
+        : 'Continuar ▸';
   const lastRoll =
     lastAction?.kind === 'choice' && lastAction.roll ? lastAction.roll : null;
 
@@ -599,6 +636,18 @@ const GameStage = ({
           className={`absolute top-[11vh] right-[calc(4vw+min(46vw,62vh)-6vw)] w-[min(36vw,32rem)] transition-all duration-500 ${speaking ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
           data-testid="speech"
         >
+          <button
+            aria-label="Releer la página anterior"
+            className="absolute top-1/2 -left-14 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brass/50 bg-charcoal-950/85 font-nodesto text-2xl text-brass-pale backdrop-blur transition hover:border-brass hover:text-white"
+            data-testid="page-back-speech"
+            onClick={back}
+            title={
+              step > 0 ? 'Página anterior (←)' : 'Lo leído hasta ahora (←)'
+            }
+            type="button"
+          >
+            ‹
+          </button>
           <div className="absolute -top-5 right-5 z-10 flex flex-col rounded-sm border border-brass/70 bg-charcoal-950 px-3 py-1.5 shadow-lg">
             <span className="font-caps text-[clamp(1.25rem,1.6vw,2rem)] text-brass-pale leading-none">
               {speakerName}
@@ -632,42 +681,58 @@ const GameStage = ({
       {/* Narration + decisions column */}
       <div className="absolute bottom-[4.5rem] left-[4vw] flex w-[min(62vw,66rem)] flex-col justify-end">
         {turn ? (
-          <button
-            className={`paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left transition-all duration-500 ${speaking || thinking ? 'pointer-events-none max-h-0 translate-y-6 overflow-hidden opacity-0' : 'max-h-[60vh] opacity-100'}`}
-            data-testid="narration"
-            onClick={advance}
-            type="button"
+          <div
+            className={`relative transition-all duration-500 ${speaking || thinking ? 'pointer-events-none max-h-0 translate-y-6 overflow-hidden opacity-0' : 'max-h-[60vh] opacity-100'}`}
           >
-            <div className="absolute -top-4 left-8 flex items-center gap-2 rounded-sm border border-brass/60 bg-charcoal-950 px-3 py-1 shadow-lg">
-              <span className="font-caps text-[clamp(1.125rem,1.5vw,1.9rem)] text-brass-pale leading-none">
-                Máster
-              </span>
-              <span className="font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] text-strapline uppercase tracking-wider">
-                Narración
-              </span>
-            </div>
-            <div className="min-h-[6rem] font-book text-[clamp(1.3rem,1.75vw,2.1rem)] text-ink leading-[1.45]">
-              {current && current.kind === 'narration' ? (
-                <p
-                  className={current.first ? 'dropcap-only' : ''}
-                  key={`${turn.id}-${step}`}
-                >
-                  {visible}
-                </p>
-              ) : null}
-            </div>
-            <div className="mt-3 flex items-center justify-between">
-              <TaperedRule className="h-2 w-40 text-rule-red" />
-              <span className="flex items-center gap-3 font-condensed text-[clamp(0.75rem,1vw,1.25rem)] text-ink-muted uppercase tracking-widest">
-                {pages.length > 1 ? (
-                  <span data-testid="page-counter">
-                    {Math.min(step, pages.length - 1) + 1} / {pages.length}
-                  </span>
+            <button
+              aria-label="Releer la página anterior"
+              className="absolute top-1/2 -left-14 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brass/50 bg-charcoal-950/85 font-nodesto text-2xl text-brass-pale backdrop-blur transition hover:border-brass hover:text-white"
+              data-testid="page-back"
+              onClick={back}
+              title={
+                step > 0 ? 'Página anterior (←)' : 'Lo leído hasta ahora (←)'
+              }
+              type="button"
+            >
+              ‹
+            </button>
+            <button
+              className="paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left"
+              data-testid="narration"
+              onClick={advance}
+              type="button"
+            >
+              <div className="absolute -top-4 left-8 flex items-center gap-2 rounded-sm border border-brass/60 bg-charcoal-950 px-3 py-1 shadow-lg">
+                <span className="font-caps text-[clamp(1.125rem,1.5vw,1.9rem)] text-brass-pale leading-none">
+                  Máster
+                </span>
+                <span className="font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] text-strapline uppercase tracking-wider">
+                  Narración
+                </span>
+              </div>
+              <div className="min-h-[6rem] font-book text-[clamp(1.3rem,1.75vw,2.1rem)] text-ink leading-[1.45]">
+                {current && current.kind === 'narration' ? (
+                  <p
+                    className={current.first ? 'dropcap-only' : ''}
+                    key={`${turn.id}-${step}`}
+                  >
+                    {visible}
+                  </p>
                 ) : null}
-                <span>{speaking ? `Habla ${speakerName}` : hint}</span>
-              </span>
-            </div>
-          </button>
+              </div>
+              <div className="mt-3 flex items-center justify-between">
+                <TaperedRule className="h-2 w-40 text-rule-red" />
+                <span className="flex items-center gap-3 font-condensed text-[clamp(0.75rem,1vw,1.25rem)] text-ink-muted uppercase tracking-widest">
+                  {pages.length > 1 ? (
+                    <span data-testid="page-counter">
+                      {Math.min(step, pages.length - 1) + 1} / {pages.length}
+                    </span>
+                  ) : null}
+                  <span>{speaking ? `Habla ${speakerName}` : hint}</span>
+                </span>
+              </div>
+            </button>
+          </div>
         ) : null}
 
         {/* What was just decided (and rolled), while the narrator writes and on the first beat after */}
@@ -874,6 +939,14 @@ const GameStage = ({
             else if (kept === 1) engine.playUi(ui.fumble);
           }}
           request={dice}
+        />
+      ) : null}
+      {log ? (
+        <ReadingLog
+          currentUpTo={pages.slice(0, maxStep + 1)}
+          history={state.history}
+          onClose={() => setLog(false)}
+          party={party}
         />
       ) : null}
       {overlay ? (
