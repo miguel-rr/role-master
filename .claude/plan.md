@@ -340,3 +340,12 @@ con `pnpm art:hd`. Este contrato de datos es el que emitirá el narrador.
   `test-results/shots/`.
 - Pendiente: creador de personajes propio, tablero táctico en combate,
   exportar/importar partida, streaming del texto para acortar la espera.
+
+## 15. Sonido — propuesta presentada (2026-09-08), pendiente de Miguel
+Investigación y diseño en `.claude/sound-proposal.md`: tres capas (música,
+ambiente con puntuales, efectos de escena) más interfaz y dados; motor
+propio sobre Web Audio con cuatro buses y fundidos; pantalla de comprobación
+de sonido antes de la partida; biblioteca con fuentes CC0 / CC BY (Freesound,
+Incompetech, Nakarada, Darren Curtis, OpenGameArt, Kenney, Sonniss) y
+manifiesto con créditos; bloque `sound` en el esquema del turno; tres fases.
+Ocho preguntas abiertas al final del documento.
