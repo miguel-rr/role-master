@@ -154,7 +154,7 @@ const buildScenes = (): Scene[] => [
     place: 'Cueva del Eco Ondulante',
     chapter: 'Capítulo VII · La Mina Perdida',
     time: 'Sin hora · Goteo constante',
-    background: byId('scenes/fr/wave-echo-cave-entrance'),
+    background: byId('scenes/fr/beherit-skull'),
     focus: '50% 62%',
     figure: byId('portraits/pc/harrim'),
     figureSide: 'left',

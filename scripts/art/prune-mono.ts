@@ -17,7 +17,7 @@ const MANIFESTS = path.join(ROOT, 'src/data/art/manifests');
 /** Backgrounds chosen by hand for /design/scenes: the bar for the rest. */
 const FEATURED = [
   'scenes/fr/crimman-club',
-  'scenes/fr/wave-echo-cave-entrance',
+  'scenes/fr/beherit-skull',
   'scenes/fr/underdark-forest-afr',
   'scenes/fr/cloister-of-sombre-embrace7',
   'scenes/fr/neverwinter-wood-drizzl',

@@ -64,8 +64,13 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
     turnResponses.push(await res.json());
   });
 
-  // ── Menu ─────────────────────────────────────────────────────────────
+  // ── Shelf, then the campaign page ────────────────────────────────────
   await page.goto('/');
+  await expect(page.getByTestId('hero-play')).toBeVisible();
+  await expect(page.getByTestId('continue-row')).toHaveCount(0);
+  await page.screenshot({ path: `${SHOTS}/00-shelf.png` });
+  await page.getByTestId('campaign-card-icespire-act1').click();
+  await expect(page).toHaveURL(/\/campaigns\/icespire-act1$/);
   await expect(page.getByText('Seis personajes esperan')).toBeVisible();
   await expect(page.getByTestId('campaign-duration')).toContainText(
     '3-5 sesiones',
@@ -251,9 +256,13 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   );
   await expect(page.getByTestId('place')).toContainText('Phandalin');
 
-  // The menu offers to continue, naming the players and their characters.
+  // The shelf offers to continue, naming the players and their characters.
   await page.goto('/');
-  await expect(page.getByText('Lon lleva a Dagna')).toBeVisible();
+  await expect(page.getByTestId('continue-row')).toContainText(
+    'Lon lleva a Dagna',
+  );
+  await expect(page.getByTestId('continue-row')).toContainText('Phandalin');
+  await page.screenshot({ path: `${SHOTS}/13-shelf-continue.png` });
   await page.getByTestId('continue-campaign').click();
   await expect(page).toHaveURL(/\/play$/);
   await nextTurn(page, 6);
