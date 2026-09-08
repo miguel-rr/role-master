@@ -193,10 +193,13 @@ class SoundEngine {
     const running = this.ctx.state === 'running';
     this.emit({ status: running ? 'running' : 'suspended' });
     if (running) {
-      // Catch up with whatever the scene asked for before the unlock.
-      if (this.wanted.music && this.snapshot.musicId !== this.wanted.music.id)
+      // Catch up with whatever the scene asked for before the unlock. Compare
+      // with what is really playing, not with the snapshot (which already
+      // shows the intention).
+      const playing = this.players?.[this.active]?.entryId ?? null;
+      if (this.wanted.music && playing !== this.wanted.music.id)
         this.playMusic(this.wanted.music, { fade: 2 });
-      if (this.wanted.ambience && this.snapshot.bedIds.length === 0)
+      if (this.wanted.ambience && this.beds.length === 0)
         this.setAmbience(this.wanted.ambience, { fade: 2 });
     }
     return running;

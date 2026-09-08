@@ -13,8 +13,8 @@ const request = (overrides: Partial<TurnRequest> = {}): TurnRequest => ({
   model: 'claude-opus-5',
   death: 'unlikely',
   players: [
-    { name: 'Lon', characterId: 'dagna' },
-    { name: 'Jato', characterId: 'corran' },
+    { name: 'Loncio', characterId: 'dagna' },
+    { name: 'JasspeR', characterId: 'corran' },
   ],
   characters: [],
   memory: [],
@@ -86,8 +86,8 @@ describe('gameStateSchema', () => {
       model: 'claude-fable-5-1',
       death: 'possible',
       players: [
-        { name: 'Lon', characterId: 'bram' },
-        { name: 'Jato', characterId: 'nissa' },
+        { name: 'Loncio', characterId: 'bram' },
+        { name: 'JasspeR', characterId: 'nissa' },
       ],
     });
     expect(gameStateSchema.safeParse(state).success).toBe(true);

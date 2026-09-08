@@ -10,6 +10,7 @@ import { TaperedRule } from '@/components/theme/tapered-rule';
 import type { ArtEntry } from '@/data/art/schema';
 import type { SoundEntry } from '@/data/sound/schema';
 import type { UiCue } from '@/data/sound/vocabulary';
+import { paginate } from '@/lib/game/pages';
 import { applyEffects, type PartyMember } from '@/lib/game/party';
 import { modifierFor, rollerFor, scoreRoll } from '@/lib/game/rolls';
 import {
@@ -122,24 +123,19 @@ const GameStage = ({
   const last = state.history.at(-1);
   const turn: ResolvedTurn | undefined = last?.turn;
   const beats = useMemo(() => turn?.beats ?? [], [turn]);
-  const current = beats[Math.min(step, Math.max(0, beats.length - 1))];
-  const atEnd = step >= beats.length - 1;
+  // Short pages, big type: the text is read from the sofa.
+  const pages = useMemo(() => paginate(beats), [beats]);
+  const current = pages[Math.min(step, Math.max(0, pages.length - 1))];
+  const atEnd = step >= pages.length - 1;
   const { visible, done, finish } = useTypewriter(
     current?.text ?? '',
     `${turn?.id ?? ''}:${step}`,
   );
-  const narrationSoFar = useMemo(
-    () =>
-      beats
-        .slice(0, step + 1)
-        .map((beat, i) => ({ beat, i }))
-        .filter(({ beat }) => beat.kind === 'narration'),
-    [beats, step],
-  );
+  const currentBeat = current?.beat ?? 0;
   const figureVisible =
     !!turn?.figureArt &&
     beats
-      .slice(0, step + 1)
+      .slice(0, currentBeat + 1)
       .some((b) => b.kind === 'line' || (b.kind === 'narration' && b.reveal));
   const speaking = current?.kind === 'line' && !thinking;
   const speakerName =
@@ -226,8 +222,19 @@ const GameStage = ({
     const st = turn.soundtrack;
     if (state.history.length > 1) engine.playUi(ui['page-turn']);
     if (!st) return;
-    if (st.music !== 'keep') engine.playMusic(st.music, { fade: 5 });
-    if (st.ambience !== 'keep') engine.setAmbience(st.ambience, { fade: 3 });
+    // "keep" means "what was already sounding": after a reload that has to
+    // be recovered from earlier turns, so walk back to the last real value.
+    const soundtracks = state.history.map((h) => h.turn.soundtrack);
+    const music = [...soundtracks]
+      .reverse()
+      .find((x) => x && x.music !== 'keep')?.music;
+    const ambience = [...soundtracks]
+      .reverse()
+      .find((x) => x && x.ambience !== 'keep')?.ambience;
+    if (music !== undefined && music !== 'keep')
+      engine.playMusic(music, { fade: 5 });
+    if (ambience !== undefined && ambience !== 'keep')
+      engine.setAmbience(ambience, { fade: 3 });
     engine.preload(st.cues.map((c) => c.entry));
   }, [turn?.id]);
 
@@ -235,12 +242,12 @@ const GameStage = ({
     if (!turn?.soundtrack) return;
     for (const c of turn.soundtrack.cues) {
       const key = `${turn.id}:${c.beat}:${c.sfx}`;
-      if (c.beat === step && !firedCues.current.has(key)) {
+      if (c.beat === currentBeat && !firedCues.current.has(key)) {
         firedCues.current.add(key);
         engine.playSfx(c.entry);
       }
     }
-  }, [turn, step, engine]);
+  }, [turn, currentBeat, engine]);
 
   const creatureShown = useRef<string | null>(null);
   useEffect(() => {
@@ -490,16 +497,16 @@ const GameStage = ({
       {/* Top bar */}
       <header className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between p-6">
         <div className="animate-fade-in">
-          <div className="font-condensed text-[0.7rem] text-parchment-text uppercase tracking-[0.3em] drop-shadow">
+          <div className="font-condensed text-[clamp(0.7rem,0.9vw,1.1rem)] text-parchment-text uppercase tracking-[0.3em] drop-shadow">
             {turn?.chapter ?? 'Prólogo'}
           </div>
           <div
-            className="mt-1 font-nodesto text-4xl text-white uppercase leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+            className="mt-1 font-nodesto text-[clamp(2.25rem,3vw,3.8rem)] text-white uppercase leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
             data-testid="place"
           >
             <Caps>{turn?.place ?? 'Phandalin'}</Caps>
           </div>
-          <div className="mt-1 font-caps text-brass-pale text-lg drop-shadow">
+          <div className="mt-1 font-caps text-[clamp(1.125rem,1.45vw,1.8rem)] text-brass-pale drop-shadow">
             {turn?.time ?? ''}
           </div>
         </div>
@@ -517,7 +524,7 @@ const GameStage = ({
                 type="button"
               >
                 <div
-                  className="h-11 w-11 overflow-hidden rounded-full ring-2"
+                  className="h-[clamp(2.75rem,3.6vw,4.4rem)] w-[clamp(2.75rem,3.6vw,4.4rem)] overflow-hidden rounded-full ring-2"
                   style={{ ['--tw-ring-color' as string]: p.color }}
                 >
                   {p.portrait ? (
@@ -533,14 +540,14 @@ const GameStage = ({
                 </div>
                 <div>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="font-caps text-base text-brass-pale leading-none">
+                    <span className="font-caps text-[clamp(1rem,1.35vw,1.65rem)] text-brass-pale leading-none">
                       {p.name}
                     </span>
-                    <span className="font-condensed text-[0.55rem] text-charcoal-400 uppercase tracking-wider">
+                    <span className="font-condensed text-[clamp(0.55rem,0.75vw,0.95rem)] text-charcoal-400 uppercase tracking-wider">
                       {p.playerName}
                     </span>
                   </div>
-                  <div className="mt-1 h-1.5 w-20 overflow-hidden rounded-full bg-black/60">
+                  <div className="mt-1 h-[clamp(0.375rem,0.45vw,0.6rem)] w-[clamp(5rem,6.5vw,8rem)] overflow-hidden rounded-full bg-black/60">
                     <div
                       className="h-full transition-all duration-700"
                       style={{
@@ -555,7 +562,7 @@ const GameStage = ({
                     />
                   </div>
                   <div
-                    className="font-scaly text-[0.65rem] text-charcoal-400"
+                    className="font-scaly text-[clamp(0.65rem,0.9vw,1.1rem)] text-charcoal-400"
                     data-testid={`hud-stats-${p.id}`}
                   >
                     {c ? `${c.hp}/${c.maxHp} PV · ${c.gold} po` : ''}
@@ -564,7 +571,7 @@ const GameStage = ({
               </button>
             );
           })}
-          <span className="hidden self-center px-2 font-condensed text-[0.55rem] text-charcoal-500 uppercase tracking-wider lg:block">
+          <span className="hidden self-center px-2 font-condensed text-[clamp(0.55rem,0.7vw,0.85rem)] text-charcoal-500 uppercase tracking-wider lg:block">
             Ficha
             <br />
             tecla I
@@ -576,7 +583,7 @@ const GameStage = ({
       sound.status !== 'running' &&
       sound.status !== 'unsupported' ? (
         <button
-          className="pointer-events-auto absolute top-24 right-6 flex items-center gap-2 rounded-md border border-brass/60 bg-charcoal-950/85 px-3 py-2 font-caps text-base text-brass-pale backdrop-blur transition hover:border-brass"
+          className="pointer-events-auto absolute top-[clamp(6rem,7.6vw,9.6rem)] right-6 flex items-center gap-2 rounded-md border border-brass/60 bg-charcoal-950/85 px-3 py-2 font-caps text-[clamp(1rem,1.3vw,1.6rem)] text-brass-pale backdrop-blur transition hover:border-brass"
           data-testid="sound-unlock"
           onClick={() => void engine.unlock()}
           type="button"
@@ -593,10 +600,10 @@ const GameStage = ({
           data-testid="speech"
         >
           <div className="absolute -top-5 right-5 z-10 flex flex-col rounded-sm border border-brass/70 bg-charcoal-950 px-3 py-1.5 shadow-lg">
-            <span className="font-caps text-brass-pale text-xl leading-none">
+            <span className="font-caps text-[clamp(1.25rem,1.6vw,2rem)] text-brass-pale leading-none">
               {speakerName}
             </span>
-            <span className="font-condensed text-[0.62rem] text-strapline uppercase tracking-wider">
+            <span className="font-condensed text-[clamp(0.62rem,0.85vw,1.05rem)] text-strapline uppercase tracking-wider">
               {speakerRole}
             </span>
           </div>
@@ -611,10 +618,10 @@ const GameStage = ({
             type="button"
           >
             <span className="absolute top-14 -right-2 h-4 w-4 rotate-45 border-brass/50 border-t border-r bg-[#14181c]" />
-            <p className="font-book text-[1.25rem] text-parchment-text leading-[1.5]">
+            <p className="font-book text-[clamp(1.25rem,1.6vw,1.9rem)] text-parchment-text leading-[1.45]">
               {speaking ? visible : current?.text}
             </p>
-            <div className="mt-4 flex items-center justify-between font-condensed text-[0.65rem] uppercase tracking-widest">
+            <div className="mt-4 flex items-center justify-between font-condensed text-[clamp(0.65rem,0.9vw,1.1rem)] uppercase tracking-widest">
               <span style={{ color: turn.accent }}>Habla {speakerName}</span>
               <span className="text-charcoal-400">{hint}</span>
             </div>
@@ -623,7 +630,7 @@ const GameStage = ({
       ) : null}
 
       {/* Narration + decisions column */}
-      <div className="absolute bottom-[4.5rem] left-[4vw] flex w-[min(60vw,58rem)] flex-col justify-end">
+      <div className="absolute bottom-[4.5rem] left-[4vw] flex w-[min(62vw,66rem)] flex-col justify-end">
         {turn ? (
           <button
             className={`paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left transition-all duration-500 ${speaking || thinking ? 'pointer-events-none max-h-0 translate-y-6 overflow-hidden opacity-0' : 'max-h-[60vh] opacity-100'}`}
@@ -632,27 +639,32 @@ const GameStage = ({
             type="button"
           >
             <div className="absolute -top-4 left-8 flex items-center gap-2 rounded-sm border border-brass/60 bg-charcoal-950 px-3 py-1 shadow-lg">
-              <span className="font-caps text-brass-pale text-lg leading-none">
+              <span className="font-caps text-[clamp(1.125rem,1.5vw,1.9rem)] text-brass-pale leading-none">
                 Máster
               </span>
-              <span className="font-condensed text-[0.65rem] text-strapline uppercase tracking-wider">
+              <span className="font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] text-strapline uppercase tracking-wider">
                 Narración
               </span>
             </div>
-            <div className="min-h-[5.5rem] space-y-3 font-book text-[1.22rem] text-ink leading-[1.5]">
-              {narrationSoFar.map(({ beat, i }, n) => (
+            <div className="min-h-[6rem] font-book text-[clamp(1.3rem,1.75vw,2.1rem)] text-ink leading-[1.45]">
+              {current && current.kind === 'narration' ? (
                 <p
-                  className={n === 0 ? 'dropcap-only' : ''}
-                  key={`${turn.id}-${i}`}
+                  className={current.first ? 'dropcap-only' : ''}
+                  key={`${turn.id}-${step}`}
                 >
-                  {i === step ? visible : beat.text}
+                  {visible}
                 </p>
-              ))}
+              ) : null}
             </div>
             <div className="mt-3 flex items-center justify-between">
               <TaperedRule className="h-2 w-40 text-rule-red" />
-              <span className="font-condensed text-[0.7rem] text-ink-muted uppercase tracking-widest">
-                {speaking ? `Habla ${speakerName}` : hint}
+              <span className="flex items-center gap-3 font-condensed text-[clamp(0.75rem,1vw,1.25rem)] text-ink-muted uppercase tracking-widest">
+                {pages.length > 1 ? (
+                  <span data-testid="page-counter">
+                    {Math.min(step, pages.length - 1) + 1} / {pages.length}
+                  </span>
+                ) : null}
+                <span>{speaking ? `Habla ${speakerName}` : hint}</span>
               </span>
             </div>
           </button>
@@ -666,11 +678,11 @@ const GameStage = ({
             className="mt-3 flex animate-fade-in flex-wrap items-center gap-3 rounded-md border border-brass/40 bg-charcoal-950/85 px-4 py-2.5 backdrop-blur"
             data-testid="last-decision"
           >
-            <span className="font-condensed text-[0.6rem] text-charcoal-400 uppercase tracking-wider">
+            <span className="font-condensed text-[clamp(0.6rem,0.8vw,1rem)] text-charcoal-400 uppercase tracking-wider">
               Última decisión
             </span>
             <span
-              className="font-condensed text-[0.65rem] uppercase tracking-wider"
+              className="font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] uppercase tracking-wider"
               style={{
                 color:
                   party.find((p) => p.id === lastAction.who)?.color ??
@@ -679,21 +691,21 @@ const GameStage = ({
             >
               {whoLabel(lastAction.who, party)}
             </span>
-            <span className="font-book text-[1rem] text-parchment-text">
+            <span className="font-book text-[clamp(1rem,1.25vw,1.5rem)] text-parchment-text">
               {lastAction.kind === 'custom'
                 ? `«${lastAction.text}»`
                 : lastAction.text}
             </span>
             {lastRoll ? (
               <span
-                className="ml-auto flex items-center gap-2 font-scaly text-charcoal-300 text-sm"
+                className="ml-auto flex items-center gap-2 font-scaly text-[clamp(0.875rem,1.05vw,1.3rem)] text-charcoal-300"
                 data-testid="last-roll"
               >
                 <span>
                   {lastRoll.skill} · CD {lastRoll.dc}
                 </span>
                 <span
-                  className={`flex h-9 w-9 items-center justify-center rounded-[22%] border-2 font-nodesto text-lg ${lastRoll.critical === 'hit' ? 'border-brand-400 text-brand-400' : lastRoll.critical === 'miss' ? 'border-charcoal-500 text-charcoal-400' : 'border-brass text-brass-pale'}`}
+                  className={`flex h-[clamp(2.25rem,2.8vw,3.4rem)] w-[clamp(2.25rem,2.8vw,3.4rem)] items-center justify-center rounded-[22%] border-2 font-nodesto text-[clamp(1.125rem,1.4vw,1.75rem)] ${lastRoll.critical === 'hit' ? 'border-brand-400 text-brand-400' : lastRoll.critical === 'miss' ? 'border-charcoal-500 text-charcoal-400' : 'border-brass text-brass-pale'}`}
                 >
                   {lastRoll.result}
                 </span>
@@ -702,7 +714,7 @@ const GameStage = ({
                   {Math.abs(lastRoll.modifier)} ={' '}
                   <b className="text-white">{lastRoll.total}</b>
                   <span
-                    className={`ml-2 font-caps text-base ${lastRoll.success ? 'text-brass-pale' : 'text-brand-300'}`}
+                    className={`ml-2 font-caps text-[clamp(1rem,1.3vw,1.6rem)] ${lastRoll.success ? 'text-brass-pale' : 'text-brand-300'}`}
                     data-testid="last-roll-verdict"
                   >
                     {verdict(lastRoll)}
@@ -715,14 +727,14 @@ const GameStage = ({
 
         {thinking ? (
           <div
-            className="mt-3 flex items-center gap-3 rounded-md border border-white/10 bg-charcoal-950/70 px-4 py-3 backdrop-blur"
+            className="mt-3 flex items-center gap-4 rounded-md border border-white/10 bg-charcoal-950/70 px-5 py-4 backdrop-blur"
             data-testid="thinking"
           >
-            <span className="h-2 w-2 animate-ember rounded-full bg-brass" />
-            <span className="font-caps text-brass-pale text-lg">
+            <span className="h-3 w-3 animate-ember rounded-full bg-brass" />
+            <span className="font-caps text-[clamp(1.25rem,1.8vw,2.2rem)] text-brass-pale">
               El máster piensa…
             </span>
-            <span className="font-scaly text-charcoal-400 text-sm">
+            <span className="font-scaly text-[clamp(0.875rem,1.1vw,1.35rem)] text-charcoal-400">
               Escribe la escena con calma. Suele tardar entre diez y treinta
               segundos.
             </span>
@@ -764,13 +776,15 @@ const GameStage = ({
                 type="button"
               >
                 <span
-                  className="font-condensed text-[0.65rem] uppercase tracking-wider"
+                  className="font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] uppercase tracking-wider"
                   style={{ color: who?.color ?? '#c3a76e' }}
                 >
                   {whoLabel(c.who, party)}
                 </span>
-                <span className="font-book text-[1.05rem]">{c.label}</span>
-                <span className="ml-auto font-scaly text-charcoal-400 text-xs">
+                <span className="font-book text-[clamp(1.05rem,1.3vw,1.5rem)]">
+                  {c.label}
+                </span>
+                <span className="ml-auto font-scaly text-[clamp(0.75rem,0.95vw,1.15rem)] text-charcoal-400">
                   {c.roll ? `Tirada: ${rollLabel(c.roll)}` : (c.hint ?? '')}
                 </span>
               </button>
@@ -787,7 +801,7 @@ const GameStage = ({
                 const on = customWho === w;
                 return (
                   <button
-                    className="px-2.5 font-condensed text-[0.65rem] uppercase tracking-wider transition"
+                    className="px-2.5 font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] uppercase tracking-wider transition"
                     data-testid={`custom-who-${w}`}
                     key={w}
                     onClick={() => setCustomWho(w)}
@@ -805,14 +819,14 @@ const GameStage = ({
               })}
             </div>
             <input
-              className="min-w-0 flex-1 bg-transparent px-2 font-book text-[1.05rem] text-white placeholder:text-charcoal-400 focus:outline-none"
+              className="min-w-0 flex-1 bg-transparent px-2 font-book text-[clamp(1.05rem,1.3vw,1.5rem)] text-white placeholder:text-charcoal-400 focus:outline-none"
               data-testid="custom-input"
               onChange={(e) => setCustomText(e.target.value)}
               placeholder="Otra cosa: escribe lo que hace tu personaje…"
               value={customText}
             />
             <button
-              className="btn-beyond shrink-0 px-4 py-1.5 text-xs uppercase disabled:opacity-40"
+              className="btn-beyond shrink-0 px-4 py-1.5 text-[clamp(0.75rem,0.95vw,1.15rem)] uppercase disabled:opacity-40"
               disabled={!customText.trim()}
               type="submit"
             >

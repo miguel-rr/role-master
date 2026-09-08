@@ -32,7 +32,7 @@ type SetupFlowProps = {
 };
 
 /** The two people at the table, in the order they choose. */
-const PLAYERS = ['Lon', 'Jato'] as const;
+const PLAYERS = ['Loncio', 'JasspeR'] as const;
 
 const Portrait = ({
   art,
@@ -58,7 +58,7 @@ const Portrait = ({
   );
 
 /**
- * Lon chooses, then Jato, then the company is presented and the story
+ * Loncio chooses, then JasspeR, then the company is presented and the story
  * begins. Every character opens as a dossier: portrait and story on the
  * left, the paper sheet and the pack on the right.
  */
@@ -81,7 +81,7 @@ const SetupFlow = ({
   );
   const seat = Math.min(picks.length, PLAYERS.length - 1);
   const choosing = picks.length < PLAYERS.length;
-  const player = PLAYERS[seat] ?? 'Lon';
+  const player = PLAYERS[seat] ?? 'Loncio';
   const portraitOf = (id: string) => roster.find((r) => r.id === id)?.portrait;
 
   const opened = open ? CHARACTER_PRESETS.find((c) => c.id === open) : null;
@@ -113,7 +113,7 @@ const SetupFlow = ({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  /** Back to the gallery for the given seat (0 = Lon, 1 = Jato). */
+  /** Back to the gallery for the given seat (0 = Loncio, 1 = JasspeR). */
   const redo = (seatIndex: number) => {
     setPicks(picks.slice(0, seatIndex));
     setSelected(null);
@@ -231,7 +231,7 @@ const SetupFlow = ({
             : choosing
               ? seat === 0
                 ? 'Seis aventureros de nivel 1 han llegado a Phandalin esta semana. Cada uno trae una historia y una razón para quedarse. Abre a quien te llame la atención: verás su ficha completa y lo que la campaña le guarda.'
-                : `Lon ya ha elegido. Ahora te toca a ti, ${player}: el personaje que escojas será el tuyo durante toda la campaña.`
+                : `Loncio ya ha elegido. Ahora te toca a ti, ${player}: el personaje que escojas será el tuyo durante toda la campaña.`
               : 'Dos personajes, dos historias que se cruzan en el Ciervo Dormido. Si todo está en orden, la partida empieza.'}
         </p>
       </section>
@@ -461,19 +461,19 @@ const SetupFlow = ({
             </button>
             <button
               className="btn-ghost px-4 py-3 text-sm uppercase"
-              data-testid="redo-lon"
+              data-testid="redo-loncio"
               onClick={() => redo(0)}
               type="button"
             >
-              Lon elige otro
+              Loncio elige otro
             </button>
             <button
               className="btn-ghost px-4 py-3 text-sm uppercase"
-              data-testid="redo-jato"
+              data-testid="redo-jassper"
               onClick={() => redo(1)}
               type="button"
             >
-              Jato elige otro
+              JasspeR elige otro
             </button>
           </div>
           <p className="mt-4 text-center font-scaly text-charcoal-400 text-xs">
@@ -494,11 +494,11 @@ const SetupFlow = ({
         <div className="fixed bottom-4 left-4">
           <button
             className="btn-ghost px-3 py-1.5 text-[0.65rem] uppercase backdrop-blur"
-            data-testid="redo-lon"
+            data-testid="redo-loncio"
             onClick={() => redo(0)}
             type="button"
           >
-            ← Lon vuelve a elegir
+            ← Loncio vuelve a elegir
           </button>
         </div>
       ) : null}

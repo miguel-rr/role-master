@@ -310,12 +310,12 @@ con `pnpm art:hd`. Este contrato de datos es el que emitirá el narrador.
   los dos primeros para el laboratorio.
 - **Flujo de entrada**: `/` (estantería de campañas: héroe destacado,
   «Seguir jugando», filas por tipo y tono, banner) → `/campaigns/[id]`
-  (portada, narrador, muerte, elenco) → `/setup` (Lon elige, Jato elige;
+  (portada, narrador, muerte, elenco) → `/setup` (Loncio elige, JasspeR elige;
   dosier con historia, ficha en papel y mochila; «La compañía») → `/play`.
   El catálogo vive en `src/data/campaigns/catalog.ts`. Miguel aprobó la
   estantería con las 16 campañas anunciadas (2026-09-08): se quedan como
   portadas «Próximamente» (`mock: true`) hasta que cada una tenga biblia;
-  al escribirla, `available: true` y quitar la marca. Los jugadores se llaman Lon y Jato (`PLAYERS` en
+  al escribirla, `available: true` y quitar la marca. Los jugadores se llaman Loncio y JasspeR (`PLAYERS` en
   `src/app/setup/_components/setup-flow.tsx`).
 - **En partida**: retratos del HUD, tecla I o el botón «Fichas» abren la
   superposición con la ficha en papel y la mochila ilustrada con PV, oro y

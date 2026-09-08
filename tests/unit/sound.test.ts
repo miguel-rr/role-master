@@ -6,8 +6,8 @@ import { byLayer, libraryStats } from '@/lib/sound/library.server';
 import { resolveSound } from '@/lib/sound/resolver';
 
 const players = [
-  { name: 'Lon', characterId: 'bram' },
-  { name: 'Jato', characterId: 'nissa' },
+  { name: 'Loncio', characterId: 'bram' },
+  { name: 'JasspeR', characterId: 'nissa' },
 ];
 const base: TurnRequest = {
   ...newGameState({

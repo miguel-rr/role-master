@@ -15,7 +15,7 @@ const readThrough = async (page: Page) => {
   // follows half a second later (and lags the other way on a new turn).
   const shown = () =>
     choices.evaluate((el) => el.classList.contains('opacity-100'));
-  for (let i = 0; i < 16 && !(await shown()); i += 1) {
+  for (let i = 0; i < 48 && !(await shown()); i += 1) {
     // Space and Enter finish the typewriter, then move to the next beat.
     await page.keyboard.press('Enter');
     await page.waitForTimeout(200);
@@ -55,7 +55,7 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test('Lon and Jato play a complete short story', async ({ page }) => {
+test('Loncio and JasspeR play a complete short story', async ({ page }) => {
   const turnResponses: unknown[] = [];
   page.on('response', async (res) => {
     if (!res.url().endsWith('/api/turn') || !res.ok()) return;
@@ -80,14 +80,14 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   await page.getByTestId('start-campaign').click();
   await expect(page).toHaveURL(/\/setup\?/);
 
-  // ── Lon chooses ──────────────────────────────────────────────────────
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Lon');
+  // ── Loncio chooses ──────────────────────────────────────────────────────
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Loncio');
   await page.screenshot({ path: `${SHOTS}/01-setup-gallery.png` });
   // A card selects without confirming; "Seleccionar otro" goes back.
   await page.getByTestId('card-bram').click();
   const selection = page.getByTestId('selection');
   await expect(selection).toContainText('Bram Piedrahonda');
-  await expect(page.getByTestId('seat-Lon')).not.toContainText('Bram');
+  await expect(page.getByTestId('seat-Loncio')).not.toContainText('Bram');
   await page.getByTestId('select-other').click();
   await expect(selection).toHaveCount(0);
   await page.getByTestId('card-dagna').click();
@@ -108,12 +108,16 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   await expect(dossier).toHaveCount(0);
   await expect(selection).toBeVisible();
   await page.getByTestId('confirm-character').click();
-  await expect(page.getByTestId('seat-Lon')).toContainText('Dagna');
+  await expect(page.getByTestId('seat-Loncio')).toContainText('Dagna');
 
-  // ── Jato chooses ─────────────────────────────────────────────────────
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Jato');
+  // ── JasspeR chooses ─────────────────────────────────────────────────────
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    'JasspeR',
+  );
   await expect(page.getByTestId('card-dagna')).toBeDisabled();
-  await expect(page.getByTestId('card-dagna')).toContainText('Elegido por Lon');
+  await expect(page.getByTestId('card-dagna')).toContainText(
+    'Elegido por Loncio',
+  );
   await page.getByTestId('card-corran').click();
   // Confirming from inside the dossier works too.
   await page.getByTestId('view-story').click();
@@ -123,20 +127,22 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1 })).toContainText(
     'La compañía',
   );
-  await expect(page.getByTestId('company-dagna')).toContainText('Lon');
-  await expect(page.getByTestId('company-corran')).toContainText('Jato');
+  await expect(page.getByTestId('company-dagna')).toContainText('Loncio');
+  await expect(page.getByTestId('company-corran')).toContainText('JasspeR');
   await expect(page.getByText(/Narrador Fable 5.1/)).toBeVisible();
   await expect(page.getByText(/Duración estimada del acto/)).toContainText(
     '8-15 horas',
   );
   await page.screenshot({ path: `${SHOTS}/04-company.png` });
-  // Jato can still change their mind from the company screen.
-  await page.getByTestId('redo-jato').click();
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Jato');
-  await expect(page.getByTestId('seat-Lon')).toContainText('Dagna');
+  // JasspeR can still change their mind from the company screen.
+  await page.getByTestId('redo-jassper').click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    'JasspeR',
+  );
+  await expect(page.getByTestId('seat-Loncio')).toContainText('Dagna');
   await page.getByTestId('card-corran').click();
   await page.getByTestId('confirm-character').click();
-  await expect(page.getByTestId('company-corran')).toContainText('Jato');
+  await expect(page.getByTestId('company-corran')).toContainText('JasspeR');
   await page.getByTestId('begin-adventure').click();
 
   // ── Sound check: one click unlocks the desk, then into the tavern ────
@@ -170,8 +176,8 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   );
   // No roll has been made for us: nothing is shown as already rolled.
   await expect(page.getByTestId('last-decision')).toHaveCount(0);
-  await expect(page.getByTestId('hud-dagna')).toContainText('Lon');
-  await expect(page.getByTestId('hud-corran')).toContainText('Jato');
+  await expect(page.getByTestId('hud-dagna')).toContainText('Loncio');
+  await expect(page.getByTestId('hud-corran')).toContainText('JasspeR');
   await readThrough(page);
   await expect(page.getByTestId('figure')).toBeVisible();
   await page.screenshot({ path: `${SHOTS}/05-tavern.png` });
@@ -286,11 +292,18 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
     '6',
   );
   await expect(page.getByTestId('place')).toContainText('Phandalin');
+  // A fresh page has a locked desk: one click brings back what was sounding,
+  // even though the last turn only said "keep".
+  await expect(stage).toHaveAttribute('data-sound', /idle|suspended/);
+  await page.getByTestId('sound-unlock').click();
+  await expect(stage).toHaveAttribute('data-sound', 'running');
+  await expect(stage).toHaveAttribute('data-music', /music\//);
+  await expect(stage).toHaveAttribute('data-ambience', /bed\//);
 
   // The shelf offers to continue, naming the players and their characters.
   await page.goto('/');
   await expect(page.getByTestId('continue-row')).toContainText(
-    'Lon lleva a Dagna',
+    'Loncio lleva a Dagna',
   );
   await expect(page.getByTestId('continue-row')).toContainText('Phandalin');
   await page.screenshot({ path: `${SHOTS}/13-shelf-continue.png` });

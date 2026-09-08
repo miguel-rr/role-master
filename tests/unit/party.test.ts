@@ -28,8 +28,8 @@ describe('applyEffects', () => {
     model: 'claude-opus-5',
     death: 'never',
     players: [
-      { name: 'Lon', characterId: 'bram' },
-      { name: 'Jato', characterId: 'nissa' },
+      { name: 'Loncio', characterId: 'bram' },
+      { name: 'JasspeR', characterId: 'nissa' },
     ],
   }).characters;
   it('clamps hp, floors gold and adds/removes one item at a time', () => {
@@ -88,13 +88,13 @@ describe('buildParty', () => {
   it('seats players in order with their colours and presets', () => {
     const party = buildParty(
       [
-        { name: 'Lon', characterId: 'corran' },
-        { name: 'Jato', characterId: 'dagna' },
+        { name: 'Loncio', characterId: 'corran' },
+        { name: 'JasspeR', characterId: 'dagna' },
       ],
       [{ id: 'dagna', portrait: undefined }],
     );
     expect(party.map((p) => p.name)).toEqual(['Corran', 'Dagna']);
-    expect(party.map((p) => p.playerName)).toEqual(['Lon', 'Jato']);
+    expect(party.map((p) => p.playerName)).toEqual(['Loncio', 'JasspeR']);
     expect(party[0]?.color).not.toBe(party[1]?.color);
   });
 });

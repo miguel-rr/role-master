@@ -212,8 +212,8 @@ const HomeMenu = ({ campaign, roster }: HomeMenuProps) => {
             ))}
           </div>
           <p className="mt-3 font-scaly text-charcoal-400 text-xs">
-            Lon elige primero, Jato después. Cada uno ve la ficha completa y lo
-            que la campaña guarda para su personaje.
+            Loncio elige primero, JasspeR después. Cada uno ve la ficha completa
+            y lo que la campaña guarda para su personaje.
           </p>
         </section>
 

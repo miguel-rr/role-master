@@ -20,7 +20,7 @@ type PartyMember = {
   id: string;
   /** Character short name ("Bram"). */
   name: string;
-  /** Person playing them ("Lon"). */
+  /** Person playing them ("Loncio"). */
   playerName: string;
   color: string;
   portrait: ArtEntry | undefined;

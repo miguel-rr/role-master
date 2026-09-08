@@ -9,8 +9,8 @@ import {
 } from '@/lib/game/schema';
 
 const players = [
-  { name: 'Lon', characterId: 'thokk' },
-  { name: 'Jato', characterId: 'sariel' },
+  { name: 'Loncio', characterId: 'thokk' },
+  { name: 'JasspeR', characterId: 'sariel' },
 ];
 
 /** Plays the scripted story to the end, always taking the first choice. */

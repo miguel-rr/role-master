@@ -329,13 +329,13 @@ const DesignPage = () => {
           <CharacterSheet
             character={bram}
             itemArt={itemArt}
-            player="Lon"
+            player="Loncio"
             portrait={bramPortrait}
           />
           <CharacterSheet
             character={nissa}
             itemArt={itemArt}
-            player="Jato"
+            player="JasspeR"
             portrait={nissaPortrait}
           />
         </div>
