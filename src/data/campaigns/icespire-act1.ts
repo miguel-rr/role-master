@@ -23,6 +23,11 @@ type Campaign = {
     /** One line on how the estimate was made and what moves it. */
     note: string;
   };
+  /**
+   * What the players read before the first scene, in their own words: the
+   * minimum lore to understand the first decisions. Paragraphs.
+   */
+  intro: string[];
   /** Free text the narrator reads as the truth of the world. */
   bible: string;
   /** The exact instructions for turn one. */
@@ -40,6 +45,11 @@ const ICESPIRE_ACT1: Campaign = {
     hours: '8-15 horas',
     note: 'Llegada a Phandalin, los tres encargos del tablón y el cierre del acto. Una sesión de 2-3 horas por encargo, más la primera; la aventura completa (niveles 1-6) ronda las 15-25 sesiones.',
   },
+  intro: [
+    'Phandalin es un pueblo minero de frontera en la Costa de la Espada, a dos días al sureste de Neverwinter, levantado sobre las ruinas de un asentamiento que los orcos arrasaron hace siglos. No tiene murallas ni guardia: tiene mineros, granjeros, una posada llamada el Ciervo Dormido y un Alcaide, Harbin Wester, que gobierna desde su casa porque prefiere no salir.',
+    'Hace un mes, un dragón blanco joven se instaló en la cima del Pico Escarcha, en las Colinas de la Espada. Desde entonces ataca granjas, caravanas y todo lo que se mueve a menos de un día del pueblo. Nadie lo ha visto de cerca y ha vuelto para contarlo. El Alcaide ha clavado en el tablón del ayuntamiento una lista de encargos con recompensa en oro, porque dinero sí tiene.',
+    'Vosotros dos acabáis de llegar, cada uno por sus razones, después de tres días de camino bajo la lluvia. Nadie os conoce. Lo que consigáis lo tendréis que ganar: hablando con la gente, leyendo el tablón, eligiendo bien a quién ayudar y cuándo huir. Lo que sabéis de este lugar es esto y lo que traéis en la cabeza.',
+  ],
   bible: `
 # EL DRAGÓN DEL PICO ESCARCHA — ACTO I
 
@@ -217,13 +227,14 @@ su casa que arde). Cada decisión salva a alguien y deja a otro. Halia
 desaparece por los aires. Cierre: el pueblo mira a los PJ. Nivel 3.
 `.trim(),
   opening: `
-PRIMER TURNO. Es el anochecer del día en que Bram y Nissa llegan a Phandalin
-bajo una lluvia fina, después de tres días de camino desde el Camino Alto.
-Abre la escena en la Posada del Ciervo Dormido: el olor, los mineros, Toblen
-secando una jarra y midiéndolos con la mirada. Toblen habla al final (una
-sola frase suya, con carácter). Ofrece tres decisiones distintas: una para
-Bram, una para Nissa y una conjunta. No menciones todavía la lista completa
-del tablón: que la descubran.
+PRIMER TURNO. Es el anochecer del día en que los dos personajes llegan a
+Phandalin bajo una lluvia fina, después de tres días de camino desde el
+Camino Alto. Abre la escena en la Posada del Ciervo Dormido: el olor, los
+mineros, Toblen secando una jarra y midiéndolos con la mirada. Toblen habla
+al final (una sola frase suya, con carácter). Ofrece tres decisiones
+distintas: una para cada personaje y una conjunta, escritas solo con lo que
+ven y con lo que cada uno trae en su trasfondo. No menciones todavía la
+lista completa del tablón: que la descubran.
 `.trim(),
 };
 

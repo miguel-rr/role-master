@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { byId } from '@/data/art/catalog';
+import { CAMPAIGNS } from '@/data/campaigns/icespire-act1';
 import { coinArt, itemArtMap, rosterArt } from '@/lib/game/roster.server';
 import { uiSounds } from '@/lib/sound/library.server';
 import { PlayLoader } from './_components/play-loader';
@@ -16,6 +17,9 @@ const PlayPage = () => (
   <PlayLoader
     coinArt={coinArt()}
     cover={byId('scenes/fr/klauthen-vale')}
+    intros={Object.fromEntries(
+      Object.values(CAMPAIGNS).map((c) => [c.id, c.intro]),
+    )}
     itemArt={itemArtMap()}
     roster={rosterArt()}
     ui={uiSounds()}

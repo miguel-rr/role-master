@@ -18,12 +18,15 @@ const PlayLoader = ({
   coinArt,
   cover,
   ui,
+  intros,
 }: {
   roster: RosterEntry[];
   itemArt: Record<string, ArtEntry>;
   coinArt: CoinArt;
   cover: ArtEntry | undefined;
   ui: Partial<Record<UiCue, SoundEntry>>;
+  /** Campaign id → introduction paragraphs. */
+  intros: Record<string, string[]>;
 }) => {
   const router = useRouter();
   const [state, setState] = useState<GameState | null | undefined>(undefined);
@@ -49,6 +52,7 @@ const PlayLoader = ({
       coinArt={coinArt}
       cover={cover}
       initial={state}
+      intro={intros[state.campaignId] ?? []}
       itemArt={itemArt}
       party={buildParty(state.players, roster)}
       ui={ui}

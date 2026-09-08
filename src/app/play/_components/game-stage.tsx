@@ -40,6 +40,8 @@ type GameStageProps = {
   coinArt: CoinArt;
   /** Interface sounds by cue. */
   ui: Partial<Record<UiCue, SoundEntry>>;
+  /** What the players read before the first scene. */
+  intro: string[];
 };
 
 const TYPE_MS = 16;
@@ -105,6 +107,7 @@ const GameStage = ({
   itemArt,
   coinArt,
   ui,
+  intro,
 }: GameStageProps) => {
   const sound = useSound();
   const engine = soundEngine();
@@ -280,13 +283,44 @@ const GameStage = ({
   // Leaving the table stops the desk.
   useEffect(() => () => engine.stopAll(), [engine]);
 
-  // First turn of a fresh campaign.
-  useEffect(() => {
+  // ── Introduction: the minimum lore, read before the first scene ────
+  const introPages = useMemo(
+    () => [
+      ...intro.map((text, i) => ({
+        title: i === 0 ? 'Lo que sabéis al llegar' : null,
+        text,
+      })),
+      ...party.map((p) => ({
+        title: `${p.playerName} lleva a ${p.character.name}`,
+        text: `${p.character.pitch} ${p.character.hook}`,
+      })),
+    ],
+    [intro, party],
+  );
+  const [introStep, setIntroStep] = useState(0);
+  const inIntro = state.history.length === 0 && !thinking;
+  const introPage = introPages[Math.min(introStep, introPages.length - 1)];
+  const introLast = introStep >= introPages.length - 1;
+  const introText = useTypewriter(
+    inIntro ? (introPage?.text ?? '') : '',
+    `intro:${introStep}`,
+  );
+
+  /** The first narrator turn, once the introduction has been read. */
+  const startAdventure = () => {
     if (startedRef.current) return;
     startedRef.current = true;
-    if (initial.history.length === 0)
-      void askNarrator({ kind: 'start' }, initial);
-  }, [askNarrator, initial]);
+    engine.playUi(ui['page-turn']);
+    void askNarrator({ kind: 'start' }, initial);
+  };
+
+  const introAdvance = () => {
+    if (!introText.done) {
+      introText.finish();
+      return;
+    }
+    if (!introLast) setIntroStep((s) => s + 1);
+  };
 
   // ── Decisions ─────────────────────────────────────────────────────────
   const choose = (choice: Choice) => {
@@ -368,10 +402,12 @@ const GameStage = ({
       if (overlay || dice || log) return;
       if (e.key === ' ' || e.key === 'Enter' || e.key === 'ArrowRight') {
         e.preventDefault();
-        advance();
+        if (inIntro) introAdvance();
+        else advance();
       } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
         e.preventDefault();
-        back();
+        if (inIntro) setIntroStep((s) => Math.max(0, s - 1));
+        else back();
       } else if (e.key === 'i' || e.key === 'f') {
         setOverlay(ids[0] ?? null);
       } else if (e.key === 'm') {
@@ -675,6 +711,79 @@ const GameStage = ({
               <span className="text-charcoal-400">{hint}</span>
             </div>
           </button>
+        </div>
+      ) : null}
+
+      {/* Introduction */}
+      {inIntro && introPage ? (
+        <div
+          className="absolute bottom-[4.5rem] left-[4vw] w-[min(62vw,66rem)]"
+          data-testid="intro"
+        >
+          <div className="relative">
+            {introStep > 0 ? (
+              <button
+                aria-label="Página anterior"
+                className="absolute top-1/2 -left-14 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brass/50 bg-charcoal-950/85 font-nodesto text-2xl text-brass-pale backdrop-blur transition hover:border-brass hover:text-white"
+                onClick={() => setIntroStep((s) => Math.max(0, s - 1))}
+                type="button"
+              >
+                ‹
+              </button>
+            ) : null}
+            <button
+              className="paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left"
+              data-testid="intro-page"
+              onClick={introAdvance}
+              type="button"
+            >
+              <div className="absolute -top-4 left-8 flex items-center gap-2 rounded-sm border border-brass/60 bg-charcoal-950 px-3 py-1 shadow-lg">
+                <span className="font-caps text-[clamp(1.125rem,1.5vw,1.9rem)] text-brass-pale leading-none">
+                  Antes de empezar
+                </span>
+                <span className="font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] text-strapline uppercase tracking-wider">
+                  Introducción
+                </span>
+              </div>
+              {introPage.title ? (
+                <div className="mb-2 font-caps text-[clamp(1.25rem,1.7vw,2.2rem)] text-maroon">
+                  {introPage.title}
+                </div>
+              ) : null}
+              <p
+                className={`min-h-[6rem] font-book text-[clamp(1.3rem,1.75vw,2.1rem)] text-ink leading-[1.45] ${introStep === 0 ? 'dropcap-only' : ''}`}
+              >
+                {introText.visible}
+              </p>
+              <div className="mt-3 flex items-center justify-between">
+                <TaperedRule className="h-2 w-40 text-rule-red" />
+                <span className="flex items-center gap-3 font-condensed text-[clamp(0.75rem,1vw,1.25rem)] text-ink-muted uppercase tracking-widest">
+                  <span>
+                    {introStep + 1} / {introPages.length}
+                  </span>
+                  <span>
+                    {!introText.done
+                      ? 'Pulsa para leer todo'
+                      : introLast
+                        ? 'Cuando queráis'
+                        : 'Continuar ▸'}
+                  </span>
+                </span>
+              </div>
+            </button>
+          </div>
+          {introLast && introText.done ? (
+            <div className="mt-3 flex justify-end">
+              <button
+                className="btn-beyond px-7 py-3.5 text-[clamp(1rem,1.3vw,1.6rem)] uppercase"
+                data-testid="start-adventure"
+                onClick={startAdventure}
+                type="button"
+              >
+                Empezar la aventura
+              </button>
+            </div>
+          ) : null}
         </div>
       ) : null}
 

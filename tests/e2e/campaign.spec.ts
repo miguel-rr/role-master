@@ -155,6 +155,18 @@ test('Loncio and JasspeR play a complete short story', async ({ page }) => {
   await page.getByTestId('soundcheck-continue').click();
   await expect(page).toHaveURL(/\/play$/);
 
+  // ── Introduction: the minimum lore, page by page, then the first scene ──
+  const intro = page.getByTestId('intro');
+  await expect(intro).toContainText('Lo que sabéis al llegar');
+  await page.screenshot({ path: `${SHOTS}/04c-intro.png` });
+  for (let i = 0; i < 20; i += 1) {
+    if (await page.getByTestId('start-adventure').isVisible()) break;
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(150);
+  }
+  await expect(intro).toContainText('JasspeR lleva a Corran');
+  await page.getByTestId('start-adventure').click();
+
   // ── Turn 1: the tavern, Toblen speaks ────────────────────────────────
   await nextTurn(page, 1);
   await expect(page.getByTestId('place')).toContainText('Ciervo Dormido');

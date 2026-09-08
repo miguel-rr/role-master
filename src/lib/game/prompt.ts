@@ -247,7 +247,7 @@ const buildMessages = (req: TurnRequest, campaign: Campaign) => {
   }
   const current =
     req.action.kind === 'start'
-      ? `${describeAction(req.action, req.players)}\n\n${campaign.opening}`
+      ? `${describeAction(req.action, req.players)}\n\nLos jugadores han leído esta introducción antes de empezar (es TODO lo que saben del mundo, además de sus trasfondos):\n${campaign.intro.join('\n')}\n\n${campaign.opening}`
       : describeAction(req.action, req.players);
   messages.push({ role: 'user', content: current });
   return messages;
