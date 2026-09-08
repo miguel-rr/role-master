@@ -19,13 +19,9 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "snow"
-        ],
+        "places": ["snow"],
         "time": [],
-        "weather": [
-          "snow"
-        ]
+        "weather": ["snow"]
       }
     },
     {
@@ -45,13 +41,9 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "snow"
-        ],
+        "places": ["snow"],
         "time": [],
-        "weather": [
-          "snow"
-        ]
+        "weather": ["snow"]
       }
     },
     {
@@ -71,12 +63,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "camp"
-        ],
-        "time": [
-          "night"
-        ],
+        "places": ["camp"],
+        "time": ["night"],
         "weather": []
       }
     },
@@ -97,11 +85,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "cave",
-          "mine",
-          "underdark"
-        ],
+        "places": ["cave", "mine", "underdark"],
         "time": [],
         "weather": []
       }
@@ -123,9 +107,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "desert"
-        ],
+        "places": ["desert"],
         "time": [],
         "weather": []
       }
@@ -147,9 +129,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "desert"
-        ],
+        "places": ["desert"],
         "time": [],
         "weather": []
       }
@@ -171,14 +151,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "road",
-          "farm"
-        ],
-        "time": [
-          "day"
-        ],
+        "places": ["forest", "road", "farm"],
+        "time": ["day"],
         "weather": []
       }
     },
@@ -199,14 +173,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "road",
-          "farm"
-        ],
-        "time": [
-          "day"
-        ],
+        "places": ["forest", "road", "farm"],
+        "time": ["day"],
         "weather": []
       }
     },
@@ -227,14 +195,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "road",
-          "farm"
-        ],
-        "time": [
-          "day"
-        ],
+        "places": ["forest", "road", "farm"],
+        "time": ["day"],
         "weather": []
       }
     },
@@ -255,14 +217,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "road",
-          "camp"
-        ],
-        "time": [
-          "night"
-        ],
+        "places": ["forest", "road", "camp"],
+        "time": ["night"],
         "weather": []
       }
     },
@@ -283,14 +239,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "road",
-          "camp"
-        ],
-        "time": [
-          "night"
-        ],
+        "places": ["forest", "road", "camp"],
+        "time": ["night"],
         "weather": []
       }
     },
@@ -311,14 +261,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "road",
-          "camp"
-        ],
-        "time": [
-          "night"
-        ],
+        "places": ["forest", "road", "camp"],
+        "time": ["night"],
         "weather": []
       }
     },
@@ -339,10 +283,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "harbour",
-          "ship"
-        ],
+        "places": ["harbour", "ship"],
         "time": [],
         "weather": []
       }
@@ -364,10 +305,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "harbour",
-          "ship"
-        ],
+        "places": ["harbour", "ship"],
         "time": [],
         "weather": []
       }
@@ -389,10 +327,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "market",
-          "town-day"
-        ],
+        "places": ["market", "town-day"],
         "time": [],
         "weather": []
       }
@@ -414,10 +349,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "market",
-          "town-day"
-        ],
+        "places": ["market", "town-day"],
         "time": [],
         "weather": []
       }
@@ -441,9 +373,7 @@
         "moods": [],
         "places": [],
         "time": [],
-        "weather": [
-          "rain"
-        ]
+        "weather": ["rain"]
       }
     },
     {
@@ -465,9 +395,7 @@
         "moods": [],
         "places": [],
         "time": [],
-        "weather": [
-          "rain"
-        ]
+        "weather": ["rain"]
       }
     },
     {
@@ -489,9 +417,7 @@
         "moods": [],
         "places": [],
         "time": [],
-        "weather": [
-          "rain"
-        ]
+        "weather": ["rain"]
       }
     },
     {
@@ -511,11 +437,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "river",
-          "lake",
-          "mill"
-        ],
+        "places": ["river", "lake", "mill"],
         "time": [],
         "weather": []
       }
@@ -537,11 +459,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "river",
-          "lake",
-          "mill"
-        ],
+        "places": ["river", "lake", "mill"],
         "time": [],
         "weather": []
       }
@@ -563,9 +481,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "ship"
-        ],
+        "places": ["ship"],
         "time": [],
         "weather": []
       }
@@ -587,9 +503,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "ship"
-        ],
+        "places": ["ship"],
         "time": [],
         "weather": []
       }
@@ -611,9 +525,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "swamp"
-        ],
+        "places": ["swamp"],
         "time": [],
         "weather": []
       }
@@ -635,9 +547,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "swamp"
-        ],
+        "places": ["swamp"],
         "time": [],
         "weather": []
       }
@@ -659,10 +569,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "tavern",
-          "inn-night"
-        ],
+        "places": ["tavern", "inn-night"],
         "time": [],
         "weather": []
       }
@@ -684,10 +591,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "tavern",
-          "inn-night"
-        ],
+        "places": ["tavern", "inn-night"],
         "time": [],
         "weather": []
       }
@@ -709,10 +613,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "tavern",
-          "inn-night"
-        ],
+        "places": ["tavern", "inn-night"],
         "time": [],
         "weather": []
       }
@@ -734,11 +635,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "temple",
-          "palace",
-          "library"
-        ],
+        "places": ["temple", "palace", "library"],
         "time": [],
         "weather": []
       }
@@ -760,11 +657,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "temple",
-          "palace",
-          "library"
-        ],
+        "places": ["temple", "palace", "library"],
         "time": [],
         "weather": []
       }
@@ -786,13 +679,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "town-day",
-          "farm"
-        ],
-        "time": [
-          "day"
-        ],
+        "places": ["town-day", "farm"],
+        "time": ["day"],
         "weather": []
       }
     },
@@ -813,14 +701,9 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "mountain",
-          "snow"
-        ],
+        "places": ["mountain", "snow"],
         "time": [],
-        "weather": [
-          "wind"
-        ]
+        "weather": ["wind"]
       }
     },
     {
@@ -840,14 +723,9 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "mountain",
-          "snow"
-        ],
+        "places": ["mountain", "snow"],
         "time": [],
-        "weather": [
-          "wind"
-        ]
+        "weather": ["wind"]
       }
     },
     {
@@ -867,14 +745,9 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "mountain",
-          "snow"
-        ],
+        "places": ["mountain", "snow"],
         "time": [],
-        "weather": [
-          "wind"
-        ]
+        "weather": ["wind"]
       }
     },
     {
@@ -1791,11 +1664,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "cave",
-          "dungeon",
-          "ruins"
-        ],
+        "places": ["cave", "dungeon", "ruins"],
         "time": [],
         "weather": []
       }
@@ -1817,11 +1686,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "cave",
-          "dungeon",
-          "ruins"
-        ],
+        "places": ["cave", "dungeon", "ruins"],
         "time": [],
         "weather": []
       }
@@ -1843,11 +1708,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "town-day",
-          "temple",
-          "harbour"
-        ],
+        "places": ["town-day", "temple", "harbour"],
         "time": [],
         "weather": []
       }
@@ -1869,15 +1730,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "farm",
-          "town-day",
-          "road"
-        ],
-        "time": [
-          "day"
-        ],
+        "places": ["forest", "farm", "town-day", "road"],
+        "time": ["day"],
         "weather": []
       }
     },
@@ -1898,15 +1752,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "farm",
-          "town-day",
-          "road"
-        ],
-        "time": [
-          "day"
-        ],
+        "places": ["forest", "farm", "town-day", "road"],
+        "time": ["day"],
         "weather": []
       }
     },
@@ -1927,15 +1774,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "farm",
-          "town-day",
-          "road"
-        ],
-        "time": [
-          "day"
-        ],
+        "places": ["forest", "farm", "town-day", "road"],
+        "time": ["day"],
         "weather": []
       }
     },
@@ -1956,12 +1796,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "inn-night",
-          "interior",
-          "mill",
-          "ship"
-        ],
+        "places": ["inn-night", "interior", "mill", "ship"],
         "time": [],
         "weather": []
       }
@@ -1983,12 +1818,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "inn-night",
-          "interior",
-          "mill",
-          "ship"
-        ],
+        "places": ["inn-night", "interior", "mill", "ship"],
         "time": [],
         "weather": []
       }
@@ -2010,12 +1840,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "inn-night",
-          "interior",
-          "mill",
-          "ship"
-        ],
+        "places": ["inn-night", "interior", "mill", "ship"],
         "time": [],
         "weather": []
       }
@@ -2037,15 +1862,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "graveyard",
-          "ruins",
-          "road",
-          "farm"
-        ],
-        "time": [
-          "day"
-        ],
+        "places": ["graveyard", "ruins", "road", "farm"],
+        "time": ["day"],
         "weather": []
       }
     },
@@ -2066,15 +1884,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "graveyard",
-          "ruins",
-          "road",
-          "farm"
-        ],
-        "time": [
-          "day"
-        ],
+        "places": ["graveyard", "ruins", "road", "farm"],
+        "time": ["day"],
         "weather": []
       }
     },
@@ -2095,15 +1906,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "graveyard",
-          "ruins",
-          "road",
-          "farm"
-        ],
-        "time": [
-          "day"
-        ],
+        "places": ["graveyard", "ruins", "road", "farm"],
+        "time": ["day"],
         "weather": []
       }
     },
@@ -2124,11 +1928,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "town-day",
-          "farm",
-          "market"
-        ],
+        "places": ["town-day", "farm", "market"],
         "time": [],
         "weather": []
       }
@@ -2150,11 +1950,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "town-day",
-          "farm",
-          "market"
-        ],
+        "places": ["town-day", "farm", "market"],
         "time": [],
         "weather": []
       }
@@ -2176,13 +1972,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "cave",
-          "dungeon",
-          "mine",
-          "sewer",
-          "underdark"
-        ],
+        "places": ["cave", "dungeon", "mine", "sewer", "underdark"],
         "time": [],
         "weather": []
       }
@@ -2204,13 +1994,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "cave",
-          "dungeon",
-          "mine",
-          "sewer",
-          "underdark"
-        ],
+        "places": ["cave", "dungeon", "mine", "sewer", "underdark"],
         "time": [],
         "weather": []
       }
@@ -2232,13 +2016,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "cave",
-          "dungeon",
-          "mine",
-          "sewer",
-          "underdark"
-        ],
+        "places": ["cave", "dungeon", "mine", "sewer", "underdark"],
         "time": [],
         "weather": []
       }
@@ -2260,12 +2038,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "tavern",
-          "camp",
-          "interior",
-          "inn-night"
-        ],
+        "places": ["tavern", "camp", "interior", "inn-night"],
         "time": [],
         "weather": []
       }
@@ -2287,12 +2060,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "tavern",
-          "camp",
-          "interior",
-          "inn-night"
-        ],
+        "places": ["tavern", "camp", "interior", "inn-night"],
         "time": [],
         "weather": []
       }
@@ -2314,12 +2082,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "road",
-          "town-day",
-          "market",
-          "farm"
-        ],
+        "places": ["road", "town-day", "market", "farm"],
         "time": [],
         "weather": []
       }
@@ -2341,12 +2104,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "road",
-          "town-day",
-          "market",
-          "farm"
-        ],
+        "places": ["road", "town-day", "market", "farm"],
         "time": [],
         "weather": []
       }
@@ -2368,10 +2126,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "tavern",
-          "market"
-        ],
+        "places": ["tavern", "market"],
         "time": [],
         "weather": []
       }
@@ -2393,10 +2148,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "tavern",
-          "market"
-        ],
+        "places": ["tavern", "market"],
         "time": [],
         "weather": []
       }
@@ -2418,10 +2170,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "tavern",
-          "market"
-        ],
+        "places": ["tavern", "market"],
         "time": [],
         "weather": []
       }
@@ -2443,9 +2192,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "tavern"
-        ],
+        "places": ["tavern"],
         "time": [],
         "weather": []
       }
@@ -2467,9 +2214,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "tavern"
-        ],
+        "places": ["tavern"],
         "time": [],
         "weather": []
       }
@@ -2491,9 +2236,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "tavern"
-        ],
+        "places": ["tavern"],
         "time": [],
         "weather": []
       }
@@ -2515,15 +2258,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "road",
-          "camp",
-          "farm"
-        ],
-        "time": [
-          "night"
-        ],
+        "places": ["forest", "road", "camp", "farm"],
+        "time": ["night"],
         "weather": []
       }
     },
@@ -2544,15 +2280,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "road",
-          "camp",
-          "farm"
-        ],
-        "time": [
-          "night"
-        ],
+        "places": ["forest", "road", "camp", "farm"],
+        "time": ["night"],
         "weather": []
       }
     },
@@ -2573,15 +2302,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "road",
-          "camp",
-          "farm"
-        ],
-        "time": [
-          "night"
-        ],
+        "places": ["forest", "road", "camp", "farm"],
+        "time": ["night"],
         "weather": []
       }
     },
@@ -2602,10 +2324,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "harbour",
-          "ship"
-        ],
+        "places": ["harbour", "ship"],
         "time": [],
         "weather": []
       }
@@ -2629,10 +2348,7 @@
         "moods": [],
         "places": [],
         "time": [],
-        "weather": [
-          "rain",
-          "storm"
-        ]
+        "weather": ["rain", "storm"]
       }
     },
     {
@@ -2654,10 +2370,7 @@
         "moods": [],
         "places": [],
         "time": [],
-        "weather": [
-          "rain",
-          "storm"
-        ]
+        "weather": ["rain", "storm"]
       }
     },
     {
@@ -2679,10 +2392,7 @@
         "moods": [],
         "places": [],
         "time": [],
-        "weather": [
-          "rain",
-          "storm"
-        ]
+        "weather": ["rain", "storm"]
       }
     },
     {
@@ -2702,13 +2412,7 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "mountain",
-          "snow",
-          "road",
-          "desert",
-          "ruins"
-        ],
+        "places": ["mountain", "snow", "road", "desert", "ruins"],
         "time": [],
         "weather": []
       }
@@ -2730,15 +2434,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "mountain",
-          "snow",
-          "road"
-        ],
-        "time": [
-          "night"
-        ],
+        "places": ["forest", "mountain", "snow", "road"],
+        "time": ["night"],
         "weather": []
       }
     },
@@ -2759,15 +2456,8 @@
       "tags": {
         "situations": [],
         "moods": [],
-        "places": [
-          "forest",
-          "mountain",
-          "snow",
-          "road"
-        ],
-        "time": [
-          "night"
-        ],
+        "places": ["forest", "mountain", "snow", "road"],
+        "time": ["night"],
         "weather": []
       }
     }
