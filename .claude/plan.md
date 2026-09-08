@@ -273,28 +273,53 @@ palacio, bosque, montañas (dragón blanco), camino (Señor Ciervo), noche
 (Ravenloft). Fondos elegidos a mano con `pnpm art:sheet` y bajados a 1920 px
 con `pnpm art:hd`. Este contrato de datos es el que emitirá el narrador.
 
-## 14. Motor de juego (2026-09-08) — construido, en pruebas
+## 14. Motor de juego (2026-09-08) — construido y probado sin API
 - **Contrato narrador ↔ escena** en `src/lib/game/schema.ts`: cada turno es
   `{ place, chapter, time, sceneTags, atmosphere, mood, figure, beats,
-  choices (con roll opcional), effects, memory, summary }`. Salida
-  estructurada de Claude (`output_config.format` con Zod) en
-  `src/app/api/turn/route.ts`; modelo elegible (Opus 5 / Fable 5.1 con
+  choices (con roll opcional), effects, memory, summary, sceneEnds }`. Los
+  `who` son ids de personaje o `"both"`; la ruta estrecha el esquema a los dos
+  personajes de la mesa (`sceneTurnSchemaFor`) antes de pedir la salida
+  estructurada a Claude (`src/app/api/turn/route.ts`; Opus 5 / Fable 5.1 con
   `fallbacks: "default"`).
 - **Prompt en tres capas** (`src/lib/game/prompt.ts`): voz y oficio,
-  biblia de campaña, estado de mesa (fichas, memoria, política de muerte,
-  vocabulario de arte). Las dos primeras con `cache_control`.
+  biblia de campaña, estado de mesa (quién lleva a quién, fichas con
+  trasfondo y gancho, memoria, política de muerte, vocabulario de arte).
 - **Arte por etiquetas** (`src/lib/game/art-resolver.ts`): fondo por
-  `sceneTags`, personajes del conjunto Owlcat, criaturas por `monsterTag`;
-  `npcArt` fija la cara de cada `npcId` para toda la campaña.
-- **Tiradas**: la app calcula el modificador desde la ficha
-  (`src/lib/game/rolls.ts`), abre la **bandeja 3D** (`DiceModal`), guarda
-  resultado, total y éxito/fallo, lo muestra como recordatorio y lo envía al
-  narrador con la acción.
-- **Persistencia**: `localStorage` (`src/lib/game/storage.ts`), una partida
-  por navegador; empezar de nuevo pide confirmación.
-- **Primera historia**: `src/data/campaigns/icespire-act1.ts` — "El Dragón
-  del Pico Escarcha, Acto I" (Phandalin, tablón con tres encargos, aliados,
-  secretos, final de acto). Escrita para dos novatos.
-- Pendiente: creador de personajes (ahora presets Bram/Nissa), ficha en
-  papel dentro del juego, inventario ilustrado, tablero táctico en combate,
+  `sceneTags` con preferencia por los `featured` (los ocho elegidos a mano
+  para `/design/scenes`), luego pintura 5e; personajes del conjunto Owlcat;
+  criaturas por `monsterTag`; `npcArt` fija la cara de cada `npcId`. Los
+  fondos en blanco y negro se borraron del catálogo (`pnpm art:prune-mono`:
+  160 de scenes-fr y los 20 grabados de Doré).
+- **Tiradas**: siempre las lanza el usuario. La decisión abre la bandeja
+  (`DiceModal`, la misma de `/design`), nada rueda hasta pulsar «Tirar»; el
+  resultado se guarda con éxito/fallo y se muestra como «Última decisión»
+  junto al texto siguiente. La taberna del laboratorio usa la misma bandeja.
+  Preferencia `localStorage["role-master:dice-2d"]="1"` para dados planos.
+- **Persistencia**: `localStorage["role-master:game:v2"]`
+  (`src/lib/game/storage.ts`), una partida por navegador.
+- **Elenco** (`src/data/characters/presets.ts`): seis presets de nivel 1
+  con trasfondo y gancho en el Acto I (Bram, Nissa, Dagna, Sariel, Corran,
+  Thokk), retrato Owlcat fijo. `src/data/demo/characters.ts` es un alias de
+  los dos primeros para el laboratorio.
+- **Flujo de entrada**: `/` (narrador, muerte) → `/setup` (Lon elige, Jato
+  elige; dosier con historia, ficha en papel y mochila; «La compañía») →
+  `/play`. Los jugadores se llaman Lon y Jato (`PLAYERS` en
+  `src/app/setup/_components/setup-flow.tsx`).
+- **En partida**: retratos del HUD, tecla I o el botón «Fichas» abren la
+  superposición con la ficha en papel y la mochila ilustrada con PV, oro y
+  objetos vivos (`party-overlay.tsx`, `liveCharacter`).
+- **Narrador de guion sin API** (`src/lib/game/mock-narrator.ts`,
+  `MOCK_NARRATOR=1`): historia corta completa (taberna con Toblen, sendero,
+  mantícora con revelación, Adabra, epílogo) con ramas por éxito/fallo,
+  daño, oro, objetos, atmósferas y fin de escena. `pnpm dev:mock` lo sirve
+  en 3001.
+- **Pruebas** (`pnpm test` = `test:unit` + `test:e2e`): vitest en
+  `tests/unit` (tiradas, esquema, elenco, efectos, guion) y Playwright en
+  `tests/e2e/campaign.spec.ts` (menú → selección → compañía → partida entera
+  con dados, texto libre, ficha, mochila, criatura, efectos, recarga y
+  continuar; más la taberna del laboratorio). El e2e levanta un build de
+  producción en el puerto 3002 con `MOCK_NARRATOR=1` y aborta si una
+  respuesta no viene marcada como `x-narrator: mock`. Capturas en
+  `test-results/shots/`.
+- Pendiente: creador de personajes propio, tablero táctico en combate,
   exportar/importar partida, streaming del texto para acortar la espera.

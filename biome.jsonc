@@ -92,6 +92,9 @@
         "src/app/**/route.ts",
         "next.config.ts",
         "postcss.config.mjs",
+        // Vitest and Playwright read a default export too.
+        "vitest.config.ts",
+        "playwright.config.ts",
         // Ambient module declarations mirror the package's own default export.
         "src/types/**/*.d.ts"
       ],

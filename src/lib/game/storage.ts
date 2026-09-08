@@ -4,7 +4,7 @@ import { type GameState, gameStateSchema } from './schema';
  * The whole campaign lives in this browser: no accounts, no database.
  * Survives refreshes; export/import as JSON is the backup.
  */
-const KEY = 'role-master:game:v1';
+const KEY = 'role-master:game:v2';
 
 const loadGame = (): GameState | null => {
   try {

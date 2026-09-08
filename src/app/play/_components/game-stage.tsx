@@ -1,38 +1,35 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Atmosphere } from '@/app/design/scenes/_components/atmosphere';
 import { DiceModal, type DiceRequest } from '@/components/dice/dice-modal';
 import { Caps } from '@/components/theme/display';
 import { TaperedRule } from '@/components/theme/tapered-rule';
 import type { ArtEntry } from '@/data/art/schema';
+import { applyEffects, type PartyMember } from '@/lib/game/party';
 import { modifierFor, rollerFor, scoreRoll } from '@/lib/game/rolls';
-import type {
-  Choice,
-  GameState,
-  PlayerAction,
-  ResolvedTurn,
-  RollResult,
-  TurnRequest,
-  TurnResponse,
-  Who,
+import {
+  BOTH,
+  type Choice,
+  type GameState,
+  type PlayerAction,
+  type ResolvedTurn,
+  type RollResult,
+  type TurnRequest,
+  type TurnResponse,
+  type Who,
 } from '@/lib/game/schema';
 import { saveGame } from '@/lib/game/storage';
-
-type PartyMember = {
-  id: 'bram' | 'nissa';
-  name: string;
-  color: string;
-  portrait: ArtEntry | undefined;
-};
+import { type CoinArt, PartyOverlay } from './party-overlay';
 
 type GameStageProps = {
   initial: GameState;
   party: PartyMember[];
   /** Backdrop while the very first turn is being written. */
   cover: ArtEntry | undefined;
+  itemArt: Record<string, ArtEntry>;
+  coinArt: CoinArt;
 };
 
 const TYPE_MS = 16;
@@ -65,32 +62,51 @@ const useTypewriter = (text: string, cue: string) => {
 };
 
 const whoLabel = (who: Who, party: PartyMember[]) =>
-  who === 'both' ? 'Ambos' : (party.find((p) => p.id === who)?.name ?? who);
+  who === BOTH ? 'Ambos' : (party.find((p) => p.id === who)?.name ?? who);
+
+const rollLabel = (roll: {
+  skill: string;
+  dc: number;
+  advantage: 'none' | 'advantage' | 'disadvantage';
+}) =>
+  `${roll.skill} · CD ${roll.dc}${roll.advantage === 'advantage' ? ' · ventaja' : roll.advantage === 'disadvantage' ? ' · desventaja' : ''}`;
+
+const verdict = (r: RollResult) =>
+  r.critical === 'hit'
+    ? '¡Crítico!'
+    : r.critical === 'miss'
+      ? 'Pifia'
+      : r.success
+        ? 'Éxito'
+        : 'Fallo';
 
 /**
  * The game screen: the scene stage from the design lab, fed by the narrator.
  * Owns the turn loop — show turn → players decide → (dice) → ask narrator →
  * next turn — and persists everything in the browser.
  */
-const GameStage = ({ initial, party, cover }: GameStageProps) => {
-  const router = useRouter();
+const GameStage = ({
+  initial,
+  party,
+  cover,
+  itemArt,
+  coinArt,
+}: GameStageProps) => {
   const [state, setState] = useState<GameState>(initial);
   const [step, setStep] = useState(0);
   const [thinking, setThinking] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [dice, setDice] = useState<
-    | (DiceRequest & {
-        choice: Choice;
-        roller: 'bram' | 'nissa';
-      })
-    | null
+    (DiceRequest & { choice: Choice; roller: string }) | null
   >(null);
   const [lastAction, setLastAction] = useState<PlayerAction | null>(null);
-  const [customWho, setCustomWho] = useState<Who>('both');
+  const [customWho, setCustomWho] = useState<Who>(BOTH);
   const [customText, setCustomText] = useState('');
   const [showStrip, setShowStrip] = useState(true);
+  const [overlay, setOverlay] = useState<string | null>(null);
   const stripTimer = useRef<number | null>(null);
   const startedRef = useRef(false);
+  const ids = useMemo(() => party.map((p) => p.id), [party]);
 
   const last = state.history.at(-1);
   const turn: ResolvedTurn | undefined = last?.turn;
@@ -130,6 +146,7 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
         campaignId: base.campaignId,
         model: base.model,
         death: base.death,
+        players: base.players,
         characters: base.characters,
         memory: base.memory,
         npcArt: base.npcArt,
@@ -158,29 +175,9 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
         if (!res.ok || !data.turn) {
           throw new Error(data.error ?? `Error ${res.status}`);
         }
-        const characters = base.characters.map((c) => {
-          const hp = data.turn.effects.hp
-            .filter((e) => e.who === c.id)
-            .reduce((s, e) => s + e.delta, 0);
-          const gold = data.turn.effects.gold
-            .filter((e) => e.who === c.id)
-            .reduce((s, e) => s + e.delta, 0);
-          let items = [...c.items];
-          for (const it of data.turn.effects.items) {
-            if (it.who !== c.id) continue;
-            if (it.add) items.push(it.add);
-            if (it.remove) items = items.filter((x) => x !== it.remove);
-          }
-          return {
-            ...c,
-            hp: Math.max(0, Math.min(c.maxHp, c.hp + hp)),
-            gold: Math.max(0, c.gold + gold),
-            items,
-          };
-        });
         const next: GameState = {
           ...base,
-          characters,
+          characters: applyEffects(base.characters, data.turn.effects),
           memory: [...base.memory, ...data.turn.memory].slice(-60),
           npcArt: data.npcArt,
           history: [...base.history, { action, turn: data.turn }],
@@ -211,17 +208,17 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
   const choose = (choice: Choice) => {
     if (thinking) return;
     if (choice.roll) {
-      const roller = rollerFor(choice.who, choice.roll.skill);
+      // The tray opens; nothing is rolled until a player presses "Tirar".
+      const roller = rollerFor(choice.who, choice.roll.skill, ids);
       const member = party.find((p) => p.id === roller);
       const mod = modifierFor(roller, choice.roll.skill);
-      const adv = choice.roll.advantage;
       setDice({
         choice,
         roller,
-        playerName: member?.name ?? roller,
+        playerName: member ? `${member.name} (${member.playerName})` : roller,
         color: member?.color ?? '#c3a76e',
-        label: `${choice.roll.skill} · CD ${choice.roll.dc}${adv === 'advantage' ? ' · ventaja' : adv === 'disadvantage' ? ' · desventaja' : ''}`,
-        notation: [adv === 'none' ? '1d20' : '2d20'],
+        label: rollLabel(choice.roll),
+        notation: [choice.roll.advantage === 'none' ? '1d20' : '2d20'],
         modifier: mod,
       });
       return;
@@ -253,6 +250,8 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
     e.preventDefault();
     const text = customText.trim();
     if (!text || thinking) return;
+    // Give the keyboard back to the stage: Space/Enter advance the next scene.
+    (document.activeElement as HTMLElement | null)?.blur();
     void askNarrator({ kind: 'custom', who: customWho, text }, state);
   };
 
@@ -269,9 +268,12 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
     const onKey = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null;
       if (target && /^(INPUT|TEXTAREA)$/.test(target.tagName)) return;
+      if (overlay || dice) return;
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
         advance();
+      } else if (e.key === 'i' || e.key === 'f') {
+        setOverlay(ids[0] ?? null);
       }
     };
     window.addEventListener('keydown', onKey);
@@ -302,7 +304,11 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
     lastAction?.kind === 'choice' && lastAction.roll ? lastAction.roll : null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden bg-charcoal-950 text-white">
+    <div
+      className="fixed inset-0 z-50 overflow-hidden bg-charcoal-950 text-white"
+      data-testid="game-stage"
+      data-turn={state.history.length}
+    >
       {/* Backdrop */}
       {!turn && cover ? (
         <div className="absolute inset-0 animate-bg-in">
@@ -325,7 +331,12 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
         </div>
       ) : null}
       {turn ? (
-        <div className="absolute inset-0 animate-bg-in" key={turn.id}>
+        <div
+          className="absolute inset-0 animate-bg-in"
+          data-background={turn.background?.id ?? ''}
+          data-testid="backdrop"
+          key={turn.id}
+        >
           {turn.background ? (
             // biome-ignore lint/performance/noImgElement: pre-sized local art
             <img
@@ -367,6 +378,7 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
       {turn?.figureArt && figureVisible ? (
         <div
           className="pointer-events-none absolute right-[4vw] bottom-0 h-[88vh] w-[min(46vw,62vh)] animate-figure-in transition-[filter] duration-700"
+          data-testid="figure"
           key={`fig-${turn.id}`}
           style={{
             filter:
@@ -411,19 +423,29 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
           <div className="font-condensed text-[0.7rem] text-parchment-text uppercase tracking-[0.3em] drop-shadow">
             {turn?.chapter ?? 'Prólogo'}
           </div>
-          <div className="mt-1 font-nodesto text-4xl text-white uppercase leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+          <div
+            className="mt-1 font-nodesto text-4xl text-white uppercase leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+            data-testid="place"
+          >
             <Caps>{turn?.place ?? 'Phandalin'}</Caps>
           </div>
           <div className="mt-1 font-caps text-brass-pale text-lg drop-shadow">
             {turn?.time ?? ''}
           </div>
         </div>
-        <div className="pointer-events-auto flex items-center gap-3 rounded-lg border border-white/10 bg-charcoal-950/55 px-3 py-2 backdrop-blur">
+        <div className="pointer-events-auto flex items-center gap-1 rounded-lg border border-white/10 bg-charcoal-950/55 p-1.5 backdrop-blur">
           {party.map((p) => {
             const c = state.characters.find((x) => x.id === p.id);
             const hp = c ? c.hp / c.maxHp : 1;
             return (
-              <div className="flex items-center gap-2" key={p.id}>
+              <button
+                className="group flex items-center gap-2 rounded-md px-2 py-1 text-left transition hover:bg-white/10"
+                data-testid={`hud-${p.id}`}
+                key={p.id}
+                onClick={() => setOverlay(p.id)}
+                title={`Ficha e inventario de ${p.name}`}
+                type="button"
+              >
                 <div
                   className="h-11 w-11 overflow-hidden rounded-full ring-2"
                   style={{ ['--tw-ring-color' as string]: p.color }}
@@ -440,12 +462,17 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
                   ) : null}
                 </div>
                 <div>
-                  <div className="font-caps text-base text-brass-pale leading-none">
-                    {p.name}
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-caps text-base text-brass-pale leading-none">
+                      {p.name}
+                    </span>
+                    <span className="font-condensed text-[0.55rem] text-charcoal-400 uppercase tracking-wider">
+                      {p.playerName}
+                    </span>
                   </div>
                   <div className="mt-1 h-1.5 w-20 overflow-hidden rounded-full bg-black/60">
                     <div
-                      className="h-full"
+                      className="h-full transition-all duration-700"
                       style={{
                         width: `${hp * 100}%`,
                         background:
@@ -457,13 +484,21 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
                       }}
                     />
                   </div>
-                  <div className="font-scaly text-[0.65rem] text-charcoal-400">
+                  <div
+                    className="font-scaly text-[0.65rem] text-charcoal-400"
+                    data-testid={`hud-stats-${p.id}`}
+                  >
                     {c ? `${c.hp}/${c.maxHp} PV · ${c.gold} po` : ''}
                   </div>
                 </div>
-              </div>
+              </button>
             );
           })}
+          <span className="hidden self-center px-2 font-condensed text-[0.55rem] text-charcoal-500 uppercase tracking-wider lg:block">
+            Ficha
+            <br />
+            tecla I
+          </span>
         </div>
       </header>
 
@@ -471,6 +506,7 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
       {turn?.figureArt && turn.figure.kind === 'character' ? (
         <div
           className={`absolute top-[11vh] right-[calc(4vw+min(46vw,62vh)-6vw)] w-[min(36vw,32rem)] transition-all duration-500 ${speaking ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
+          data-testid="speech"
         >
           <div className="absolute -top-5 right-5 z-10 flex flex-col rounded-sm border border-brass/70 bg-charcoal-950 px-3 py-1.5 shadow-lg">
             <span className="font-caps text-brass-pale text-xl leading-none">
@@ -507,6 +543,7 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
         {turn ? (
           <button
             className={`paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left transition-all duration-500 ${speaking || thinking ? 'pointer-events-none max-h-0 translate-y-6 overflow-hidden opacity-0' : 'max-h-[60vh] opacity-100'}`}
+            data-testid="narration"
             onClick={advance}
             type="button"
           >
@@ -537,11 +574,17 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
           </button>
         ) : null}
 
-        {/* Last decision + roll, while the narrator writes and after */}
+        {/* What was just decided (and rolled), while the narrator writes and on the first beat after */}
         {lastAction &&
         lastAction.kind !== 'start' &&
         (thinking || step === 0) ? (
-          <div className="mt-3 flex animate-fade-in flex-wrap items-center gap-3 rounded-md border border-brass/40 bg-charcoal-950/85 px-4 py-2.5 backdrop-blur">
+          <div
+            className="mt-3 flex animate-fade-in flex-wrap items-center gap-3 rounded-md border border-brass/40 bg-charcoal-950/85 px-4 py-2.5 backdrop-blur"
+            data-testid="last-decision"
+          >
+            <span className="font-condensed text-[0.6rem] text-charcoal-400 uppercase tracking-wider">
+              Última decisión
+            </span>
             <span
               className="font-condensed text-[0.65rem] uppercase tracking-wider"
               style={{
@@ -558,7 +601,10 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
                 : lastAction.text}
             </span>
             {lastRoll ? (
-              <span className="ml-auto flex items-center gap-2 font-scaly text-charcoal-300 text-sm">
+              <span
+                className="ml-auto flex items-center gap-2 font-scaly text-charcoal-300 text-sm"
+                data-testid="last-roll"
+              >
                 <span>
                   {lastRoll.skill} · CD {lastRoll.dc}
                 </span>
@@ -573,14 +619,9 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
                   <b className="text-white">{lastRoll.total}</b>
                   <span
                     className={`ml-2 font-caps text-base ${lastRoll.success ? 'text-brass-pale' : 'text-brand-300'}`}
+                    data-testid="last-roll-verdict"
                   >
-                    {lastRoll.critical === 'hit'
-                      ? '¡Crítico!'
-                      : lastRoll.critical === 'miss'
-                        ? 'Pifia'
-                        : lastRoll.success
-                          ? 'Éxito'
-                          : 'Fallo'}
+                    {verdict(lastRoll)}
                   </span>
                 </span>
               </span>
@@ -589,7 +630,10 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
         ) : null}
 
         {thinking ? (
-          <div className="mt-3 flex items-center gap-3 rounded-md border border-white/10 bg-charcoal-950/70 px-4 py-3 backdrop-blur">
+          <div
+            className="mt-3 flex items-center gap-3 rounded-md border border-white/10 bg-charcoal-950/70 px-4 py-3 backdrop-blur"
+            data-testid="thinking"
+          >
             <span className="h-2 w-2 animate-ember rounded-full bg-brass" />
             <span className="font-caps text-brass-pale text-lg">
               El máster piensa…
@@ -602,7 +646,10 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
         ) : null}
 
         {error ? (
-          <div className="mt-3 flex flex-wrap items-center gap-3 rounded-md border border-brand-700/60 bg-brand-900/40 px-4 py-3 font-scaly text-sm">
+          <div
+            className="mt-3 flex flex-wrap items-center gap-3 rounded-md border border-brand-700/60 bg-brand-900/40 px-4 py-3 font-scaly text-sm"
+            data-testid="error"
+          >
             <span className="text-brand-100">{error}</span>
             {lastAction ? (
               <button
@@ -619,12 +666,15 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
         {/* Choices */}
         <div
           className={`mt-3 grid gap-2 transition-all duration-500 ${showChoices ? 'translate-y-0 opacity-100' : 'pointer-events-none max-h-0 translate-y-2 overflow-hidden opacity-0'}`}
+          data-testid="choices"
         >
           {turn?.choices.map((c) => {
             const who = party.find((p) => p.id === c.who);
             return (
               <button
                 className="flex items-center gap-3 rounded-md border border-white/15 bg-charcoal-950/70 px-4 py-2.5 text-left text-white backdrop-blur transition hover:border-brass/70"
+                data-roll={c.roll ? 'yes' : 'no'}
+                data-testid="choice"
                 key={c.label}
                 onClick={() => choose(c)}
                 type="button"
@@ -637,24 +687,24 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
                 </span>
                 <span className="font-book text-[1.05rem]">{c.label}</span>
                 <span className="ml-auto font-scaly text-charcoal-400 text-xs">
-                  {c.roll
-                    ? `${c.roll.skill} · CD ${c.roll.dc}${c.roll.advantage === 'advantage' ? ' · ventaja' : c.roll.advantage === 'disadvantage' ? ' · desventaja' : ''}`
-                    : (c.hint ?? '')}
+                  {c.roll ? `Tirada: ${rollLabel(c.roll)}` : (c.hint ?? '')}
                 </span>
               </button>
             );
           })}
           <form
             className="flex items-stretch gap-2 rounded-md border border-white/15 border-dashed bg-charcoal-950/60 px-2 py-2 backdrop-blur"
+            data-testid="custom-form"
             onSubmit={submitCustom}
           >
             <div className="flex shrink-0 overflow-hidden rounded border border-white/15">
-              {(['bram', 'nissa', 'both'] as const).map((w) => {
+              {[...ids, BOTH].map((w) => {
                 const who = party.find((p) => p.id === w);
                 const on = customWho === w;
                 return (
                   <button
                     className="px-2.5 font-condensed text-[0.65rem] uppercase tracking-wider transition"
+                    data-testid={`custom-who-${w}`}
                     key={w}
                     onClick={() => setCustomWho(w)}
                     style={{
@@ -672,6 +722,7 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
             </div>
             <input
               className="min-w-0 flex-1 bg-transparent px-2 font-book text-[1.05rem] text-white placeholder:text-charcoal-400 focus:outline-none"
+              data-testid="custom-input"
               onChange={(e) => setCustomText(e.target.value)}
               placeholder="Otra cosa: escribe lo que hace tu personaje…"
               value={customText}
@@ -698,23 +749,33 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
           ← Menú
         </Link>
         <span className="max-w-[60vw] truncate font-scaly text-[0.7rem] text-white/60">
+          {turn?.sceneEnds && done && atEnd ? 'Fin de la escena. ' : ''}
           {state.history.length > 1
             ? `Anteriormente: ${state.history.at(-2)?.turn.summary ?? ''}`
             : 'Empieza la historia.'}
         </span>
         <button
           className="btn-ghost px-3 py-1.5 text-[0.65rem] uppercase backdrop-blur"
-          onClick={() => router.refresh()}
+          onClick={() => setOverlay(ids[0] ?? null)}
           type="button"
         >
-          Turno {state.history.length}
+          Turno {state.history.length} · Fichas
         </button>
       </nav>
 
       {dice ? <DiceModal onDone={onDice} request={dice} /> : null}
+      {overlay ? (
+        <PartyOverlay
+          characters={state.characters}
+          coinArt={coinArt}
+          focus={overlay}
+          itemArt={itemArt}
+          onClose={() => setOverlay(null)}
+          party={party}
+        />
+      ) : null}
     </div>
   );
 };
 
 export { GameStage };
-export type { PartyMember };

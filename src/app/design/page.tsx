@@ -62,34 +62,12 @@ const portraitQuality = (p: ArtEntry) => {
 const firstOf = (...pools: ArtEntry[][]) =>
   pools.find((p) => p.length > 0) ?? [];
 
-const portraitFrom = (
-  pool: ArtEntry[],
-  raceTag: string,
-  gender: string,
-  classTag: string,
-  seed: string,
-) =>
-  pickArt(
-    firstOf(
-      pool.filter(
-        (p) =>
-          p.tags.includes(raceTag) &&
-          p.tags.includes(gender) &&
-          p.tags.includes(classTag),
-      ),
-      pool.filter((p) => p.tags.includes(raceTag) && p.tags.includes(gender)),
-      pool.filter((p) => p.tags.includes(raceTag)),
-    ),
-    seed,
-  );
-
 const sceneFor = (tags: string[][], seed: string) =>
   pickArt(
     firstOf(
       ...tags.map((t) => artWithTags(t, { within: ['scenes-fr'] })),
       collection('scenes-fr'),
       collection('scenes-fairytale'),
-      collection('scenes-dore'),
     ),
     seed,
   );
@@ -126,20 +104,8 @@ const DesignPage = () => {
   if (!bram || !nissa) return null;
 
   const portraitPool = buildPortraitPool();
-  const bramPortrait = portraitFrom(
-    portraitPool.entries,
-    bram.raceTag,
-    bram.gender,
-    bram.classTag,
-    bram.portraitSeed,
-  );
-  const nissaPortrait = portraitFrom(
-    portraitPool.entries,
-    nissa.raceTag,
-    nissa.gender,
-    nissa.classTag,
-    nissa.portraitSeed,
-  );
+  const bramPortrait = byId(bram.portraitId);
+  const nissaPortrait = byId(nissa.portraitId);
 
   const heroScene = sceneFor(
     [['mountains'], ['snow'], ['landscapes'], ['fortresses']],
@@ -363,11 +329,13 @@ const DesignPage = () => {
           <CharacterSheet
             character={bram}
             itemArt={itemArt}
+            player="Lon"
             portrait={bramPortrait}
           />
           <CharacterSheet
             character={nissa}
             itemArt={itemArt}
+            player="Jato"
             portrait={nissaPortrait}
           />
         </div>

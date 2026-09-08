@@ -17,7 +17,12 @@
     "art:dedupe": "tsx scripts/art/dedupe.ts",
     "art:sheet": "tsx scripts/art/contact-sheet.ts",
     "art:hd": "tsx scripts/art/refetch-hd.ts",
-    "art:wiki-sheet": "tsx scripts/art/wiki-sheet.ts"
+    "art:wiki-sheet": "tsx scripts/art/wiki-sheet.ts",
+    "art:prune-mono": "tsx scripts/art/prune-mono.ts",
+    "test": "pnpm test:unit && pnpm test:e2e",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "dev:mock": "MOCK_NARRATOR=1 next dev -p 3001"
   },
   "dependencies": {
     "@3d-dice/dice-box": "^1.1.4",
@@ -31,6 +36,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.2",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -38,7 +44,8 @@
     "sharp": "^0.35.4",
     "tailwindcss": "^4",
     "tsx": "^4.23.13",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^5.0.0"
   },
   "packageManager": "pnpm@11.18.0",
   "type": "module"

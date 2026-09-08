@@ -4,17 +4,15 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Caps } from '@/components/theme/display';
 import type { ArtEntry } from '@/data/art/schema';
-import { DEMO_CHARACTERS } from '@/data/demo/characters';
 import type { GameState } from '@/lib/game/schema';
-import { clearGame, loadGame, saveGame } from '@/lib/game/storage';
+import { loadGame } from '@/lib/game/storage';
 
 type HomeMenuProps = {
   campaign: { id: string; title: string; tagline: string; levelRange: string };
-  party: {
-    id: 'bram' | 'nissa';
+  roster: {
+    id: string;
     name: string;
     role: string;
-    color: string;
     portrait: ArtEntry | undefined;
   }[];
 };
@@ -51,7 +49,7 @@ const DEATHS = [
 ] as const;
 
 /** New campaign or continue: the only two doors into the game. */
-const HomeMenu = ({ campaign, party }: HomeMenuProps) => {
+const HomeMenu = ({ campaign, roster }: HomeMenuProps) => {
   const router = useRouter();
   const [saved, setSaved] = useState<GameState | null>(null);
   const [model, setModel] = useState<GameState['model']>('claude-opus-5');
@@ -67,28 +65,8 @@ const HomeMenu = ({ campaign, party }: HomeMenuProps) => {
       setConfirmNew(true);
       return;
     }
-    clearGame();
-    const now = new Date().toISOString();
-    const state: GameState = {
-      version: 1,
-      campaignId: campaign.id,
-      model,
-      death,
-      createdAt: now,
-      updatedAt: now,
-      characters: DEMO_CHARACTERS.map((c) => ({
-        id: c.id as 'bram' | 'nissa',
-        hp: c.hp.max,
-        maxHp: c.hp.max,
-        gold: c.coins.gp,
-        items: c.inventory.map((i) => i.name),
-      })),
-      memory: [],
-      npcArt: {},
-      history: [],
-    };
-    saveGame(state);
-    router.push('/play');
+    const params = new URLSearchParams({ model, death, campaign: campaign.id });
+    router.push(`/setup?${params.toString()}`);
   };
 
   return (
@@ -117,6 +95,7 @@ const HomeMenu = ({ campaign, party }: HomeMenuProps) => {
               {MODELS.map((m) => (
                 <button
                   className={`rounded-md border px-3 py-2 text-left transition ${model === m.id ? 'border-brass bg-brass/15' : 'border-charcoal-600 hover:border-brass/60'}`}
+                  data-testid={`model-${m.id}`}
                   key={m.id}
                   onClick={() => setModel(m.id)}
                   type="button"
@@ -139,6 +118,7 @@ const HomeMenu = ({ campaign, party }: HomeMenuProps) => {
               {DEATHS.map((d) => (
                 <button
                   className={`rounded-md border px-3 py-2 text-left transition ${death === d.id ? 'border-brass bg-brass/15' : 'border-charcoal-600 hover:border-brass/60'}`}
+                  data-testid={`death-${d.id}`}
                   key={d.id}
                   onClick={() => setDeath(d.id)}
                   type="button"
@@ -158,12 +138,13 @@ const HomeMenu = ({ campaign, party }: HomeMenuProps) => {
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <button
             className="btn-beyond px-6 py-3 text-base uppercase"
+            data-testid="start-campaign"
             onClick={startNew}
             type="button"
           >
             {confirmNew
-              ? 'Sí, borrar la partida y empezar'
-              : 'Empezar la campaña'}
+              ? 'Sí, dejar la partida guardada atrás'
+              : 'Elegir personajes y empezar'}
           </button>
           {confirmNew ? (
             <button
@@ -176,25 +157,26 @@ const HomeMenu = ({ campaign, party }: HomeMenuProps) => {
           ) : null}
           {saved && !confirmNew ? (
             <span className="font-scaly text-charcoal-400 text-sm">
-              Empezar de nuevo borra la partida guardada.
+              Empezar de nuevo borra la partida guardada al confirmar la
+              compañía.
             </span>
           ) : null}
         </div>
       </section>
 
-      {/* Party + continue */}
+      {/* Roster + continue */}
       <div className="flex flex-col gap-6">
         <section className="rounded-lg border border-white/10 bg-charcoal-950/70 p-6 backdrop-blur">
           <div className="font-condensed text-strapline text-xs uppercase tracking-2xl">
-            Los personajes
+            Seis personajes esperan
           </div>
-          <div className="mt-3 flex flex-col gap-3">
-            {party.map((p) => (
-              <div className="flex items-center gap-3" key={p.id}>
-                <div
-                  className="h-16 w-16 shrink-0 overflow-hidden rounded-full ring-2 ring-offset-2 ring-offset-charcoal-950"
-                  style={{ ['--tw-ring-color' as string]: p.color }}
-                >
+          <div className="mt-3 grid grid-cols-3 gap-3">
+            {roster.map((p) => (
+              <div
+                className="flex flex-col items-center text-center"
+                key={p.id}
+              >
+                <div className="frame-brass h-20 w-16 overflow-hidden rounded-sm">
                   {p.portrait ? (
                     // biome-ignore lint/performance/noImgElement: pre-sized local art
                     <img
@@ -206,19 +188,18 @@ const HomeMenu = ({ campaign, party }: HomeMenuProps) => {
                     />
                   ) : null}
                 </div>
-                <div>
-                  <div className="font-caps text-brass-pale text-xl leading-none">
-                    {p.name}
-                  </div>
-                  <div className="font-condensed text-strapline text-xs uppercase tracking-wider">
-                    {p.role}
-                  </div>
+                <div className="mt-1.5 font-caps text-base text-brass-pale leading-none">
+                  {p.name}
+                </div>
+                <div className="font-condensed text-[0.6rem] text-strapline uppercase tracking-wider">
+                  {p.role}
                 </div>
               </div>
             ))}
           </div>
           <p className="mt-3 font-scaly text-charcoal-400 text-xs">
-            Presets para novatos. El creador de personajes llegará después.
+            Lon elige primero, Jato después. Cada uno ve la ficha completa y lo
+            que la campaña guarda para su personaje.
           </p>
         </section>
 
@@ -233,11 +214,20 @@ const HomeMenu = ({ campaign, party }: HomeMenuProps) => {
                 {saved.history.at(-1)?.turn.place ?? 'Prólogo'}
               </div>
               <div className="mt-1 font-scaly text-charcoal-400 text-xs">
+                {saved.players
+                  .map(
+                    (p) =>
+                      `${p.name} lleva a ${roster.find((r) => r.id === p.characterId)?.name ?? p.characterId}`,
+                  )
+                  .join(' · ')}
+              </div>
+              <div className="mt-1 font-scaly text-charcoal-400 text-xs">
                 Guardado {new Date(saved.updatedAt).toLocaleString('es-ES')} ·{' '}
                 {saved.model === 'claude-opus-5' ? 'Opus 5' : 'Fable 5.1'}
               </div>
               <button
                 className="btn-beyond mt-4 w-full px-5 py-3 uppercase"
+                data-testid="continue-campaign"
                 onClick={() => router.push('/play')}
                 type="button"
               >

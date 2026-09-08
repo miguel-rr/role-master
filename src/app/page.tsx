@@ -4,27 +4,17 @@ import { ArtImage } from '@/components/theme/art';
 import { Caps } from '@/components/theme/display';
 import { TaperedRule } from '@/components/theme/tapered-rule';
 import { byId } from '@/data/art/catalog';
-import { buildPortraitPool } from '@/data/art/portrait-pool';
 import { ICESPIRE_ACT1 } from '@/data/campaigns/icespire-act1';
-import { DEMO_CHARACTERS } from '@/data/demo/characters';
+import { CHARACTER_PRESETS } from '@/data/characters/presets';
 
 export const dynamic = 'force-dynamic';
 
 const HomePage = () => {
-  const pool = buildPortraitPool().entries;
-  const pick = (race: string, gender: string, cls: string) =>
-    pool.find(
-      (p) =>
-        p.tags.includes(race) &&
-        p.tags.includes(gender) &&
-        p.tags.includes(cls),
-    ) ?? pool.find((p) => p.tags.includes(race) && p.tags.includes(gender));
-  const party = DEMO_CHARACTERS.map((c) => ({
-    id: c.id as 'bram' | 'nissa',
-    name: c.name,
-    role: `${c.race} · ${c.className} ${c.level}`,
-    color: c.id === 'bram' ? '#c19429' : '#bdd6e6',
-    portrait: pick(c.raceTag, c.gender, c.classTag),
+  const roster = CHARACTER_PRESETS.map((c) => ({
+    id: c.id,
+    name: c.shortName,
+    role: `${c.race} · ${c.className}`,
+    portrait: byId(c.portraitId),
   }));
   const cover = byId('scenes/fr/klauthen-vale');
 
@@ -78,7 +68,7 @@ const HomePage = () => {
           tagline: ICESPIRE_ACT1.tagline,
           levelRange: ICESPIRE_ACT1.levelRange,
         }}
-        party={party}
+        roster={roster}
       />
     </main>
   );

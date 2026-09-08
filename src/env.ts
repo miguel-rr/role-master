@@ -8,7 +8,9 @@ import { z } from 'zod';
  */
 const env = createEnv({
   server: {
-    ANTHROPIC_API_KEY: z.string().startsWith('sk-ant-'),
+    ANTHROPIC_API_KEY: z.string().startsWith('sk-ant-').optional(),
+    /** "1" replaces Claude with the scripted narrator (tests, demos). */
+    MOCK_NARRATOR: z.enum(['0', '1']).default('0'),
     NODE_ENV: z
       .enum(['development', 'test', 'production'])
       .default('development'),
@@ -16,6 +18,7 @@ const env = createEnv({
   client: {},
   runtimeEnv: {
     ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
+    MOCK_NARRATOR: process.env.MOCK_NARRATOR,
     NODE_ENV: process.env.NODE_ENV,
   },
   skipValidation: Boolean(process.env.SKIP_ENV_VALIDATION),

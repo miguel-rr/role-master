@@ -5,6 +5,9 @@ import { artEntrySchema } from '@/data/art/schema';
  * The contract between the narrator (Claude) and the stage. Everything the
  * model returns for a turn is validated against `sceneTurnSchema`; the server
  * then resolves art and hands the client a `ResolvedTurn`.
+ *
+ * Character ids are open strings here; the route narrows them to the two
+ * characters at the table with `sceneTurnSchemaFor`.
  */
 
 const atmosphereSchema = z.enum([
@@ -55,7 +58,9 @@ const figureSchema = z.discriminatedUnion('kind', [
   }),
 ]);
 
-const whoSchema = z.enum(['bram', 'nissa', 'both']);
+/** A character id, or "both" for a shared decision. */
+const whoSchema = z.string().min(1);
+const BOTH = 'both';
 
 const rollRequestSchema = z.object({
   /** Skill or save name in Spanish, from the rules vocabulary. */
@@ -64,54 +69,66 @@ const rollRequestSchema = z.object({
   advantage: z.enum(['none', 'advantage', 'disadvantage']).default('none'),
 });
 
-const choiceSchema = z.object({
-  label: z.string().min(1),
-  who: whoSchema,
-  hint: z.string().optional(),
-  roll: rollRequestSchema.optional(),
-});
+/**
+ * Builds the turn schema. `who` accepts a character id or "both"; `one`
+ * accepts a character id only (effects always land on someone).
+ */
+const buildSceneTurnSchema = <
+  W extends z.ZodType<string>,
+  O extends z.ZodType<string>,
+>(
+  who: W,
+  one: O,
+) => {
+  const choice = z.object({
+    label: z.string().min(1),
+    who,
+    hint: z.string().optional(),
+    roll: rollRequestSchema.optional(),
+  });
+  const effects = z.object({
+    hp: z.array(z.object({ who: one, delta: z.number().int() })).default([]),
+    gold: z.array(z.object({ who: one, delta: z.number().int() })).default([]),
+    items: z
+      .array(
+        z.object({
+          who: one,
+          add: z.string().optional(),
+          remove: z.string().optional(),
+        }),
+      )
+      .default([]),
+  });
+  return z.object({
+    place: z.string().min(1),
+    chapter: z.string().min(1),
+    time: z.string().min(1),
+    /** Ordered preferences from the place vocabulary; first match wins. */
+    sceneTags: z.array(z.string()).min(1).max(4),
+    atmosphere: atmosphereSchema,
+    mood: moodSchema,
+    figure: figureSchema,
+    beats: z.array(beatSchema).min(1).max(7),
+    choices: z.array(choice).min(2).max(4),
+    effects: effects.default({ hp: [], gold: [], items: [] }),
+    /** Facts worth remembering for the rest of the campaign. */
+    memory: z.array(z.string()).default([]),
+    /** One line for the log ("Anteriormente en…"). */
+    summary: z.string().min(1),
+    /** True when the party reaches a natural stopping point. */
+    sceneEnds: z.boolean().default(false),
+  });
+};
 
-const effectsSchema = z.object({
-  hp: z
-    .array(
-      z.object({ who: z.enum(['bram', 'nissa']), delta: z.number().int() }),
-    )
-    .default([]),
-  gold: z
-    .array(
-      z.object({ who: z.enum(['bram', 'nissa']), delta: z.number().int() }),
-    )
-    .default([]),
-  items: z
-    .array(
-      z.object({
-        who: z.enum(['bram', 'nissa']),
-        add: z.string().optional(),
-        remove: z.string().optional(),
-      }),
-    )
-    .default([]),
-});
+const sceneTurnSchema = buildSceneTurnSchema(whoSchema, whoSchema);
+const choiceSchema = sceneTurnSchema.shape.choices.element;
+const effectsSchema = sceneTurnSchema.shape.effects;
 
-const sceneTurnSchema = z.object({
-  place: z.string().min(1),
-  chapter: z.string().min(1),
-  time: z.string().min(1),
-  /** Ordered preferences from the place vocabulary; first match wins. */
-  sceneTags: z.array(z.string()).min(1).max(4),
-  atmosphere: atmosphereSchema,
-  mood: moodSchema,
-  figure: figureSchema,
-  beats: z.array(beatSchema).min(1).max(7),
-  choices: z.array(choiceSchema).min(2).max(4),
-  effects: effectsSchema.default({ hp: [], gold: [], items: [] }),
-  /** Facts worth remembering for the rest of the campaign. */
-  memory: z.array(z.string()).default([]),
-  /** One line for the log ("Anteriormente en…"). */
-  summary: z.string().min(1),
-  /** True when the party reaches a natural stopping point. */
-  sceneEnds: z.boolean().default(false),
-});
+/** The same schema with `who` narrowed to the characters at the table. */
+const sceneTurnSchemaFor = (characterIds: readonly string[]) => {
+  const ids = [...characterIds] as [string, ...string[]];
+  return buildSceneTurnSchema(z.enum([...ids, BOTH]), z.enum(ids));
+};
 
 const rollResultSchema = rollRequestSchema.extend({
   modifier: z.number().int(),
@@ -146,11 +163,17 @@ const resolvedTurnSchema = sceneTurnSchema.extend({
 });
 
 const characterStateSchema = z.object({
-  id: z.enum(['bram', 'nissa']),
+  id: z.string().min(1),
   hp: z.number().int(),
   maxHp: z.number().int(),
   gold: z.number().int(),
   items: z.array(z.string()),
+});
+
+/** A person at the table and the character they picked. */
+const playerSchema = z.object({
+  name: z.string().min(1),
+  characterId: z.string().min(1),
 });
 
 const historyEntrySchema = z.object({
@@ -159,12 +182,13 @@ const historyEntrySchema = z.object({
 });
 
 const gameStateSchema = z.object({
-  version: z.literal(1),
+  version: z.literal(2),
   campaignId: z.string(),
   model: z.enum(['claude-opus-5', 'claude-fable-5-1']),
   death: z.enum(['never', 'unlikely', 'possible']),
   createdAt: z.string(),
   updatedAt: z.string(),
+  players: z.array(playerSchema).length(2),
   characters: z.array(characterStateSchema),
   memory: z.array(z.string()),
   /** npcId → art id, so faces stay put. */
@@ -176,6 +200,7 @@ const turnRequestSchema = z.object({
   campaignId: z.string(),
   model: gameStateSchema.shape.model,
   death: gameStateSchema.shape.death,
+  players: z.array(playerSchema).length(2),
   characters: z.array(characterStateSchema),
   memory: z.array(z.string()),
   npcArt: z.record(z.string(), z.string()),
@@ -215,10 +240,12 @@ type Who = z.infer<typeof whoSchema>;
 type RollRequest = z.infer<typeof rollRequestSchema>;
 type RollResult = z.infer<typeof rollResultSchema>;
 type Choice = z.infer<typeof choiceSchema>;
+type Effects = z.infer<typeof effectsSchema>;
 type SceneTurn = z.infer<typeof sceneTurnSchema>;
 type ResolvedTurn = z.infer<typeof resolvedTurnSchema>;
 type PlayerAction = z.infer<typeof playerActionSchema>;
 type CharacterState = z.infer<typeof characterStateSchema>;
+type Player = z.infer<typeof playerSchema>;
 type GameState = z.infer<typeof gameStateSchema>;
 type TurnRequest = z.infer<typeof turnRequestSchema>;
 type TurnResponse = z.infer<typeof turnResponseSchema>;
@@ -226,16 +253,19 @@ type TurnResponse = z.infer<typeof turnResponseSchema>;
 export {
   atmosphereSchema,
   beatSchema,
+  BOTH,
   characterStateSchema,
   choiceSchema,
   figureSchema,
   gameStateSchema,
   moodSchema,
   playerActionSchema,
+  playerSchema,
   resolvedTurnSchema,
   rollRequestSchema,
   rollResultSchema,
   sceneTurnSchema,
+  sceneTurnSchemaFor,
   turnRequestSchema,
   turnResponseSchema,
   whoSchema,
@@ -245,9 +275,11 @@ export type {
   Beat,
   CharacterState,
   Choice,
+  Effects,
   Figure,
   GameState,
   Mood,
+  Player,
   PlayerAction,
   ResolvedTurn,
   RollRequest,

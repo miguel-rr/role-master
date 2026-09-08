@@ -13,6 +13,8 @@ import {
 
 type CharacterSheetProps = {
   character: DemoCharacter;
+  /** Who plays them, printed next to the name. */
+  player?: string;
   portrait: ArtEntry | undefined;
   itemArt: Map<string, ArtEntry | undefined>;
 };
@@ -135,6 +137,7 @@ const Box = ({
 /** A faithful take on the official 5e character sheet, filled in and alive. */
 const CharacterSheet = ({
   character: c,
+  player,
   portrait,
   itemArt,
 }: CharacterSheetProps) => {
@@ -162,7 +165,9 @@ const CharacterSheet = ({
             <div className="truncate font-caps text-[2rem] text-maroon leading-none">
               {c.name}
             </div>
-            <FieldLabel>Nombre del personaje · jugador: {c.player}</FieldLabel>
+            <FieldLabel>
+              Nombre del personaje{player ? ` · jugador: ${player}` : ''}
+            </FieldLabel>
           </div>
           <div className="mt-2 grid grid-cols-3 gap-x-4 gap-y-2">
             <Field label="Clase y nivel" value={`${c.className} ${c.level}`} />

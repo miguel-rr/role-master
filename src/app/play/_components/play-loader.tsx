@@ -3,16 +3,22 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import type { ArtEntry } from '@/data/art/schema';
+import { buildParty, type RosterEntry } from '@/lib/game/party';
 import type { GameState } from '@/lib/game/schema';
 import { loadGame } from '@/lib/game/storage';
-import { GameStage, type PartyMember } from './game-stage';
+import { GameStage } from './game-stage';
+import type { CoinArt } from './party-overlay';
 
 /** Reads the saved campaign from the browser; sends you to the menu if none. */
 const PlayLoader = ({
-  party,
+  roster,
+  itemArt,
+  coinArt,
   cover,
 }: {
-  party: PartyMember[];
+  roster: RosterEntry[];
+  itemArt: Record<string, ArtEntry>;
+  coinArt: CoinArt;
   cover: ArtEntry | undefined;
 }) => {
   const router = useRouter();
@@ -34,7 +40,15 @@ const PlayLoader = ({
       </div>
     );
   }
-  return <GameStage cover={cover} initial={state} party={party} />;
+  return (
+    <GameStage
+      coinArt={coinArt}
+      cover={cover}
+      initial={state}
+      itemArt={itemArt}
+      party={buildParty(state.players, roster)}
+    />
+  );
 };
 
 export { PlayLoader };

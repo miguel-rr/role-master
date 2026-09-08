@@ -25,6 +25,15 @@ type DiceModalProps = {
 
 const ROLL_TIMEOUT_MS = 9000;
 
+/** Players (and tests) can ask for the flat dice: no WebGL, no wait. */
+const prefers2d = () => {
+  try {
+    return localStorage.getItem('role-master:dice-2d') === '1';
+  } catch {
+    return false;
+  }
+};
+
 const supportsWebGL = () => {
   try {
     const c = document.createElement('canvas');
@@ -51,7 +60,12 @@ const DiceModal = ({ request, onDone }: DiceModalProps) => {
   useEffect(() => {
     if (startedRef.current) return;
     startedRef.current = true;
-    if (!supportsWebGL() || typeof Worker === 'undefined' || document.hidden) {
+    if (
+      prefers2d() ||
+      !supportsWebGL() ||
+      typeof Worker === 'undefined' ||
+      document.hidden
+    ) {
       setEngine('2d');
       return;
     }
@@ -160,7 +174,10 @@ const DiceModal = ({ request, onDone }: DiceModalProps) => {
       : values?.[0];
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-6 backdrop-blur-sm">
+    <div
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-6 backdrop-blur-sm"
+      data-testid="dice-modal"
+    >
       <div className="relative w-[min(92vw,64rem)] overflow-hidden rounded-lg border border-brass/40 bg-charcoal-950 shadow-[0_40px_120px_rgba(0,0,0,0.8)]">
         <div className="flex items-center justify-between border-brass/30 border-b px-6 py-3">
           <div>
@@ -262,6 +279,7 @@ const DiceModal = ({ request, onDone }: DiceModalProps) => {
           {values ? (
             <button
               className="btn-beyond px-6 py-2.5 uppercase"
+              data-testid="dice-accept"
               onClick={() => onDone(values)}
               type="button"
             >
@@ -270,6 +288,7 @@ const DiceModal = ({ request, onDone }: DiceModalProps) => {
           ) : (
             <button
               className="btn-beyond px-6 py-2.5 uppercase disabled:opacity-40"
+              data-testid="dice-roll"
               disabled={engine === 'loading' || rolling}
               onClick={roll}
               type="button"

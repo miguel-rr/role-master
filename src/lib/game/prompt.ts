@@ -1,5 +1,5 @@
 import type { Campaign } from '@/data/campaigns/icespire-act1';
-import { DEMO_CHARACTERS, type DemoCharacter } from '@/data/demo/characters';
+import { type CharacterPreset, presetById } from '@/data/characters/presets';
 import {
   ABILITIES,
   ABILITY_LABEL,
@@ -8,7 +8,13 @@ import {
   SKILLS,
   signed,
 } from '@/lib/dnd/rules';
-import type { CharacterState, PlayerAction, TurnRequest } from './schema';
+import {
+  BOTH,
+  type CharacterState,
+  type Player,
+  type PlayerAction,
+  type TurnRequest,
+} from './schema';
 
 /**
  * The narrator's system prompt, in three cacheable layers:
@@ -19,8 +25,10 @@ import type { CharacterState, PlayerAction, TurnRequest } from './schema';
 
 const VOICE = `
 Eres el Dungeon Master de una partida de Dungeons & Dragons 5ª edición para
-DOS jugadores novatos, Miguel (lleva a Bram) y su amigo (lleva a Nissa), que
-juegan juntos delante de una sola pantalla. Narras en español de España.
+DOS jugadores novatos que juegan juntos delante de una sola pantalla. Sus
+nombres y los personajes que llevan se indican en el estado de la mesa; usa
+el trasfondo y el gancho de cada personaje: son suyos y la campaña los espera.
+Narras en español de España.
 Cuando te diriges a los jugadores, los tuteas ("tira los dados", "busca en tu
 inventario"). Los PNJ hablan como les dé la gana: con acento, con jerga, con
 desprecio o con miedo, y no todos tratan igual a los dos personajes.
@@ -68,8 +76,9 @@ Devuelves exactamente un objeto con el esquema indicado. Guía:
   nadie destacado. Mantén el mismo "npcId" para el mismo personaje siempre
   (p. ej. "toblen", "dazlyn", "mantícora-umbrage").
 - "choices": 2 a 4 decisiones DISTINTAS en naturaleza. Varía quién decide:
-  "bram", "nissa" o "both". Que al menos una tenga riesgo y que no todas
-  requieran tirada. La app añade siempre una acción libre; no la incluyas.
+  el id de un personaje o "both" (los dos). Que al menos una tenga riesgo y
+  que no todas requieran tirada. La app añade siempre una acción libre; no la
+  incluyas.
 - "sceneTags": 1 a 4 etiquetas del vocabulario de lugares, la más precisa
   primero. "atmosphere" y "mood" según la escena.
 - "effects": solo cambios reales de este turno. "memory": hechos nuevos que
@@ -79,7 +88,11 @@ Devuelves exactamente un objeto con el esquema indicado. Guía:
   dentro de los textos.
 `.trim();
 
-const sheetOf = (c: DemoCharacter, state: CharacterState | undefined) => {
+const sheetOf = (
+  c: CharacterPreset,
+  player: Player,
+  state: CharacterState | undefined,
+) => {
   const pb = proficiencyBonus(c.level);
   const abilities = ABILITIES.map(
     (a) =>
@@ -96,7 +109,7 @@ const sheetOf = (c: DemoCharacter, state: CharacterState | undefined) => {
     ? state.items.join(', ')
     : c.inventory.map((i) => i.name).join(', ');
   return [
-    `### ${c.name} (id "${c.id}") — ${c.race} ${c.className} ${c.level}, ${c.background}, ${c.alignment}`,
+    `### ${c.name} (id "${c.id}") — ${c.race} ${c.className} ${c.level}, ${c.background}, ${c.alignment}. Lo lleva ${player.name}.`,
     `PV ${hp} · CA ${c.armorClass} (${c.armorNote}) · Velocidad ${c.speed} · Competencia +${pb}`,
     `Características: ${abilities}`,
     `Salvaciones con competencia: ${c.saveProficiencies.map((a) => ABILITY_LABEL[a].name).join(', ')}`,
@@ -105,6 +118,8 @@ const sheetOf = (c: DemoCharacter, state: CharacterState | undefined) => {
     `Rasgos: ${c.features.map((f) => f.name).join(', ')}`,
     `Oro: ${gold} po · Equipo: ${items}`,
     `Personalidad: ${c.traits} Ideal: ${c.ideals} Vínculo: ${c.bonds} Defecto: ${c.flaws}`,
+    `Trasfondo: ${c.backstory.replace(/\s+/g, ' ')}`,
+    `Gancho en esta campaña (úsalo, sin prisa): ${c.hook}`,
   ].join('\n');
 };
 
@@ -121,12 +136,25 @@ const tableState = (
   req: TurnRequest,
   vocab: { places: readonly string[]; monsters: string[] },
 ) => {
-  const sheets = DEMO_CHARACTERS.map((c) =>
-    sheetOf(
-      c,
-      req.characters.find((s) => s.id === c.id),
-    ),
-  ).join('\n\n');
+  const sheets = req.players
+    .map((p) => {
+      const c = presetById(p.characterId);
+      return c
+        ? sheetOf(
+            c,
+            p,
+            req.characters.find((s) => s.id === c.id),
+          )
+        : '';
+    })
+    .filter(Boolean)
+    .join('\n\n');
+  const table = req.players
+    .map(
+      (p) =>
+        `${p.name} lleva a ${presetById(p.characterId)?.shortName ?? p.characterId} (id "${p.characterId}")`,
+    )
+    .join('; ');
   const memory =
     req.memory.length > 0
       ? req.memory.map((m) => `- ${m}`).join('\n')
@@ -134,6 +162,9 @@ const tableState = (
   return `
 ## Política de la mesa
 ${DEATH_POLICY[req.death]}
+
+## La mesa
+${table}. Cuando te dirijas a un jugador, usa su nombre; cuando hables del personaje, el del personaje.
 
 ## Los personajes
 ${sheets}
@@ -149,10 +180,19 @@ Habilidades para "roll.skill": ${SKILLS.map((s) => s.name).join(', ')}; también
 `.trim();
 };
 
-const describeAction = (a: PlayerAction): string => {
+/** "Bram", "Nissa" or "Bram y Nissa", from the table's players. */
+const nameOf = (who: string, players: Player[]): string => {
+  const names = players.map(
+    (p) => presetById(p.characterId)?.shortName ?? p.characterId,
+  );
+  if (who === BOTH) return names.join(' y ');
+  const p = players.find((x) => x.characterId === who);
+  return p ? (presetById(p.characterId)?.shortName ?? who) : who;
+};
+
+const describeAction = (a: PlayerAction, players: Player[]): string => {
   if (a.kind === 'start') return 'EMPIEZA LA PARTIDA.';
-  const who =
-    a.who === 'both' ? 'Bram y Nissa' : a.who === 'bram' ? 'Bram' : 'Nissa';
+  const who = nameOf(a.who, players);
   if (a.kind === 'custom') {
     return `${who} (acción libre, en sus palabras): «${a.text}». Interprétala con generosidad pero con consecuencias.`;
   }
@@ -166,7 +206,10 @@ const buildMessages = (req: TurnRequest, campaign: Campaign) => {
   const recent = req.history.slice(-10);
   const messages: { role: 'user' | 'assistant'; content: string }[] = [];
   for (const h of recent) {
-    messages.push({ role: 'user', content: describeAction(h.action) });
+    messages.push({
+      role: 'user',
+      content: describeAction(h.action, req.players),
+    });
     messages.push({
       role: 'assistant',
       content: JSON.stringify({
@@ -182,10 +225,10 @@ const buildMessages = (req: TurnRequest, campaign: Campaign) => {
   }
   const current =
     req.action.kind === 'start'
-      ? `${describeAction(req.action)}\n\n${campaign.opening}`
-      : describeAction(req.action);
+      ? `${describeAction(req.action, req.players)}\n\n${campaign.opening}`
+      : describeAction(req.action, req.players);
   messages.push({ role: 'user', content: current });
   return messages;
 };
 
-export { buildMessages, tableState, VOICE };
+export { buildMessages, describeAction, nameOf, tableState, VOICE };

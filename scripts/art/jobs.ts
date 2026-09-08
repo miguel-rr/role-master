@@ -713,25 +713,6 @@ const commonsJob = (
   rank: (file) => Math.min(file.info.width, 4000) / 40,
 });
 
-const commonsDore = commonsJob(
-  'scenes-dore',
-  'scenes/dore',
-  [
-    { name: 'Illustrations of Paradise Lost by Gustave Doré', max: 50 },
-    { name: 'Don Quijote illustrated by Gustave Doré', max: 40 },
-    { name: 'Orlando Furioso by Gustave Doré', max: 50 },
-    { name: 'Idylls of the King by Gustave Doré', max: 25 },
-    {
-      name: 'Illustrations of the Divine Comedy by Gustave Doré',
-      depth: 1,
-      max: 60,
-    },
-    { name: 'Gustave Doré - The Raven', max: 20 },
-    { name: 'Illustrations by Gustave Doré for the Bible', depth: 1, max: 30 },
-  ],
-  ['dore', 'ink'],
-);
-
 const commonsColour = commonsJob(
   'scenes-fairytale',
   'scenes/fairytale',
@@ -757,7 +738,6 @@ const JOBS: Job[] = [
   frNpcs,
   frMonsters,
   frPlaces,
-  commonsDore,
   commonsColour,
 ];
 

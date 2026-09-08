@@ -6,12 +6,19 @@ de tocar nada y actualízalo cuando se cierre una decisión.
 
 # Commands
 
-- Dev: `pnpm dev` (puerto **3001**, fijado por Miguel)
+- Dev: `pnpm dev` (puerto **3001**, fijado por Miguel). `pnpm dev:mock` lo
+  arranca con el narrador de guion (`MOCK_NARRATOR=1`): no consume API.
 - Build: `pnpm build`
 - Lint + format: `pnpm check` (auto-fix: `pnpm check:write`)
 - Typecheck: `pnpm typecheck`
+- Tests: `pnpm test` (`test:unit` con vitest, `test:e2e` con Playwright).
+  El e2e construye y sirve la app en el puerto 3002 con el narrador de guion;
+  nunca llama a Anthropic. Next solo permite un `next dev` por proyecto, por
+  eso el e2e usa `next build && next start`.
 
-`pnpm typecheck` y `pnpm check` en verde antes de dar una tarea por terminada.
+`pnpm typecheck`, `pnpm check` y `pnpm test` en verde antes de dar una tarea
+por terminada. Cualquier prueba que toque el juego debe pasar por el narrador
+de guion, nunca por la API real.
 
 # Stack & Conventions
 

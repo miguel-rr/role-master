@@ -112,12 +112,16 @@ const resolveBackground = (
   for (const tag of turn.sceneTags) {
     const pool = artWithTags([tag], { within: ['scenes-fr'] }).filter(good);
     if (pool.length === 0) continue;
-    // Painted 5e-era art first; older editions only if that is all there is.
+    // The hand-picked backgrounds of the design lab set the bar: use one of
+    // them whenever the place allows it; then painted 5e-era art; then the rest.
+    const featured = pool.filter((e) => e.tags.includes('featured'));
+    if (featured.length > 0) return pickArt(featured, seed);
     const modern = pool.filter((e) => e.tags.includes('5e'));
     return pickArt(modern.length >= 3 ? modern : pool, seed);
   }
   const any = collection('scenes-fr').filter(good);
-  return pickArt(any, seed);
+  const featured = any.filter((e) => e.tags.includes('featured'));
+  return pickArt(featured.length > 0 ? featured : any, seed);
 };
 
 const resolveFigure = (
@@ -133,14 +137,26 @@ const resolveFigure = (
   }
   let art: ArtEntry | undefined;
   if (figure.kind === 'creature') {
-    const pool = collection('monsters-fr').filter(
+    const tag = figure.monsterTag.trim().toLowerCase();
+    const tagged = collection('monsters-fr').filter(
       (e) =>
-        e.tags.includes(figure.monsterTag) &&
-        !e.tags.includes('duplicate') &&
-        !e.tags.includes('white-bg') &&
-        e.height >= e.width * 0.8,
+        (e.tags.includes(tag) || e.tags.includes(`${tag}s`)) &&
+        !e.tags.includes('duplicate'),
     );
-    art = pickArt(pool, seed);
+    // Upright paintings first; a landscape one (cropped by the frame) beats
+    // no creature at all; a white-background cut-out is the last resort.
+    const painted = tagged.filter((e) => !e.tags.includes('white-bg'));
+    const tiers = [
+      painted.filter((e) => e.height >= e.width * 0.8),
+      painted,
+      tagged,
+    ];
+    for (const tier of tiers) {
+      if (tier.length > 0) {
+        art = pickArt(tier, seed);
+        break;
+      }
+    }
   } else {
     const pool = buildPortraitPool().entries;
     const has = (e: ArtEntry, t?: string) => !t || e.tags.includes(t);

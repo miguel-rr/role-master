@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { DiceModal, type DiceRequest } from '@/components/dice/dice-modal';
 import { Caps } from '@/components/theme/display';
 import { TaperedRule } from '@/components/theme/tapered-rule';
 import type { ArtEntry } from '@/data/art/schema';
@@ -35,7 +36,7 @@ type Outcome = {
 type SceneChoice = {
   label: string;
   hint?: string;
-  who: 'bram' | 'nissa' | 'both';
+  who: string;
   outcome?: Outcome;
 };
 
@@ -65,7 +66,7 @@ type Scene = {
 };
 
 type Party = {
-  id: 'bram' | 'nissa';
+  id: string;
   name: string;
   color: string;
   portrait: ArtEntry | undefined;
@@ -113,7 +114,7 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
   const [prev, setPrev] = useState<number | null>(null);
   const [step, setStep] = useState(0);
   const [picked, setPicked] = useState<number | 'custom' | null>(null);
-  const [customWho, setCustomWho] = useState<'bram' | 'nissa' | 'both'>('both');
+  const [customWho, setCustomWho] = useState<string>('both');
   const [customText, setCustomText] = useState('');
   const [customSent, setCustomSent] = useState<string | null>(null);
   const [showStrip, setShowStrip] = useState(true);
@@ -124,13 +125,18 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
   /** After a decision: the chip with the roll, then the follow-up beats. */
   type Resolution = {
     label: string;
-    who: 'bram' | 'nissa' | 'both';
+    who: string;
     roll?: Roll & { result: number; total: number; success: boolean };
     beats: Beat[];
     phase: 'rolling' | 'settled' | 'playing';
   };
   const [resolution, setResolution] = useState<Resolution | null>(null);
   const [dieFace, setDieFace] = useState(1);
+  /** A check waiting for the players to throw the dice in the tray. */
+  const [pendingRoll, setPendingRoll] = useState<
+    | (DiceRequest & { choiceLabel: string; who: string; outcome: Outcome })
+    | null
+  >(null);
 
   const beats = useMemo(
     () =>
@@ -194,7 +200,7 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
   /** Collapses the choices into a chip, rolls if needed, then plays the follow-up. */
   const resolve = (
     label: string,
-    who: 'bram' | 'nissa' | 'both',
+    who: string,
     outcome: Outcome | undefined,
     fallbackBeats: Beat[],
   ) => {
@@ -213,35 +219,47 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
       setStep(0);
       return;
     }
+    // The tray opens; the dice only roll when a player presses "Tirar".
     const roll = outcome.roll;
-    const result = 1 + Math.floor(Math.random() * 20);
+    const roller = who === 'both' ? party[0] : party.find((p) => p.id === who);
+    setPendingRoll({
+      choiceLabel: label,
+      who,
+      outcome,
+      playerName: roller?.name ?? 'Ambos',
+      color: roller?.color ?? '#c3a76e',
+      label: `${roll.skill} · CD ${roll.dc}`,
+      notation: ['1d20'],
+      modifier: roll.modifier,
+    });
+  };
+
+  /** The tray hands back the faces; the chip settles and the follow-up plays. */
+  const onDice = (values: number[]) => {
+    if (!pendingRoll?.outcome.roll) return;
+    const roll = pendingRoll.outcome.roll;
+    const result = values[0] ?? 1;
     const total = result + roll.modifier;
     const success = result === 20 || (result !== 1 && total >= roll.dc);
+    setDieFace(result);
     setResolution({
-      label,
-      who,
+      label: pendingRoll.choiceLabel,
+      who: pendingRoll.who,
       roll: { ...roll, result, total, success },
-      beats: success ? outcome.success : (outcome.failure ?? outcome.success),
-      phase: 'rolling',
+      beats: success
+        ? pendingRoll.outcome.success
+        : (pendingRoll.outcome.failure ?? pendingRoll.outcome.success),
+      phase: 'settled',
     });
-    // Spin the die for a moment, then settle and play.
-    let ticks = 0;
-    const spin = window.setInterval(() => {
-      setDieFace(1 + Math.floor(Math.random() * 20));
-      ticks += 1;
-      if (ticks >= 14) {
-        window.clearInterval(spin);
-        setDieFace(result);
-        setResolution((r) => (r ? { ...r, phase: 'settled' } : r));
-        window.setTimeout(() => {
-          setStep(0);
-          setResolution((r) => (r ? { ...r, phase: 'playing' } : r));
-        }, 1300);
-      }
-    }, 80);
+    setPendingRoll(null);
+    window.setTimeout(() => {
+      setStep(0);
+      setResolution((r) => (r ? { ...r, phase: 'playing' } : r));
+    }, 1300);
   };
 
   const restart = () => {
+    setPendingRoll(null);
     setResolution(null);
     setPicked(null);
     setCustomText('');
@@ -607,7 +625,7 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
             }}
           >
             <div className="flex shrink-0 overflow-hidden rounded border border-white/15">
-              {(['bram', 'nissa', 'both'] as const).map((w) => {
+              {[...party.map((p) => p.id), 'both'].map((w) => {
                 const who = party.find((p) => p.id === w);
                 const on = customWho === w;
                 return (
@@ -692,6 +710,7 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
           ← → cambiar · espacio avanzar
         </span>
       </nav>
+      {pendingRoll ? <DiceModal onDone={onDice} request={pendingRoll} /> : null}
     </div>
   );
 };

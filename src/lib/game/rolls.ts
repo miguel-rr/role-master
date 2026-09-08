@@ -1,4 +1,4 @@
-import { DEMO_CHARACTERS } from '@/data/demo/characters';
+import { presetById } from '@/data/characters/presets';
 import {
   ABILITIES,
   ABILITY_LABEL,
@@ -6,22 +6,11 @@ import {
   proficiencyBonus,
   SKILLS,
 } from '@/lib/dnd/rules';
-import type { RollRequest, RollResult, Who } from './schema';
-
-/**
- * Who actually rolls a shared check: the better of the two, as at most
- * tables ("help" is implied).
- */
-const rollerFor = (who: Who, skill: string): 'bram' | 'nissa' => {
-  if (who !== 'both') return who;
-  const a = modifierFor('bram', skill);
-  const b = modifierFor('nissa', skill);
-  return b > a ? 'nissa' : 'bram';
-};
+import { BOTH, type RollRequest, type RollResult, type Who } from './schema';
 
 /** Skill or save modifier from the character sheet, by Spanish name. */
-const modifierFor = (id: 'bram' | 'nissa', skill: string): number => {
-  const c = DEMO_CHARACTERS.find((x) => x.id === id);
+const modifierFor = (characterId: string, skill: string): number => {
+  const c = presetById(characterId);
   if (!c) return 0;
   const pb = proficiencyBonus(c.level);
   const name = skill.trim().toLowerCase();
@@ -44,6 +33,29 @@ const modifierFor = (id: 'bram' | 'nissa', skill: string): number => {
     (a) => ABILITY_LABEL[a].name.toLowerCase() === name,
   );
   return ab ? modifier(c.scores[ab]) : 0;
+};
+
+/**
+ * Who actually rolls a shared check: the better of the party, as at most
+ * tables ("help" is implied). Unknown ids fall back to the first character.
+ */
+const rollerFor = (
+  who: Who,
+  skill: string,
+  characterIds: readonly string[],
+): string => {
+  const first = characterIds[0] ?? who;
+  if (who !== BOTH) return characterIds.includes(who) ? who : first;
+  let best = first;
+  let bestMod = Number.NEGATIVE_INFINITY;
+  for (const id of characterIds) {
+    const m = modifierFor(id, skill);
+    if (m > bestMod) {
+      best = id;
+      bestMod = m;
+    }
+  }
+  return best;
 };
 
 /** Scores a d20 (or two, with advantage/disadvantage) against a DC. */
