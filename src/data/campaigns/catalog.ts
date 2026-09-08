@@ -4,7 +4,7 @@ import { ICESPIRE_ACT1 } from './icespire-act1';
  * The shelf. Every campaign the table can pick, playable or announced. Only
  * entries with `available: true` have a bible behind them; the rest are
  * covers so the shelf can be designed with real weight. Mock entries are
- * marked so they can be swept away in one go.
+ * marked so they are easy to find when their bible gets written.
  */
 
 type CatalogEntry = {
@@ -24,7 +24,7 @@ type CatalogEntry = {
   tone: string[];
   available: boolean;
   isNew?: boolean;
-  /** Placeholder to try the shelf design; delete once reviewed. */
+  /** Announced cover without a bible yet; flip `available` when written. */
   mock?: boolean;
 };
 

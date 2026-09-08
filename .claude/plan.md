@@ -312,9 +312,10 @@ con `pnpm art:hd`. Este contrato de datos es el que emitirá el narrador.
   «Seguir jugando», filas por tipo y tono, banner) → `/campaigns/[id]`
   (portada, narrador, muerte, elenco) → `/setup` (Lon elige, Jato elige;
   dosier con historia, ficha en papel y mochila; «La compañía») → `/play`.
-  El catálogo vive en `src/data/campaigns/catalog.ts`; las entradas con
-  `mock: true` son portadas de prueba (pendiente de revisión de Miguel:
-  borrarlas y ver la estantería con una sola campaña). Los jugadores se llaman Lon y Jato (`PLAYERS` en
+  El catálogo vive en `src/data/campaigns/catalog.ts`. Miguel aprobó la
+  estantería con las 16 campañas anunciadas (2026-09-08): se quedan como
+  portadas «Próximamente» (`mock: true`) hasta que cada una tenga biblia;
+  al escribirla, `available: true` y quitar la marca. Los jugadores se llaman Lon y Jato (`PLAYERS` en
   `src/app/setup/_components/setup-flow.tsx`).
 - **En partida**: retratos del HUD, tecla I o el botón «Fichas» abren la
   superposición con la ficha en papel y la mochila ilustrada con PV, oro y
