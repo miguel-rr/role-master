@@ -30,12 +30,20 @@ const buildScenes = (): Scene[] => [
     figureSide: 'right',
     figureKind: 'character',
     speaker: { name: 'Toblen Piedracolina', role: 'Posadero' },
-    narration: [
-      'La puerta se cierra a vuestra espalda y la lluvia se queda fuera, con el frío. Dentro huele a estofado, a cerveza derramada y a leña húmeda. Media docena de mineros levantan la vista el tiempo justo para decidir que no sois un problema, y vuelven a sus jarras.',
-      'El posadero deja de secar un vaso. Os mide de arriba abajo, se detiene un instante en la espada de Bram y otro en las manos de Nissa, que ya están donde no deberían.',
+    beats: [
+      {
+        kind: 'narration',
+        text: 'La puerta se cierra a vuestra espalda y la lluvia se queda fuera, con el frío. Dentro huele a estofado, a cerveza derramada y a leña húmeda. Media docena de mineros levantan la vista el tiempo justo para decidir que no sois un problema, y vuelven a sus jarras.',
+      },
+      {
+        kind: 'narration',
+        text: 'El posadero deja de secar un vaso. Os mide de arriba abajo, se detiene un instante en la espada de Bram y otro en las manos de Nissa, que ya están donde no deberían.',
+      },
+      {
+        kind: 'line',
+        text: '—Dos camas, cena caliente y nada de preguntas cuestan cinco piezas de plata. Con preguntas, sale más caro. Y si venís por lo del tablón, primero comed. Los muertos no pagan.',
+      },
     ],
-    quote:
-      '—Dos camas, cena caliente y nada de preguntas cuestan cinco piezas de plata. Con preguntas, sale más caro. Y si venís por lo del tablón, primero comed. Los muertos no pagan.',
     choices: [
       {
         label: 'Pagar sin regatear y preguntar por el tablón.',
@@ -65,12 +73,20 @@ const buildScenes = (): Scene[] => [
     figureSide: 'left',
     figureKind: 'character',
     speaker: { name: 'Nundro Rockseeker', role: 'Enano · Superviviente' },
-    narration: [
-      'El eco llega antes que la cueva: un latido de agua contra piedra, lento, como si la montaña respirase. Las vías del carro se hunden en la oscuridad y a los diez pasos la luz de la antorcha ya no llega al techo.',
-      'Hay un enano sentado contra la pared, con las manos vendadas y una barba llena de polvo de mineral. No se levanta. Os mira como quien lleva días decidiendo si lo que oye son pasos o es la mina, que también habla.',
+    beats: [
+      {
+        kind: 'narration',
+        text: 'El eco llega antes que la cueva: un latido de agua contra piedra, lento, como si la montaña respirase. Las vías del carro se hunden en la oscuridad y a los diez pasos la luz de la antorcha ya no llega al techo.',
+      },
+      {
+        kind: 'narration',
+        text: 'Hay un enano sentado contra la pared, con las manos vendadas y una barba llena de polvo de mineral. No se levanta. Os mira como quien lleva días decidiendo si lo que oye son pasos o es la mina, que también habla.',
+      },
+      {
+        kind: 'line',
+        text: '—Mi hermano está más abajo. Vivo o no, está más abajo. Si bajáis, no toquéis la forja. Lo que la vigila no duerme.',
+      },
     ],
-    quote:
-      '—Mi hermano está más abajo. Vivo o no, está más abajo. Si bajáis, no toquéis la forja. Lo que la vigila no duerme.',
     choices: [
       {
         label: 'Curarle las manos y preguntarle qué vigila la forja.',
@@ -104,11 +120,21 @@ const buildScenes = (): Scene[] => [
     figureSide: 'right',
     figureKind: 'creature',
     speaker: { name: 'Máster', role: 'Narración' },
-    narration: [
-      'El arroyo que sale de la cueva está tibio y huele a animal. Nissa lo nota primero: no hay pájaros. Ni uno. El bosque entero contiene la respiración alrededor de la boca de la caverna.',
-      'Dentro, algo grande se mueve entre los huesos. Un pico de búho, dos ojos redondos y amarillos, y un cuerpo de oso que no debería caber por donde acaba de pasar. Os ha olido. Lleva rato oliéndoos.',
+    beats: [
+      {
+        kind: 'narration',
+        text: 'El arroyo que sale de la cueva está tibio y huele a animal. Nissa lo nota primero: no hay pájaros. Ni uno. El bosque entero contiene la respiración alrededor de la boca de la caverna.',
+      },
+      {
+        kind: 'narration',
+        text: 'Dentro, algo grande se mueve entre los huesos. Un pico de búho, dos ojos redondos y amarillos, y un cuerpo de oso que no debería caber por donde acaba de pasar. Os ha olido. Lleva rato oliéndoos.',
+        reveal: true,
+      },
+      {
+        kind: 'narration',
+        text: 'Tirad iniciativa. El lechuzo-oso ya la ha tirado.',
+      },
     ],
-    quote: 'Tirad iniciativa. El lechuzo-oso ya la ha tirado.',
     choices: [
       {
         label: 'Plantarme en la entrada con el escudo y que venga.',
@@ -143,12 +169,20 @@ const buildScenes = (): Scene[] => [
     figureSide: 'right',
     figureKind: 'character',
     speaker: { name: 'Lady Ariane Tormentaplata', role: 'Regente' },
-    narration: [
-      'El salón es más alto que ancho y está pensado para que quien entra se sienta pequeño. Funciona. La luz cae desde una grieta en la bóveda y no llega al suelo: se queda a media altura, como si tampoco ella tuviera permiso. Vuestras botas dejan barro de Phandalin sobre un mármol que vale más que todo lo que habéis robado en vuestra vida, Nissa.',
-      'La regente no está sentada en el trono. Está de pie a su lado, con la mano apoyada en el respaldo, como quien no necesita sentarse para que quede claro quién manda.',
+    beats: [
+      {
+        kind: 'narration',
+        text: 'El salón es más alto que ancho y está pensado para que quien entra se sienta pequeño. Funciona. La luz cae desde una grieta en la bóveda y no llega al suelo: se queda a media altura, como si tampoco ella tuviera permiso. Vuestras botas dejan barro de Phandalin sobre un mármol que vale más que todo lo que habéis robado en vuestra vida, Nissa.',
+      },
+      {
+        kind: 'narration',
+        text: 'La regente no está sentada en el trono. Está de pie a su lado, con la mano apoyada en el respaldo, como quien no necesita sentarse para que quede claro quién manda.',
+      },
+      {
+        kind: 'line',
+        text: '—Habéis matado a un dragón blanco con dos personas y un carro de pociones. O sois los héroes que dice el pueblo, o sois los mentirosos más afortunados del Norte. En ambos casos me servís.',
+      },
     ],
-    quote:
-      '—Habéis matado a un dragón blanco con dos personas y un carro de pociones. O sois los héroes que dice el pueblo, o sois los mentirosos más afortunados del Norte. En ambos casos me servís.',
     choices: [
       {
         label: 'Contar la verdad, incluida la parte del carro.',
@@ -182,12 +216,20 @@ const buildScenes = (): Scene[] => [
     figureSide: 'left',
     figureKind: 'character',
     speaker: { name: 'Reidoth', role: 'Druida' },
-    narration: [
-      'El sendero desaparece bajo el musgo y el bosque decide por vosotros por dónde se camina. Hay un silencio de catedral, roto solo por el río, que suena cerca sin dejarse ver.',
-      'El druida aparece sin haber llegado: simplemente está, apoyado en un bastón que hace un minuto era una rama. Tiene la mirada de quien lleva demasiado tiempo hablando con árboles y ha empezado a preferirlos.',
+    beats: [
+      {
+        kind: 'narration',
+        text: 'El sendero desaparece bajo el musgo y el bosque decide por vosotros por dónde se camina. Hay un silencio de catedral, roto solo por el río, que suena cerca sin dejarse ver.',
+      },
+      {
+        kind: 'narration',
+        text: 'El druida aparece sin haber llegado: simplemente está, apoyado en un bastón que hace un minuto era una rama. Tiene la mirada de quien lleva demasiado tiempo hablando con árboles y ha empezado a preferirlos.',
+      },
+      {
+        kind: 'line',
+        text: '—No sigáis por ahí. Lo que vive en Thundertree tiene alas y muy mala memoria para los favores. Si queréis pasar, pasaréis por el pantano. Y por mí.',
+      },
     ],
-    quote:
-      '—No sigáis por ahí. Lo que vive en Thundertree tiene alas y muy mala memoria para los favores. Si queréis pasar, pasaréis por el pantano. Y por mí.',
     choices: [
       {
         label: 'Ofrecerle nuestra ayuda a cambio de guía.',
@@ -217,12 +259,21 @@ const buildScenes = (): Scene[] => [
     figureSide: 'right',
     figureKind: 'creature',
     speaker: { name: 'Máster', role: 'Narración' },
-    narration: [
-      'A esta altura el aire duele. La nieve no cae: viene de lado, y se os mete en los ojos, en la boca, en la idea misma de seguir subiendo. El paso es una grieta entre dos muros de hielo y, al fondo, hay algo blanco que no es nieve.',
-      'Se despliega despacio, porque no tiene prisa y porque quiere que lo veáis desplegarse. Cryovain. Diez toneladas de invierno con memoria. Ha esperado a que estuvierais exactamente donde no hay dónde esconderse.',
+    beats: [
+      {
+        kind: 'narration',
+        text: 'A esta altura el aire duele. La nieve no cae: viene de lado, y se os mete en los ojos, en la boca, en la idea misma de seguir subiendo. El paso es una grieta entre dos muros de hielo y, al fondo, hay algo blanco que no es nieve.',
+      },
+      {
+        kind: 'narration',
+        text: 'Se despliega despacio, porque no tiene prisa y porque quiere que lo veáis desplegarse. Cryovain. Diez toneladas de invierno con memoria. Ha esperado a que estuvierais exactamente donde no hay dónde esconderse.',
+        reveal: true,
+      },
+      {
+        kind: 'narration',
+        text: 'El dragón inhala. Tenéis lo que dura un aliento para decidir. Después, el aliento es suyo.',
+      },
     ],
-    quote:
-      'El dragón inhala. Tenéis lo que dura un aliento para decidir. Después, el aliento es suyo.',
     choices: [
       {
         label: 'Tirarme detrás de la roca y tirar de Nissa conmigo.',
@@ -258,12 +309,20 @@ const buildScenes = (): Scene[] => [
     figureSide: 'left',
     figureKind: 'character',
     speaker: { name: 'El Señor Ciervo', role: 'Capitán de los bandidos' },
-    narration: [
-      'El carro de Gundren se ha quedado atrás y el camino se estrecha entre dos taludes de tierra roja. Hay un caballo muerto cruzado en el sendero, con dos flechas negras en el flanco. Lleva ahí un día, quizá dos.',
-      'De entre los árboles sale un hombre con una cornamenta de ciervo por yelmo. No lleva prisa. Detrás de él, en el talud, siete arcos os apuntan con la tranquilidad de quien ya ha hecho esto antes.',
+    beats: [
+      {
+        kind: 'narration',
+        text: 'El carro de Gundren se ha quedado atrás y el camino se estrecha entre dos taludes de tierra roja. Hay un caballo muerto cruzado en el sendero, con dos flechas negras en el flanco. Lleva ahí un día, quizá dos.',
+      },
+      {
+        kind: 'narration',
+        text: 'De entre los árboles sale un hombre con una cornamenta de ciervo por yelmo. No lleva prisa. Detrás de él, en el talud, siete arcos os apuntan con la tranquilidad de quien ya ha hecho esto antes.',
+      },
+      {
+        kind: 'line',
+        text: '—El peaje son las armas y el carro. La vida os la dejo, porque hoy estoy de buen humor y porque los muertos no cuentan a nadie lo que pasa en este camino.',
+      },
     ],
-    quote:
-      '—El peaje son las armas y el carro. La vida os la dejo, porque hoy estoy de buen humor y porque los muertos no cuentan a nadie lo que pasa en este camino.',
     choices: [
       {
         label:
@@ -298,12 +357,20 @@ const buildScenes = (): Scene[] => [
     figureSide: 'right',
     figureKind: 'character',
     speaker: { name: 'Strahd von Zarovich', role: 'Señor de Barovia' },
-    narration: [
-      'La niebla no se levanta: os acompaña. Ha caminado con vosotros desde el pueblo, pegada a los tobillos, y ahora que veis el castillo entendéis que no era niebla. Era una invitación.',
-      'Las puertas están abiertas. Dentro hay luz, música y una mesa puesta para tres. El anfitrión no se ha molestado en fingir que no os esperaba.',
+    beats: [
+      {
+        kind: 'narration',
+        text: 'La niebla no se levanta: os acompaña. Ha caminado con vosotros desde el pueblo, pegada a los tobillos, y ahora que veis el castillo entendéis que no era niebla. Era una invitación.',
+      },
+      {
+        kind: 'narration',
+        text: 'Las puertas están abiertas. Dentro hay luz, música y una mesa puesta para tres. El anfitrión no se ha molestado en fingir que no os esperaba.',
+      },
+      {
+        kind: 'line',
+        text: '—Bienvenidos a mi casa. Entrad libremente, por vuestra propia voluntad, y dejad aquí algo de la felicidad que traéis. La vais a necesitar menos que yo.',
+      },
     ],
-    quote:
-      '—Bienvenidos a mi casa. Entrad libremente, por vuestra propia voluntad, y dejad aquí algo de la felicidad que traéis. La vais a necesitar menos que yo.',
     choices: [
       {
         label: 'Entrar. Con la mano en la empuñadura, pero entrar.',

@@ -15,6 +15,16 @@ type SceneChoice = {
   who: 'bram' | 'nissa' | 'both';
 };
 
+/**
+ * A scene plays as an ordered list of beats. Narration lives on the
+ * parchment; a `line` is spoken by the scene's character, who steps into
+ * frame the first time they speak (or when a narration beat `reveal`s a
+ * creature).
+ */
+type Beat =
+  | { kind: 'narration'; text: string; reveal?: boolean }
+  | { kind: 'line'; text: string };
+
 type Scene = {
   id: string;
   label: string;
@@ -30,8 +40,7 @@ type Scene = {
   figureSide: 'left' | 'right';
   figureKind: 'character' | 'creature';
   speaker: Speaker;
-  narration: string[];
-  quote?: string;
+  beats: Beat[];
   choices: SceneChoice[];
   atmosphere: AtmosphereKind;
   /** Colour grade over the background. */
@@ -52,9 +61,13 @@ type SceneStageProps = { scenes: Scene[]; party: Party };
 
 const TYPE_MS = 16;
 
-/** Reveals text like a visual novel; click to finish instantly. */
-const useTypewriter = (text: string) => {
+/**
+ * Reveals text like a visual novel; click to finish instantly. `cue` restarts
+ * the effect even when two consecutive beats share the same text.
+ */
+const useTypewriter = (text: string, cue: string) => {
   const [shown, setShown] = useState(0);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: `cue` restarts the reveal on purpose
   useEffect(() => {
     setShown(0);
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -71,7 +84,7 @@ const useTypewriter = (text: string) => {
       });
     }, TYPE_MS);
     return () => window.clearInterval(id);
-  }, [text]);
+  }, [text, cue]);
   return {
     visible: text.slice(0, shown),
     done: shown >= text.length,
@@ -92,15 +105,27 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
   const scene = scenes[index];
   const prevScene = prev != null ? scenes[prev] : undefined;
 
-  const fullText = useMemo(() => {
-    if (!scene) return '';
-    const parts = [...scene.narration];
-    if (scene.quote) parts.push(scene.quote);
-    return parts.slice(0, step + 1).join('\n\n');
-  }, [scene, step]);
-  const totalSteps = scene ? scene.narration.length + (scene.quote ? 1 : 0) : 0;
-  const { visible, done, finish } = useTypewriter(fullText);
-  const atEnd = step >= totalSteps - 1;
+  const beats = useMemo(() => scene?.beats ?? [], [scene]);
+  const current = beats[Math.min(step, beats.length - 1)];
+  const atEnd = step >= beats.length - 1;
+  const { visible, done, finish } = useTypewriter(
+    current?.text ?? '',
+    `${scene?.id ?? ''}:${step}`,
+  );
+
+  /** Narration beats up to the current step; the current one may still be typing. */
+  const narrationSoFar = useMemo(
+    () =>
+      beats
+        .slice(0, step + 1)
+        .map((beat, i) => ({ beat, i }))
+        .filter(({ beat }) => beat.kind === 'narration'),
+    [beats, step],
+  );
+  const figureVisible = beats
+    .slice(0, step + 1)
+    .some((b) => b.kind === 'line' || (b.kind === 'narration' && b.reveal));
+  const speaking = current?.kind === 'line';
 
   const go = useCallback(
     (next: number) => {
@@ -156,17 +181,21 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
     };
   }, []);
 
-  if (!scene) return null;
+  if (!scene || !current) return null;
 
-  const paragraphs = visible.split('\n\n');
-  const quoteIndex = scene.quote ? scene.narration.length : -1;
+  const right = scene.figureSide === 'right';
+  const showChoices = done && atEnd;
+  const hint = !done
+    ? 'Pulsa para leer todo'
+    : atEnd
+      ? 'Decidid'
+      : 'Continuar ▸';
 
   return (
     <div
       className="fixed inset-0 z-50 overflow-hidden bg-charcoal-950 text-white"
       style={{ ['--accent' as string]: scene.accent }}
     >
-      {/* Backgrounds: current + previous for the crossfade */}
       {prevScene ? (
         <Backdrop
           key={`prev-${prevScene.id}`}
@@ -175,20 +204,23 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
         />
       ) : null}
       <Backdrop key={scene.id} scene={scene} state="entering" />
-
       <Atmosphere key={`atm-${scene.id}`} kind={scene.atmosphere} />
 
-      {/* Figure */}
-      {scene.figure ? (
+      {/* Figure: steps in the first time it speaks or is revealed */}
+      {scene.figure && figureVisible ? (
         <div
-          className={`pointer-events-none absolute bottom-0 ${scene.figureSide === 'right' ? 'right-[4vw]' : 'left-[4vw]'} h-[88vh] w-[min(46vw,62vh)] animate-figure-in`}
+          className={`pointer-events-none absolute bottom-0 ${right ? 'right-[4vw]' : 'left-[4vw]'} h-[88vh] w-[min(46vw,62vh)] animate-figure-in transition-[filter] duration-700`}
           key={`fig-${scene.id}`}
+          style={{
+            filter:
+              speaking || scene.figureKind === 'creature'
+                ? 'none'
+                : 'brightness(0.72) saturate(0.85)',
+          }}
         >
           <div
             className="absolute inset-0"
-            style={{
-              filter: 'drop-shadow(0 30px 40px rgba(0,0,0,0.65))',
-            }}
+            style={{ filter: 'drop-shadow(0 30px 40px rgba(0,0,0,0.65))' }}
           >
             {/* biome-ignore lint/performance/noImgElement: pre-sized local art */}
             <img
@@ -207,17 +239,31 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
               width={scene.figure.width}
             />
           </div>
-          {/* Warm rim light matching the scene accent */}
           <div
             className="absolute inset-0 mix-blend-soft-light"
             style={{
               background: `radial-gradient(ellipse at 50% 30%, ${scene.accent}55, transparent 70%)`,
             }}
           />
+          {/* Name plate hanging from the figure, only for characters */}
+          {scene.figureKind === 'character' ? (
+            <div
+              className={`absolute top-[9vh] ${right ? 'left-0 -translate-x-1/3' : 'right-0 translate-x-1/3'} animate-fade-in`}
+            >
+              <div className="flex flex-col items-start rounded-sm border border-brass/70 bg-charcoal-950/85 px-3 py-1.5 shadow-lg backdrop-blur">
+                <span className="font-caps text-brass-pale text-xl leading-none">
+                  {scene.speaker.name}
+                </span>
+                <span className="font-condensed text-[0.62rem] text-strapline uppercase tracking-wider">
+                  {scene.speaker.role}
+                </span>
+              </div>
+            </div>
+          ) : null}
         </div>
       ) : null}
 
-      {/* Top bar: place + party */}
+      {/* Top bar */}
       <header className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between p-6">
         <div className="animate-fade-in">
           <div className="font-condensed text-[0.7rem] text-parchment-text uppercase tracking-[0.3em] drop-shadow">
@@ -267,9 +313,37 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
         </div>
       </header>
 
-      {/* Narration panel */}
+      {/* Speech: the character's words come from the character */}
+      {scene.figure && scene.figureKind === 'character' ? (
+        <div
+          className={`absolute top-[20vh] w-[min(34vw,30rem)] transition-all duration-500 ${right ? 'right-[calc(4vw+min(46vw,62vh)-5vw)]' : 'left-[calc(4vw+min(46vw,62vh)-5vw)]'} ${speaking ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
+        >
+          <button
+            className="relative block w-full cursor-pointer rounded-lg border border-brass/50 bg-charcoal-950/80 px-6 py-5 text-left backdrop-blur-md"
+            onClick={advance}
+            style={{
+              boxShadow: `inset 0 0 0 1px rgba(255,255,255,0.04), 0 20px 50px rgba(0,0,0,0.55), 0 0 40px ${scene.accent}22`,
+            }}
+            type="button"
+          >
+            {/* Tail towards the figure */}
+            <span
+              className={`absolute top-10 h-4 w-4 rotate-45 border-brass/50 bg-charcoal-950/80 ${right ? '-right-2 border-t border-r' : '-left-2 border-b border-l'}`}
+            />
+            <p className="font-book text-[1.25rem] text-parchment-text leading-[1.5]">
+              {speaking ? visible : current.text}
+            </p>
+            <div className="mt-3 flex items-center justify-between font-condensed text-[0.65rem] uppercase tracking-widest">
+              <span style={{ color: scene.accent }}>{scene.speaker.name}</span>
+              <span className="text-charcoal-400">{hint}</span>
+            </div>
+          </button>
+        </div>
+      ) : null}
+
+      {/* Narration on parchment */}
       <div
-        className={`absolute bottom-[4.5rem] ${scene.figureSide === 'right' ? 'left-[4vw]' : 'right-[4vw]'} w-[min(60vw,58rem)]`}
+        className={`absolute bottom-[4.5rem] w-[min(60vw,58rem)] transition-all duration-500 ${right ? 'left-[4vw]' : 'right-[4vw]'} ${speaking ? 'opacity-60' : 'opacity-100'}`}
       >
         <button
           className="paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left"
@@ -278,39 +352,33 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
         >
           <div className="absolute -top-4 left-8 flex items-center gap-2 rounded-sm border border-brass/60 bg-charcoal-950 px-3 py-1 shadow-lg">
             <span className="font-caps text-brass-pale text-lg leading-none">
-              {scene.speaker.name}
+              Máster
             </span>
             <span className="font-condensed text-[0.65rem] text-strapline uppercase tracking-wider">
-              {scene.speaker.role}
+              Narración
             </span>
           </div>
-          <div className="min-h-[7.5rem] space-y-3 font-book text-[1.22rem] text-ink leading-[1.5]">
-            {paragraphs.map((para, i) => (
+          <div className="min-h-[5.5rem] space-y-3 font-book text-[1.22rem] text-ink leading-[1.5]">
+            {narrationSoFar.map(({ beat, i }, n) => (
               <p
-                className={
-                  i === quoteIndex ? 'italic' : i === 0 ? 'dropcap-only' : ''
-                }
+                className={n === 0 ? 'dropcap-only' : ''}
                 key={`${scene.id}-${i}`}
               >
-                {para}
+                {i === step ? visible : beat.text}
               </p>
             ))}
           </div>
           <div className="mt-3 flex items-center justify-between">
             <TaperedRule className="h-2 w-40 text-rule-red" />
             <span className="font-condensed text-[0.7rem] text-ink-muted uppercase tracking-widest">
-              {!done
-                ? 'Pulsa para leer todo'
-                : atEnd
-                  ? 'Decidid'
-                  : 'Continuar ▸'}
+              {speaking ? `Habla ${scene.speaker.name}` : hint}
             </span>
           </div>
         </button>
 
         {/* Choices */}
         <div
-          className={`mt-3 grid gap-2 transition-all duration-500 ${done && atEnd ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'}`}
+          className={`mt-3 grid gap-2 transition-all duration-500 ${showChoices ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'}`}
         >
           {scene.choices.map((c, i) => {
             const who = party.find((p) => p.id === c.who);
@@ -346,7 +414,6 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
             );
           })}
 
-          {/* Free action: whatever the players want to do, in their words. */}
           <form
             className={`flex items-stretch gap-2 rounded-md border px-2 py-2 backdrop-blur transition ${picked === 'custom' ? 'border-brass bg-charcoal-950/85' : 'border-white/15 border-dashed bg-charcoal-950/60'}`}
             onSubmit={(e) => {
@@ -478,7 +545,6 @@ const Backdrop = ({
     ) : (
       <div className="absolute inset-0 bg-charcoal-900" />
     )}
-    {/* Grade + vignette */}
     <div className="absolute inset-0" style={{ background: scene.grade }} />
     <div
       className="absolute inset-0"
@@ -497,4 +563,4 @@ const Backdrop = ({
 );
 
 export { SceneStage };
-export type { Scene, SceneChoice };
+export type { Beat, Scene, SceneChoice };
