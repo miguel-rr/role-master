@@ -780,6 +780,8 @@ const kenney: Job = {
 type FreesoundQuery = {
   id: string;
   query: string;
+  /** Other phrasings to try when the first returns nothing usable. */
+  alt?: string[];
   layer: SoundLayer;
   tags: SoundTags;
   /** Seconds. */
@@ -792,6 +794,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'bed/tavern',
     query: 'tavern ambience crowd medieval',
+    alt: ['pub crowd chatter', 'tavern crowd', 'inn ambience'],
     layer: 'bed',
     tags: tags({ places: ['tavern', 'inn-night'] }),
     duration: [45, 240],
@@ -800,6 +803,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'bed/market',
     query: 'medieval market crowd ambience',
+    alt: ['market crowd', 'marketplace ambience', 'bazaar crowd'],
     layer: 'bed',
     tags: tags({ places: ['market', 'town-day'] }),
     duration: [45, 240],
@@ -808,6 +812,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'bed/forest-night',
     query: 'forest night ambience owls crickets',
+    alt: ['night forest crickets', 'night ambience insects', 'crickets night'],
     layer: 'bed',
     tags: tags({ places: ['forest', 'road', 'camp'], time: ['night'] }),
     duration: [45, 240],
@@ -880,6 +885,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'bed/ship',
     query: 'ship creaking wood waves',
+    alt: ['sailing ship creaks', 'wooden ship ambience', 'boat creaking'],
     layer: 'bed',
     tags: tags({ places: ['ship'] }),
     duration: [45, 240],
@@ -888,6 +894,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'bed/temple',
     query: 'church interior ambience reverb',
+    alt: ['cathedral ambience', 'church ambience', 'large hall room tone'],
     layer: 'bed',
     tags: tags({ places: ['temple', 'palace', 'library'] }),
     duration: [45, 240],
@@ -928,6 +935,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'spot/wolf-howl',
     query: 'wolf howl distant',
+    alt: ['wolf howl', 'wolves howling', 'wolf'],
     layer: 'spot',
     tags: tags({
       places: ['forest', 'mountain', 'snow', 'road'],
@@ -958,6 +966,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'spot/mug-clink',
     query: 'mug clink glass toast',
+    alt: ['glasses clink', 'beer mugs', 'glass clink'],
     layer: 'spot',
     tags: tags({ places: ['tavern'] }),
     duration: [0.5, 4],
@@ -966,6 +975,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'spot/drip',
     query: 'water drip cave single',
+    alt: ['water drop cave', 'water drip', 'drip'],
     layer: 'spot',
     tags: tags({ places: ['cave', 'dungeon', 'mine', 'sewer', 'underdark'] }),
     duration: [0.5, 4],
@@ -974,6 +984,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'spot/bats',
     query: 'bats flapping cave',
+    alt: ['bat wings', 'bats', 'bat squeak'],
     layer: 'spot',
     tags: tags({ places: ['cave', 'dungeon', 'ruins'] }),
     duration: [1, 6],
@@ -1046,6 +1057,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'spot/birds',
     query: 'songbird chirp single',
+    alt: ['bird chirp', 'bird single', 'blackbird'],
     layer: 'spot',
     tags: tags({
       places: ['forest', 'farm', 'town-day', 'road'],
@@ -1057,6 +1069,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'sfx/thunder',
     query: 'thunder crack close',
+    alt: ['thunder', 'thunder clap', 'thunderclap'],
     layer: 'sfx',
     tags: tags({ cue: 'thunder' }),
     duration: [2, 12],
@@ -1113,6 +1126,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'sfx/fire-ignite',
     query: 'fire ignite whoosh',
+    alt: ['fire whoosh', 'flame burst', 'ignite'],
     layer: 'sfx',
     tags: tags({ cue: 'fire-ignite' }),
     duration: [0.5, 4],
@@ -1121,6 +1135,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'sfx/torch',
     query: 'torch flame loop',
+    alt: ['torch fire', 'torch flame', 'fire torch'],
     layer: 'sfx',
     tags: tags({ cue: 'torch' }),
     duration: [1, 8],
@@ -1145,6 +1160,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'sfx/crow',
     query: 'crow caw close',
+    alt: ['crow', 'raven caw', 'crow caw'],
     layer: 'sfx',
     tags: tags({ cue: 'crow' }),
     duration: [1, 5],
@@ -1161,6 +1177,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'sfx/owl',
     query: 'owl hoot close',
+    alt: ['owl', 'owl hoot', 'owl night'],
     layer: 'sfx',
     tags: tags({ cue: 'owl' }),
     duration: [1, 6],
@@ -1217,6 +1234,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'sfx/heal',
     query: 'healing magic chime',
+    alt: ['healing spell', 'heal magic', 'magic chime'],
     layer: 'sfx',
     tags: tags({ cue: 'heal' }),
     duration: [0.5, 5],
@@ -1225,6 +1243,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'sfx/arcane-spark',
     query: 'magic spark shimmer',
+    alt: ['magic sparkle', 'magic shimmer', 'spell sparkle'],
     layer: 'sfx',
     tags: tags({ cue: 'arcane-spark' }),
     duration: [0.5, 4],
@@ -1249,6 +1268,7 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   {
     id: 'sfx/bell',
     query: 'church bell single toll',
+    alt: ['church bell', 'bell toll', 'bell'],
     layer: 'sfx',
     tags: tags({ cue: 'bell' }),
     duration: [2, 10],
@@ -1304,6 +1324,49 @@ const FREESOUND_QUERIES: FreesoundQuery[] = [
   },
 ];
 
+type FsResult = {
+  id: number;
+  name: string;
+  username: string;
+  previews: Record<string, string>;
+  duration: number;
+  avg_rating: number;
+  num_ratings: number;
+  url: string;
+};
+
+/** One CC0 text search; well-rated sounds first, anything if the shelf is thin. */
+const searchFreesound = async (
+  phrase: string,
+  q: FreesoundQuery,
+  key: string,
+): Promise<FsResult[]> => {
+  const params = new URLSearchParams({
+    query: phrase,
+    filter:
+      `license:"Creative Commons 0" duration:[${q.duration[0]} TO ${q.duration[1]}] ${q.extraFilter ?? ''}`.trim(),
+    sort: 'rating_desc',
+    fields:
+      'id,name,username,license,previews,duration,avg_rating,num_ratings,tags,url',
+    page_size: '15',
+    token: key,
+  });
+  await new Promise((r) => setTimeout(r, 1100)); // 60 requests/minute
+  const res = await fetch(
+    `https://freesound.org/apiv2/search/text/?${params}`,
+    { headers: { 'user-agent': UA } },
+  );
+  if (!res.ok) {
+    console.warn(`freesound: ${phrase} → ${res.status}`);
+    return [];
+  }
+  const data = (await res.json()) as { results: FsResult[] };
+  const rated = data.results.filter(
+    (r) => r.num_ratings >= 2 && r.avg_rating >= 3.5,
+  );
+  return rated.length >= 2 ? rated : data.results;
+};
+
 const freesound: Job = {
   name: 'freesound',
   list: async () => {
@@ -1314,40 +1377,13 @@ const freesound: Job = {
     }
     const items: Item[] = [];
     for (const q of FREESOUND_QUERIES) {
-      const params = new URLSearchParams({
-        query: q.query,
-        filter:
-          `license:"Creative Commons 0" duration:[${q.duration[0]} TO ${q.duration[1]}] ${q.extraFilter ?? ''}`.trim(),
-        sort: 'rating_desc',
-        fields:
-          'id,name,username,license,previews,duration,avg_rating,num_ratings,tags,url',
-        page_size: '15',
-        token: key,
-      });
-      const res = await fetch(
-        `https://freesound.org/apiv2/search/text/?${params}`,
-        { headers: { 'user-agent': UA } },
-      );
-      if (!res.ok) {
-        console.warn(`freesound: ${q.query} → ${res.status}`);
-        continue;
+      let good: FsResult[] = [];
+      for (const phrase of [q.query, ...(q.alt ?? [])]) {
+        good = await searchFreesound(phrase, q, key);
+        if (good.length >= Math.min(q.count, 2)) break;
       }
-      const data = (await res.json()) as {
-        results: {
-          id: number;
-          name: string;
-          username: string;
-          previews: Record<string, string>;
-          duration: number;
-          avg_rating: number;
-          num_ratings: number;
-          url: string;
-        }[];
-      };
-      const good = data.results
-        .filter((r) => r.num_ratings >= 2 || data.results.length < 5)
-        .slice(0, q.count);
-      good.forEach((r, i) => {
+      if (good.length === 0) console.warn(`freesound: nada para ${q.id}`);
+      good.slice(0, q.count).forEach((r, i) => {
         items.push({
           id: `${q.id}-${i + 1}`,
           url:
@@ -1360,7 +1396,6 @@ const freesound: Job = {
           tags: q.tags,
         });
       });
-      await new Promise((r) => setTimeout(r, 1100)); // 60 requests/minute
     }
     return items.filter((i) => i.url);
   },

@@ -1,0 +1,2775 @@
+{
+  "collection": "freesound",
+  "generatedAt": "2026-09-08T13:55:24.903Z",
+  "entries": [
+    {
+      "id": "bed/blizzard-1",
+      "layer": "bed",
+      "src": "/audio/bed/blizzard-1.webm",
+      "duration": 99.2,
+      "gain": 0,
+      "lufs": -39.3,
+      "title": "Wind whooshing through vent",
+      "artist": "giddster (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/giddster/sounds/719561/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "snow"
+        ],
+        "time": [],
+        "weather": [
+          "snow"
+        ]
+      }
+    },
+    {
+      "id": "bed/blizzard-2",
+      "layer": "bed",
+      "src": "/audio/bed/blizzard-2.webm",
+      "duration": 57.5,
+      "gain": 0,
+      "lufs": -20.4,
+      "title": "16th. fl. At the Top of the Stairs, the entrance to the Roof... during a Blizzard  C",
+      "artist": "JohnLaVine333 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/JohnLaVine333/sounds/678983/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "snow"
+        ],
+        "time": [],
+        "weather": [
+          "snow"
+        ]
+      }
+    },
+    {
+      "id": "bed/camp-night-1",
+      "layer": "bed",
+      "src": "/audio/bed/camp-night-1.webm",
+      "duration": 60.6,
+      "gain": 0,
+      "lufs": -33.9,
+      "title": "Sounds of the forest night",
+      "artist": "Kingcornz (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Kingcornz/sounds/342369/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "camp"
+        ],
+        "time": [
+          "night"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/cave-1",
+      "layer": "bed",
+      "src": "/audio/bed/cave-1.webm",
+      "duration": 65.6,
+      "gain": 0,
+      "lufs": -19,
+      "title": "Water Through Drain (With Reverb)",
+      "artist": "clif_creates (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/clif_creates/sounds/381418/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "cave",
+          "mine",
+          "underdark"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/desert-wind-1",
+      "layer": "bed",
+      "src": "/audio/bed/desert-wind-1.webm",
+      "duration": 178.2,
+      "gain": 0,
+      "lufs": -25,
+      "title": "Into Desert Glow",
+      "artist": "younoise (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/younoise/sounds/682822/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "desert"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/desert-wind-2",
+      "layer": "bed",
+      "src": "/audio/bed/desert-wind-2.webm",
+      "duration": 155.4,
+      "gain": 0,
+      "lufs": -17.7,
+      "title": "Wind in Cottonwood Trees Utah MP3",
+      "artist": "Danjocross (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Danjocross/sounds/579250/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "desert"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/forest-day-1",
+      "layer": "bed",
+      "src": "/audio/bed/forest-day-1.webm",
+      "duration": 102.9,
+      "gain": 0,
+      "lufs": -16.5,
+      "title": "Jungle Mystic Ambient Mastered",
+      "artist": "szegvari (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/szegvari/sounds/559471/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "road",
+          "farm"
+        ],
+        "time": [
+          "day"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/forest-day-2",
+      "layer": "bed",
+      "src": "/audio/bed/forest-day-2.webm",
+      "duration": 59.1,
+      "gain": 0,
+      "lufs": -50,
+      "title": "Quiet Spring Woodland Ambience",
+      "artist": "ecfike (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/ecfike/sounds/160893/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "road",
+          "farm"
+        ],
+        "time": [
+          "day"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/forest-day-3",
+      "layer": "bed",
+      "src": "/audio/bed/forest-day-3.webm",
+      "duration": 95.5,
+      "gain": 0,
+      "lufs": -14.4,
+      "title": "Jungle Alien Ambient Mastered",
+      "artist": "szegvari (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/szegvari/sounds/559472/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "road",
+          "farm"
+        ],
+        "time": [
+          "day"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/forest-night-1",
+      "layer": "bed",
+      "src": "/audio/bed/forest-night-1.webm",
+      "duration": 125.2,
+      "gain": 0,
+      "lufs": -31.1,
+      "title": "Insect Buildup Forest",
+      "artist": "absent1010 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/absent1010/sounds/615011/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "road",
+          "camp"
+        ],
+        "time": [
+          "night"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/forest-night-2",
+      "layer": "bed",
+      "src": "/audio/bed/forest-night-2.webm",
+      "duration": 153.3,
+      "gain": 0,
+      "lufs": -23,
+      "title": "Night in Gran Sabana, crickets",
+      "artist": "felix.blume (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/felix.blume/sounds/467022/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "road",
+          "camp"
+        ],
+        "time": [
+          "night"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/forest-night-3",
+      "layer": "bed",
+      "src": "/audio/bed/forest-night-3.webm",
+      "duration": 180,
+      "gain": 0,
+      "lufs": -28.3,
+      "title": "Forest atmosphere at night with cicada, cricket, bird, city hum, distant car horn at one point, recorded in Amazon rainforest",
+      "artist": "felix.blume (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/felix.blume/sounds/669611/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "road",
+          "camp"
+        ],
+        "time": [
+          "night"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/harbour-1",
+      "layer": "bed",
+      "src": "/audio/bed/harbour-1.webm",
+      "duration": 180,
+      "gain": 0,
+      "lufs": -30.1,
+      "title": "Saint Nazaire rooftop ambiance",
+      "artist": "bruno.auzet (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/bruno.auzet/sounds/837974/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "harbour",
+          "ship"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/harbour-2",
+      "layer": "bed",
+      "src": "/audio/bed/harbour-2.webm",
+      "duration": 180,
+      "gain": 0,
+      "lufs": -27.1,
+      "title": "Pea Point, New Brunswick, Seaside ambience.",
+      "artist": "AlexLane (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/AlexLane/sounds/530210/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "harbour",
+          "ship"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/market-1",
+      "layer": "bed",
+      "src": "/audio/bed/market-1.webm",
+      "duration": 180,
+      "gain": 0,
+      "lufs": -27.9,
+      "title": "Market fair ambience with music, street seller loudspeaker far, carousel and crowd hubbub",
+      "artist": "felix.blume (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/felix.blume/sounds/705303/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "market",
+          "town-day"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/market-2",
+      "layer": "bed",
+      "src": "/audio/bed/market-2.webm",
+      "duration": 93.2,
+      "gain": 0,
+      "lufs": -16.9,
+      "title": "weekly market [3]",
+      "artist": "pillonoise (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/pillonoise/sounds/352922/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "market",
+          "town-day"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/rain-1",
+      "layer": "bed",
+      "src": "/audio/bed/rain-1.webm",
+      "duration": 70,
+      "gain": 0,
+      "lufs": -11.9,
+      "title": "Storm Pulsation Drone Fantasy SFX Loop Cinematic 200614_0005_01",
+      "artist": "szegvari (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/szegvari/sounds/532211/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [
+          "rain"
+        ]
+      }
+    },
+    {
+      "id": "bed/rain-2",
+      "layer": "bed",
+      "src": "/audio/bed/rain-2.webm",
+      "duration": 46.9,
+      "gain": 0,
+      "lufs": -30.8,
+      "title": "Windscreen Wipers in the Rain Loop (1)",
+      "artist": "OwlStorm (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/OwlStorm/sounds/541288/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [
+          "rain"
+        ]
+      }
+    },
+    {
+      "id": "bed/rain-3",
+      "layer": "bed",
+      "src": "/audio/bed/rain-3.webm",
+      "duration": 180,
+      "gain": 0,
+      "lufs": -22.5,
+      "title": "Rain and Thunder Ambience",
+      "artist": "sagamusix (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/sagamusix/sounds/700358/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [
+          "rain"
+        ]
+      }
+    },
+    {
+      "id": "bed/river-1",
+      "layer": "bed",
+      "src": "/audio/bed/river-1.webm",
+      "duration": 115.2,
+      "gain": 0,
+      "lufs": -21.4,
+      "title": "Big waterfall in forest",
+      "artist": "BonnyOrbit (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/BonnyOrbit/sounds/442475/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "river",
+          "lake",
+          "mill"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/river-2",
+      "layer": "bed",
+      "src": "/audio/bed/river-2.webm",
+      "duration": 60,
+      "gain": 0,
+      "lufs": -25.4,
+      "title": "Water, Waterfall, Mortar, Dam, Flow, River, Creek, Stream_benniknop_13",
+      "artist": "benniknop (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/benniknop/sounds/351360/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "river",
+          "lake",
+          "mill"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/ship-1",
+      "layer": "bed",
+      "src": "/audio/bed/ship-1.webm",
+      "duration": 180,
+      "gain": 0,
+      "lufs": -15.7,
+      "title": "WOOD_CREAK_LEAVES_HIT_SLAM_FOOT_JACKMENHORN_OCT2012",
+      "artist": "JackMenhorn (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/JackMenhorn/sounds/168717/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "ship"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/ship-2",
+      "layer": "bed",
+      "src": "/audio/bed/ship-2.webm",
+      "duration": 121.7,
+      "gain": 0,
+      "lufs": -18.7,
+      "title": "Dogwalk(in') the Afterwoods",
+      "artist": "ChristmasKrumble666 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/ChristmasKrumble666/sounds/853452/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "ship"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/swamp-1",
+      "layer": "bed",
+      "src": "/audio/bed/swamp-1.webm",
+      "duration": 145.7,
+      "gain": 0,
+      "lufs": -18.3,
+      "title": "Wetlands Night - Frogs, toads, bird whistles",
+      "artist": "RealSquink (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/RealSquink/sounds/826445/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "swamp"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/swamp-2",
+      "layer": "bed",
+      "src": "/audio/bed/swamp-2.webm",
+      "duration": 111.9,
+      "gain": 0,
+      "lufs": -33.5,
+      "title": "Lilipads and frogs at night",
+      "artist": "Danjocross (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Danjocross/sounds/503206/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "swamp"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/tavern-1",
+      "layer": "bed",
+      "src": "/audio/bed/tavern-1.webm",
+      "duration": 159.5,
+      "gain": 0,
+      "lufs": -17.6,
+      "title": "Spacious Bar Ambience With Music, Medium Crowd 01",
+      "artist": "HECKFRICKER (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/HECKFRICKER/sounds/729329/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "tavern",
+          "inn-night"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/tavern-2",
+      "layer": "bed",
+      "src": "/audio/bed/tavern-2.webm",
+      "duration": 121.5,
+      "gain": 0,
+      "lufs": -24,
+      "title": "Pub in Cambridge",
+      "artist": "domasmo (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/domasmo/sounds/376456/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "tavern",
+          "inn-night"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/tavern-3",
+      "layer": "bed",
+      "src": "/audio/bed/tavern-3.webm",
+      "duration": 140.2,
+      "gain": 0,
+      "lufs": -26,
+      "title": "English pub ambiance",
+      "artist": "Talitha5 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Talitha5/sounds/690597/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "tavern",
+          "inn-night"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/temple-1",
+      "layer": "bed",
+      "src": "/audio/bed/temple-1.webm",
+      "duration": 120.4,
+      "gain": 0,
+      "lufs": -29.6,
+      "title": "cathedral square night Sevilla - 1.9.18",
+      "artist": "samwd (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/samwd/sounds/439908/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "temple",
+          "palace",
+          "library"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/temple-2",
+      "layer": "bed",
+      "src": "/audio/bed/temple-2.webm",
+      "duration": 93.5,
+      "gain": 0,
+      "lufs": -40.9,
+      "title": "Station central hall 1",
+      "artist": "Sandermotions (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Sandermotions/sounds/337107/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "temple",
+          "palace",
+          "library"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/town-day-1",
+      "layer": "bed",
+      "src": "/audio/bed/town-day-1.webm",
+      "duration": 139.3,
+      "gain": 0,
+      "lufs": -27.6,
+      "title": "Post‑Rain Birdsong in Large Cherry Tree – Rural Altenthann Soundscape (192 kHz, Jecklin Omni) - 260224_003",
+      "artist": "TSP-Talk (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/TSP-Talk/sounds/846299/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "town-day",
+          "farm"
+        ],
+        "time": [
+          "day"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/wind-mountain-1",
+      "layer": "bed",
+      "src": "/audio/bed/wind-mountain-1.webm",
+      "duration": 120.7,
+      "gain": 0,
+      "lufs": -34.7,
+      "title": "Strong Wind Through Spruce With Birds",
+      "artist": "Sotiris_Laskaris (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Sotiris_Laskaris/sounds/679753/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "mountain",
+          "snow"
+        ],
+        "time": [],
+        "weather": [
+          "wind"
+        ]
+      }
+    },
+    {
+      "id": "bed/wind-mountain-2",
+      "layer": "bed",
+      "src": "/audio/bed/wind-mountain-2.webm",
+      "duration": 180,
+      "gain": 0,
+      "lufs": -63.2,
+      "title": "Larun_after_the_wind_bell_QuietWind_Airplane",
+      "artist": "nicotep (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/nicotep/sounds/683492/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "mountain",
+          "snow"
+        ],
+        "time": [],
+        "weather": [
+          "wind"
+        ]
+      }
+    },
+    {
+      "id": "bed/wind-mountain-3",
+      "layer": "bed",
+      "src": "/audio/bed/wind-mountain-3.webm",
+      "duration": 158.8,
+      "gain": 0,
+      "lufs": -41.9,
+      "title": "EXT Blustery quiet 2",
+      "artist": "deleted_user_2104797 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/deleted_user_2104797/sounds/324492/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "mountain",
+          "snow"
+        ],
+        "time": [],
+        "weather": [
+          "wind"
+        ]
+      }
+    },
+    {
+      "id": "sfx/applause-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/applause-1.webm",
+      "duration": 7.4,
+      "gain": 0,
+      "lufs": -21.9,
+      "title": "Medium Crowd Clapping 4",
+      "artist": "jentlemen (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/jentlemen/sounds/432327/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "applause"
+      }
+    },
+    {
+      "id": "sfx/arcane-spark-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/arcane-spark-1.webm",
+      "duration": 2.2,
+      "gain": 0,
+      "lufs": -18.8,
+      "title": "Synth Texture 4",
+      "artist": "nomiqbomi (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/nomiqbomi/sounds/578801/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "arcane-spark"
+      }
+    },
+    {
+      "id": "sfx/arrow-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/arrow-1.webm",
+      "duration": 0.8,
+      "gain": 0,
+      "lufs": -3.2,
+      "title": "Bow Release (Bow and Arrow) 2",
+      "artist": "Ali_6868 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Ali_6868/sounds/384916/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "arrow"
+      }
+    },
+    {
+      "id": "sfx/arrow-2",
+      "layer": "sfx",
+      "src": "/audio/sfx/arrow-2.webm",
+      "duration": 1,
+      "gain": 0,
+      "lufs": -2.2,
+      "title": "Bow Release (Bow and Arrow) 3",
+      "artist": "Ali_6868 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Ali_6868/sounds/384918/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "arrow"
+      }
+    },
+    {
+      "id": "sfx/bell-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/bell-1.webm",
+      "duration": 3.7,
+      "gain": 0,
+      "lufs": -18.5,
+      "title": "Church Bell 1",
+      "artist": "nomiqbomi (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/nomiqbomi/sounds/578543/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "bell"
+      }
+    },
+    {
+      "id": "sfx/body-fall-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/body-fall-1.webm",
+      "duration": 2.1,
+      "gain": 0,
+      "lufs": 0,
+      "title": "goblin-fall",
+      "artist": "Kneeling (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Kneeling/sounds/502553/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "body-fall"
+      }
+    },
+    {
+      "id": "sfx/bow-draw-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/bow-draw-1.webm",
+      "duration": 1,
+      "gain": 0,
+      "lufs": -11.7,
+      "title": "cello slide",
+      "artist": "edschaefer (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/edschaefer/sounds/341869/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "bow-draw"
+      }
+    },
+    {
+      "id": "sfx/candle-out-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/candle-out-1.webm",
+      "duration": 2.9,
+      "gain": 0,
+      "lufs": -35.2,
+      "title": "Blowing Out Candle_more airy",
+      "artist": "tlcolbe (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/tlcolbe/sounds/406648/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "candle-out"
+      }
+    },
+    {
+      "id": "sfx/chain-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/chain-1.webm",
+      "duration": 4.9,
+      "gain": 0,
+      "lufs": -19.1,
+      "title": "RattlingKeys",
+      "artist": "prometheus888 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/prometheus888/sounds/506796/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "chain"
+      }
+    },
+    {
+      "id": "sfx/crow-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/crow-1.webm",
+      "duration": 3.2,
+      "gain": 0,
+      "lufs": -28.8,
+      "title": "crow calling x 4",
+      "artist": "mudflea2 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/mudflea2/sounds/708181/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "crow"
+      }
+    },
+    {
+      "id": "sfx/door-iron-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/door-iron-1.webm",
+      "duration": 3.2,
+      "gain": 0,
+      "lufs": -18.2,
+      "title": "cemeterygate16",
+      "artist": "celadon_noise (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/celadon_noise/sounds/399449/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "door-iron"
+      }
+    },
+    {
+      "id": "sfx/fire-ignite-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/fire-ignite-1.webm",
+      "duration": 2,
+      "gain": 0,
+      "lufs": -2.7,
+      "title": "Power Up",
+      "artist": "NearTheAtmoshphere (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/NearTheAtmoshphere/sounds/683185/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "fire-ignite"
+      }
+    },
+    {
+      "id": "sfx/fire-ignite-2",
+      "layer": "sfx",
+      "src": "/audio/sfx/fire-ignite-2.webm",
+      "duration": 3.6,
+      "gain": 0,
+      "lufs": -11.9,
+      "title": "9MM and 38 CLOTH443466__squidge316__iron-whoosh",
+      "artist": "GrayEpic (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/GrayEpic/sounds/628335/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "fire-ignite"
+      }
+    },
+    {
+      "id": "sfx/glass-break-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/glass-break-1.webm",
+      "duration": 1.3,
+      "gain": 0,
+      "lufs": -1.8,
+      "title": "break01",
+      "artist": "Johnny97 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Johnny97/sounds/566448/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "glass-break"
+      }
+    },
+    {
+      "id": "sfx/gong-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/gong-1.webm",
+      "duration": 5.1,
+      "gain": 0,
+      "lufs": -15.5,
+      "title": "Sound Design Elements Impact SFX PS 001",
+      "artist": "AudioPapkin (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/AudioPapkin/sounds/749465/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "gong"
+      }
+    },
+    {
+      "id": "sfx/growl-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/growl-1.webm",
+      "duration": 1.7,
+      "gain": 0,
+      "lufs": -19.2,
+      "title": "Insect Animal Growl Chitter",
+      "artist": "SecureSubset (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/SecureSubset/sounds/800277/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "growl"
+      }
+    },
+    {
+      "id": "sfx/growl-2",
+      "layer": "sfx",
+      "src": "/audio/sfx/growl-2.webm",
+      "duration": 5.5,
+      "gain": 0,
+      "lufs": -14,
+      "title": "Dog - Bark 1",
+      "artist": "Vrymaa (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Vrymaa/sounds/737885/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "growl"
+      }
+    },
+    {
+      "id": "sfx/heal-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/heal-1.webm",
+      "duration": 1.2,
+      "gain": 0,
+      "lufs": -5.4,
+      "title": "Heal - Rpg",
+      "artist": "colorsCrimsonTears (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/colorsCrimsonTears/sounds/562292/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "heal"
+      }
+    },
+    {
+      "id": "sfx/heartbeat-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/heartbeat-1.webm",
+      "duration": 3.3,
+      "gain": 0,
+      "lufs": -11.1,
+      "title": "Heartbeat Loop 73/146 BPM",
+      "artist": "8bitmyketison (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/8bitmyketison/sounds/701100/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "heartbeat"
+      }
+    },
+    {
+      "id": "sfx/impact-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/impact-1.webm",
+      "duration": 1,
+      "gain": 0,
+      "lufs": -0.5,
+      "title": "ANI Big Pipe Hit",
+      "artist": "ani_music (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/ani_music/sounds/244983/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "impact"
+      }
+    },
+    {
+      "id": "sfx/laugh-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/laugh-1.webm",
+      "duration": 1.5,
+      "gain": 0,
+      "lufs": -2.1,
+      "title": "LaughM",
+      "artist": "egomassive (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/egomassive/sounds/536811/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "laugh"
+      }
+    },
+    {
+      "id": "sfx/owl-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/owl-1.webm",
+      "duration": 2,
+      "gain": 0,
+      "lufs": -5,
+      "title": "owl-plonk stretched tenfold",
+      "artist": "Jerimee (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Jerimee/sounds/725408/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "owl"
+      }
+    },
+    {
+      "id": "sfx/roar-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/roar-1.webm",
+      "duration": 1.7,
+      "gain": 0,
+      "lufs": -19.2,
+      "title": "Insect Animal Growl Chitter",
+      "artist": "SecureSubset (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/SecureSubset/sounds/800277/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "roar"
+      }
+    },
+    {
+      "id": "sfx/roar-2",
+      "layer": "sfx",
+      "src": "/audio/sfx/roar-2.webm",
+      "duration": 2.6,
+      "gain": 0,
+      "lufs": -0.1,
+      "title": "dragon roar mild 18",
+      "artist": "bevibeldesign (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/bevibeldesign/sounds/315823/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "roar"
+      }
+    },
+    {
+      "id": "sfx/rockfall-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/rockfall-1.webm",
+      "duration": 5.7,
+      "gain": 0,
+      "lufs": -11.7,
+      "title": "Rock Rumble 1",
+      "artist": "CAT-FOX_ALEX (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/CAT-FOX_ALEX/sounds/869566/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "rockfall"
+      }
+    },
+    {
+      "id": "sfx/scream-far-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/scream-far-1.webm",
+      "duration": 1.5,
+      "gain": 0,
+      "lufs": -6.4,
+      "title": "Haunted 1",
+      "artist": "DavidKronberg (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/DavidKronberg/sounds/789680/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "scream-far"
+      }
+    },
+    {
+      "id": "sfx/spell-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/spell-1.webm",
+      "duration": 1.8,
+      "gain": 0,
+      "lufs": -3.9,
+      "title": "Teleport - Rpg",
+      "artist": "colorsCrimsonTears (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/colorsCrimsonTears/sounds/563542/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "spell"
+      }
+    },
+    {
+      "id": "sfx/spell-2",
+      "layer": "sfx",
+      "src": "/audio/sfx/spell-2.webm",
+      "duration": 1.6,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Sliding Trailer Woosh",
+      "artist": "qubodup (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/qubodup/sounds/171255/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "spell"
+      }
+    },
+    {
+      "id": "sfx/splash-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/splash-1.webm",
+      "duration": 1.9,
+      "gain": 0,
+      "lufs": -5.3,
+      "title": "water splash 2",
+      "artist": "swordofkings128 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/swordofkings128/sounds/398039/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "splash"
+      }
+    },
+    {
+      "id": "sfx/sword-clash-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/sword-clash-1.webm",
+      "duration": 1.6,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Sword_Clash (57)",
+      "artist": "JohnBuhr (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/JohnBuhr/sounds/326862/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "sword-clash"
+      }
+    },
+    {
+      "id": "sfx/sword-clash-2",
+      "layer": "sfx",
+      "src": "/audio/sfx/sword-clash-2.webm",
+      "duration": 1.2,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Sword_Clash (46)",
+      "artist": "JohnBuhr (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/JohnBuhr/sounds/326795/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "sword-clash"
+      }
+    },
+    {
+      "id": "sfx/thunder-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/thunder-1.webm",
+      "duration": 5.1,
+      "gain": 0,
+      "lufs": -15.5,
+      "title": "Ominous Metal Sheet (Ogg)",
+      "artist": "modusmogulus (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/modusmogulus/sounds/802441/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "thunder"
+      }
+    },
+    {
+      "id": "sfx/thunder-2",
+      "layer": "sfx",
+      "src": "/audio/sfx/thunder-2.webm",
+      "duration": 5.6,
+      "gain": 0,
+      "lufs": -19.8,
+      "title": "Sammy's Best - Single Shot 6",
+      "artist": "sloppyjoe24 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/sloppyjoe24/sounds/325667/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "thunder"
+      }
+    },
+    {
+      "id": "sfx/torch-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/torch-1.webm",
+      "duration": 3.4,
+      "gain": 0,
+      "lufs": -26.7,
+      "title": "Blow Torch",
+      "artist": "adh.dreaming (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/adh.dreaming/sounds/668375/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "torch"
+      }
+    },
+    {
+      "id": "sfx/water-drip-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/water-drip-1.webm",
+      "duration": 3,
+      "gain": 0,
+      "lufs": -25.5,
+      "title": "Water_Dripping_Loop",
+      "artist": "IPaddeh (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/IPaddeh/sounds/422873/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "water-drip"
+      }
+    },
+    {
+      "id": "sfx/wind-gust-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/wind-gust-1.webm",
+      "duration": 7.7,
+      "gain": 0,
+      "lufs": -12.5,
+      "title": "strong wind and little blossom branches",
+      "artist": "37735i6 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/37735i6/sounds/731722/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "wind-gust"
+      }
+    },
+    {
+      "id": "sfx/wings-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/wings-1.webm",
+      "duration": 4.5,
+      "gain": 0,
+      "lufs": -31.3,
+      "title": "Large bird wing flutter",
+      "artist": "anebulafont (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/anebulafont/sounds/651753/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "wings"
+      }
+    },
+    {
+      "id": "sfx/wings-2",
+      "layer": "sfx",
+      "src": "/audio/sfx/wings-2.webm",
+      "duration": 3.9,
+      "gain": 0,
+      "lufs": -29.1,
+      "title": "Large Wings Flapping - Foley",
+      "artist": "tothrec2 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/tothrec2/sounds/596541/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "wings"
+      }
+    },
+    {
+      "id": "sfx/wolf-1",
+      "layer": "sfx",
+      "src": "/audio/sfx/wolf-1.webm",
+      "duration": 3.7,
+      "gain": 0,
+      "lufs": -15.1,
+      "title": "EarlyFiles-TSR-Yell-Female Yell 2-Single Yell-Oh",
+      "artist": "CAT-FOX_ALEX (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/CAT-FOX_ALEX/sounds/852535/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "wolf"
+      }
+    },
+    {
+      "id": "spot/bats-1",
+      "layer": "spot",
+      "src": "/audio/spot/bats-1.webm",
+      "duration": 4.3,
+      "gain": 0,
+      "lufs": -11.4,
+      "title": "hanging bats (two) with wings",
+      "artist": "sastoryteller (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/sastoryteller/sounds/352899/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "cave",
+          "dungeon",
+          "ruins"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/bats-2",
+      "layer": "spot",
+      "src": "/audio/spot/bats-2.webm",
+      "duration": 5,
+      "gain": 0,
+      "lufs": -40,
+      "title": "Umbrella that sounds like bat wings",
+      "artist": "Scottrex05 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Scottrex05/sounds/593487/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "cave",
+          "dungeon",
+          "ruins"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/bell-distant-1",
+      "layer": "spot",
+      "src": "/audio/spot/bell-distant-1.webm",
+      "duration": 7.5,
+      "gain": 0,
+      "lufs": -49.3,
+      "title": "distant church wedding bells",
+      "artist": "mudflea2 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/mudflea2/sounds/703590/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "town-day",
+          "temple",
+          "harbour"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/birds-1",
+      "layer": "spot",
+      "src": "/audio/spot/birds-1.webm",
+      "duration": 4.2,
+      "gain": 0,
+      "lufs": -11.3,
+      "title": "Bird Noise - 11",
+      "artist": "SpaceJoe (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/SpaceJoe/sounds/507255/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "farm",
+          "town-day",
+          "road"
+        ],
+        "time": [
+          "day"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/birds-2",
+      "layer": "spot",
+      "src": "/audio/spot/birds-2.webm",
+      "duration": 3.5,
+      "gain": 0,
+      "lufs": -18.7,
+      "title": "Bird Noise - 13",
+      "artist": "SpaceJoe (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/SpaceJoe/sounds/507261/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "farm",
+          "town-day",
+          "road"
+        ],
+        "time": [
+          "day"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/birds-3",
+      "layer": "spot",
+      "src": "/audio/spot/birds-3.webm",
+      "duration": 2,
+      "gain": 0,
+      "lufs": -5.3,
+      "title": "Great Tit",
+      "artist": "D4XX (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/D4XX/sounds/607242/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "farm",
+          "town-day",
+          "road"
+        ],
+        "time": [
+          "day"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/creak-1",
+      "layer": "spot",
+      "src": "/audio/spot/creak-1.webm",
+      "duration": 3.2,
+      "gain": 0,
+      "lufs": -30.5,
+      "title": "Creaking in Room 11",
+      "artist": "Greg_Surr (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Greg_Surr/sounds/590161/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "inn-night",
+          "interior",
+          "mill",
+          "ship"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/creak-2",
+      "layer": "spot",
+      "src": "/audio/spot/creak-2.webm",
+      "duration": 1.9,
+      "gain": 0,
+      "lufs": -20.1,
+      "title": "Creaking in Room 13",
+      "artist": "Greg_Surr (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Greg_Surr/sounds/590167/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "inn-night",
+          "interior",
+          "mill",
+          "ship"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/creak-3",
+      "layer": "spot",
+      "src": "/audio/spot/creak-3.webm",
+      "duration": 3.4,
+      "gain": 0,
+      "lufs": -19.6,
+      "title": "Creaking Wood 8",
+      "artist": "Greg_Surr (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Greg_Surr/sounds/590158/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "inn-night",
+          "interior",
+          "mill",
+          "ship"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/crow-1",
+      "layer": "spot",
+      "src": "/audio/spot/crow-1.webm",
+      "duration": 3.8,
+      "gain": 0,
+      "lufs": -13.8,
+      "title": "Hooded Crow: Panic Cawing",
+      "artist": "Mish7913 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Mish7913/sounds/741365/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "graveyard",
+          "ruins",
+          "road",
+          "farm"
+        ],
+        "time": [
+          "day"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/crow-2",
+      "layer": "spot",
+      "src": "/audio/spot/crow-2.webm",
+      "duration": 4.8,
+      "gain": 0,
+      "lufs": -42.5,
+      "title": "Raven Croak or Crow Caw",
+      "artist": "fudgealtoid (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/fudgealtoid/sounds/716962/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "graveyard",
+          "ruins",
+          "road",
+          "farm"
+        ],
+        "time": [
+          "day"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/crow-3",
+      "layer": "spot",
+      "src": "/audio/spot/crow-3.webm",
+      "duration": 4.8,
+      "gain": 0,
+      "lufs": -14.3,
+      "title": "Hooded Crow: Cawing",
+      "artist": "Mish7913 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Mish7913/sounds/741366/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "graveyard",
+          "ruins",
+          "road",
+          "farm"
+        ],
+        "time": [
+          "day"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/dog-bark-1",
+      "layer": "spot",
+      "src": "/audio/spot/dog-bark-1.webm",
+      "duration": 2.5,
+      "gain": 0,
+      "lufs": -22.7,
+      "title": "Dogs Barking in Distance_Rural",
+      "artist": "rvandemark (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/rvandemark/sounds/581478/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "town-day",
+          "farm",
+          "market"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/dog-bark-2",
+      "layer": "spot",
+      "src": "/audio/spot/dog-bark-2.webm",
+      "duration": 3.5,
+      "gain": 0,
+      "lufs": -27.8,
+      "title": "Thuir Distant dog bark - 2025 03 14 00h01 - XY H2N",
+      "artist": "Sadiquecat (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Sadiquecat/sounds/792440/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "town-day",
+          "farm",
+          "market"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/drip-1",
+      "layer": "spot",
+      "src": "/audio/spot/drip-1.webm",
+      "duration": 3.5,
+      "gain": 0,
+      "lufs": -35.6,
+      "title": "VALENTIN_Hugo_2020-2021_CaveWaterDrops",
+      "artist": "univ_lyon3 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/univ_lyon3/sounds/540726/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "cave",
+          "dungeon",
+          "mine",
+          "sewer",
+          "underdark"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/drip-2",
+      "layer": "spot",
+      "src": "/audio/spot/drip-2.webm",
+      "duration": 1.8,
+      "gain": 0,
+      "lufs": -1.5,
+      "title": "Aterreau_2011_V2_2",
+      "artist": "iut_Paris8 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/iut_Paris8/sounds/112741/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "cave",
+          "dungeon",
+          "mine",
+          "sewer",
+          "underdark"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/drip-3",
+      "layer": "spot",
+      "src": "/audio/spot/drip-3.webm",
+      "duration": 0.9,
+      "gain": 0,
+      "lufs": -18.9,
+      "title": "DELCLAUD_Antoine_2020_2021_reverb_water_drop",
+      "artist": "univ_lyon3 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/univ_lyon3/sounds/540798/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "cave",
+          "dungeon",
+          "mine",
+          "sewer",
+          "underdark"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/fire-crackle-1",
+      "layer": "spot",
+      "src": "/audio/spot/fire-crackle-1.webm",
+      "duration": 5,
+      "gain": 0,
+      "lufs": -30.1,
+      "title": "fire crackling loop",
+      "artist": "soundofsong (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/soundofsong/sounds/650574/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "tavern",
+          "camp",
+          "interior",
+          "inn-night"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/fire-crackle-2",
+      "layer": "spot",
+      "src": "/audio/spot/fire-crackle-2.webm",
+      "duration": 5.3,
+      "gain": 0,
+      "lufs": -19.7,
+      "title": "bee_firework",
+      "artist": "j1987 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/j1987/sounds/140713/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "tavern",
+          "camp",
+          "interior",
+          "inn-night"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/horse-1",
+      "layer": "spot",
+      "src": "/audio/spot/horse-1.webm",
+      "duration": 3.4,
+      "gain": 0,
+      "lufs": -34.7,
+      "title": "Zebras - Grant's Zebra Braying",
+      "artist": "TheKingOfGeeks360 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/TheKingOfGeeks360/sounds/850661/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "road",
+          "town-day",
+          "market",
+          "farm"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/horse-2",
+      "layer": "spot",
+      "src": "/audio/spot/horse-2.webm",
+      "duration": 2.1,
+      "gain": 0,
+      "lufs": -13.2,
+      "title": "Renill de cavall / Horse Neigh",
+      "artist": "Salsero_classic (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Salsero_classic/sounds/826753/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "road",
+          "town-day",
+          "market",
+          "farm"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/laugh-1",
+      "layer": "spot",
+      "src": "/audio/spot/laugh-1.webm",
+      "duration": 2.2,
+      "gain": 0,
+      "lufs": -0.3,
+      "title": "Noises - Short laugh",
+      "artist": "Sadiquecat (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Sadiquecat/sounds/800973/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "tavern",
+          "market"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/laugh-2",
+      "layer": "spot",
+      "src": "/audio/spot/laugh-2.webm",
+      "duration": 1.2,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Short Laugh Exclamation Low Quality",
+      "artist": "qubodup (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/qubodup/sounds/857076/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "tavern",
+          "market"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/laugh-3",
+      "layer": "spot",
+      "src": "/audio/spot/laugh-3.webm",
+      "duration": 1.4,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Arrogant Short Laughts Low Quality",
+      "artist": "qubodup (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/qubodup/sounds/857057/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "tavern",
+          "market"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/mug-clink-1",
+      "layer": "spot",
+      "src": "/audio/spot/mug-clink-1.webm",
+      "duration": 3,
+      "gain": 0,
+      "lufs": -19.3,
+      "title": "Wooden stick and glass",
+      "artist": "abstraktgeneriert (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/abstraktgeneriert/sounds/348958/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "tavern"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/mug-clink-2",
+      "layer": "spot",
+      "src": "/audio/spot/mug-clink-2.webm",
+      "duration": 1.7,
+      "gain": 0,
+      "lufs": -3.8,
+      "title": "Glass Clink1",
+      "artist": "RoyalRose (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/RoyalRose/sounds/560298/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "tavern"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/mug-clink-3",
+      "layer": "spot",
+      "src": "/audio/spot/mug-clink-3.webm",
+      "duration": 1.4,
+      "gain": 0,
+      "lufs": -6.6,
+      "title": "Glass Ping",
+      "artist": "tix99 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/tix99/sounds/745014/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "tavern"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/owl-1",
+      "layer": "spot",
+      "src": "/audio/spot/owl-1.webm",
+      "duration": 4,
+      "gain": 0,
+      "lufs": -51.9,
+      "title": "Owl Recording",
+      "artist": "smllfrey84 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/smllfrey84/sounds/763652/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "road",
+          "camp",
+          "farm"
+        ],
+        "time": [
+          "night"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/owl-2",
+      "layer": "spot",
+      "src": "/audio/spot/owl-2.webm",
+      "duration": 2.9,
+      "gain": 0,
+      "lufs": -23.5,
+      "title": "Birds of Prey - Barred Owl Hooting, Distant",
+      "artist": "TheKingOfGeeks360 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/TheKingOfGeeks360/sounds/784609/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "road",
+          "camp",
+          "farm"
+        ],
+        "time": [
+          "night"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/owl-3",
+      "layer": "spot",
+      "src": "/audio/spot/owl-3.webm",
+      "duration": 7.2,
+      "gain": 0,
+      "lufs": -14.5,
+      "title": "Tawny Owl",
+      "artist": "faxfaxfax (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/faxfaxfax/sounds/655380/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "road",
+          "camp",
+          "farm"
+        ],
+        "time": [
+          "night"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/seagull-1",
+      "layer": "spot",
+      "src": "/audio/spot/seagull-1.webm",
+      "duration": 5,
+      "gain": 0,
+      "lufs": -21.6,
+      "title": "Seagulls and Rigging Sounds",
+      "artist": "timsc (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/timsc/sounds/179908/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "harbour",
+          "ship"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/thunder-far-1",
+      "layer": "spot",
+      "src": "/audio/spot/thunder-far-1.webm",
+      "duration": 4.3,
+      "gain": 0,
+      "lufs": -24.2,
+      "title": "thunder.rumble.loop",
+      "artist": "xUMR (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/xUMR/sounds/486558/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [
+          "rain",
+          "storm"
+        ]
+      }
+    },
+    {
+      "id": "spot/thunder-far-2",
+      "layer": "spot",
+      "src": "/audio/spot/thunder-far-2.webm",
+      "duration": 6.3,
+      "gain": 0,
+      "lufs": -20.5,
+      "title": "distant rumbling thunderstorm, ambience",
+      "artist": "greyfeather (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/greyfeather/sounds/712914/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [
+          "rain",
+          "storm"
+        ]
+      }
+    },
+    {
+      "id": "spot/thunder-far-3",
+      "layer": "spot",
+      "src": "/audio/spot/thunder-far-3.webm",
+      "duration": 8.2,
+      "gain": 0,
+      "lufs": -31.5,
+      "title": "Distant Thunder 3",
+      "artist": "Fission9 (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Fission9/sounds/581124/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [
+          "rain",
+          "storm"
+        ]
+      }
+    },
+    {
+      "id": "spot/wind-gust-1",
+      "layer": "spot",
+      "src": "/audio/spot/wind-gust-1.webm",
+      "duration": 5.6,
+      "gain": 0,
+      "lufs": -13.4,
+      "title": "Nightingale 11",
+      "artist": "qubodup (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/qubodup/sounds/854975/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "mountain",
+          "snow",
+          "road",
+          "desert",
+          "ruins"
+        ],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/wolf-howl-1",
+      "layer": "spot",
+      "src": "/audio/spot/wolf-howl-1.webm",
+      "duration": 3.7,
+      "gain": 0,
+      "lufs": -15.1,
+      "title": "EarlyFiles-TSR-Yell-Female Yell 2-Single Yell-Oh",
+      "artist": "CAT-FOX_ALEX (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/CAT-FOX_ALEX/sounds/852535/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "mountain",
+          "snow",
+          "road"
+        ],
+        "time": [
+          "night"
+        ],
+        "weather": []
+      }
+    },
+    {
+      "id": "spot/wolf-howl-2",
+      "layer": "spot",
+      "src": "/audio/spot/wolf-howl-2.webm",
+      "duration": 4.3,
+      "gain": 0,
+      "lufs": -26.1,
+      "title": "Adult and young wolves howling far away",
+      "artist": "Sacha.Julien (freesound.org)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "freesound",
+        "page": "https://freesound.org/people/Sacha.Julien/sounds/753896/"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "mountain",
+          "snow",
+          "road"
+        ],
+        "time": [
+          "night"
+        ],
+        "weather": []
+      }
+    }
+  ]
+}
