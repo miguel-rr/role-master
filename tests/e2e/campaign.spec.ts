@@ -194,11 +194,53 @@ test('Loncio and JasspeR play a complete short story', async ({ page }) => {
   await expect(page.getByTestId('figure')).toBeVisible();
   await page.screenshot({ path: `${SHOTS}/05-tavern.png` });
 
+  // Names the table knows are underlined; hovering one opens its card.
+  const term = page.getByTestId('narration').locator('[data-lore]').first();
+  await expect(term).toBeVisible();
+  await term.hover();
+  const loreCard = page.getByTestId('lore-card');
+  await expect(loreCard).toBeVisible();
+  await expect(loreCard).toContainText(/Introducción|Trasfondo|La compañía/);
+  await page.screenshot({ path: `${SHOTS}/22-lore-card.png` });
+  await page.mouse.move(5, 5);
+  // The glossary, by kinds, seeded from the introduction and the backstories.
+  await page.keyboard.press('g');
+  const glossary = page.getByTestId('glossary');
+  await expect(glossary).toBeVisible();
+  await expect(glossary).toContainText('Phandalin');
+  await expect(glossary).toContainText('Dazlyn');
+  await page.getByTestId('glossary-kind-place').click();
+  await expect(glossary.getByTestId('glossary-entry').first()).toBeVisible();
+  await page.screenshot({ path: `${SHOTS}/23-glossary.png` });
+  await page.keyboard.press('Escape');
+  await expect(glossary).toHaveCount(0);
+  // The notebook slides in from the right and is saved with the game.
+  await page.keyboard.press('n');
+  await expect(page.getByTestId('notes-drawer')).toHaveAttribute(
+    'data-open',
+    'yes',
+  );
+  await page
+    .getByTestId('notes-text')
+    .fill('Toblen cobra 5 pp. No fiarse del minero.');
+  await page.waitForTimeout(600);
+  await page.getByTestId('notes-close').click();
+  await expect(page.getByTestId('notes-drawer')).toHaveAttribute(
+    'data-open',
+    'no',
+  );
+
   // The sheet and the pack, from the HUD, mid-scene.
   await page.getByTestId('hud-dagna').click();
   const overlay = page.getByTestId('party-overlay');
   await expect(overlay).toContainText('Dagna Yunquebronce');
   await expect(overlay).toContainText('Puntos de golpe');
+  // Every computed number explains itself on hover.
+  await page.getByTestId('character-sheet').getByTestId('calc').first().hover();
+  await expect(page.getByTestId('formula')).toContainText(
+    /redondeado|competencia/,
+  );
+  await page.mouse.move(5, 300);
   await page.screenshot({ path: `${SHOTS}/06-overlay-sheet.png` });
   // Objects open their card, on the sheet and in the pack.
   await page.getByTestId('item-tile').first().click();
@@ -208,6 +250,8 @@ test('Loncio and JasspeR play a complete short story', async ({ page }) => {
   await page.keyboard.press('Escape');
   await expect(card).toHaveCount(0);
   await expect(overlay).toBeVisible();
+  await page.getByTestId('overlay-view-story').click();
+  await expect(page.getByTestId('overlay-story')).toContainText('Mithral Hall');
   await page.getByTestId('overlay-view-pack').click();
   await expect(overlay).toContainText('Mochila de Dagna');
   await page.getByTestId('overlay-tab-corran').click();
@@ -327,6 +371,19 @@ test('Loncio and JasspeR play a complete short story', async ({ page }) => {
   await expect(stage).toHaveAttribute('data-sound', 'running');
   await expect(stage).toHaveAttribute('data-music', /music\//);
   await expect(stage).toHaveAttribute('data-ambience', /bed\//);
+  // Notes survive the reload; the glossary grew with the story.
+  await page.getByTestId('notes-toggle').click();
+  await expect(page.getByTestId('notes-text')).toHaveValue(
+    'Toblen cobra 5 pp. No fiarse del minero.',
+  );
+  await page.getByTestId('notes-close').click();
+  await page.getByTestId('open-glossary').click();
+  await expect(page.getByTestId('glossary')).toContainText(
+    'Toblen Piedracolina',
+  );
+  await page.getByTestId('glossary-kind-creature').click();
+  await expect(page.getByTestId('glossary')).toContainText('mantícora');
+  await page.keyboard.press('Escape');
 
   // The shelf offers to continue, naming the players and their characters.
   await page.goto('/');

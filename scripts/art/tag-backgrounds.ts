@@ -14,7 +14,7 @@ import { artManifestSchema } from '../../src/data/art/schema';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(here, '../..');
 const MANIFESTS = ['portraits-fr', 'npcs-fr', 'monsters-fr'];
-const SCENE_MANIFESTS = ['scenes-fr'];
+const SCENE_MANIFESTS = ['scenes-fr', 'portraits-fr', 'npcs-fr'];
 const TAG = 'white-bg';
 const MONO = 'mono';
 
@@ -84,7 +84,7 @@ const main = async () => {
     manifest.generatedAt = new Date().toISOString();
     await writeFile(file, `${JSON.stringify(manifest, null, 2)}\n`);
     console.log(
-      `${name}: ${flagged}/${manifest.entries.length} en blanco y negro`,
+      `${name}: ${flagged}/${manifest.entries.length} en blanco y negro (mono)`,
     );
   }
   for (const name of MANIFESTS) {

@@ -30,6 +30,7 @@ const playThrough = (succeed: boolean) => {
     const req: TurnRequest = {
       ...state,
       characters,
+      loreNames: [],
       history,
       action,
     };
@@ -113,6 +114,7 @@ describe('mockTurn', () => {
         death: 'never',
         players,
       }),
+      loreNames: [],
       history: [],
       action: { kind: 'start' },
     };

@@ -82,7 +82,10 @@ Devuelves exactamente un objeto con el esquema indicado. Guía:
   aparece.
 - "figure": el PNJ o criatura protagonista del turno, o "none" si no hay
   nadie destacado. Mantén el mismo "npcId" para el mismo personaje siempre
-  (p. ej. "toblen", "dazlyn", "mantícora-umbrage").
+  (p. ej. "toblen", "dazlyn", "mantícora-umbrage"). Rellena "race", "gender",
+  "age" (child, young, adult, old) y "tags" con el oficio o la clase
+  (innkeeper, merchant, guard, child, elder, priest…): con eso se elige su
+  retrato, así que sé fiel a cómo lo describes en el texto.
 - "choices": 2 a 4 decisiones DISTINTAS en naturaleza. Varía quién decide:
   el id de un personaje o "both" (los dos). Que al menos una tenga riesgo y
   que no todas requieran tirada. La app añade siempre una acción libre; no la
@@ -103,6 +106,14 @@ Devuelves exactamente un objeto con el esquema indicado. Guía:
   lugar, la hora o el clima. "cues": de cero a cuatro cadenas "índice efecto"
   ("1 door-wood-open", "3 thunder") con el índice del beat en que ocurre.
   Úsalos cuando el texto los nombra; no los inventes de relleno.
+- "lore": el glosario de la mesa, una sola cadena con de cero a seis líneas
+  separadas por saltos de línea, cada una "tipo | Nombre | lo que ahora
+  saben los jugadores": una por persona, lugar, criatura, facción, objeto,
+  prenda o noción que haya aparecido por primera vez en este turno o sobre
+  la que hayan sabido algo nuevo. Cadena vacía si no hay nada nuevo. Tipos: character, place, creature,
+  faction, item, garment, concept. Usa exactamente el mismo nombre que en el
+  texto y que en el glosario si ya existe. Una frase por línea, en presente,
+  solo con lo que los jugadores han visto u oído.
 `.trim();
 
 const sheetOf = (
@@ -188,6 +199,9 @@ ${sheets}
 
 ## Memoria de la campaña (hechos fijados)
 ${memory}
+
+## Glosario de la mesa (nombres que los jugadores ya conocen; escríbelos igual)
+${req.loreNames.length > 0 ? req.loreNames.join(' · ') : '(aún nada)'}
 
 ## Vocabulario de arte (usa SOLO estas etiquetas)
 Lugares ("sceneTags"): ${vocab.places.join(', ')}.

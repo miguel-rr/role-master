@@ -305,7 +305,8 @@ body {
 }
 
 /* The dice engine appends its own canvas; make it fill the tray. */
-#dice-tray canvas {
+#dice-tray canvas,
+#dice-modal-tray canvas {
   display: block;
   width: 100%;
   height: 100%;

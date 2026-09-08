@@ -5,6 +5,8 @@ import '@3d-dice/dice-box/dist/style.css';
 import type DiceBoxType from '@3d-dice/dice-box';
 import type { DieResult } from '@3d-dice/dice-box';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { DiceScaleSlider } from '@/components/dice/dice-scale-slider';
+import { loadDiceScale, saveDiceScale } from '@/lib/dice/scale';
 
 type Player = { id: string; name: string; color: string };
 
@@ -130,6 +132,15 @@ const DiceTray = ({ players }: DiceTrayProps) => {
   const [rolling, setRolling] = useState(false);
   const [player, setPlayer] = useState<Player>(players[0]);
   const [theme, setTheme] = useState<(typeof THEMES)[number]['id']>('default');
+  const [scale, setScale] = useState(12);
+  useEffect(() => {
+    setScale(loadDiceScale());
+  }, []);
+  const changeScale = (v: number) => {
+    setScale(v);
+    saveDiceScale(v);
+    void boxRef.current?.updateConfig({ scale: v }).catch(() => undefined);
+  };
   const [groups, setGroups] = useState<Group[]>([{ qty: 1, type: 20 }]);
   const [modifier, setModifier] = useState(0);
   const [outcome, setOutcome] = useState<Outcome | null>(null);
@@ -186,7 +197,7 @@ const DiceTray = ({ players }: DiceTrayProps) => {
           assetPath: '/assets/dice-box/',
           theme: 'default',
           themeColor: initialColor,
-          scale: 5,
+          scale: loadDiceScale(),
           gravity: 1.6,
           throwForce: 6,
           spinForce: 5,
@@ -678,6 +689,9 @@ const DiceTray = ({ players }: DiceTrayProps) => {
         </div>
 
         <div>
+          <div className="mb-3">
+            <DiceScaleSlider onChange={changeScale} value={scale} />
+          </div>
           <div className="font-condensed text-strapline text-xs uppercase tracking-2xl">
             Material
           </div>

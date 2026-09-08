@@ -104,6 +104,10 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
           ambience: { place: 'tavern', time: 'night', weather: 'rain' },
           cues: [{ beat: 0, sfx: 'door-wood-close' }],
         },
+        lore: [
+          'character | Toblen Piedracolina | Posadero del Ciervo Dormido; cobra cinco piezas de plata por cama y cena y no regala conversación.',
+          'place | El Ciervo Dormido | Posada de Phandalin: estofado, leña húmeda y media docena de mineros que no levantan la vista.',
+        ],
         summary: 'La compañía llega al Ciervo Dormido bajo la lluvia.',
         sceneEnds: false,
       };
@@ -177,6 +181,11 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
           ambience: { place: 'keep', time: 'night', weather: 'rain' },
           cues: [{ beat: 0, sfx: 'coins-pour' }],
         },
+        lore: [
+          'character | Harbin Wester | Paga cincuenta piezas de oro por la cabeza de la mantícora de la Colina Umbrage.',
+          'creature | la mantícora | Bestia que asedia el molino de la Colina Umbrage; la partera lleva una semana sin bajar al pueblo.',
+          'character | Adabra Gwynn | Partera de la Colina Umbrage; lleva una semana sin bajar a Phandalin.',
+        ],
         summary: hit
           ? 'Toblen habla: hay una mantícora en la Colina Umbrage y una recompensa.'
           : 'Toblen no suelta prenda; el tablón sí: una mantícora en la Colina Umbrage.',
@@ -231,6 +240,10 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
           ambience: { place: 'road', time: 'day', weather: 'fog' },
           cues: [{ beat: 1, sfx: 'crow' }],
         },
+        lore: [
+          'place | Sendero de Triboar | Sube entre robles pelados desde Phandalin hasta la Colina Umbrage; en el barro, huellas de cuatro dedos y cola.',
+          'place | Colina Umbrage | Molino de piedra en la cima con las aspas paradas y la puerta del granero arrancada.',
+        ],
         summary:
           'La compañía sube por el Sendero de Triboar hasta la Colina Umbrage.',
         sceneEnds: false,
@@ -305,6 +318,9 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
             { beat: 1, sfx: 'roar' },
           ],
         },
+        lore: [
+          'creature | la mantícora | Cuerpo de león, alas de murciélago, cara casi humana; dispara púas con la cola y habla con voz de pozo.',
+        ],
         summary: 'La mantícora ataca en el patio del molino.',
         sceneEnds: false,
       };
@@ -373,6 +389,11 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
           ambience: { place: 'mill', time: 'day', weather: 'clear' },
           cues: [{ beat: 1, sfx: 'door-wood-open' }],
         },
+        lore: [
+          'character | Adabra Gwynn | Menuda, de pelo gris, acólita de Chauntea; os venda, os da caldo y una poción, y manda recado al Alcaide.',
+          'creature | la mantícora | Huía de algo blanco y grande que voló hacia el Pico Escarcha; se ha ido hacia el este.',
+          'item | Poción de curación de Adabra | Frasco de barro tapado con cera que Adabra puso en vuestras manos.',
+        ],
         summary: 'Adabra está viva; la mantícora huye hacia el este.',
         sceneEnds: true,
       };
@@ -421,6 +442,9 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
           ambience: { place: 'town-day', time: 'night', weather: 'clear' },
           cues: [{ beat: 1, sfx: 'wings' }],
         },
+        lore: [
+          'place | Phandalin | Vuelve a tener partera; sobre el Pico Escarcha se recorta un momento una silueta con alas.',
+        ],
         summary: 'La compañía vuelve a Phandalin al atardecer.',
         sceneEnds: true,
       };

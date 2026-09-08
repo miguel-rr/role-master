@@ -5,6 +5,8 @@ import '@3d-dice/dice-box/dist/style.css';
 import type DiceBoxType from '@3d-dice/dice-box';
 import type { DieResult } from '@3d-dice/dice-box';
 import { useEffect, useRef, useState } from 'react';
+import { loadDiceScale, saveDiceScale } from '@/lib/dice/scale';
+import { DiceScaleSlider } from './dice-scale-slider';
 
 type DiceRequest = {
   /** Who rolls, for the colour and the label. */
@@ -60,6 +62,15 @@ const DiceModal = ({ request, onDone, onRoll, onSettled }: DiceModalProps) => {
   const [rolling, setRolling] = useState(false);
   const [values, setValues] = useState<number[] | null>(null);
   const [spin, setSpin] = useState<number[] | null>(null);
+  const [scale, setScale] = useState(12);
+  useEffect(() => {
+    setScale(loadDiceScale());
+  }, []);
+  const changeScale = (v: number) => {
+    setScale(v);
+    saveDiceScale(v);
+    void boxRef.current?.updateConfig({ scale: v }).catch(() => undefined);
+  };
 
   useEffect(() => {
     if (startedRef.current) return;
@@ -88,7 +99,7 @@ const DiceModal = ({ request, onDone, onRoll, onSettled }: DiceModalProps) => {
           assetPath: '/assets/dice-box/',
           theme: 'default',
           themeColor: request.color,
-          scale: 6,
+          scale: loadDiceScale(),
           gravity: 1.6,
           throwForce: 6,
           spinForce: 5,
@@ -100,6 +111,9 @@ const DiceModal = ({ request, onDone, onRoll, onSettled }: DiceModalProps) => {
         });
         boxRef.current = box;
         await box.init();
+        // The material must be loaded before the first roll or the roll
+        // throws and the tray silently falls back to flat dice.
+        await box.loadTheme('default').catch(() => undefined);
         if (settled) return;
         settled = true;
         window.clearTimeout(timeout);
@@ -151,17 +165,16 @@ const DiceModal = ({ request, onDone, onRoll, onSettled }: DiceModalProps) => {
           setTimeout(() => r('timeout'), ROLL_TIMEOUT_MS),
         ),
       ]);
-      let vals =
+      const vals =
         settled === 'timeout'
           ? box
               .getRollResults()
               .flatMap((g) => (g.rolls ?? []).map((d) => d.value))
           : settled.map((d) => d.value);
-      if (vals.length < expected.length) {
-        vals = [
-          ...vals,
-          ...expected.slice(vals.length).map((s) => randomInt(s)),
-        ];
+      // A die that never settled reports 0: never let that reach the table.
+      if (vals.length < expected.length || vals.some((v) => !v)) {
+        await roll2d();
+        return;
       }
       const finalVals = vals.slice(0, expected.length);
       setValues(finalVals);
@@ -197,11 +210,16 @@ const DiceModal = ({ request, onDone, onRoll, onSettled }: DiceModalProps) => {
               {request.label}
             </div>
           </div>
-          <div className="font-scaly text-charcoal-400 text-sm">
-            {request.notation.join(' + ')}{' '}
-            {request.modifier
-              ? `${request.modifier > 0 ? '+' : '−'} ${Math.abs(request.modifier)}`
-              : ''}
+          <div className="flex items-center gap-4">
+            {engine === '3d' ? (
+              <DiceScaleSlider onChange={changeScale} value={scale} />
+            ) : null}
+            <div className="font-scaly text-charcoal-400 text-sm">
+              {request.notation.join(' + ')}{' '}
+              {request.modifier
+                ? `${request.modifier > 0 ? '+' : '−'} ${Math.abs(request.modifier)}`
+                : ''}
+            </div>
           </div>
         </div>
 

@@ -3,9 +3,10 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
-import { CharacterSheet } from '@/app/design/_components/character-sheet';
 import { Inventory, type Slot } from '@/app/design/_components/inventory';
 import type { CoinArt } from '@/app/play/_components/party-overlay';
+import { CharacterSheet } from '@/components/sheet/character-sheet';
+import { buildSheetModel } from '@/components/sheet/sheet-model';
 import { Caps } from '@/components/theme/display';
 import { TaperedRule } from '@/components/theme/tapered-rule';
 import type { ArtEntry } from '@/data/art/schema';
@@ -633,14 +634,12 @@ const SetupFlow = ({
             ) : dossierView === 'sheet' ? (
               <div className="mx-auto max-w-[1400px]">
                 <CharacterSheet
-                  character={opened}
-                  itemArt={artFor}
+                  m={buildSheetModel(opened, portraitOf(opened.id), artFor)}
                   player={
                     picks.includes(opened.id)
                       ? PLAYERS[picks.indexOf(opened.id)]
                       : player
                   }
-                  portrait={portraitOf(opened.id)}
                 />
               </div>
             ) : (

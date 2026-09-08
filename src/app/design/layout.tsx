@@ -18,6 +18,7 @@ const SECTIONS = [
   { href: '#estilo', label: 'Estilo' },
   { href: '/design/scenes', label: 'Escenas' },
   { href: '/design/sound', label: 'Sonido' },
+  { href: '/design/sheets', label: 'Fichas TV' },
 ];
 
 const DesignLayout = ({

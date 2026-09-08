@@ -18,7 +18,7 @@ type Page = {
   count: number;
 };
 
-const MAX_CHARS = 260;
+const MAX_CHARS = 200;
 const MIN_TAIL = 70;
 
 /** Sentence-ish units: text up to and including . ! ? … and closing quotes. */

@@ -19,6 +19,7 @@ const request = (overrides: Partial<TurnRequest> = {}): TurnRequest => ({
   characters: [],
   memory: [],
   npcArt: {},
+  loreNames: [],
   history: [],
   action: { kind: 'start' },
   ...overrides,
@@ -60,6 +61,7 @@ describe('model-facing sound block', () => {
         ambience: 'forest night rain',
         cues: ['1 owl', '2 nonsense'],
       },
+      lore: 'place | Bosque | Oscuro.\nbasura',
     });
     const strict = narrowTurn(parsed);
     expect(strict.sound.music).toEqual({
@@ -72,9 +74,11 @@ describe('model-facing sound block', () => {
       weather: 'rain',
     });
     expect(strict.sound.cues).toEqual([{ beat: 1, sfx: 'owl' }]);
+    expect(strict.lore).toEqual(['place | Bosque | Oscuro.', 'basura']);
     expect(
-      narrowTurn(loose.parse({ ...turn, sound: { music: 'lo que sea' } })).sound
-        .music.situation,
+      narrowTurn(
+        loose.parse({ ...turn, sound: { music: 'lo que sea' }, lore: '' }),
+      ).sound.music.situation,
     ).toBe('keep');
   });
 });

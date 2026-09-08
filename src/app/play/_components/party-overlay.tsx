@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { CharacterSheet } from '@/app/design/_components/character-sheet';
 import { Inventory, type Slot } from '@/app/design/_components/inventory';
+import { CharacterSheet } from '@/components/sheet/character-sheet';
+import { buildSheetModel } from '@/components/sheet/sheet-model';
 import { Caps } from '@/components/theme/display';
 import type { ArtEntry } from '@/data/art/schema';
 import { liveCharacter, type PartyMember } from '@/lib/game/party';
@@ -16,6 +17,8 @@ type CoinArt = {
 
 type PartyOverlayProps = {
   party: PartyMember[];
+  /** Tab to open on. */
+  view?: 'sheet' | 'pack' | 'story';
   characters: CharacterState[];
   itemArt: Record<string, ArtEntry>;
   coinArt: CoinArt;
@@ -36,9 +39,10 @@ const PartyOverlay = ({
   coinArt,
   focus,
   onClose,
+  view: initialView = 'sheet',
 }: PartyOverlayProps) => {
   const [tab, setTab] = useState(focus);
-  const [view, setView] = useState<'sheet' | 'pack'>('sheet');
+  const [view, setView] = useState<'sheet' | 'pack' | 'story'>(initialView);
   const member = party.find((p) => p.id === tab) ?? party[0];
 
   useEffect(() => {
@@ -92,6 +96,7 @@ const PartyOverlay = ({
             [
               ['sheet', 'Ficha'],
               ['pack', 'Mochila'],
+              ['story', 'Historia'],
             ] as const
           ).map(([id, label]) => (
             <button
@@ -124,12 +129,10 @@ const PartyOverlay = ({
           </div>
           {view === 'sheet' ? (
             <CharacterSheet
-              character={live}
-              itemArt={artMap}
+              m={buildSheetModel(live, member.portrait, artMap)}
               player={member.playerName}
-              portrait={member.portrait}
             />
-          ) : (
+          ) : view === 'pack' ? (
             <div className="mx-auto max-w-4xl">
               <Inventory
                 coinArt={coinArt}
@@ -137,6 +140,68 @@ const PartyOverlay = ({
                 owner={member.name}
                 slots={slots}
               />
+            </div>
+          ) : (
+            <div
+              className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,22rem)_1fr]"
+              data-testid="overlay-story"
+            >
+              <div className="frame-brass aspect-[3/4] overflow-hidden rounded-sm">
+                {member.portrait ? (
+                  // biome-ignore lint/performance/noImgElement: pre-sized local art
+                  <img
+                    alt={member.character.name}
+                    className="h-full w-full object-cover"
+                    height={member.portrait.height}
+                    src={member.portrait.src}
+                    style={{ objectPosition: '50% 12%' }}
+                    width={member.portrait.width}
+                  />
+                ) : null}
+              </div>
+              <div className="paper rounded-[3px] px-8 py-7 text-ink md:px-10">
+                <div className="font-caps text-[clamp(0.9rem,1vw,1.25rem)] text-ink-muted tracking-widest">
+                  Quién es
+                </div>
+                <h2 className="h-manual text-[clamp(1.8rem,2.2vw,2.8rem)]">
+                  {member.character.name}
+                </h2>
+                {member.character.backstory.split('\n\n').map((para, i) => (
+                  <p
+                    className={`mt-3 font-book text-[clamp(1.15rem,1.35vw,1.7rem)] leading-[1.55] ${i === 0 ? 'dropcap-only' : ''}`}
+                    key={para.slice(0, 24)}
+                  >
+                    {para}
+                  </p>
+                ))}
+                <div className="my-5 h-[2px] bg-gold-rule" />
+                <div className="font-caps text-[clamp(0.9rem,1vw,1.25rem)] text-ink-muted tracking-widest">
+                  Lo que la campaña le guarda
+                </div>
+                <p className="mt-2 font-book text-[clamp(1.15rem,1.35vw,1.7rem)] leading-[1.55]">
+                  {member.character.hook}
+                </p>
+                <div className="mt-5 grid gap-2 sm:grid-cols-2">
+                  {[
+                    ['Rasgos', member.character.traits],
+                    ['Ideal', member.character.ideals],
+                    ['Vínculo', member.character.bonds],
+                    ['Defecto', member.character.flaws],
+                  ].map(([t, v]) => (
+                    <div
+                      className="rounded-md border border-ink/40 bg-paper-light/60 px-3 py-2"
+                      key={t}
+                    >
+                      <div className="font-scaly text-[clamp(0.75rem,0.85vw,1.05rem)] text-ink-muted uppercase tracking-widest">
+                        {t}
+                      </div>
+                      <p className="font-book text-[clamp(1rem,1.15vw,1.45rem)] italic leading-snug">
+                        {v}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
         </div>

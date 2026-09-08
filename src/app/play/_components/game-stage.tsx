@@ -4,12 +4,14 @@ import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Atmosphere } from '@/app/design/scenes/_components/atmosphere';
 import { DiceModal, type DiceRequest } from '@/components/dice/dice-modal';
+import { LoreText } from '@/components/lore/lore-text';
 import { SoundButton } from '@/components/sound/mixer';
 import { Caps } from '@/components/theme/display';
 import { TaperedRule } from '@/components/theme/tapered-rule';
 import type { ArtEntry } from '@/data/art/schema';
 import type { SoundEntry } from '@/data/sound/schema';
 import type { UiCue } from '@/data/sound/vocabulary';
+import { mergeLore, parseLoreNotes, revealWorldLore } from '@/lib/game/lore';
 import { paginate } from '@/lib/game/pages';
 import { applyEffects, type PartyMember } from '@/lib/game/party';
 import { modifierFor, rollerFor, scoreRoll } from '@/lib/game/rolls';
@@ -28,6 +30,8 @@ import { saveGame } from '@/lib/game/storage';
 import { cueNamed, pageNamesCue } from '@/lib/sound/cue-words';
 import { soundEngine } from '@/lib/sound/engine';
 import { useSound } from '@/lib/sound/use-sound';
+import { Glossary } from './glossary';
+import { NotesDrawer } from './notes-drawer';
 import { type CoinArt, PartyOverlay } from './party-overlay';
 import { ReadingLog } from './reading-log';
 
@@ -127,6 +131,9 @@ const GameStage = ({
   /** Furthest page reached in this turn: pages before it are re-reads. */
   const [maxStep, setMaxStep] = useState(0);
   const [log, setLog] = useState(false);
+  const [glossary, setGlossary] = useState<{ focus?: string } | null>(null);
+  const [notesOpen, setNotesOpen] = useState(false);
+  const openGlossary = (focus?: string) => setGlossary({ focus });
   const stripTimer = useRef<number | null>(null);
   const startedRef = useRef(false);
   const ids = useMemo(() => party.map((p) => p.id), [party]);
@@ -170,6 +177,7 @@ const GameStage = ({
         characters: base.characters,
         memory: base.memory,
         npcArt: base.npcArt,
+        loreNames: base.lore.map((e) => e.name),
         history: base.history.slice(-10).map((h) => ({
           action: h.action,
           turn: {
@@ -201,6 +209,21 @@ const GameStage = ({
           memory: [...base.memory, ...data.turn.memory].slice(-60),
           npcArt: data.npcArt,
           history: [...base.history, { action, turn: data.turn }],
+          lore: mergeLore(
+            revealWorldLore(
+              base.lore,
+              base.campaignId,
+              [
+                ...data.turn.beats.map((b) => b.text),
+                ...data.turn.choices.map((c) => c.label),
+              ].join(' '),
+              base.history.length + 1,
+              `${data.turn.chapter} · ${data.turn.place}`,
+            ),
+            parseLoreNotes(data.turn.lore),
+            base.history.length + 1,
+            `${data.turn.chapter} · ${data.turn.place}`,
+          ),
           updatedAt: new Date().toISOString(),
         };
         setState(next);
@@ -399,7 +422,15 @@ const GameStage = ({
     const onKey = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null;
       if (target && /^(INPUT|TEXTAREA)$/.test(target.tagName)) return;
-      if (overlay || dice || log) return;
+      if (overlay || dice || log || glossary) return;
+      if (e.key === 'g') {
+        openGlossary();
+        return;
+      }
+      if (e.key === 'n') {
+        setNotesOpen((o) => !o);
+        return;
+      }
       if (e.key === ' ' || e.key === 'Enter' || e.key === 'ArrowRight') {
         e.preventDefault();
         if (inIntro) introAdvance();
@@ -441,7 +472,7 @@ const GameStage = ({
   const hint = rereading
     ? 'Releyendo · Continuar ▸'
     : !done
-      ? 'Pulsa para leer todo'
+      ? 'Mostrar todo'
       : atEnd
         ? 'Decidid'
         : 'Continuar ▸';
@@ -570,16 +601,16 @@ const GameStage = ({
       {/* Top bar */}
       <header className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between p-6">
         <div className="animate-fade-in">
-          <div className="font-condensed text-[clamp(0.7rem,0.9vw,1.1rem)] text-parchment-text uppercase tracking-[0.3em] drop-shadow">
+          <div className="font-condensed text-[clamp(0.807rem,1.04vw,1.33rem)] text-parchment-text uppercase tracking-[0.3em] drop-shadow">
             {turn?.chapter ?? 'Prólogo'}
           </div>
           <div
-            className="mt-1 font-nodesto text-[clamp(2.25rem,3vw,3.8rem)] text-white uppercase leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+            className="mt-1 font-nodesto text-[clamp(2.38rem,3.32vw,4.27rem)] text-white uppercase leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
             data-testid="place"
           >
             <Caps>{turn?.place ?? 'Phandalin'}</Caps>
           </div>
-          <div className="mt-1 font-caps text-[clamp(1.125rem,1.45vw,1.8rem)] text-brass-pale drop-shadow">
+          <div className="mt-1 font-caps text-[clamp(1.23rem,1.61vw,1.99rem)] text-brass-pale drop-shadow">
             {turn?.time ?? ''}
           </div>
         </div>
@@ -597,7 +628,7 @@ const GameStage = ({
                 type="button"
               >
                 <div
-                  className="h-[clamp(2.75rem,3.6vw,4.4rem)] w-[clamp(2.75rem,3.6vw,4.4rem)] overflow-hidden rounded-full ring-2"
+                  className="h-[clamp(3rem,4.2vw,5.2rem)] w-[clamp(3rem,4.2vw,5.2rem)] overflow-hidden rounded-full ring-2"
                   style={{ ['--tw-ring-color' as string]: p.color }}
                 >
                   {p.portrait ? (
@@ -613,14 +644,14 @@ const GameStage = ({
                 </div>
                 <div>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="font-caps text-[clamp(1rem,1.35vw,1.65rem)] text-brass-pale leading-none">
+                    <span className="font-caps text-[clamp(1.09rem,1.52vw,1.9rem)] text-brass-pale leading-none">
                       {p.name}
                     </span>
-                    <span className="font-condensed text-[clamp(0.55rem,0.75vw,0.95rem)] text-charcoal-400 uppercase tracking-wider">
+                    <span className="font-condensed text-[clamp(0.665rem,0.855vw,1.09rem)] text-charcoal-400 uppercase tracking-wider">
                       {p.playerName}
                     </span>
                   </div>
-                  <div className="mt-1 h-[clamp(0.375rem,0.45vw,0.6rem)] w-[clamp(5rem,6.5vw,8rem)] overflow-hidden rounded-full bg-black/60">
+                  <div className="mt-1 h-[clamp(0.4rem,0.5vw,0.7rem)] w-[clamp(6rem,8vw,10rem)] overflow-hidden rounded-full bg-black/60">
                     <div
                       className="h-full transition-all duration-700"
                       style={{
@@ -635,7 +666,7 @@ const GameStage = ({
                     />
                   </div>
                   <div
-                    className="font-scaly text-[clamp(0.65rem,0.9vw,1.1rem)] text-charcoal-400"
+                    className="font-scaly text-[clamp(0.76rem,1.04vw,1.33rem)] text-charcoal-400"
                     data-testid={`hud-stats-${p.id}`}
                   >
                     {c ? `${c.hp}/${c.maxHp} PV · ${c.gold} po` : ''}
@@ -644,7 +675,7 @@ const GameStage = ({
               </button>
             );
           })}
-          <span className="hidden self-center px-2 font-condensed text-[clamp(0.55rem,0.7vw,0.85rem)] text-charcoal-500 uppercase tracking-wider lg:block">
+          <span className="hidden self-center px-2 font-condensed text-[clamp(0.617rem,0.807vw,0.997rem)] text-charcoal-500 uppercase tracking-wider lg:block">
             Ficha
             <br />
             tecla I
@@ -656,7 +687,7 @@ const GameStage = ({
       sound.status !== 'running' &&
       sound.status !== 'unsupported' ? (
         <button
-          className="pointer-events-auto absolute top-[clamp(6rem,7.6vw,9.6rem)] right-6 flex items-center gap-2 rounded-md border border-brass/60 bg-charcoal-950/85 px-3 py-2 font-caps text-[clamp(1rem,1.3vw,1.6rem)] text-brass-pale backdrop-blur transition hover:border-brass"
+          className="pointer-events-auto absolute top-[clamp(6rem,7.6vw,9.6rem)] right-6 flex items-center gap-2 rounded-md border border-brass/60 bg-charcoal-950/85 px-3 py-2 font-caps text-[clamp(0.95rem,1.23vw,1.52rem)] text-brass-pale backdrop-blur transition hover:border-brass"
           data-testid="sound-unlock"
           onClick={() => void engine.unlock()}
           type="button"
@@ -667,9 +698,9 @@ const GameStage = ({
       ) : null}
 
       {/* Speech */}
-      {turn?.figureArt && turn.figure.kind === 'character' ? (
+      {turn?.figure.kind === 'character' ? (
         <div
-          className={`absolute top-[11vh] right-[calc(4vw+min(46vw,62vh)-6vw)] w-[min(36vw,32rem)] transition-all duration-500 ${speaking ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
+          className={`absolute top-[11vh] transition-all duration-500 ${turn.figureArt ? 'right-[calc(4vw+min(46vw,62vh)-6vw)] w-[min(36vw,32rem)]' : 'right-[4vw] w-[min(42vw,38rem)]'} ${speaking ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
           data-testid="speech"
         >
           <button
@@ -684,40 +715,51 @@ const GameStage = ({
           >
             ‹
           </button>
-          <div className="absolute -top-5 right-5 z-10 flex flex-col rounded-sm border border-brass/70 bg-charcoal-950 px-3 py-1.5 shadow-lg">
-            <span className="font-caps text-[clamp(1.25rem,1.6vw,2rem)] text-brass-pale leading-none">
+          <div className="absolute -top-[1.1em] right-5 z-10 flex flex-col rounded-sm border border-brass/70 bg-charcoal-950 px-3 py-1.5 shadow-lg">
+            <span className="font-caps text-[clamp(1.38rem,1.8vw,2.28rem)] text-brass-pale leading-none">
               {speakerName}
             </span>
-            <span className="font-condensed text-[clamp(0.62rem,0.85vw,1.05rem)] text-strapline uppercase tracking-wider">
+            <span className="font-condensed text-[clamp(0.76rem,0.997vw,1.23rem)] text-strapline uppercase tracking-wider">
               {speakerRole}
             </span>
           </div>
-          <button
-            className="relative block w-full cursor-pointer rounded-lg border border-brass/50 px-6 pt-8 pb-5 text-left"
-            onClick={advance}
+          <div
+            className="relative block w-full select-text rounded-lg border border-brass/50 px-6 pt-[clamp(2.8rem,3.4vw,4.4rem)] pb-5 text-left"
             style={{
               background:
                 'linear-gradient(180deg, rgba(20,24,28,0.96), rgba(12,14,18,0.96))',
               boxShadow: `inset 0 0 0 1px rgba(255,255,255,0.04), 0 24px 60px rgba(0,0,0,0.6), 0 0 48px ${turn.accent}22`,
             }}
-            type="button"
           >
             <span className="absolute top-14 -right-2 h-4 w-4 rotate-45 border-brass/50 border-t border-r bg-[#14181c]" />
-            <p className="font-book text-[clamp(1.25rem,1.6vw,1.9rem)] text-parchment-text leading-[1.45]">
-              {speaking ? visible : current?.text}
+            <p className="font-book text-[clamp(1.47rem,2.04vw,2.61rem)] text-parchment-text leading-[1.32]">
+              <LoreText
+                currentTurn={state.history.length}
+                lore={state.lore}
+                onOpenGlossary={openGlossary}
+                resetKey={`${turn.id}:${step}`}
+                text={speaking ? visible : (current?.text ?? '')}
+              />
             </p>
-            <div className="mt-4 flex items-center justify-between font-condensed text-[clamp(0.65rem,0.9vw,1.1rem)] uppercase tracking-widest">
+            <div className="mt-4 flex items-center justify-between font-condensed text-[clamp(0.807rem,1.09vw,1.38rem)] uppercase tracking-widest">
               <span style={{ color: turn.accent }}>Habla {speakerName}</span>
-              <span className="text-charcoal-400">{hint}</span>
+              <button
+                className="rounded-sm px-2 py-1 text-charcoal-300 transition hover:bg-white/10 hover:text-white"
+                data-testid="page-next-speech"
+                onClick={advance}
+                type="button"
+              >
+                {hint}
+              </button>
             </div>
-          </button>
+          </div>
         </div>
       ) : null}
 
       {/* Introduction */}
       {inIntro && introPage ? (
         <div
-          className="absolute bottom-[4.5rem] left-[4vw] w-[min(62vw,66rem)]"
+          className="absolute bottom-[4.5rem] left-[4vw] w-[min(64vw,74rem)]"
           data-testid="intro"
         >
           <div className="relative">
@@ -731,51 +773,59 @@ const GameStage = ({
                 ‹
               </button>
             ) : null}
-            <button
-              className="paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left"
+            <div
+              className="paper relative block w-full select-text rounded-[3px] px-9 pt-8 pb-7 text-left"
               data-testid="intro-page"
-              onClick={introAdvance}
-              type="button"
             >
               <div className="absolute -top-4 left-8 flex items-center gap-2 rounded-sm border border-brass/60 bg-charcoal-950 px-3 py-1 shadow-lg">
-                <span className="font-caps text-[clamp(1.125rem,1.5vw,1.9rem)] text-brass-pale leading-none">
+                <span className="font-caps text-[clamp(1.23rem,1.71vw,2.18rem)] text-brass-pale leading-none">
                   Antes de empezar
                 </span>
-                <span className="font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] text-strapline uppercase tracking-wider">
+                <span className="font-condensed text-[clamp(0.76rem,0.997vw,1.23rem)] text-strapline uppercase tracking-wider">
                   Introducción
                 </span>
               </div>
               {introPage.title ? (
-                <div className="mb-2 font-caps text-[clamp(1.25rem,1.7vw,2.2rem)] text-maroon">
+                <div className="mb-2 font-caps text-[clamp(1.38rem,1.9vw,2.47rem)] text-maroon">
                   {introPage.title}
                 </div>
               ) : null}
               <p
-                className={`min-h-[6rem] font-book text-[clamp(1.3rem,1.75vw,2.1rem)] text-ink leading-[1.45] ${introStep === 0 ? 'dropcap-only' : ''}`}
+                className={`min-h-[6rem] font-book text-[clamp(1.52rem,2.23vw,2.85rem)] text-ink leading-[1.32] ${introStep === 0 ? 'dropcap-only' : ''}`}
               >
-                {introText.visible}
+                <LoreText
+                  lore={state.lore}
+                  onOpenGlossary={openGlossary}
+                  resetKey={`intro:${introStep}`}
+                  text={introText.visible}
+                />
               </p>
               <div className="mt-3 flex items-center justify-between">
                 <TaperedRule className="h-2 w-40 text-rule-red" />
-                <span className="flex items-center gap-3 font-condensed text-[clamp(0.75rem,1vw,1.25rem)] text-ink-muted uppercase tracking-widest">
+                <span className="flex items-center gap-3 font-condensed text-[clamp(0.902rem,1.19vw,1.52rem)] text-ink-muted uppercase tracking-widest">
                   <span>
                     {introStep + 1} / {introPages.length}
                   </span>
-                  <span>
+                  <button
+                    className="rounded-sm px-2 py-1 transition hover:bg-ink/10 hover:text-ink"
+                    data-testid="intro-next"
+                    onClick={introAdvance}
+                    type="button"
+                  >
                     {!introText.done
-                      ? 'Pulsa para leer todo'
+                      ? 'Mostrar todo'
                       : introLast
                         ? 'Cuando queráis'
                         : 'Continuar ▸'}
-                  </span>
+                  </button>
                 </span>
               </div>
-            </button>
+            </div>
           </div>
           {introLast && introText.done ? (
             <div className="mt-3 flex justify-end">
               <button
-                className="btn-beyond px-7 py-3.5 text-[clamp(1rem,1.3vw,1.6rem)] uppercase"
+                className="btn-beyond px-7 py-3.5 text-[clamp(0.95rem,1.23vw,1.52rem)] uppercase"
                 data-testid="start-adventure"
                 onClick={startAdventure}
                 type="button"
@@ -788,7 +838,7 @@ const GameStage = ({
       ) : null}
 
       {/* Narration + decisions column */}
-      <div className="absolute bottom-[4.5rem] left-[4vw] flex w-[min(62vw,66rem)] flex-col justify-end">
+      <div className="absolute bottom-[4.5rem] left-[4vw] flex max-h-[calc(100vh-6rem)] w-[min(64vw,74rem)] flex-col justify-end">
         {turn ? (
           <div
             className={`relative transition-all duration-500 ${speaking || thinking ? 'pointer-events-none max-h-0 translate-y-6 overflow-hidden opacity-0' : 'max-h-[60vh] opacity-100'}`}
@@ -805,42 +855,53 @@ const GameStage = ({
             >
               ‹
             </button>
-            <button
-              className="paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left"
+            <div
+              className="paper relative block w-full select-text rounded-[3px] px-9 pt-8 pb-7 text-left"
               data-testid="narration"
-              onClick={advance}
-              type="button"
             >
               <div className="absolute -top-4 left-8 flex items-center gap-2 rounded-sm border border-brass/60 bg-charcoal-950 px-3 py-1 shadow-lg">
-                <span className="font-caps text-[clamp(1.125rem,1.5vw,1.9rem)] text-brass-pale leading-none">
+                <span className="font-caps text-[clamp(1.23rem,1.71vw,2.18rem)] text-brass-pale leading-none">
                   Máster
                 </span>
-                <span className="font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] text-strapline uppercase tracking-wider">
+                <span className="font-condensed text-[clamp(0.76rem,0.997vw,1.23rem)] text-strapline uppercase tracking-wider">
                   Narración
                 </span>
               </div>
-              <div className="min-h-[6rem] font-book text-[clamp(1.3rem,1.75vw,2.1rem)] text-ink leading-[1.45]">
+              <div className="max-h-[34vh] min-h-[6rem] overflow-y-auto pr-2 font-book text-[clamp(1.52rem,2.23vw,2.85rem)] text-ink leading-[1.32]">
                 {current && current.kind === 'narration' ? (
                   <p
                     className={current.first ? 'dropcap-only' : ''}
                     key={`${turn.id}-${step}`}
                   >
-                    {visible}
+                    <LoreText
+                      currentTurn={state.history.length}
+                      lore={state.lore}
+                      onOpenGlossary={openGlossary}
+                      resetKey={`${turn.id}:${step}`}
+                      text={visible}
+                    />
                   </p>
                 ) : null}
               </div>
               <div className="mt-3 flex items-center justify-between">
                 <TaperedRule className="h-2 w-40 text-rule-red" />
-                <span className="flex items-center gap-3 font-condensed text-[clamp(0.75rem,1vw,1.25rem)] text-ink-muted uppercase tracking-widest">
+                <span className="flex items-center gap-3 font-condensed text-[clamp(0.902rem,1.19vw,1.52rem)] text-ink-muted uppercase tracking-widest">
                   {pages.length > 1 ? (
                     <span data-testid="page-counter">
                       {Math.min(step, pages.length - 1) + 1} / {pages.length}
                     </span>
                   ) : null}
-                  <span>{speaking ? `Habla ${speakerName}` : hint}</span>
+                  <button
+                    className="rounded-sm px-2 py-1 transition hover:bg-ink/10 hover:text-ink"
+                    data-testid="page-next"
+                    onClick={advance}
+                    type="button"
+                  >
+                    {speaking ? `Habla ${speakerName}` : hint}
+                  </button>
                 </span>
               </div>
-            </button>
+            </div>
           </div>
         ) : null}
 
@@ -852,11 +913,11 @@ const GameStage = ({
             className="mt-3 flex animate-fade-in flex-wrap items-center gap-3 rounded-md border border-brass/40 bg-charcoal-950/85 px-4 py-2.5 backdrop-blur"
             data-testid="last-decision"
           >
-            <span className="font-condensed text-[clamp(0.6rem,0.8vw,1rem)] text-charcoal-400 uppercase tracking-wider">
+            <span className="font-condensed text-[clamp(0.712rem,0.902vw,1.14rem)] text-charcoal-400 uppercase tracking-wider">
               Última decisión
             </span>
             <span
-              className="font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] uppercase tracking-wider"
+              className="font-condensed text-[clamp(0.76rem,0.997vw,1.23rem)] uppercase tracking-wider"
               style={{
                 color:
                   party.find((p) => p.id === lastAction.who)?.color ??
@@ -865,21 +926,21 @@ const GameStage = ({
             >
               {whoLabel(lastAction.who, party)}
             </span>
-            <span className="font-book text-[clamp(1rem,1.25vw,1.5rem)] text-parchment-text">
+            <span className="font-book text-[clamp(1.09rem,1.42vw,1.8rem)] text-parchment-text">
               {lastAction.kind === 'custom'
                 ? `«${lastAction.text}»`
                 : lastAction.text}
             </span>
             {lastRoll ? (
               <span
-                className="ml-auto flex items-center gap-2 font-scaly text-[clamp(0.875rem,1.05vw,1.3rem)] text-charcoal-300"
+                className="ml-auto flex items-center gap-2 font-scaly text-[clamp(0.95rem,1.19vw,1.47rem)] text-charcoal-300"
                 data-testid="last-roll"
               >
                 <span>
                   {lastRoll.skill} · CD {lastRoll.dc}
                 </span>
                 <span
-                  className={`flex h-[clamp(2.25rem,2.8vw,3.4rem)] w-[clamp(2.25rem,2.8vw,3.4rem)] items-center justify-center rounded-[22%] border-2 font-nodesto text-[clamp(1.125rem,1.4vw,1.75rem)] ${lastRoll.critical === 'hit' ? 'border-brand-400 text-brand-400' : lastRoll.critical === 'miss' ? 'border-charcoal-500 text-charcoal-400' : 'border-brass text-brass-pale'}`}
+                  className={`flex h-[clamp(2.25rem,2.8vw,3.4rem)] w-[clamp(2.25rem,2.8vw,3.4rem)] items-center justify-center rounded-[22%] border-2 font-nodesto text-[clamp(1.07rem,1.33vw,1.66rem)] ${lastRoll.critical === 'hit' ? 'border-brand-400 text-brand-400' : lastRoll.critical === 'miss' ? 'border-charcoal-500 text-charcoal-400' : 'border-brass text-brass-pale'}`}
                 >
                   {lastRoll.result}
                 </span>
@@ -888,7 +949,7 @@ const GameStage = ({
                   {Math.abs(lastRoll.modifier)} ={' '}
                   <b className="text-white">{lastRoll.total}</b>
                   <span
-                    className={`ml-2 font-caps text-[clamp(1rem,1.3vw,1.6rem)] ${lastRoll.success ? 'text-brass-pale' : 'text-brand-300'}`}
+                    className={`ml-2 font-caps text-[clamp(0.95rem,1.23vw,1.52rem)] ${lastRoll.success ? 'text-brass-pale' : 'text-brand-300'}`}
                     data-testid="last-roll-verdict"
                   >
                     {verdict(lastRoll)}
@@ -905,10 +966,10 @@ const GameStage = ({
             data-testid="thinking"
           >
             <span className="h-3 w-3 animate-ember rounded-full bg-brass" />
-            <span className="font-caps text-[clamp(1.25rem,1.8vw,2.2rem)] text-brass-pale">
+            <span className="font-caps text-[clamp(1.33rem,1.99vw,2.47rem)] text-brass-pale">
               El máster piensa…
             </span>
-            <span className="font-scaly text-[clamp(0.875rem,1.1vw,1.35rem)] text-charcoal-400">
+            <span className="font-scaly text-[clamp(0.95rem,1.23vw,1.52rem)] text-charcoal-400">
               Escribe la escena con calma. Suele tardar entre diez y treinta
               segundos.
             </span>
@@ -935,14 +996,14 @@ const GameStage = ({
 
         {/* Choices */}
         <div
-          className={`mt-3 grid gap-2 transition-all duration-500 ${showChoices ? 'translate-y-0 opacity-100' : 'pointer-events-none max-h-0 translate-y-2 overflow-hidden opacity-0'}`}
+          className={`mt-3 grid gap-1.5 transition-all duration-500 ${showChoices ? 'max-h-[42vh] translate-y-0 overflow-y-auto opacity-100' : 'pointer-events-none max-h-0 translate-y-2 overflow-hidden opacity-0'}`}
           data-testid="choices"
         >
           {turn?.choices.map((c) => {
             const who = party.find((p) => p.id === c.who);
             return (
               <button
-                className="flex items-center gap-3 rounded-md border border-white/15 bg-charcoal-950/70 px-4 py-2.5 text-left text-white backdrop-blur transition hover:border-brass/70"
+                className="flex items-center gap-3 rounded-md border border-white/15 bg-charcoal-950/70 px-4 py-1.5 text-left text-white backdrop-blur transition hover:border-brass/70"
                 data-roll={c.roll ? 'yes' : 'no'}
                 data-testid="choice"
                 key={c.label}
@@ -950,15 +1011,15 @@ const GameStage = ({
                 type="button"
               >
                 <span
-                  className="font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] uppercase tracking-wider"
+                  className="font-condensed text-[clamp(0.76rem,0.997vw,1.23rem)] uppercase tracking-wider"
                   style={{ color: who?.color ?? '#c3a76e' }}
                 >
                   {whoLabel(c.who, party)}
                 </span>
-                <span className="font-book text-[clamp(1.05rem,1.3vw,1.5rem)]">
+                <span className="font-book text-[clamp(1.09rem,1.42vw,1.76rem)] leading-tight">
                   {c.label}
                 </span>
-                <span className="ml-auto font-scaly text-[clamp(0.75rem,0.95vw,1.15rem)] text-charcoal-400">
+                <span className="ml-auto shrink-0 whitespace-nowrap font-scaly text-[clamp(0.807rem,0.997vw,1.23rem)] text-charcoal-400">
                   {c.roll ? `Tirada: ${rollLabel(c.roll)}` : (c.hint ?? '')}
                 </span>
               </button>
@@ -975,7 +1036,7 @@ const GameStage = ({
                 const on = customWho === w;
                 return (
                   <button
-                    className="px-2.5 font-condensed text-[clamp(0.65rem,0.85vw,1.05rem)] uppercase tracking-wider transition"
+                    className="px-2.5 font-condensed text-[clamp(0.76rem,0.997vw,1.23rem)] uppercase tracking-wider transition"
                     data-testid={`custom-who-${w}`}
                     key={w}
                     onClick={() => setCustomWho(w)}
@@ -993,14 +1054,14 @@ const GameStage = ({
               })}
             </div>
             <input
-              className="min-w-0 flex-1 bg-transparent px-2 font-book text-[clamp(1.05rem,1.3vw,1.5rem)] text-white placeholder:text-charcoal-400 focus:outline-none"
+              className="min-w-0 flex-1 bg-transparent px-2 font-book text-[clamp(1.14rem,1.52vw,1.9rem)] text-white placeholder:text-charcoal-400 focus:outline-none"
               data-testid="custom-input"
               onChange={(e) => setCustomText(e.target.value)}
               placeholder="Otra cosa: escribe lo que hace tu personaje…"
               value={customText}
             />
             <button
-              className="btn-beyond shrink-0 px-4 py-1.5 text-[clamp(0.75rem,0.95vw,1.15rem)] uppercase disabled:opacity-40"
+              className="btn-beyond shrink-0 px-4 py-2 text-[clamp(0.855rem,1.09vw,1.38rem)] uppercase disabled:opacity-40"
               disabled={!customText.trim()}
               type="submit"
             >
@@ -1015,25 +1076,63 @@ const GameStage = ({
         className={`absolute inset-x-0 bottom-0 flex items-center justify-between px-4 pb-3 transition-all duration-500 ${showStrip ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
       >
         <Link
-          className="btn-ghost px-3 py-1.5 text-[0.65rem] uppercase backdrop-blur"
+          className="btn-ghost px-3 py-1.5 text-[clamp(0.665rem,0.855vw,1.04rem)] uppercase backdrop-blur"
           href="/"
         >
           ← Menú
         </Link>
-        <span className="max-w-[60vw] truncate font-scaly text-[0.7rem] text-white/60">
+        <span className="max-w-[60vw] truncate font-scaly text-[clamp(0.76rem,0.95vw,1.19rem)] text-white/60">
           {turn?.sceneEnds && done && atEnd ? 'Fin de la escena. ' : ''}
           {state.history.length > 1
             ? `Anteriormente: ${state.history.at(-2)?.turn.summary ?? ''}`
             : 'Empieza la historia.'}
         </span>
-        <button
-          className="btn-ghost px-3 py-1.5 text-[0.65rem] uppercase backdrop-blur"
-          onClick={() => openOverlay(ids[0] ?? null)}
-          type="button"
-        >
-          Turno {state.history.length} · Fichas
-        </button>
+        <span className="flex items-center gap-2">
+          <button
+            className="btn-ghost px-3 py-1.5 text-[clamp(0.665rem,0.855vw,1.04rem)] uppercase backdrop-blur"
+            data-testid="notes-toggle"
+            onClick={() => setNotesOpen((o) => !o)}
+            type="button"
+          >
+            Notas · N
+          </button>
+          <button
+            className="btn-ghost px-3 py-1.5 text-[clamp(0.665rem,0.855vw,1.04rem)] uppercase backdrop-blur"
+            data-testid="open-glossary"
+            onClick={() => openGlossary()}
+            type="button"
+          >
+            Glosario · G
+          </button>
+          <button
+            className="btn-ghost px-3 py-1.5 text-[clamp(0.665rem,0.855vw,1.04rem)] uppercase backdrop-blur"
+            onClick={() => openOverlay(ids[0] ?? null)}
+            type="button"
+          >
+            Turno {state.history.length} · Fichas
+          </button>
+        </span>
       </nav>
+
+      <NotesDrawer
+        notes={state.notes}
+        onChange={(text) => {
+          setState((prev) => {
+            const next = { ...prev, notes: text };
+            saveGame(next);
+            return next;
+          });
+        }}
+        onToggle={() => setNotesOpen((o) => !o)}
+        open={notesOpen}
+      />
+      {glossary ? (
+        <Glossary
+          focusId={glossary.focus}
+          lore={state.lore}
+          onClose={() => setGlossary(null)}
+        />
+      ) : null}
 
       {dice ? (
         <DiceModal
@@ -1054,6 +1153,7 @@ const GameStage = ({
         <ReadingLog
           currentUpTo={pages.slice(0, maxStep + 1)}
           history={state.history}
+          lore={state.lore}
           onClose={() => setLog(false)}
           party={party}
         />

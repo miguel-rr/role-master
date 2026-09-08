@@ -1,5 +1,6 @@
 import type { ArtEntry } from '@/data/art/schema';
 import { type CharacterPreset, presetById } from '@/data/characters/presets';
+import { seedLore } from './lore';
 import type { CharacterState, Effects, GameState, Player } from './schema';
 
 /**
@@ -77,6 +78,8 @@ const newGameState = (input: {
     memory: [],
     npcArt: {},
     history: [],
+    lore: seedLore(input.campaignId, input.players),
+    notes: '',
   };
 };
 

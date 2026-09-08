@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { LoreText } from '@/components/lore/lore-text';
 import { Caps } from '@/components/theme/display';
+import type { LoreEntry } from '@/lib/game/lore';
 import type { PartyMember } from '@/lib/game/party';
 import type { GameState } from '@/lib/game/schema';
 import { BOTH } from '@/lib/game/schema';
@@ -9,6 +11,7 @@ import { BOTH } from '@/lib/game/schema';
 type ReadingLogProps = {
   history: GameState['history'];
   party: PartyMember[];
+  lore: LoreEntry[];
   /** Pages of the current turn already read (the rest stays unread). */
   currentUpTo?: { beat: number; text: string }[];
   onClose: () => void;
@@ -25,6 +28,7 @@ const whoName = (who: string, party: PartyMember[]) =>
 const ReadingLog = ({
   history,
   party,
+  lore,
   currentUpTo,
   onClose,
 }: ReadingLogProps) => {
@@ -136,7 +140,11 @@ const ReadingLog = ({
                           {speaker ?? 'Voz'}
                         </div>
                         <p className="font-book text-[clamp(1.05rem,1.25vw,1.5rem)] text-parchment-text leading-[1.45]">
-                          {b.text}
+                          <LoreText
+                            currentTurn={i + 1}
+                            lore={lore}
+                            text={b.text}
+                          />
                         </p>
                       </div>
                     ) : (
@@ -145,7 +153,11 @@ const ReadingLog = ({
                         key={`${h.turn.id}-${j}`}
                       >
                         <p className="font-book text-[clamp(1.05rem,1.25vw,1.5rem)] text-ink leading-[1.45]">
-                          {b.text}
+                          <LoreText
+                            currentTurn={i + 1}
+                            lore={lore}
+                            text={b.text}
+                          />
                         </p>
                       </div>
                     ),

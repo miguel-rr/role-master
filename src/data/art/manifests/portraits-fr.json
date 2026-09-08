@@ -1,6 +1,6 @@
 {
   "collection": "portraits-fr",
-  "generatedAt": "2026-09-08T09:52:30.040Z",
+  "generatedAt": "2026-09-08T16:03:10.279Z",
   "entries": [
     {
       "id": "portraits/fr/03-001-sja-04-splash",
@@ -291,7 +291,7 @@
       "width": 900,
       "height": 887,
       "title": "Abbathor 1e",
-      "tags": ["portrait", "dwarf", "male"],
+      "tags": ["portrait", "dwarf", "male", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images of Abbathor",
@@ -624,7 +624,15 @@
       "width": 900,
       "height": 548,
       "title": "Aglarondan half-elves vs red wizards",
-      "tags": ["portrait", "half-elf", "human", "male", "ranger", "wizard"],
+      "tags": [
+        "portrait",
+        "half-elf",
+        "human",
+        "male",
+        "ranger",
+        "wizard",
+        "mono"
+      ],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Spellbound",
@@ -963,7 +971,7 @@
       "width": 768,
       "height": 900,
       "title": "Anadian halfling-2e",
-      "tags": ["portrait", "halfling"],
+      "tags": ["portrait", "halfling", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Realmspace",
@@ -1285,7 +1293,15 @@
       "width": 518,
       "height": 900,
       "title": "Arilyn Moonblade wild elf",
-      "tags": ["portrait", "half-elf", "assassin", "elf", "female", "male"],
+      "tags": [
+        "portrait",
+        "half-elf",
+        "assassin",
+        "elf",
+        "female",
+        "male",
+        "mono"
+      ],
       "cats": [
         "Images from novels",
         "Images of Arilyn Moonblade",
@@ -1319,7 +1335,7 @@
       "width": 900,
       "height": 765,
       "title": "Arkham steam card",
-      "tags": ["portrait", "dragonborn", "male", "paladin", "white-bg"],
+      "tags": ["portrait", "dragonborn", "male", "paladin", "mono", "white-bg"],
       "cats": [
         "Images of Arkhan",
         "Images of dragonborn",
@@ -1338,7 +1354,15 @@
       "width": 900,
       "height": 868,
       "title": "Arkhan DiA",
-      "tags": ["portrait", "dragonborn", "5e", "male", "paladin", "white-bg"],
+      "tags": [
+        "portrait",
+        "dragonborn",
+        "5e",
+        "male",
+        "paladin",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Baldur's Gate: Descent into Avernus",
@@ -1370,7 +1394,15 @@
       "width": 386,
       "height": 900,
       "title": "Artemis Entreri 5e",
-      "tags": ["portrait", "human", "5e", "assassin", "male", "white-bg"],
+      "tags": [
+        "portrait",
+        "human",
+        "5e",
+        "assassin",
+        "male",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Legend of Drizzt Visual Dictionary",
@@ -1393,7 +1425,7 @@
       "width": 720,
       "height": 900,
       "title": "Artillerist Tasha",
-      "tags": ["portrait", "human", "5e", "male", "white-bg"],
+      "tags": ["portrait", "human", "5e", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Tasha's Cauldron of Everything",
@@ -1484,6 +1516,7 @@
         "female",
         "rogue",
         "duplicate",
+        "mono",
         "white-bg"
       ],
       "cats": [
@@ -1532,7 +1565,7 @@
       "width": 720,
       "height": 900,
       "title": "Astral Elf Aristocrat",
-      "tags": ["portrait", "elf", "5e", "white-bg"],
+      "tags": ["portrait", "elf", "5e", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Spelljammer: Adventures in Space",
@@ -1607,7 +1640,7 @@
       "width": 674,
       "height": 900,
       "title": "Aurora's Undermountain Sale",
-      "tags": ["portrait", "halfling", "female", "human", "male"],
+      "tags": ["portrait", "halfling", "female", "human", "male", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images from magazines",
@@ -1656,7 +1689,15 @@
       "width": 900,
       "height": 582,
       "title": "Avarice",
-      "tags": ["portrait", "tiefling", "5e", "female", "wizard", "white-bg"],
+      "tags": [
+        "portrait",
+        "tiefling",
+        "5e",
+        "female",
+        "wizard",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Icewind Dale: Rime of the Frostmaiden",
@@ -1736,7 +1777,7 @@
       "width": 717,
       "height": 900,
       "title": "Baba Lysaga",
-      "tags": ["portrait", "human", "5e", "wizard", "white-bg"],
+      "tags": ["portrait", "human", "5e", "wizard", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Curse of Strahd",
@@ -1761,7 +1802,7 @@
       "width": 751,
       "height": 900,
       "title": "Baelnorn - Michele Giorgi",
-      "tags": ["portrait", "elf", "5e"],
+      "tags": ["portrait", "elf", "5e", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Arcana Unleashed",
@@ -1785,7 +1826,7 @@
       "width": 900,
       "height": 764,
       "title": "Baervan Chikktika Flandal Segojan",
-      "tags": ["portrait", "gnome"],
+      "tags": ["portrait", "gnome", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images of Baervan Wildwanderer",
@@ -1934,7 +1975,7 @@
       "width": 674,
       "height": 900,
       "title": "Bard Clint-Cearley PHB5e",
-      "tags": ["portrait", "half-elf", "bard", "white-bg"],
+      "tags": ["portrait", "half-elf", "bard", "mono", "white-bg"],
       "cats": [
         "Images from the Player's Handbook 5th edition",
         "Images of bards",
@@ -1953,7 +1994,7 @@
       "width": 702,
       "height": 900,
       "title": "Bard Gimble PHB3e",
-      "tags": ["portrait", "gnome", "bard", "male", "white-bg"],
+      "tags": ["portrait", "gnome", "bard", "male", "mono", "white-bg"],
       "cats": [
         "Images from 3rd edition sourcebooks",
         "Images from Player's Handbook 3rd edition",
@@ -2036,7 +2077,7 @@
       "width": 900,
       "height": 663,
       "title": "Barrelstone Inn",
-      "tags": ["portrait", "gnome", "female", "human", "male"],
+      "tags": ["portrait", "gnome", "female", "human", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Volo's Guide to Cormyr",
@@ -2114,6 +2155,7 @@
         "female",
         "human",
         "male",
+        "mono",
         "white-bg"
       ],
       "cats": [
@@ -2544,7 +2586,7 @@
       "width": 570,
       "height": 900,
       "title": "Bladesinger novel",
-      "tags": ["portrait", "half-elf", "male"],
+      "tags": ["portrait", "half-elf", "male", "mono"],
       "cats": [
         "Images of bladesingers",
         "Images of caves",
@@ -2621,7 +2663,7 @@
       "width": 900,
       "height": 582,
       "title": "Bone naga 5point5e",
-      "tags": ["portrait", "human", "5e", "male"],
+      "tags": ["portrait", "human", "5e", "male", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Monster Manual 5th edition (revised)",
@@ -2646,7 +2688,7 @@
       "width": 900,
       "height": 562,
       "title": "Boogin",
-      "tags": ["portrait", "half-orc", "human"],
+      "tags": ["portrait", "half-orc", "human", "mono"],
       "cats": [
         "Images from the Forgotten Realms Campaign Setting 2nd edition (revised)",
         "Images of half-orcs",
@@ -2742,7 +2784,7 @@
       "width": 900,
       "height": 604,
       "title": "BRANDOBARIS 1e",
-      "tags": ["portrait", "halfling", "male", "rogue"],
+      "tags": ["portrait", "halfling", "male", "rogue", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images of Brandobaris",
@@ -2763,7 +2805,7 @@
       "width": 662,
       "height": 900,
       "title": "Brandobaris and tymora",
-      "tags": ["portrait", "halfling", "white-bg"],
+      "tags": ["portrait", "halfling", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Demihuman Deities",
@@ -2787,7 +2829,7 @@
       "width": 537,
       "height": 900,
       "title": "Brandobaris preist",
-      "tags": ["portrait", "halfling", "cleric", "male"],
+      "tags": ["portrait", "halfling", "cleric", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Demihuman Deities",
@@ -2875,7 +2917,7 @@
       "width": 634,
       "height": 388,
       "title": "Breachgnome 2e",
-      "tags": ["portrait", "gnome", "kobold", "male", "white-bg"],
+      "tags": ["portrait", "gnome", "kobold", "male", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from accessories",
@@ -2928,7 +2970,7 @@
       "width": 632,
       "height": 900,
       "title": "Brian-matyas-cattie-brie",
-      "tags": ["portrait", "human", "5e", "female", "fighter"],
+      "tags": ["portrait", "human", "5e", "female", "fighter", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Dungeonology",
@@ -2976,7 +3018,7 @@
       "width": 681,
       "height": 900,
       "title": "Bruenor 5e",
-      "tags": ["portrait", "dwarf", "5e", "royalty", "male"],
+      "tags": ["portrait", "dwarf", "5e", "royalty", "male", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Dungeonology",
@@ -2998,7 +3040,7 @@
       "width": 580,
       "height": 900,
       "title": "Bruenor-5e",
-      "tags": ["portrait", "dwarf", "5e", "white-bg"],
+      "tags": ["portrait", "dwarf", "5e", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Out of the Abyss",
@@ -3021,7 +3063,7 @@
       "width": 763,
       "height": 900,
       "title": "Bruenor batlehammer HL",
-      "tags": ["portrait", "dwarf", "fighter", "male"],
+      "tags": ["portrait", "dwarf", "fighter", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Heroes' Lorebook",
@@ -3047,7 +3089,7 @@
       "width": 744,
       "height": 900,
       "title": "Bruenor Battlehammer",
-      "tags": ["portrait", "dwarf", "royalty", "male"],
+      "tags": ["portrait", "dwarf", "royalty", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Hall of Heroes",
@@ -3099,7 +3141,7 @@
       "width": 787,
       "height": 900,
       "title": "Bruenor PHB 5e",
-      "tags": ["portrait", "dwarf", "5e", "fighter", "male"],
+      "tags": ["portrait", "dwarf", "5e", "fighter", "male", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from sourcebooks",
@@ -3220,7 +3262,7 @@
       "width": 900,
       "height": 713,
       "title": "Call hounds",
-      "tags": ["portrait", "halfling", "cleric", "male"],
+      "tags": ["portrait", "halfling", "cleric", "male", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images from magazines",
@@ -3248,7 +3290,7 @@
       "width": 834,
       "height": 860,
       "title": "Callarduran Smoothhands",
-      "tags": ["portrait", "gnome", "male", "white-bg"],
+      "tags": ["portrait", "gnome", "male", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Demihuman Deities",
@@ -3300,7 +3342,7 @@
       "width": 511,
       "height": 900,
       "title": "Cap Deudermont",
-      "tags": ["portrait", "human", "5e", "male", "pirate", "white-bg"],
+      "tags": ["portrait", "human", "5e", "male", "pirate", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Legend of Drizzt Visual Dictionary",
@@ -3330,7 +3372,8 @@
         "elf",
         "female",
         "human",
-        "male"
+        "male",
+        "mono"
       ],
       "cats": [
         "Images from 2nd edition sourcebooks",
@@ -3421,7 +3464,16 @@
       "width": 427,
       "height": 900,
       "title": "Castle Spulzeer heroes",
-      "tags": ["portrait", "gnome", "elf", "female", "human", "male", "wizard"],
+      "tags": [
+        "portrait",
+        "gnome",
+        "elf",
+        "female",
+        "human",
+        "male",
+        "wizard",
+        "mono"
+      ],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Castle Spulzeer",
@@ -3504,7 +3556,7 @@
       "width": 742,
       "height": 900,
       "title": "Chariot",
-      "tags": ["portrait", "elf", "female"],
+      "tags": ["portrait", "elf", "female", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Elves of Evermeet",
@@ -3749,7 +3801,7 @@
       "width": 900,
       "height": 585,
       "title": "Clangeddin Silverbeard 1e",
-      "tags": ["portrait", "dwarf", "male"],
+      "tags": ["portrait", "dwarf", "male", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images of Clangeddin Silverbeard",
@@ -3802,7 +3854,15 @@
       "width": 630,
       "height": 900,
       "title": "Cleric of Lathander",
-      "tags": ["portrait", "human", "5e", "cleric", "duplicate", "white-bg"],
+      "tags": [
+        "portrait",
+        "human",
+        "5e",
+        "cleric",
+        "duplicate",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Sword Coast Adventurer's Guide",
@@ -3824,7 +3884,7 @@
       "width": 800,
       "height": 685,
       "title": "Cleric PHB5e",
-      "tags": ["portrait", "dwarf", "5e", "cleric", "male", "white-bg"],
+      "tags": ["portrait", "dwarf", "5e", "cleric", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from sourcebooks",
@@ -3897,7 +3957,7 @@
       "width": 900,
       "height": 900,
       "title": "Clockworkbeholder",
-      "tags": ["portrait", "gnome", "5e", "male"],
+      "tags": ["portrait", "gnome", "5e", "male", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Dungeons & Dragons Essentials Kit",
@@ -3937,7 +3997,8 @@
         "rogue",
         "sorcerer",
         "warlock",
-        "wizard"
+        "wizard",
+        "mono"
       ],
       "cats": [
         "Images of Anton Marivaldi",
@@ -4024,7 +4085,8 @@
         "male",
         "ranger",
         "rogue",
-        "wizard"
+        "wizard",
+        "mono"
       ],
       "cats": [
         "Images of Arkaneus Silvermane",
@@ -4276,7 +4338,7 @@
       "width": 680,
       "height": 900,
       "title": "CreatureCatalogue-Chapter Titlecard",
-      "tags": ["portrait", "dwarf", "orc"],
+      "tags": ["portrait", "dwarf", "orc", "mono"],
       "cats": [
         "Images from Creature Catalogue",
         "Images from D&D Basic sourcebooks",
@@ -4297,7 +4359,7 @@
       "width": 900,
       "height": 632,
       "title": "Crinti horse theft",
-      "tags": ["portrait", "half-elf", "female"],
+      "tags": ["portrait", "half-elf", "female", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from The Shining South (1993)",
@@ -4325,7 +4387,7 @@
       "width": 900,
       "height": 887,
       "title": "Cult of the Dragon member",
-      "tags": ["portrait", "human", "5e", "male"],
+      "tags": ["portrait", "human", "5e", "male", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Rise of Tiamat",
@@ -4423,7 +4485,7 @@
       "width": 700,
       "height": 398,
       "title": "Cyric, Sneakabout, and Godsbane",
-      "tags": ["portrait", "halfling", "human", "male", "white-bg"],
+      "tags": ["portrait", "halfling", "human", "male", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Waterdeep (adventure)",
@@ -4448,7 +4510,7 @@
       "width": 900,
       "height": 572,
       "title": "Cyrrollalee 1e",
-      "tags": ["portrait", "halfling", "female", "white-bg"],
+      "tags": ["portrait", "halfling", "female", "mono", "white-bg"],
       "cats": [
         "Images from Dragon magazine",
         "Images of Cyrrollalee",
@@ -4519,7 +4581,15 @@
       "width": 592,
       "height": 900,
       "title": "Dahlia Sin'felle",
-      "tags": ["portrait", "elf", "5e", "female", "fighter", "white-bg"],
+      "tags": [
+        "portrait",
+        "elf",
+        "5e",
+        "female",
+        "fighter",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Legend of Drizzt Visual Dictionary",
@@ -4541,7 +4611,7 @@
       "width": 900,
       "height": 573,
       "title": "Darklake Ferrying",
-      "tags": ["portrait", "dwarf"],
+      "tags": ["portrait", "dwarf", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Drizzt Do'Urden's Guide to the Underdark",
@@ -4711,7 +4781,7 @@
       "width": 591,
       "height": 900,
       "title": "Deep gnome 5e",
-      "tags": ["portrait", "gnome", "5e", "male"],
+      "tags": ["portrait", "gnome", "5e", "male", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Elemental Evil Player's Companion",
@@ -4959,7 +5029,7 @@
       "width": 900,
       "height": 555,
       "title": "Disguise kit",
-      "tags": ["portrait", "halfling", "dwarf", "male"],
+      "tags": ["portrait", "halfling", "dwarf", "male", "mono"],
       "cats": [
         "Images from Dungeon magazine",
         "Images of creatures",
@@ -5288,7 +5358,7 @@
       "width": 799,
       "height": 830,
       "title": "Dragon Magazine n277 page 101 - Jak Fleet",
-      "tags": ["portrait", "halfling", "cleric", "male", "rogue"],
+      "tags": ["portrait", "halfling", "cleric", "male", "rogue", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images of clerics",
@@ -5325,7 +5395,7 @@
       "width": 720,
       "height": 900,
       "title": "Dragonborn of Bahamut",
-      "tags": ["portrait", "dragonborn", "5e"],
+      "tags": ["portrait", "dragonborn", "5e", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Fizban's Treasury of Dragons",
@@ -5420,7 +5490,7 @@
       "width": 582,
       "height": 900,
       "title": "Dragonfire fighter",
-      "tags": ["portrait", "half-elf", "fighter", "male"],
+      "tags": ["portrait", "half-elf", "fighter", "male", "mono"],
       "cats": [
         "Images from Dragonfire",
         "Images from card games",
@@ -5463,7 +5533,7 @@
       "width": 759,
       "height": 900,
       "title": "Dralmorrer borngray-5e",
-      "tags": ["portrait", "elf", "5e", "female"],
+      "tags": ["portrait", "elf", "5e", "female", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Hoard of the Dragon Queen",
@@ -5539,7 +5609,7 @@
       "width": 823,
       "height": 900,
       "title": "Drizzt and guenhwyvar-5e",
-      "tags": ["portrait", "elf", "5e", "drow", "ranger", "white-bg"],
+      "tags": ["portrait", "elf", "5e", "drow", "ranger", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Sword Coast Adventurer's Guide",
@@ -5613,7 +5683,7 @@
       "width": 586,
       "height": 900,
       "title": "Drow 5E",
-      "tags": ["portrait", "elf", "5e", "drow", "female", "white-bg"],
+      "tags": ["portrait", "elf", "5e", "drow", "female", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Monster Manual 5th edition",
@@ -5636,7 +5706,7 @@
       "width": 586,
       "height": 900,
       "title": "Drow 5E-Gray background",
-      "tags": ["portrait", "elf", "drow", "female", "duplicate"],
+      "tags": ["portrait", "elf", "drow", "female", "duplicate", "mono"],
       "cats": [
         "Images from Monster Manual 5th edition",
         "Images from sourcebooks",
@@ -5862,7 +5932,7 @@
       "width": 900,
       "height": 660,
       "title": "Dryad's dreams",
-      "tags": ["portrait", "half-elf", "female"],
+      "tags": ["portrait", "half-elf", "female", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Volo's Guide to Baldur's Gate II",
@@ -5884,7 +5954,15 @@
       "width": 736,
       "height": 821,
       "title": "Duergar-5e",
-      "tags": ["portrait", "dwarf", "5e", "duergar", "male", "white-bg"],
+      "tags": [
+        "portrait",
+        "dwarf",
+        "5e",
+        "duergar",
+        "male",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Monster Manual 5th edition",
@@ -5935,7 +6013,7 @@
       "width": 664,
       "height": 900,
       "title": "Duergar mind master-5e",
-      "tags": ["portrait", "dwarf", "5e", "duergar", "white-bg"],
+      "tags": ["portrait", "dwarf", "5e", "duergar", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Mordenkainen's Tome of Foes",
@@ -5957,7 +6035,7 @@
       "width": 561,
       "height": 900,
       "title": "Duergar stone guard-5e",
-      "tags": ["portrait", "dwarf", "5e", "duergar", "white-bg"],
+      "tags": ["portrait", "dwarf", "5e", "duergar", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Mordenkainen's Tome of Foes",
@@ -6231,7 +6309,7 @@
       "width": 582,
       "height": 900,
       "title": "Dwarf rogue dragonfire",
-      "tags": ["portrait", "dwarf", "male", "rogue"],
+      "tags": ["portrait", "dwarf", "male", "rogue", "mono"],
       "cats": [
         "Images from Dragonfire",
         "Images from card games",
@@ -6376,7 +6454,7 @@
       "width": 580,
       "height": 900,
       "title": "Dwarvish mountain-2e",
-      "tags": ["portrait", "dwarf", "white-bg"],
+      "tags": ["portrait", "dwarf", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Planescape Campaign Setting",
@@ -6402,7 +6480,7 @@
       "width": 767,
       "height": 900,
       "title": "Elaith",
-      "tags": ["portrait", "elf", "fighter", "male", "wizard"],
+      "tags": ["portrait", "elf", "fighter", "male", "wizard", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Villains' Lorebook",
@@ -6510,7 +6588,7 @@
       "width": 685,
       "height": 860,
       "title": "Elgred",
-      "tags": ["portrait", "dragonborn", "human", "necromancer"],
+      "tags": ["portrait", "dragonborn", "human", "necromancer", "mono"],
       "cats": [
         "Images from Tourney of Terror",
         "Images of Elgred Morbide",
@@ -6535,7 +6613,7 @@
       "width": 571,
       "height": 900,
       "title": "Elgred Keystone",
-      "tags": ["portrait", "dragonborn", "necromancer", "white-bg"],
+      "tags": ["portrait", "dragonborn", "necromancer", "mono", "white-bg"],
       "cats": [
         "Images from Tourney of Terror",
         "Images of Elgred Morbide",
@@ -6558,7 +6636,14 @@
       "width": 660,
       "height": 900,
       "title": "Elgred Portal",
-      "tags": ["portrait", "dragonborn", "human", "necromancer", "white-bg"],
+      "tags": [
+        "portrait",
+        "dragonborn",
+        "human",
+        "necromancer",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from Tourney of Terror",
         "Images of Elgred Morbide",
@@ -6586,7 +6671,7 @@
       "width": 557,
       "height": 900,
       "title": "Ellifain Tuuserail",
-      "tags": ["portrait", "elf", "5e", "female", "white-bg"],
+      "tags": ["portrait", "elf", "5e", "female", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Legend of Drizzt Visual Dictionary",
@@ -7077,7 +7162,7 @@
       "width": 596,
       "height": 900,
       "title": "Fighter PHB5e",
-      "tags": ["portrait", "human", "5e", "fighter", "white-bg"],
+      "tags": ["portrait", "human", "5e", "fighter", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from sourcebooks",
@@ -7196,7 +7281,7 @@
       "width": 814,
       "height": 870,
       "title": "Flandal Steelskin 1e",
-      "tags": ["portrait", "gnome", "male"],
+      "tags": ["portrait", "gnome", "male", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images of Flandal Steelskin",
@@ -7386,7 +7471,7 @@
       "width": 593,
       "height": 900,
       "title": "Ghaliver Longstocking",
-      "tags": ["portrait", "halfling", "fighter", "rogue"],
+      "tags": ["portrait", "halfling", "fighter", "rogue", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Volo's Guide to the North",
@@ -7429,7 +7514,7 @@
       "width": 558,
       "height": 900,
       "title": "Ghleanna Stormlake",
-      "tags": ["portrait", "half-elf", "female", "sorcerer"],
+      "tags": ["portrait", "half-elf", "female", "sorcerer", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images of Ghleanna Stormlake",
@@ -7481,7 +7566,7 @@
       "width": 769,
       "height": 900,
       "title": "Giant-space-hamster-2e",
-      "tags": ["portrait", "gnome", "male", "white-bg"],
+      "tags": ["portrait", "gnome", "male", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Monstrous Compendium Spelljammer Appendix I",
@@ -7605,7 +7690,7 @@
       "width": 651,
       "height": 445,
       "title": "GnomeArtificer-2e",
-      "tags": ["portrait", "gnome", "male"],
+      "tags": ["portrait", "gnome", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Demihumans of the Realms",
@@ -7634,7 +7719,7 @@
       "width": 450,
       "height": 900,
       "title": "Gnomes - Chippy",
-      "tags": ["portrait", "gnome", "female", "male", "white-bg"],
+      "tags": ["portrait", "gnome", "female", "male", "mono", "white-bg"],
       "cats": [
         "Images from 4th edition sourcebooks",
         "Images from Monster Manual 2 4th edition",
@@ -7659,7 +7744,7 @@
       "width": 640,
       "height": 723,
       "title": "Gnomish Workman's Leather Armor",
-      "tags": ["portrait", "gnome", "male", "white-bg"],
+      "tags": ["portrait", "gnome", "male", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from the Arms and Equipment Guide (2e)",
@@ -7679,7 +7764,7 @@
       "width": 717,
       "height": 900,
       "title": "Gofus",
-      "tags": ["portrait", "gnome", "male"],
+      "tags": ["portrait", "gnome", "male", "mono"],
       "cats": [
         "Images from 1st edition sourcebooks",
         "Images from Treasure Hunt",
@@ -7779,7 +7864,7 @@
       "width": 900,
       "height": 590,
       "title": "Gynosphinx Andeeyloplardii",
-      "tags": ["portrait", "gnome", "elf", "female", "human", "male"],
+      "tags": ["portrait", "gnome", "elf", "female", "human", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Castle Spulzeer",
@@ -7807,7 +7892,7 @@
       "width": 898,
       "height": 900,
       "title": "Gyudd",
-      "tags": ["portrait", "dwarf", "fighter", "male"],
+      "tags": ["portrait", "dwarf", "fighter", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Spelljammer sourcebooks",
@@ -7860,7 +7945,7 @@
       "width": 630,
       "height": 900,
       "title": "Half-elf 1e",
-      "tags": ["portrait", "half-elf", "male"],
+      "tags": ["portrait", "half-elf", "male", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images of half-elves",
@@ -7898,7 +7983,7 @@
       "width": 562,
       "height": 900,
       "title": "Half-elves - Lars Grant-West",
-      "tags": ["portrait", "half-elf", "white-bg"],
+      "tags": ["portrait", "half-elf", "mono", "white-bg"],
       "cats": [
         "Images from Monster Manual 2 4th edition",
         "Images of half-elves"
@@ -7915,7 +8000,7 @@
       "width": 900,
       "height": 729,
       "title": "Half-orc 1e",
-      "tags": ["portrait", "half-orc", "male"],
+      "tags": ["portrait", "half-orc", "male", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images of half-orcs",
@@ -7932,7 +8017,7 @@
       "width": 673,
       "height": 900,
       "title": "Half-orc-5e",
-      "tags": ["portrait", "half-orc", "5e", "white-bg"],
+      "tags": ["portrait", "half-orc", "5e", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Sword Coast Adventurer's Guide",
@@ -7952,7 +8037,15 @@
       "width": 683,
       "height": 800,
       "title": "Half-orc PHB5e",
-      "tags": ["portrait", "half-orc", "5e", "male", "paladin", "white-bg"],
+      "tags": [
+        "portrait",
+        "half-orc",
+        "5e",
+        "male",
+        "paladin",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from sourcebooks",
@@ -8030,7 +8123,7 @@
       "width": 684,
       "height": 394,
       "title": "Halfling Athasian 2e",
-      "tags": ["portrait", "halfling", "male", "white-bg"],
+      "tags": ["portrait", "halfling", "male", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Dark Sun (boxed set)",
@@ -8104,7 +8197,7 @@
       "width": 645,
       "height": 900,
       "title": "Halfling slave escape",
-      "tags": ["portrait", "halfling", "human", "male"],
+      "tags": ["portrait", "halfling", "human", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Demihumans of the Realms",
@@ -8203,7 +8296,7 @@
       "width": 900,
       "height": 611,
       "title": "Halforcdruid",
-      "tags": ["portrait", "half-orc", "5e", "druid", "tiefling"],
+      "tags": ["portrait", "half-orc", "5e", "druid", "tiefling", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Ghosts of Saltmarsh",
@@ -8324,7 +8417,16 @@
       "width": 860,
       "height": 599,
       "title": "Harshnag-5e",
-      "tags": ["portrait", "elf", "5e", "dwarf", "female", "human", "male"],
+      "tags": [
+        "portrait",
+        "elf",
+        "5e",
+        "dwarf",
+        "female",
+        "human",
+        "male",
+        "mono"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Storm King's Thunder",
@@ -8358,7 +8460,7 @@
       "width": 546,
       "height": 900,
       "title": "Hazlik 5e",
-      "tags": ["portrait", "human", "5e", "male", "wizard", "white-bg"],
+      "tags": ["portrait", "human", "5e", "male", "wizard", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Van Richten's Guide to Ravenloft",
@@ -8576,6 +8678,7 @@
         "ranger",
         "rogue",
         "wizard",
+        "mono",
         "white-bg"
       ],
       "cats": [
@@ -8744,7 +8847,15 @@
       "width": 758,
       "height": 900,
       "title": "HL-liriel",
-      "tags": ["portrait", "elf", "drow", "female", "fighter", "white-bg"],
+      "tags": [
+        "portrait",
+        "elf",
+        "drow",
+        "female",
+        "fighter",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 2nd edition sourcebook",
         "Images from Heroes' Lorebook",
@@ -8990,7 +9101,7 @@
       "width": 487,
       "height": 900,
       "title": "Honor DMG14",
-      "tags": ["portrait", "human", "5e", "male"],
+      "tags": ["portrait", "human", "5e", "male", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Dungeon Master's Guide 5th edition",
@@ -9287,7 +9398,7 @@
       "width": 797,
       "height": 900,
       "title": "Invisible Stalker-5e",
-      "tags": ["portrait", "human", "5e", "white-bg"],
+      "tags": ["portrait", "human", "5e", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Monster Manual 5th edition",
@@ -9310,7 +9421,7 @@
       "width": 633,
       "height": 656,
       "title": "Jaccob the halfling",
-      "tags": ["portrait", "halfling", "male"],
+      "tags": ["portrait", "halfling", "male", "mono"],
       "cats": [
         "Images from Polyhedron magazine",
         "Images from magazines",
@@ -9365,7 +9476,7 @@
       "width": 585,
       "height": 900,
       "title": "Jarlaxle-5e",
-      "tags": ["portrait", "elf", "5e", "drow", "male"],
+      "tags": ["portrait", "elf", "5e", "drow", "male", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Waterdeep: Dragon Heist",
@@ -9423,7 +9534,8 @@
         "male",
         "necromancer",
         "noble",
-        "wizard"
+        "wizard",
+        "mono"
       ],
       "cats": [
         "Images from 5th edition sourcebooks",
@@ -9631,7 +9743,7 @@
       "width": 572,
       "height": 900,
       "title": "Kelson-darktreader-5e",
-      "tags": ["portrait", "half-elf", "5e", "male", "ranger"],
+      "tags": ["portrait", "half-elf", "5e", "male", "ranger", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Dead in Thay",
@@ -9773,7 +9885,7 @@
       "width": 800,
       "height": 349,
       "title": "KillerFrog",
-      "tags": ["portrait", "gnome", "male"],
+      "tags": ["portrait", "gnome", "male", "mono"],
       "cats": [
         "Images from 1st edition sourcebooks",
         "Images from Players Handbook 1st edition",
@@ -9827,7 +9939,8 @@
         "assassin",
         "drow",
         "female",
-        "duplicate"
+        "duplicate",
+        "mono"
       ],
       "cats": [
         "Images from 5th edition sourcebooks",
@@ -9896,7 +10009,7 @@
       "width": 670,
       "height": 900,
       "title": "Krimmon",
-      "tags": ["portrait", "halfling", "male"],
+      "tags": ["portrait", "halfling", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Lands of Intrigue boxset",
@@ -10140,7 +10253,15 @@
       "width": 748,
       "height": 900,
       "title": "Leosin",
-      "tags": ["portrait", "half-elf", "5e", "male", "monk", "white-bg"],
+      "tags": [
+        "portrait",
+        "half-elf",
+        "5e",
+        "male",
+        "monk",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Hoard of the Dragon Queen",
@@ -10353,7 +10474,7 @@
       "width": 900,
       "height": 458,
       "title": "Lolth VD",
-      "tags": ["portrait", "elf", "5e", "drow", "female", "white-bg"],
+      "tags": ["portrait", "elf", "5e", "drow", "female", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Legend of Drizzt Visual Dictionary",
@@ -10463,7 +10584,7 @@
       "width": 750,
       "height": 486,
       "title": "Loudwater street",
-      "tags": ["portrait", "half-elf", "bard", "male"],
+      "tags": ["portrait", "half-elf", "bard", "male", "mono"],
       "cats": [
         "Images from 3rd edition sourcebooks",
         "Images from Legacy of the Green Regent",
@@ -10542,7 +10663,15 @@
       "width": 734,
       "height": 900,
       "title": "Luiren and a human",
-      "tags": ["portrait", "halfling", "female", "human", "male", "wizard"],
+      "tags": [
+        "portrait",
+        "halfling",
+        "female",
+        "human",
+        "male",
+        "wizard",
+        "mono"
+      ],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Forgotten Realms Campaign Setting 2nd edition (revised)",
@@ -10568,7 +10697,7 @@
       "width": 900,
       "height": 632,
       "title": "Luiren hin",
-      "tags": ["portrait", "halfling", "male"],
+      "tags": ["portrait", "halfling", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Shining South",
@@ -10594,7 +10723,15 @@
       "width": 602,
       "height": 900,
       "title": "Maccath",
-      "tags": ["portrait", "tiefling", "5e", "female", "sorcerer", "white-bg"],
+      "tags": [
+        "portrait",
+        "tiefling",
+        "5e",
+        "female",
+        "sorcerer",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Rise of Tiamat",
@@ -10741,7 +10878,7 @@
       "width": 463,
       "height": 900,
       "title": "Malchor Harpell 5e",
-      "tags": ["portrait", "human", "5e", "male", "wizard", "white-bg"],
+      "tags": ["portrait", "human", "5e", "male", "wizard", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Legend of Drizzt Visual Dictionary",
@@ -10765,7 +10902,16 @@
       "width": 697,
       "height": 900,
       "title": "Manor of the Sea King",
-      "tags": ["portrait", "gnome", "elf", "female", "human", "male", "orc"],
+      "tags": [
+        "portrait",
+        "gnome",
+        "elf",
+        "female",
+        "human",
+        "male",
+        "orc",
+        "mono"
+      ],
       "cats": [
         "Images from 1st edition sourcebooks",
         "Images from Treasure Hunt",
@@ -10795,7 +10941,7 @@
       "width": 643,
       "height": 900,
       "title": "Markham Southwell",
-      "tags": ["portrait", "human", "5e", "male", "white-bg"],
+      "tags": ["portrait", "human", "5e", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Storm King's Thunder",
@@ -10934,7 +11080,8 @@
         "fighter",
         "human",
         "royalty",
-        "male"
+        "male",
+        "mono"
       ],
       "cats": [
         "Images from 2nd edition sourcebooks",
@@ -11042,7 +11189,7 @@
       "width": 805,
       "height": 900,
       "title": "Mercykiller-Bloodhound",
-      "tags": ["portrait", "human", "5e", "female"],
+      "tags": ["portrait", "human", "5e", "female", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Planescape: Adventures in the Multiverse",
@@ -11168,7 +11315,7 @@
       "width": 643,
       "height": 900,
       "title": "Miros Xelbrin",
-      "tags": ["portrait", "human", "5e", "male", "white-bg"],
+      "tags": ["portrait", "human", "5e", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Storm King's Thunder",
@@ -11316,7 +11463,7 @@
       "width": 900,
       "height": 858,
       "title": "Monster Manual 5e - Drider - p120",
-      "tags": ["portrait", "elf", "5e", "drow", "white-bg"],
+      "tags": ["portrait", "elf", "5e", "drow", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Monster Manual 5th edition",
@@ -11364,7 +11511,7 @@
       "width": 870,
       "height": 744,
       "title": "Monstrous Manual 2e - Gnome - p160",
-      "tags": ["portrait", "gnome", "male", "wizard", "white-bg"],
+      "tags": ["portrait", "gnome", "male", "wizard", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Monstrous Manual",
@@ -11513,7 +11660,7 @@
       "width": 696,
       "height": 900,
       "title": "Môrgæn",
-      "tags": ["portrait", "elf", "5e", "female", "ranger"],
+      "tags": ["portrait", "elf", "5e", "female", "ranger", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Acquisitions Incorporated",
@@ -11543,7 +11690,7 @@
       "width": 684,
       "height": 900,
       "title": "Mount clangeddin-2e",
-      "tags": ["portrait", "dwarf", "white-bg"],
+      "tags": ["portrait", "dwarf", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Planes of Law",
@@ -11595,7 +11742,7 @@
       "width": 639,
       "height": 847,
       "title": "Mule-2e",
-      "tags": ["portrait", "dwarf", "male"],
+      "tags": ["portrait", "dwarf", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from The Complete Book of Dwarves",
@@ -11618,7 +11765,7 @@
       "width": 605,
       "height": 659,
       "title": "Musharib",
-      "tags": ["portrait", "dwarf", "5e", "male", "white-bg"],
+      "tags": ["portrait", "dwarf", "5e", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Tomb of Annihilation",
@@ -11642,7 +11789,7 @@
       "width": 738,
       "height": 900,
       "title": "Mwaxanaré and Na",
-      "tags": ["portrait", "human", "5e", "female", "male", "white-bg"],
+      "tags": ["portrait", "human", "5e", "female", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Tomb of Annihilation",
@@ -11720,7 +11867,7 @@
       "width": 747,
       "height": 422,
       "title": "NarwhalManor Parlor",
-      "tags": ["portrait", "half-elf", "male"],
+      "tags": ["portrait", "half-elf", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Gateway to Ravens Bluff, the Living City",
@@ -11792,7 +11939,7 @@
       "width": 900,
       "height": 848,
       "title": "Neogi 2e",
-      "tags": ["portrait", "elf", "female", "male"],
+      "tags": ["portrait", "elf", "female", "male", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images of aberrations",
@@ -11918,7 +12065,15 @@
       "width": 633,
       "height": 824,
       "title": "Oath of conquest",
-      "tags": ["portrait", "tiefling", "5e", "female", "paladin", "white-bg"],
+      "tags": [
+        "portrait",
+        "tiefling",
+        "5e",
+        "female",
+        "paladin",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Xanathar's Guide to Everything",
@@ -11940,7 +12095,7 @@
       "width": 608,
       "height": 819,
       "title": "Oath of the crown",
-      "tags": ["portrait", "dwarf", "5e", "female", "paladin"],
+      "tags": ["portrait", "dwarf", "5e", "female", "paladin", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Sword Coast Adventurer's Guide",
@@ -12014,7 +12169,7 @@
       "width": 720,
       "height": 407,
       "title": "Oeble inhabitants",
-      "tags": ["portrait", "gnome", "male"],
+      "tags": ["portrait", "gnome", "male", "mono"],
       "cats": [
         "Images from Polyhedron magazine",
         "Images from magazines",
@@ -12063,7 +12218,15 @@
       "width": 794,
       "height": 900,
       "title": "Olive Ruskettle heroes lorebook",
-      "tags": ["portrait", "halfling", "bard", "female", "rogue", "white-bg"],
+      "tags": [
+        "portrait",
+        "halfling",
+        "bard",
+        "female",
+        "rogue",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from Heroes' Lorebook",
         "Images of Olive Ruskettle",
@@ -12108,7 +12271,7 @@
       "width": 599,
       "height": 900,
       "title": "Oni-guma",
-      "tags": ["portrait", "half-orc", "5e", "male", "white-bg"],
+      "tags": ["portrait", "half-orc", "5e", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Oni's Right Hand",
@@ -12132,7 +12295,7 @@
       "width": 719,
       "height": 900,
       "title": "Ontharr Frume",
-      "tags": ["portrait", "human", "5e", "male", "white-bg"],
+      "tags": ["portrait", "human", "5e", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Hoard of the Dragon Queen",
@@ -12256,7 +12419,7 @@
       "width": 769,
       "height": 900,
       "title": "Paladin - Warriors & Weapons",
-      "tags": ["portrait", "human", "5e", "paladin", "white-bg"],
+      "tags": ["portrait", "human", "5e", "paladin", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Warriors & Weapons",
@@ -12391,7 +12554,7 @@
       "width": 900,
       "height": 633,
       "title": "PH4e wp3 1280",
-      "tags": ["portrait", "tiefling", "female"],
+      "tags": ["portrait", "tiefling", "female", "mono"],
       "cats": ["Images of females", "Images of swords", "Images of tieflings"],
       "artist": "William O'Connor",
       "source": {
@@ -12607,7 +12770,7 @@
       "width": 838,
       "height": 900,
       "title": "Pipe organ gnome",
-      "tags": ["portrait", "gnome", "cleric", "male", "rogue"],
+      "tags": ["portrait", "gnome", "cleric", "male", "rogue", "mono"],
       "cats": [
         "Images from Dungeon magazine",
         "Images of Skoradin Thinskin",
@@ -12638,7 +12801,7 @@
       "width": 654,
       "height": 800,
       "title": "Players Handbook 5e - Gnome - Rob Rey - p35",
-      "tags": ["portrait", "gnome", "5e", "female", "white-bg"],
+      "tags": ["portrait", "gnome", "5e", "female", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from sourcebooks",
@@ -12691,7 +12854,7 @@
       "width": 748,
       "height": 900,
       "title": "Priest Esta-Starchild PGttFR",
-      "tags": ["portrait", "elf", "cleric", "female"],
+      "tags": ["portrait", "elf", "cleric", "female", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Player's Guide to the Forgotten Realms Campaign",
@@ -12820,7 +12983,15 @@
       "width": 610,
       "height": 900,
       "title": "Pudding king-5e",
-      "tags": ["portrait", "gnome", "5e", "male", "sorcerer", "white-bg"],
+      "tags": [
+        "portrait",
+        "gnome",
+        "5e",
+        "male",
+        "sorcerer",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Out of the Abyss",
@@ -12894,7 +13065,7 @@
       "width": 900,
       "height": 835,
       "title": "Queen Amlaruil's Chariot",
-      "tags": ["portrait", "elf", "female"],
+      "tags": ["portrait", "elf", "female", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Elves of Evermeet",
@@ -12968,7 +13139,7 @@
       "width": 732,
       "height": 900,
       "title": "Raika-dragonfire",
-      "tags": ["portrait", "half-orc", "white-bg"],
+      "tags": ["portrait", "half-orc", "mono", "white-bg"],
       "cats": [
         "Images from Dragonfire",
         "Images from card games",
@@ -13024,7 +13195,7 @@
       "width": 900,
       "height": 582,
       "title": "Raise dead php5e revised",
-      "tags": ["portrait", "human", "5e", "cleric"],
+      "tags": ["portrait", "human", "5e", "cleric", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Player's Handbook 5th edition (revised)",
@@ -13294,7 +13465,7 @@
       "width": 748,
       "height": 900,
       "title": "Regis-hl",
-      "tags": ["portrait", "halfling", "rogue", "white-bg"],
+      "tags": ["portrait", "halfling", "rogue", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Heroes' Lorebook",
@@ -13429,7 +13600,7 @@
       "width": 722,
       "height": 731,
       "title": "Rime Duergar",
-      "tags": ["portrait", "dwarf", "5e", "duergar", "male"],
+      "tags": ["portrait", "dwarf", "5e", "duergar", "male", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Icewind Dale: Rime of the Frostmaiden",
@@ -13501,7 +13672,15 @@
       "width": 773,
       "height": 508,
       "title": "Robalend lukka",
-      "tags": ["portrait", "gnome", "cultist", "human", "male", "necromancer"],
+      "tags": [
+        "portrait",
+        "gnome",
+        "cultist",
+        "human",
+        "male",
+        "necromancer",
+        "mono"
+      ],
       "cats": [
         "Images from 3rd edition sourcebooks",
         "Images from Pool of Radiance:Attack on Myth Drannor",
@@ -13530,7 +13709,7 @@
       "width": 758,
       "height": 500,
       "title": "Robalend Lukka and Tarbash Dellkisel",
-      "tags": ["portrait", "gnome", "male", "rogue", "wizard"],
+      "tags": ["portrait", "gnome", "male", "rogue", "wizard", "mono"],
       "cats": [
         "Images from 3rd edition sourcebooks",
         "Images from Pool of Radiance: Ruins of Myth Drannor",
@@ -13624,7 +13803,16 @@
       "width": 646,
       "height": 800,
       "title": "Rogue PHB5e",
-      "tags": ["portrait", "elf", "5e", "drow", "male", "rogue", "white-bg"],
+      "tags": [
+        "portrait",
+        "elf",
+        "5e",
+        "drow",
+        "male",
+        "rogue",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from sourcebooks",
@@ -14040,7 +14228,7 @@
       "width": 900,
       "height": 510,
       "title": "Segojan Earthcaller 1e",
-      "tags": ["portrait", "gnome", "male"],
+      "tags": ["portrait", "gnome", "male", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images of Segojan Earthcaller",
@@ -14117,7 +14305,7 @@
       "width": 584,
       "height": 900,
       "title": "Shadar-kai gloom weaver-5e",
-      "tags": ["portrait", "elf", "5e"],
+      "tags": ["portrait", "elf", "5e", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Mordenkainen's Tome of Foes",
@@ -14138,7 +14326,7 @@
       "width": 727,
       "height": 900,
       "title": "Shadow blade-5e",
-      "tags": ["portrait", "elf", "5e", "drow", "male", "white-bg"],
+      "tags": ["portrait", "elf", "5e", "drow", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Xanathar's Guide to Everything",
@@ -14186,7 +14374,7 @@
       "width": 640,
       "height": 563,
       "title": "ShadowfellExplorers",
-      "tags": ["portrait", "tiefling", "lizardfolk"],
+      "tags": ["portrait", "tiefling", "lizardfolk", "mono"],
       "cats": [
         "Images from 4th edition sourcebooks",
         "Images from Manual of the Planes 4th edition",
@@ -14242,7 +14430,7 @@
       "width": 900,
       "height": 556,
       "title": "Shalaer",
-      "tags": ["portrait", "half-elf", "female"],
+      "tags": ["portrait", "half-elf", "female", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from The Moonsea",
@@ -14560,7 +14748,7 @@
       "width": 643,
       "height": 900,
       "title": "Sir Baric Nylef",
-      "tags": ["portrait", "human", "5e", "male", "white-bg"],
+      "tags": ["portrait", "human", "5e", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Storm King's Thunder",
@@ -15161,7 +15349,7 @@
       "width": 600,
       "height": 741,
       "title": "Sword & Fist - Halfling Outrider - page 24",
-      "tags": ["portrait", "halfling", "white-bg"],
+      "tags": ["portrait", "halfling", "mono", "white-bg"],
       "cats": [
         "Images from 3rd edition sourcebooks",
         "Images from Sword and Fist",
@@ -15183,7 +15371,7 @@
       "width": 640,
       "height": 775,
       "title": "Sword Coast Legends - Companion - Larethar Gulgrin",
-      "tags": ["portrait", "dwarf", "rogue"],
+      "tags": ["portrait", "dwarf", "rogue", "mono"],
       "cats": [
         "Images from Sword Coast Legends",
         "Images of Larethar Gulgrin",
@@ -15236,7 +15424,7 @@
       "width": 615,
       "height": 900,
       "title": "Talis the white-5e",
-      "tags": ["portrait", "half-elf", "5e", "female", "white-bg"],
+      "tags": ["portrait", "half-elf", "5e", "female", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Hoard of the Dragon Queen",
@@ -15436,7 +15624,15 @@
       "width": 651,
       "height": 900,
       "title": "Tharzon Brewhammer",
-      "tags": ["portrait", "dwarf", "fighter", "male", "rogue", "white-bg"],
+      "tags": [
+        "portrait",
+        "dwarf",
+        "fighter",
+        "male",
+        "rogue",
+        "mono",
+        "white-bg"
+      ],
       "cats": [
         "Images from Dragon magazine",
         "Images from magazines",
@@ -15513,7 +15709,15 @@
       "width": 900,
       "height": 553,
       "title": "The Inn of the Wailing Wave",
-      "tags": ["portrait", "half-orc", "female", "gnoll", "human", "male"],
+      "tags": [
+        "portrait",
+        "half-orc",
+        "female",
+        "gnoll",
+        "human",
+        "male",
+        "mono"
+      ],
       "cats": [
         "Images from Dungeon magazine",
         "Images from magazines",
@@ -15568,7 +15772,7 @@
       "width": 900,
       "height": 629,
       "title": "The Shining South 2e - Luiren - Halfling p45",
-      "tags": ["portrait", "halfling", "duplicate"],
+      "tags": ["portrait", "halfling", "duplicate", "mono"],
       "cats": [
         "Images from The Shining South (1993)",
         "Images of Luiren",
@@ -15595,7 +15799,8 @@
         "male",
         "paladin",
         "rogue",
-        "sorcerer"
+        "sorcerer",
+        "mono"
       ],
       "cats": [
         "Images from Dragon magazine",
@@ -15707,7 +15912,7 @@
       "width": 900,
       "height": 693,
       "title": "Three Coins Fellowship & Brother Sheer",
-      "tags": ["portrait", "half-elf", "dwarf", "human", "male"],
+      "tags": ["portrait", "half-elf", "dwarf", "human", "male", "mono"],
       "cats": [
         "Images from 3rd edition sourcebooks",
         "Images from Legacy of the Green Regent",
@@ -16001,7 +16206,8 @@
         "elf",
         "female",
         "half-elf",
-        "male"
+        "male",
+        "mono"
       ],
       "cats": [
         "Images from Dungeon magazine",
@@ -16039,7 +16245,7 @@
       "width": 729,
       "height": 900,
       "title": "Tomb Dwarf",
-      "tags": ["portrait", "dwarf", "5e", "white-bg"],
+      "tags": ["portrait", "dwarf", "5e", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Tomb of Annihilation",
@@ -16350,7 +16556,7 @@
       "width": 642,
       "height": 435,
       "title": "Underdark Merchant",
-      "tags": ["portrait", "gnome", "drow", "male"],
+      "tags": ["portrait", "gnome", "drow", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Demihumans of the Realms",
@@ -16372,7 +16578,7 @@
       "width": 627,
       "height": 900,
       "title": "Urogalan",
-      "tags": ["portrait", "halfling", "male", "white-bg"],
+      "tags": ["portrait", "halfling", "male", "mono", "white-bg"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Demihuman Deities",
@@ -16401,7 +16607,7 @@
       "width": 663,
       "height": 816,
       "title": "Valindra Shadowmantle",
-      "tags": ["portrait", "elf", "5e", "female", "white-bg"],
+      "tags": ["portrait", "elf", "5e", "female", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Tomb of Annihilation",
@@ -16479,7 +16685,7 @@
       "width": 698,
       "height": 900,
       "title": "Varram",
-      "tags": ["portrait", "dwarf", "5e", "male", "white-bg"],
+      "tags": ["portrait", "dwarf", "5e", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Rise of Tiamat",
@@ -16665,7 +16871,7 @@
       "width": 900,
       "height": 865,
       "title": "Vergadain 1e",
-      "tags": ["portrait", "dwarf", "male", "white-bg"],
+      "tags": ["portrait", "dwarf", "male", "mono", "white-bg"],
       "cats": [
         "Images from Dragon magazine",
         "Images of Vergadain",
@@ -16740,7 +16946,7 @@
       "width": 900,
       "height": 687,
       "title": "Viledel",
-      "tags": ["portrait", "gnome", "female", "human", "male"],
+      "tags": ["portrait", "gnome", "female", "human", "male", "mono"],
       "cats": [
         "Images from 1st edition sourcebooks",
         "Images from Treasure Hunt",
@@ -16777,7 +16983,7 @@
       "width": 900,
       "height": 544,
       "title": "VolosGuide",
-      "tags": ["portrait", "halfling", "adventurer"],
+      "tags": ["portrait", "halfling", "adventurer", "mono"],
       "cats": [
         "Images of adventurers",
         "Images of books",
@@ -17125,7 +17331,7 @@
       "width": 808,
       "height": 900,
       "title": "War mage-5e",
-      "tags": ["portrait", "human", "5e", "male", "wizard", "white-bg"],
+      "tags": ["portrait", "human", "5e", "male", "wizard", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Xanathar's Guide to Everything",
@@ -17176,7 +17382,7 @@
       "width": 900,
       "height": 681,
       "title": "Warpriest 3e",
-      "tags": ["portrait", "dwarf", "cleric", "white-bg"],
+      "tags": ["portrait", "dwarf", "cleric", "mono", "white-bg"],
       "cats": [
         "Images from 3rd edition sourcebooks",
         "Images from Defenders of the Faith",
@@ -17207,6 +17413,7 @@
         "cleric",
         "female",
         "duplicate",
+        "mono",
         "white-bg"
       ],
       "cats": [
@@ -17299,7 +17506,15 @@
       "width": 900,
       "height": 453,
       "title": "Waterdeep streets WatN",
-      "tags": ["portrait", "dwarf", "female", "half-orc", "human", "male"],
+      "tags": [
+        "portrait",
+        "dwarf",
+        "female",
+        "half-orc",
+        "human",
+        "male",
+        "mono"
+      ],
       "cats": [
         "Images from 1st edition sourcebooks",
         "Images from Waterdeep and the North",
@@ -17355,7 +17570,7 @@
       "width": 644,
       "height": 417,
       "title": "WaterWeird-Fight",
-      "tags": ["portrait", "halfling", "human"],
+      "tags": ["portrait", "halfling", "human", "mono"],
       "cats": [
         "Images from Creature Catalog (revised)",
         "Images from D&D Basic sourcebooks",
@@ -17377,7 +17592,7 @@
       "width": 695,
       "height": 900,
       "title": "Wave-echo-cave-entrance",
-      "tags": ["portrait", "dwarf", "5e", "bugbear"],
+      "tags": ["portrait", "dwarf", "5e", "bugbear", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Phandelver and Below: The Shattered Obelisk",
@@ -17579,7 +17794,7 @@
       "width": 450,
       "height": 900,
       "title": "Wizard PHB5e",
-      "tags": ["portrait", "human", "5e", "male", "wizard", "white-bg"],
+      "tags": ["portrait", "human", "5e", "male", "wizard", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from sourcebooks",
@@ -17600,7 +17815,7 @@
       "width": 682,
       "height": 900,
       "title": "Wizards three-2e",
-      "tags": ["portrait", "elf", "human", "wizard"],
+      "tags": ["portrait", "elf", "human", "wizard", "mono"],
       "cats": [
         "Images from Dragon magazine",
         "Images from magazines",
@@ -17628,7 +17843,7 @@
       "width": 672,
       "height": 900,
       "title": "Wood elf archer",
-      "tags": ["portrait", "elf", "5e", "female", "white-bg"],
+      "tags": ["portrait", "elf", "5e", "female", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Places & Portals",
@@ -17682,7 +17897,7 @@
       "width": 610,
       "height": 900,
       "title": "World Serpent Welcome",
-      "tags": ["portrait", "gnome", "male"],
+      "tags": ["portrait", "gnome", "male", "mono"],
       "cats": [
         "Images from 2nd edition sourcebooks",
         "Images from Volo's Guide to Cormyr",
@@ -17839,7 +18054,7 @@
       "width": 695,
       "height": 900,
       "title": "Xanathar (Zushaxx) 5point5e",
-      "tags": ["portrait", "dwarf", "5e", "female", "male", "tiefling"],
+      "tags": ["portrait", "dwarf", "5e", "female", "male", "tiefling", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Forgotten Realms: Heroes of Faerûn",
@@ -18060,7 +18275,7 @@
       "width": 655,
       "height": 733,
       "title": "Ye Olde Bluff Jeweler - Lotus",
-      "tags": ["portrait", "half-elf", "female", "rogue"],
+      "tags": ["portrait", "half-elf", "female", "rogue", "mono"],
       "cats": [
         "Images from Polyhedron magazine",
         "Images from magazines",
@@ -18101,7 +18316,7 @@
       "width": 900,
       "height": 547,
       "title": "Yochlol morph",
-      "tags": ["portrait", "elf", "5e", "drow", "female", "white-bg"],
+      "tags": ["portrait", "elf", "5e", "drow", "female", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Legend of Drizzt Visual Dictionary",
@@ -18168,7 +18383,7 @@
       "width": 585,
       "height": 900,
       "title": "Zaknafein Do'Urden",
-      "tags": ["portrait", "elf", "5e", "drow", "male", "white-bg"],
+      "tags": ["portrait", "elf", "5e", "drow", "male", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from The Legend of Drizzt Visual Dictionary",
@@ -18239,7 +18454,7 @@
       "width": 839,
       "height": 762,
       "title": "Zaroum al-Saryak",
-      "tags": ["portrait", "human", "5e", "white-bg"],
+      "tags": ["portrait", "human", "5e", "mono", "white-bg"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Tomb of Annihilation",
@@ -18259,7 +18474,7 @@
       "width": 900,
       "height": 793,
       "title": "Zaviak and the Spectacles of Spectacle",
-      "tags": ["portrait", "elf", "male", "wizard"],
+      "tags": ["portrait", "elf", "male", "wizard", "mono"],
       "cats": [
         "Images from Baldur's Gate: Siege of Dragonspear",
         "Images from Baldur's Gate: Siege of Dragonspear: Field Report",
@@ -18313,7 +18528,7 @@
       "width": 747,
       "height": 900,
       "title": "Ziraj",
-      "tags": ["portrait", "half-orc", "5e", "male", "paladin"],
+      "tags": ["portrait", "half-orc", "5e", "male", "paladin", "mono"],
       "cats": [
         "Images from 5th edition sourcebooks",
         "Images from Waterdeep: Dragon Heist",

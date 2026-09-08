@@ -16,6 +16,7 @@ const base: TurnRequest = {
     death: 'never',
     players,
   }),
+  loreNames: [],
   history: [],
   action: { kind: 'start' },
 };

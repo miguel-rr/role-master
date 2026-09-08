@@ -382,3 +382,30 @@ y televisor, sin voz por ahora).
   de cues de interfaz en el motor). `/credits` publicado.
 - Pendiente: decisión sobre voz leída; curación fina cuando Miguel tenga
   tiempo; ducking de la música bajo efectos fuertes si hiciera falta.
+
+## 16. Mesa de juego: memoria y lectura (2026-09-08)
+- **Glosario** (`src/lib/game/lore.ts`, `GameState.lore`): entradas por
+  tipo (personajes, lugares, criaturas, facciones, objetos, prendas,
+  nociones) con resumen, dónde se leyó por primera vez y eventos por turno.
+  Se siembra con la introducción y los trasfondos de los personajes elegidos
+  (`src/data/campaigns/icespire-lore.ts`) y crece con las líneas `lore` que
+  el narrador devuelve cada turno ("tipo | Nombre | lo que ahora saben"). Los
+  nombres conocidos aparecen subrayados en narración, voces, introducción y
+  diario; al pasar el ratón sale su carta; tecla G o «Glosario» abre la
+  vista completa con buscador.
+- **Historia del personaje** como tercera pestaña de la superposición de
+  ficha y mochila.
+- **Bloc de notas**: cajón desde el borde derecho (tecla N), texto libre
+  guardado con la partida (`GameState.notes`).
+- **Releer**: flecha ‹ y ← para páginas anteriores; «Lo leído hasta ahora»
+  con todo lo anterior. Sin rejugar.
+- **Retratos de PNJ**: el resolutor puntúa todo el catálogo (Owlcat + Wizards)
+  por raza, género, edad (`figure.age`), etiquetas y palabras del oficio en
+  español; para gente corriente prefiere el arte de Wizards y penaliza los
+  héroes; un niño sin retrato de niño en el catálogo no recibe cara (la voz
+  sale en un bocadillo sin figura). Pendiente: ampliar el catálogo con
+  niños, ancianos y oficios.
+- **Dados en partida**: el lienzo del modal no tenía tamaño (la regla CSS
+  solo cubría la bandeja del laboratorio) → dados invisibles, tiempo agotado
+  y un 0 como valor. Corregido; además se carga el material antes de tirar y
+  un dado sin asentar nunca llega a la mesa. Tamaño de dados configurable.

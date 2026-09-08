@@ -54,6 +54,8 @@ const figureSchema = z.discriminatedUnion('kind', [
     role: z.string().min(1),
     race: z.string().optional(),
     gender: z.enum(['male', 'female']).optional(),
+    /** Rough age, so a child is never shown as a soldier. */
+    age: z.enum(['child', 'young', 'adult', 'old']).optional(),
     /** Class or role tags from the portrait vocabulary. */
     tags: z.array(z.string()).default([]),
   }),
@@ -101,6 +103,16 @@ const soundDirectionSchema = z.object({
  *   ambience: "keep" | "none" | "<place>" | "<place> night rain"
  *   cues:     ["1 door-wood-open", "3 thunder"]
  */
+/** "kind | Nombre | lo que ahora saben", one per line; parsed client-side. */
+const loreNotesSchema = z.array(z.string()).max(6).default([]);
+
+/**
+ * The same as one string with newlines, for the model: an array of strings
+ * on top of everything else pushes the structured-output grammar over the
+ * API's size limit.
+ */
+const looseLoreSchema = z.string().default('');
+
 const looseSoundDirectionSchema = z.object({
   music: z.string().default('keep'),
   ambience: z.string().default('keep'),
@@ -169,10 +181,12 @@ const buildSceneTurnSchema = <
   W extends z.ZodType<string>,
   O extends z.ZodType<string>,
   S extends z.ZodType,
+  L extends z.ZodType,
 >(
   who: W,
   one: O,
   sound: S,
+  lore: L,
 ) => {
   const choice = z.object({
     label: z.string().min(1),
@@ -212,6 +226,7 @@ const buildSceneTurnSchema = <
     /** True when the party reaches a natural stopping point. */
     sceneEnds: z.boolean().default(false),
     sound,
+    lore,
   });
 };
 
@@ -223,6 +238,7 @@ const sceneTurnSchema = buildSceneTurnSchema(
     ambience: { place: 'keep', time: 'day', weather: 'clear' },
     cues: [],
   }),
+  loreNotesSchema,
 );
 const choiceSchema = sceneTurnSchema.shape.choices.element;
 const effectsSchema = sceneTurnSchema.shape.effects;
@@ -238,6 +254,7 @@ const sceneTurnSchemaFor = (characterIds: readonly string[]) => {
     z.enum([...ids, BOTH]),
     z.enum(ids),
     looseSoundDirectionSchema,
+    looseLoreSchema,
   );
 };
 
@@ -248,13 +265,22 @@ const strictSceneTurnSchemaFor = (characterIds: readonly string[]) => {
     z.enum([...ids, BOTH]),
     z.enum(ids),
     soundDirectionSchema,
+    loreNotesSchema,
   );
 };
 
 /** Narrows a model turn (loose sound) into the app's strict `SceneTurn`. */
 const narrowTurn = (
   turn: z.infer<ReturnType<typeof sceneTurnSchemaFor>>,
-): SceneTurn => ({ ...turn, sound: sanitizeSound(turn.sound) });
+): SceneTurn => ({
+  ...turn,
+  sound: sanitizeSound(turn.sound),
+  lore: turn.lore
+    .split(/\r?\n/)
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .slice(0, 6),
+});
 
 const rollResultSchema = rollRequestSchema.extend({
   modifier: z.number().int(),
@@ -325,6 +351,33 @@ const characterStateSchema = z.object({
   items: z.array(z.string()),
 });
 
+const loreKindSchema = z.enum([
+  'character',
+  'place',
+  'creature',
+  'faction',
+  'item',
+  'garment',
+  'concept',
+]);
+
+/** One entry of the table's glossary. */
+const loreEntrySchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  kind: loreKindSchema,
+  aliases: z.array(z.string()).default([]),
+  summary: z.string(),
+  firstSeen: z.object({
+    source: z.string(),
+    label: z.string(),
+    turn: z.number().int(),
+  }),
+  events: z
+    .array(z.object({ turn: z.number().int(), text: z.string() }))
+    .default([]),
+});
+
 /** A person at the table and the character they picked. */
 const playerSchema = z.object({
   name: z.string().min(1),
@@ -349,6 +402,10 @@ const gameStateSchema = z.object({
   /** npcId → art id, so faces stay put. */
   npcArt: z.record(z.string(), z.string()),
   history: z.array(historyEntrySchema),
+  /** The glossary: names met so far and what is known about them. */
+  lore: z.array(loreEntrySchema).default([]),
+  /** The players' own notebook, free text. */
+  notes: z.string().default(''),
 });
 
 const turnRequestSchema = z.object({
@@ -359,6 +416,8 @@ const turnRequestSchema = z.object({
   characters: z.array(characterStateSchema),
   memory: z.array(z.string()),
   npcArt: z.record(z.string(), z.string()),
+  /** Names already in the glossary, so the narrator keeps them consistent. */
+  loreNames: z.array(z.string()).default([]),
   /** Recent history, oldest first (the server trims further). */
   history: z.array(
     z.object({
@@ -429,6 +488,8 @@ export {
   gameStateSchema,
   moodSchema,
   playerActionSchema,
+  loreEntrySchema,
+  loreKindSchema,
   playerSchema,
   resolvedTurnSchema,
   rollRequestSchema,
