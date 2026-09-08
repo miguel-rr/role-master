@@ -8,7 +8,6 @@ import {
   byId,
   catalogStats,
   collection,
-  findByTitle,
   findItem,
   pickArt,
   sampleArt,
@@ -21,7 +20,6 @@ import { DiceSection } from './_components/dice-section';
 import { Hero } from './_components/hero';
 import { InteractionBlocks } from './_components/interaction-blocks';
 import { Inventory, type Slot } from './_components/inventory';
-import { Passage } from './_components/passage';
 import { PortraitLab } from './_components/portrait-lab';
 import { StyleGuide } from './_components/style-guide';
 import { TacticalBoard, type Token } from './_components/tactical-board';
@@ -146,23 +144,6 @@ const DesignPage = () => {
   const heroScene = sceneFor(
     [['mountains'], ['snow'], ['landscapes'], ['fortresses']],
     'hero-1',
-  );
-  const tavernScene = sceneFor(
-    [['taverns'], ['inns'], ['villages'], ['settlements']],
-    'tavern-1',
-  );
-  const innkeeper = pickArt(
-    firstOf(
-      findByTitle(/innkeep|barkeep|tavern|bartender|publican/i, [
-        'npcs-fr',
-        'portraits-fr',
-      ]),
-      artWithTags(['innkeeper'], { within: ['npcs-fr'] }),
-      artWithTags(['merchant', 'male'], { within: ['npcs-fr'] }),
-      artWithTags(['commoner', 'male'], { within: ['npcs-fr'] }),
-      artWithTags(['human', 'male', '5e'], { within: ['npcs-fr'] }),
-    ),
-    'toblen-1',
   );
   const goblins = sampleArt(
     firstOf(
@@ -338,23 +319,6 @@ const DesignPage = () => {
           </div>
         </Link>
       </section>
-
-      <Section
-        eyebrow="Propuesta 01"
-        id="pasaje"
-        intro="Cada turno de narración es una página del manual: ilustración que se funde con el pergamino, capitular, la voz del PNJ con su retrato al margen, la caja de lectura y la tirada que se pide. Debajo, la misma página en registro oscuro para la tele."
-        title="El pasaje ilustrado"
-      >
-        <div className="flex flex-col items-center gap-16">
-          <Passage npc={innkeeper} scene={tavernScene} variant="manual" />
-          <div className="w-full">
-            <div className="mx-auto mb-4 max-w-[52rem] font-condensed text-strapline text-xs uppercase tracking-2xl">
-              Variante · lectura en modo TV
-            </div>
-            <Passage npc={innkeeper} scene={tavernScene} variant="beyond" />
-          </div>
-        </div>
-      </Section>
 
       <Section
         eyebrow="Propuesta 02"

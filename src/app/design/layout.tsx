@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 
 const SECTIONS = [
   { href: '#portada', label: 'Portada' },
-  { href: '#pasaje', label: 'Pasaje' },
   { href: '#retratos', label: 'Retratos' },
   { href: '#inventario', label: 'Inventario' },
   { href: '#ficha', label: 'Ficha' },

@@ -1,6 +1,6 @@
 # Role Master — plan de acción
 
-**Estado (2026-09-08): alcance cerrado; laboratorio `/design` construido y pendiente de revisión de Miguel; catálogo de arte descargándose.**
+**Estado (2026-09-08): diseño aprobado; motor de juego en marcha (`/` menú, `/play` escena narrada por Claude, `/api/turn`). Laboratorio `/design` se conserva como referencia (sin la propuesta "Pasaje").**
 Este documento es la fuente de verdad del proyecto: se actualiza con cada
 decisión cerrada con Miguel. Las secciones `[ABIERTO]` esperan respuesta o
 investigación.
@@ -272,3 +272,29 @@ tira de escenas con teclado. Ocho escenas: taberna, mina, cueva (lechuzo-oso),
 palacio, bosque, montañas (dragón blanco), camino (Señor Ciervo), noche
 (Ravenloft). Fondos elegidos a mano con `pnpm art:sheet` y bajados a 1920 px
 con `pnpm art:hd`. Este contrato de datos es el que emitirá el narrador.
+
+## 14. Motor de juego (2026-09-08) — construido, en pruebas
+- **Contrato narrador ↔ escena** en `src/lib/game/schema.ts`: cada turno es
+  `{ place, chapter, time, sceneTags, atmosphere, mood, figure, beats,
+  choices (con roll opcional), effects, memory, summary }`. Salida
+  estructurada de Claude (`output_config.format` con Zod) en
+  `src/app/api/turn/route.ts`; modelo elegible (Opus 5 / Fable 5.1 con
+  `fallbacks: "default"`).
+- **Prompt en tres capas** (`src/lib/game/prompt.ts`): voz y oficio,
+  biblia de campaña, estado de mesa (fichas, memoria, política de muerte,
+  vocabulario de arte). Las dos primeras con `cache_control`.
+- **Arte por etiquetas** (`src/lib/game/art-resolver.ts`): fondo por
+  `sceneTags`, personajes del conjunto Owlcat, criaturas por `monsterTag`;
+  `npcArt` fija la cara de cada `npcId` para toda la campaña.
+- **Tiradas**: la app calcula el modificador desde la ficha
+  (`src/lib/game/rolls.ts`), abre la **bandeja 3D** (`DiceModal`), guarda
+  resultado, total y éxito/fallo, lo muestra como recordatorio y lo envía al
+  narrador con la acción.
+- **Persistencia**: `localStorage` (`src/lib/game/storage.ts`), una partida
+  por navegador; empezar de nuevo pide confirmación.
+- **Primera historia**: `src/data/campaigns/icespire-act1.ts` — "El Dragón
+  del Pico Escarcha, Acto I" (Phandalin, tablón con tres encargos, aliados,
+  secretos, final de acto). Escrita para dos novatos.
+- Pendiente: creador de personajes (ahora presets Bram/Nissa), ficha en
+  papel dentro del juego, inventario ilustrado, tablero táctico en combate,
+  exportar/importar partida, streaming del texto para acortar la espera.
