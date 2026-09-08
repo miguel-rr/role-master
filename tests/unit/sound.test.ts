@@ -123,3 +123,77 @@ describe('resolveSound', () => {
     expect(st.place).toBe('forest');
   });
 });
+
+describe('phase 3', () => {
+  it('reads time and weather from the scene line', async () => {
+    const { inferFromTime } = await import('@/lib/sound/resolver');
+    expect(inferFromTime('Anochecer · Lluvia fina')).toEqual({
+      time: 'night',
+      weather: 'rain',
+    });
+    expect(inferFromTime('Mediodía · Cielo blanco')).toEqual({
+      time: 'day',
+      weather: undefined,
+    });
+    expect(inferFromTime('Amanecer · Niebla baja')).toEqual({
+      time: 'day',
+      weather: 'fog',
+    });
+    expect(inferFromTime('Sin pistas')).toEqual({
+      time: undefined,
+      weather: undefined,
+    });
+  });
+  it('climbs a step when tension is high and keeps the place', () => {
+    const turn = mockTurn(base);
+    const prev = {
+      situation: 'exploration',
+      place: 'forest',
+      time: 'day' as const,
+      weather: 'clear' as const,
+      musicId: 'x',
+    };
+    const st = resolveSound(
+      {
+        ...turn,
+        time: 'Tarde',
+        sound: {
+          music: { situation: 'keep', tension: 'high' },
+          ambience: { place: 'keep', time: 'day', weather: 'clear' },
+          cues: [],
+        },
+      },
+      'seed',
+      prev,
+    );
+    expect(st.situation).toBe('tension');
+    expect(st.music).not.toBe('keep');
+    expect(st.ambience).toBe('keep');
+  });
+  it('re-picks the ambience when the scene turns to night without a new place', () => {
+    const turn = mockTurn(base);
+    const prev = {
+      situation: 'tavern',
+      place: 'forest',
+      time: 'day' as const,
+      weather: 'clear' as const,
+      musicId: 'x',
+    };
+    const st = resolveSound(
+      {
+        ...turn,
+        time: 'Noche cerrada',
+        sound: {
+          music: { situation: 'keep', tension: 'low' },
+          ambience: { place: 'keep', time: 'day', weather: 'clear' },
+          cues: [],
+        },
+      },
+      'seed',
+      prev,
+    );
+    expect(st.place).toBe('forest');
+    expect(st.time).toBe('night');
+    expect(st.ambience).not.toBe('keep');
+  });
+});

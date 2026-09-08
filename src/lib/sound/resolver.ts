@@ -72,6 +72,51 @@ const SITUATION_FROM_MOOD: Record<Mood, Situation> = {
   blood: 'combat-light',
 };
 
+/** Where a situation goes when the narrator raises the tension to "high". */
+const ESCALATE: Partial<Record<Situation, Situation>> = {
+  arrival: 'mystery',
+  exploration: 'tension',
+  travel: 'tension',
+  tavern: 'tension',
+  market: 'tension',
+  court: 'tension',
+  mystery: 'tension',
+  stealth: 'chase',
+  tension: 'chase',
+  chase: 'combat-light',
+  'combat-light': 'combat-heavy',
+  'combat-heavy': 'boss',
+  ritual: 'boss',
+  revelation: 'tension',
+  rest: 'mystery',
+};
+
+/** Spanish scene time ("Anochecer · Lluvia fina") → day/night and weather. */
+const inferFromTime = (
+  text: string,
+): { time?: 'day' | 'night'; weather?: Weather } => {
+  const t = text.toLowerCase();
+  const time = /noche|anochec|medianoche|madrugada|ocaso|crepúsculo|oscur/.test(
+    t,
+  )
+    ? 'night'
+    : /amanecer|alba|mañana|mediod|tarde|atardecer|sol\b|día/.test(t)
+      ? 'day'
+      : undefined;
+  const weather: Weather | undefined = /tormenta|trueno|relámpago/.test(t)
+    ? 'storm'
+    : /lluvia|llueve|llovizna|aguacero|chubasco/.test(t)
+      ? 'rain'
+      : /nieve|nevada|ventisca|nieva/.test(t)
+        ? 'snow'
+        : /niebla|bruma/.test(t)
+          ? 'fog'
+          : /viento|ventoso|vendaval|ráfaga/.test(t)
+            ? 'wind'
+            : undefined;
+  return { time, weather };
+};
+
 /** Neighbouring situations to fall back on when a shelf is empty. */
 const NEAR: Partial<Record<Situation, Situation[]>> = {
   arrival: ['exploration', 'travel'],
@@ -185,6 +230,7 @@ const resolveSound = (
   previous?: Previous,
 ): Soundtrack => {
   const d = turn.sound;
+  const hint = inferFromTime(turn.time);
   // ── Music ──
   let music: Soundtrack['music'] = 'keep';
   let situation = previous?.situation;
@@ -192,14 +238,22 @@ const resolveSound = (
   if (wantsMusic === 'none') {
     music = null;
     situation = undefined;
-  } else if (wantsMusic !== 'keep' || !previous?.musicId) {
-    const s: Situation = isSituation(wantsMusic)
+  } else {
+    const base: Situation = isSituation(wantsMusic)
       ? wantsMusic
       : previous?.situation && isSituation(previous.situation)
         ? previous.situation
         : SITUATION_FROM_MOOD[turn.mood];
+    // High tension climbs one step within the same story beat.
+    const s: Situation =
+      d.music.tension === 'high' ? (ESCALATE[base] ?? base) : base;
     if (s !== previous?.situation || !previous?.musicId) {
-      music = pickMusic(s, turn.mood, `${seed}:music`, previous?.musicId);
+      music = pickMusic(
+        s,
+        d.music.tension === 'low' ? turn.mood : 'dark',
+        `${seed}:music`,
+        previous?.musicId,
+      );
       situation = s;
     }
   }
@@ -219,21 +273,23 @@ const resolveSound = (
       : previous?.place && isPlace(previous.place)
         ? previous.place
         : fromTags;
+    // The scene's own time line beats a forgotten default.
+    const wantTime = hint.time ?? d.ambience.time;
+    const wantWeather =
+      hint.weather ??
+      (wantsPlace === 'keep'
+        ? (previous?.weather ?? d.ambience.weather)
+        : d.ambience.weather);
     const changed =
       p !== previous?.place ||
-      d.ambience.time !== previous?.time ||
-      d.ambience.weather !== previous?.weather ||
+      wantTime !== previous?.time ||
+      wantWeather !== previous?.weather ||
       !previous?.place;
-    if (p && (wantsPlace !== 'keep' || changed)) {
-      ambience = pickAmbience(
-        p,
-        d.ambience.time,
-        d.ambience.weather,
-        `${seed}:amb`,
-      );
+    if (p && changed) {
+      ambience = pickAmbience(p, wantTime, wantWeather, `${seed}:amb`);
       place = p;
-      time = d.ambience.time;
-      weather = d.ambience.weather;
+      time = wantTime;
+      weather = wantWeather;
     }
   }
   // ── Cues ──
@@ -244,4 +300,4 @@ const resolveSound = (
   return { situation, place, time, weather, music, ambience, cues };
 };
 
-export { PLACE_FROM_TAG, resolveSound };
+export { ESCALATE, inferFromTime, PLACE_FROM_TAG, resolveSound };

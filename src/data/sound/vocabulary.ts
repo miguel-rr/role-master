@@ -119,6 +119,7 @@ const UI_CUES = [
   'fumble',
   'reveal',
   'soundcheck',
+  'heartbeat',
 ] as const;
 
 type Situation = (typeof SITUATIONS)[number];

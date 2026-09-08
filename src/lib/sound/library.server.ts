@@ -37,6 +37,9 @@ const soundById = (id: string) => loadLibrary().find((e) => e.id === id);
 const uiSounds = (): Partial<Record<UiCue, SoundEntry>> => {
   const out: Partial<Record<UiCue, SoundEntry>> = {};
   for (const e of byLayer('ui')) if (e.tags.cue) out[e.tags.cue as UiCue] = e;
+  // The low-hit-points heartbeat lives on the effects shelf.
+  const heartbeat = byLayer('sfx').find((e) => e.tags.cue === 'heartbeat');
+  if (heartbeat) out.heartbeat = heartbeat;
   return out;
 };
 

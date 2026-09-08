@@ -1,6 +1,7 @@
 'use client';
 
 import type { SoundEntry } from '@/data/sound/schema';
+import type { UiCue } from '@/data/sound/vocabulary';
 
 /**
  * The table's sound desk: four buses into a master limiter. Music streams
@@ -96,6 +97,9 @@ class SoundEngine {
   private lastSpot: string | null = null;
   private buffers = new Map<string, Promise<AudioBuffer>>();
   private opus = true;
+  private uiMap: Partial<Record<UiCue, SoundEntry>> = {};
+  private heartbeat: { source: AudioBufferSourceNode; gain: GainNode } | null =
+    null;
   private listeners = new Set<() => void>();
   private snapshot: Snapshot = {
     status: 'idle',
@@ -430,6 +434,54 @@ class SoundEngine {
     void this.oneShot(entry, 'ui');
   }
 
+  /** Interface sounds by cue, so shared components can play them. */
+  registerUi(map: Partial<Record<UiCue, SoundEntry>>) {
+    this.uiMap = { ...this.uiMap, ...map };
+  }
+
+  cue(name: UiCue) {
+    this.playUi(this.uiMap[name]);
+  }
+
+  /** A slow pulse under everything while someone is close to falling. */
+  setHeartbeat(on: boolean) {
+    if (!on) {
+      if (this.heartbeat && this.ctx) {
+        const t = this.ctx.currentTime;
+        this.heartbeat.gain.gain.setTargetAtTime(0.0001, t, 0.6);
+        try {
+          this.heartbeat.source.stop(t + 3);
+        } catch {
+          /* already stopped */
+        }
+        this.heartbeat = null;
+      }
+      return;
+    }
+    if (this.heartbeat || !this.ctx || !this.buses || !this.ready) return;
+    const entry = this.uiMap.heartbeat;
+    if (!entry) return;
+    const ctx = this.ctx;
+    void this.buffer(entry).then((buf) => {
+      if (this.heartbeat) return;
+      const source = ctx.createBufferSource();
+      source.buffer = buf;
+      source.loop = true;
+      const gain = ctx.createGain();
+      const t = ctx.currentTime;
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.linearRampToValueAtTime(
+        0.55 * dbToGain(entry.gain ?? 0),
+        t + 2,
+      );
+      source
+        .connect(gain)
+        .connect((this.buses as Record<Bus, GainNode>).effects);
+      source.start(t);
+      this.heartbeat = { source, gain };
+    });
+  }
+
   /** Warms the decode cache for the next scene. */
   preload(entries: SoundEntry[]) {
     if (!this.ctx) return;
@@ -441,6 +493,7 @@ class SoundEngine {
   stopAll() {
     this.playMusic(null, { fade: 1.5 });
     this.setAmbience(null, { fade: 1.5 });
+    this.setHeartbeat(false);
   }
 }
 

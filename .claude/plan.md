@@ -369,7 +369,16 @@ y televisor, sin voz por ahora).
   párrafo.
 - **Laboratorio** `/design/sound`: audición de la biblioteca por capa y
   etiqueta para curar.
-- Pendiente (fase 2-3): Freesound cuando llegue la clave (camas de taberna,
-  lluvia, viento, cueva… y puntuales), curación de Miguel, página `/credits`,
-  tensión progresiva, día/noche automático, latido con pocos PV, sonidos de
-  carta de objeto.
+- **Decisión (2026-09-08)**: la mezcla se compone **al vuelo** desde las
+  etiquetas del narrador; sin presets firmados. Miguel escuchó la biblioteca
+  y le gustó; sin curación por ahora.
+- **Freesound**: 110 piezas CC0 (34 camas, 37 puntuales, 39 efectos); todas
+  las consultas cubiertas gracias a frases alternativas. Clave en `.env`.
+- **Fase 3 (hecha)**: tensión «high» sube un escalón la situación musical
+  (`ESCALATE`) y «mid» prefiere pistas oscuras; hora y clima se deducen de la
+  línea de tiempo de la escena (`inferFromTime`) por si el narrador deja el
+  valor por defecto; latido en bucle en el bus de efectos cuando alguien
+  baja de un cuarto de sus PV; sonido al abrir una carta de objeto (registro
+  de cues de interfaz en el motor). `/credits` publicado.
+- Pendiente: decisión sobre voz leída; curación fina cuando Miguel tenga
+  tiempo; ducking de la música bajo efectos fuertes si hiciera falta.

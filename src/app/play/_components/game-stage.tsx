@@ -208,6 +208,18 @@ const GameStage = ({
   );
 
   // ── Sound: the desk follows the scene ──────────────────────────────
+  useEffect(() => {
+    engine.registerUi(ui);
+  }, [engine, ui]);
+
+  // Someone under a quarter of their hit points: a pulse under the scene.
+  const inDanger = state.characters.some(
+    (c) => c.hp > 0 && c.hp / c.maxHp <= 0.25,
+  );
+  useEffect(() => {
+    engine.setHeartbeat(inDanger && sound.status === 'running');
+  }, [engine, inDanger, sound.status]);
+
   // biome-ignore lint/correctness/useExhaustiveDependencies: a new turn id is the cue; the rest is stable
   useEffect(() => {
     if (!turn) return;
@@ -360,6 +372,7 @@ const GameStage = ({
     <div
       className="fixed inset-0 z-50 overflow-hidden bg-charcoal-950 text-white"
       data-ambience={sound.bedIds.join(',')}
+      data-heartbeat={inDanger ? 'on' : 'off'}
       data-last-cue={sound.lastCue ?? ''}
       data-music={sound.musicId ?? ''}
       data-sound={sound.status}

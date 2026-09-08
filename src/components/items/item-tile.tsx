@@ -6,6 +6,7 @@ import { ArtImage } from '@/components/theme/art';
 import type { ArtEntry } from '@/data/art/schema';
 import type { InventoryItem } from '@/data/characters/presets';
 import { loreFor } from '@/data/items/lore';
+import { soundEngine } from '@/lib/sound/engine';
 
 type Slot = { item: InventoryItem; art: ArtEntry | undefined };
 
@@ -166,6 +167,7 @@ const ItemTile = ({ item, art, variant = 'pack' }: ItemTileProps) => {
   const id = useId();
   const ring = item.rarity ? RARITY_RING[item.rarity] : 'ring-gold-page/35';
   const toggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!anchor) soundEngine().cue('item-card');
     setAnchor(anchor ? null : e.currentTarget.getBoundingClientRect());
   };
 
