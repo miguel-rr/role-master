@@ -9,12 +9,6 @@ import { Atmosphere, type AtmosphereKind } from './atmosphere';
 
 type Speaker = { name: string; role: string };
 
-type SceneChoice = {
-  label: string;
-  hint?: string;
-  who: 'bram' | 'nissa' | 'both';
-};
-
 /**
  * A scene plays as an ordered list of beats. Narration lives on the
  * parchment; a `line` is spoken by the scene's character, who steps into
@@ -24,6 +18,26 @@ type SceneChoice = {
 type Beat =
   | { kind: 'narration'; text: string; reveal?: boolean }
   | { kind: 'line'; text: string };
+
+type Roll = {
+  skill: string;
+  modifier: number;
+  dc: number;
+};
+
+/** What happens after a choice: an optional check, then beats per result. */
+type Outcome = {
+  roll?: Roll;
+  success: Beat[];
+  failure?: Beat[];
+};
+
+type SceneChoice = {
+  label: string;
+  hint?: string;
+  who: 'bram' | 'nissa' | 'both';
+  outcome?: Outcome;
+};
 
 type Scene = {
   id: string;
@@ -42,6 +56,8 @@ type Scene = {
   speaker: Speaker;
   beats: Beat[];
   choices: SceneChoice[];
+  /** Beats played after a free-text action (the narrator riffs on it). */
+  customOutcome?: Beat[];
   atmosphere: AtmosphereKind;
   /** Colour grade over the background. */
   grade: string;
@@ -105,7 +121,22 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
   const scene = scenes[index];
   const prevScene = prev != null ? scenes[prev] : undefined;
 
-  const beats = useMemo(() => scene?.beats ?? [], [scene]);
+  /** After a decision: the chip with the roll, then the follow-up beats. */
+  type Resolution = {
+    label: string;
+    who: 'bram' | 'nissa' | 'both';
+    roll?: Roll & { result: number; total: number; success: boolean };
+    beats: Beat[];
+    phase: 'rolling' | 'settled' | 'playing';
+  };
+  const [resolution, setResolution] = useState<Resolution | null>(null);
+  const [dieFace, setDieFace] = useState(1);
+
+  const beats = useMemo(
+    () =>
+      resolution?.phase === 'playing' ? resolution.beats : (scene?.beats ?? []),
+    [resolution, scene],
+  );
   const current = beats[Math.min(step, beats.length - 1)];
   const atEnd = step >= beats.length - 1;
   const { visible, done, finish } = useTypewriter(
@@ -125,7 +156,8 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
   const figureVisible = beats
     .slice(0, step + 1)
     .some((b) => b.kind === 'line' || (b.kind === 'narration' && b.reveal));
-  const speaking = current?.kind === 'line';
+  const speaking =
+    current?.kind === 'line' && !(resolution && resolution.phase !== 'playing');
 
   const go = useCallback(
     (next: number) => {
@@ -138,6 +170,7 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
       setPicked(null);
       setCustomText('');
       setCustomSent(null);
+      setResolution(null);
       window.setTimeout(() => setPrev(null), 1000);
     },
     [index, scenes.length],
@@ -149,6 +182,71 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
       return;
     }
     if (!atEnd) setStep((s) => s + 1);
+  };
+
+  const DEFAULT_CUSTOM: Beat[] = [
+    {
+      kind: 'narration',
+      text: 'El máster se queda un segundo en silencio, que es lo más parecido a un elogio que vais a sacarle. Luego mueve las piezas.',
+    },
+  ];
+
+  /** Collapses the choices into a chip, rolls if needed, then plays the follow-up. */
+  const resolve = (
+    label: string,
+    who: 'bram' | 'nissa' | 'both',
+    outcome: Outcome | undefined,
+    fallbackBeats: Beat[],
+  ) => {
+    if (!scene) return;
+    if (!outcome?.roll) {
+      setResolution({
+        label,
+        who,
+        beats: outcome?.success ?? fallbackBeats,
+        phase: 'settled',
+      });
+      window.setTimeout(
+        () => setResolution((r) => (r ? { ...r, phase: 'playing' } : r)),
+        900,
+      );
+      setStep(0);
+      return;
+    }
+    const roll = outcome.roll;
+    const result = 1 + Math.floor(Math.random() * 20);
+    const total = result + roll.modifier;
+    const success = result === 20 || (result !== 1 && total >= roll.dc);
+    setResolution({
+      label,
+      who,
+      roll: { ...roll, result, total, success },
+      beats: success ? outcome.success : (outcome.failure ?? outcome.success),
+      phase: 'rolling',
+    });
+    // Spin the die for a moment, then settle and play.
+    let ticks = 0;
+    const spin = window.setInterval(() => {
+      setDieFace(1 + Math.floor(Math.random() * 20));
+      ticks += 1;
+      if (ticks >= 14) {
+        window.clearInterval(spin);
+        setDieFace(result);
+        setResolution((r) => (r ? { ...r, phase: 'settled' } : r));
+        window.setTimeout(() => {
+          setStep(0);
+          setResolution((r) => (r ? { ...r, phase: 'playing' } : r));
+        }, 1300);
+      }
+    }, 80);
+  };
+
+  const restart = () => {
+    setResolution(null);
+    setPicked(null);
+    setCustomText('');
+    setCustomSent(null);
+    setStep(0);
   };
 
   useEffect(() => {
@@ -184,11 +282,15 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
   if (!scene || !current) return null;
 
   const right = scene.figureSide === 'right';
-  const showChoices = done && atEnd;
+  const showChoices = done && atEnd && !resolution;
+  const playing = resolution?.phase === 'playing';
+  const outcomeDone = playing && done && atEnd;
   const hint = !done
     ? 'Pulsa para leer todo'
     : atEnd
-      ? 'Decidid'
+      ? playing
+        ? 'Fin de la muestra'
+        : 'Decidid'
       : 'Continuar ▸';
 
   return (
@@ -346,7 +448,7 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
         className={`absolute bottom-[4.5rem] flex w-[min(60vw,58rem)] flex-col justify-end ${right ? 'left-[4vw]' : 'right-[4vw]'}`}
       >
         <button
-          className={`paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left transition-all duration-500 ${speaking ? 'pointer-events-none max-h-0 translate-y-6 overflow-hidden opacity-0' : 'max-h-[60vh] opacity-100'}`}
+          className={`paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left transition-all duration-500 ${speaking || (resolution && resolution.phase !== 'playing') ? 'pointer-events-none max-h-0 translate-y-6 overflow-hidden opacity-0' : 'max-h-[60vh] opacity-100'}`}
           onClick={advance}
           type="button"
         >
@@ -376,9 +478,75 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
           </div>
         </button>
 
+        {/* Decision reminder + roll */}
+        {resolution ? (
+          <div className="mt-3 flex animate-fade-in flex-wrap items-center gap-3 rounded-md border border-brass/40 bg-charcoal-950/85 px-4 py-2.5 backdrop-blur">
+            <span
+              className="font-condensed text-[0.65rem] uppercase tracking-wider"
+              style={{
+                color:
+                  party.find((p) => p.id === resolution.who)?.color ??
+                  '#c3a76e',
+              }}
+            >
+              {resolution.who === 'both'
+                ? 'Ambos'
+                : party.find((p) => p.id === resolution.who)?.name}
+            </span>
+            <span className="font-book text-[1rem] text-parchment-text">
+              {resolution.label}
+            </span>
+            {resolution.roll ? (
+              <span className="ml-auto flex items-center gap-2 font-scaly text-charcoal-300 text-sm">
+                <span>
+                  {resolution.roll.skill} · CD {resolution.roll.dc}
+                </span>
+                <span
+                  className={`flex h-9 w-9 items-center justify-center rounded-[22%] border-2 font-nodesto text-lg ${resolution.phase === 'rolling' ? 'animate-pulse border-brass/60 text-brass-pale' : resolution.roll.result === 20 ? 'border-brand-400 text-brand-400' : resolution.roll.result === 1 ? 'border-charcoal-500 text-charcoal-400' : 'border-brass text-brass-pale'}`}
+                >
+                  {dieFace}
+                </span>
+                {resolution.phase !== 'rolling' ? (
+                  <span>
+                    {resolution.roll.modifier >= 0 ? '+' : '−'}
+                    {Math.abs(resolution.roll.modifier)} ={' '}
+                    <b className="text-white">{resolution.roll.total}</b>
+                    <span
+                      className={`ml-2 font-caps text-base ${resolution.roll.success ? 'text-brass-pale' : 'text-brand-300'}`}
+                    >
+                      {resolution.roll.result === 20
+                        ? '¡Crítico!'
+                        : resolution.roll.result === 1
+                          ? 'Pifia'
+                          : resolution.roll.success
+                            ? 'Éxito'
+                            : 'Fallo'}
+                    </span>
+                  </span>
+                ) : null}
+              </span>
+            ) : (
+              <span className="ml-auto font-scaly text-charcoal-400 text-sm">
+                Sin tirada
+              </span>
+            )}
+          </div>
+        ) : null}
+        {outcomeDone ? (
+          <div className="mt-3 flex justify-end">
+            <button
+              className="btn-ghost px-4 py-2 text-xs uppercase backdrop-blur"
+              onClick={restart}
+              type="button"
+            >
+              Volver al inicio de la escena
+            </button>
+          </div>
+        ) : null}
+
         {/* Choices */}
         <div
-          className={`mt-3 grid gap-2 transition-all duration-500 ${showChoices ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'}`}
+          className={`mt-3 grid gap-2 transition-all duration-500 ${showChoices ? 'translate-y-0 opacity-100' : 'pointer-events-none max-h-0 translate-y-2 overflow-hidden opacity-0'}`}
         >
           {scene.choices.map((c, i) => {
             const who = party.find((p) => p.id === c.who);
@@ -386,7 +554,15 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
               <button
                 className={`flex items-center gap-3 rounded-md border px-4 py-2.5 text-left backdrop-blur transition ${picked === i ? 'border-transparent bg-charcoal-100 text-charcoal-900' : 'border-white/15 bg-charcoal-950/70 text-white hover:border-brass/70'}`}
                 key={c.label}
-                onClick={() => setPicked(i)}
+                onClick={() => {
+                  setPicked(i);
+                  resolve(c.label, c.who, c.outcome, [
+                    {
+                      kind: 'narration',
+                      text: 'El máster asiente y la escena sigue su curso.',
+                    },
+                  ]);
+                }}
                 style={
                   picked === i && who
                     ? { boxShadow: `inset 4px 0 0 ${who.color}` }
@@ -422,6 +598,12 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
               if (!text) return;
               setPicked('custom');
               setCustomSent(text);
+              resolve(
+                `«${text}»`,
+                customWho,
+                undefined,
+                scene.customOutcome ?? DEFAULT_CUSTOM,
+              );
             }}
           >
             <div className="flex shrink-0 overflow-hidden rounded border border-white/15">
@@ -563,4 +745,4 @@ const Backdrop = ({
 );
 
 export { SceneStage };
-export type { Beat, Scene, SceneChoice };
+export type { Beat, Outcome, Roll, Scene, SceneChoice };

@@ -49,13 +49,100 @@ const buildScenes = (): Scene[] => [
         label: 'Pagar sin regatear y preguntar por el tablón.',
         who: 'bram',
         hint: 'Persuasión',
+        outcome: {
+          roll: { skill: 'Persuasión', modifier: -1, dc: 12 },
+          success: [
+            {
+              kind: 'narration',
+              text: 'Bram deja las cinco monedas en el mostrador sin contarlas, y eso dice más que cualquier discurso. El posadero las mira, os mira, y algo en su cara se afloja medio dedo.',
+            },
+            {
+              kind: 'line',
+              text: '—El de arriba es del Alcaide: lo del dragón. No lo toquéis todavía. El del medio lo puso una enana hace tres días, buscaba a su hermano. Y el de abajo… el de abajo lo colgaron los Capas Rojas para ver quién era tan tonto de arrancarlo.',
+            },
+            {
+              kind: 'narration',
+              text: 'Se inclina un poco más y baja la voz, aunque en la sala todos fingen no escuchar.',
+            },
+            {
+              kind: 'line',
+              text: '—Si vais a arrancar alguno, que sea el de la enana. Paga en oro y no tiene amigos en esta calle.',
+            },
+          ],
+          failure: [
+            {
+              kind: 'line',
+              text: '—Cinco de plata compran cama y estofado, no compran conversación. Y menos con esa cara de venir a arreglar el mundo.',
+            },
+            {
+              kind: 'narration',
+              text: 'Recoge las monedas con dos dedos, como si pudieran morder, y señala una mesa junto a la ventana. Del tablón, ni una palabra. Uno de los mineros suelta una risa corta y la esconde en la jarra.',
+            },
+          ],
+        },
       },
       {
         label: 'Sentarme junto al minero que no deja de mirar la puerta.',
         who: 'nissa',
         hint: 'Perspicacia',
+        outcome: {
+          roll: { skill: 'Perspicacia', modifier: 0, dc: 11 },
+          success: [
+            {
+              kind: 'narration',
+              text: 'Nissa se deja caer en el banco con la naturalidad de quien lleva toda la vida sentándose donde no la han invitado. El minero da un respingo. Tiene las uñas rotas y una quemadura reciente en el dorso de la mano, con forma de aro.',
+            },
+            {
+              kind: 'narration',
+              text: 'No mira la puerta por miedo a quien pueda entrar. La mira por si entra alguien concreto. Cuando Nissa apoya el codo en la mesa, él aparta la mano quemada y murmura, sin mover los labios: «Si sois de los Rockseeker, no digáis el nombre aquí».',
+            },
+            {
+              kind: 'line',
+              text: '—¡Grista! Que no molesten a la clientela. Y tú, pequeña, si quieres compañía la pagas como todo el mundo.',
+            },
+          ],
+          failure: [
+            {
+              kind: 'narration',
+              text: 'Nissa se sienta, sonríe, y el minero se levanta como si el banco quemara. Deja media jarra y tres monedas de cobre, y sale a la lluvia sin mirar atrás. Solo entonces Nissa se da cuenta de que la bolsa que llevaba al cinto era demasiado gorda para un minero.',
+            },
+            {
+              kind: 'line',
+              text: '—Enhorabuena. Acabáis de espantar al único que pagaba en plata.',
+            },
+          ],
+        },
       },
-      { label: 'Pedir estofado para los dos y escuchar.', who: 'both' },
+      {
+        label: 'Pedir estofado para los dos y escuchar.',
+        who: 'both',
+        outcome: {
+          success: [
+            {
+              kind: 'narration',
+              text: 'Dos cuencos, dos cucharas y un pan que parece haber sobrevivido a un asedio. Coméis en silencio y el silencio hace su trabajo: al tercer bocado, la sala ha decidido que no sois nadie, y nadie oye cosas.',
+            },
+            {
+              kind: 'narration',
+              text: 'Que el dragón se ha llevado tres vacas de la granja de los Dunbar. Que la enana del tablón duerme en la posada y baja a preguntar cada mañana. Que los Capas Rojas cobran el «impuesto de la puerta» los martes, y hoy es lunes.',
+            },
+            {
+              kind: 'line',
+              text: '—El estofado, cortesía de la casa. La información, esa ya la habéis pagado escuchando. Mañana tendréis que decidir a quién de los tres se la vendéis.',
+            },
+          ],
+        },
+      },
+    ],
+    customOutcome: [
+      {
+        kind: 'narration',
+        text: 'El posadero levanta una ceja. No es la reacción que esperaba y, en una taberna como esta, lo inesperado tiene un precio y un público.',
+      },
+      {
+        kind: 'line',
+        text: '—Sois raros. Me gustan los raros: dejan propina o dejan historias. Sentaos, que os traigo el estofado y ya veremos cuál de las dos.',
+      },
     ],
     atmosphere: 'embers',
     grade: 'linear-gradient(180deg, rgba(120,60,10,0.18), rgba(20,10,5,0.35))',
