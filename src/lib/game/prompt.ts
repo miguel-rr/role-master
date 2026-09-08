@@ -87,13 +87,15 @@ Devuelves exactamente un objeto con el esquema indicado. Guía:
   una línea para el diario.
 - Longitud: cada beat entre 40 y 120 palabras. Nada de listas ni títulos
   dentro de los textos.
-- "sound": la mesa tiene música, ambiente y efectos. Lo normal es "keep" en
-  música y en ambiente: solo cambias la música cuando cambia lo que pasa
-  (llega el combate, se acaba, entra la tristeza) y el ambiente cuando cambia
-  el lugar, la hora o el clima. "tension" sube dentro de la misma situación.
-  "cues": de cero a cuatro efectos puntuales ligados al índice del beat en que
-  ocurren (una puerta que se abre en el beat 1, un trueno en el 3). Úsalos
-  cuando el texto los nombra; no los inventes de relleno.
+- "sound": la mesa tiene música, ambiente y efectos; tres cadenas cortas.
+  "music": "keep" (lo normal), "none", o una situación del vocabulario,
+  opcionalmente seguida de la tensión ("exploration high"). Solo cambias la
+  música cuando cambia lo que pasa (llega el combate, se acaba, entra la
+  tristeza). "ambience": "keep", "none", o un lugar del vocabulario seguido
+  opcionalmente de hora y clima ("forest night rain"); cambia solo con el
+  lugar, la hora o el clima. "cues": de cero a cuatro cadenas "índice efecto"
+  ("1 door-wood-open", "3 thunder") con el índice del beat en que ocurre.
+  Úsalos cuando el texto los nombra; no los inventes de relleno.
 `.trim();
 
 const sheetOf = (
@@ -187,9 +189,9 @@ Criaturas ("monsterTag"): ${vocab.monsters.join(', ')}.
 Habilidades para "roll.skill": ${SKILLS.map((s) => s.name).join(', ')}; también "Salvación de <característica>" e "Iniciativa".
 
 ## Vocabulario de sonido (usa SOLO estas etiquetas)
-Música ("sound.music.situation"): ${SITUATIONS.join(', ')}; o "keep" / "none".
-Ambiente ("sound.ambience.place"): ${PLACES.join(', ')}; o "keep" / "none". "time": day, night. "weather": ${WEATHERS.join(', ')}.
-Efectos ("sound.cues[].sfx"): ${CUES.join(', ')}.
+Música ("sound.music"): ${SITUATIONS.join(', ')}; o "keep" / "none"; tensión: low, mid, high.
+Ambiente ("sound.ambience"): ${PLACES.join(', ')}; o "keep" / "none"; hora: day, night; clima: ${WEATHERS.join(', ')}.
+Efectos ("sound.cues"): ${CUES.join(', ')}.
 `.trim();
 };
 

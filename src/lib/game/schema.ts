@@ -93,6 +93,63 @@ const soundDirectionSchema = z.object({
     .default([]),
 });
 
+/**
+ * The sound block as the model writes it: three flat strings. Nested objects
+ * and enums blow up the structured-output grammar ("compiled grammar is too
+ * large"), so the vocabulary lives in the prompt and `sanitizeSound` parses:
+ *   music:    "keep" | "none" | "<situation>" | "<situation> high"
+ *   ambience: "keep" | "none" | "<place>" | "<place> night rain"
+ *   cues:     ["1 door-wood-open", "3 thunder"]
+ */
+const looseSoundDirectionSchema = z.object({
+  music: z.string().default('keep'),
+  ambience: z.string().default('keep'),
+  cues: z.array(z.string()).max(4).default([]),
+});
+
+type LooseSound = z.infer<typeof looseSoundDirectionSchema>;
+
+const oneOf = <T extends string>(
+  list: readonly T[],
+  words: string[],
+  fallback: T,
+): T => words.find((w): w is T => list.includes(w as T)) ?? fallback;
+
+/** Parses the flat strings; anything outside the vocabulary means "keep". */
+const sanitizeSound = (loose: LooseSound): SoundDirection => {
+  const words = (v: string) =>
+    v
+      .toLowerCase()
+      .split(/[\s,;:/|]+/)
+      .filter(Boolean);
+  const m = words(loose.music);
+  const a = words(loose.ambience);
+  return {
+    music: {
+      situation: oneOf([...SITUATIONS, 'keep', 'none'] as const, m, 'keep'),
+      tension: oneOf(TENSIONS, m, 'low'),
+    },
+    ambience: {
+      place: oneOf([...PLACES, 'keep', 'none'] as const, a, 'keep'),
+      time: oneOf(TIMES, a, 'day'),
+      weather: oneOf(WEATHERS, a, 'clear'),
+    },
+    cues: loose.cues.flatMap((c) => {
+      const w = words(c);
+      const beat = Number(w.find((x) => /^\d$/.test(x)) ?? Number.NaN);
+      const sfx = w.find((x) => (CUES as readonly string[]).includes(x));
+      return sfx && Number.isFinite(beat)
+        ? [
+            {
+              beat: Math.min(6, Math.max(0, beat)),
+              sfx: sfx as (typeof CUES)[number],
+            },
+          ]
+        : [];
+    }),
+  };
+};
+
 /** A character id, or "both" for a shared decision. */
 const whoSchema = z.string().min(1);
 const BOTH = 'both';
@@ -111,9 +168,11 @@ const rollRequestSchema = z.object({
 const buildSceneTurnSchema = <
   W extends z.ZodType<string>,
   O extends z.ZodType<string>,
+  S extends z.ZodType,
 >(
   who: W,
   one: O,
+  sound: S,
 ) => {
   const choice = z.object({
     label: z.string().min(1),
@@ -152,23 +211,50 @@ const buildSceneTurnSchema = <
     summary: z.string().min(1),
     /** True when the party reaches a natural stopping point. */
     sceneEnds: z.boolean().default(false),
-    sound: soundDirectionSchema.default({
-      music: { situation: 'keep', tension: 'low' },
-      ambience: { place: 'keep', time: 'day', weather: 'clear' },
-      cues: [],
-    }),
+    sound,
   });
 };
 
-const sceneTurnSchema = buildSceneTurnSchema(whoSchema, whoSchema);
+const sceneTurnSchema = buildSceneTurnSchema(
+  whoSchema,
+  whoSchema,
+  soundDirectionSchema.default({
+    music: { situation: 'keep', tension: 'low' },
+    ambience: { place: 'keep', time: 'day', weather: 'clear' },
+    cues: [],
+  }),
+);
 const choiceSchema = sceneTurnSchema.shape.choices.element;
 const effectsSchema = sceneTurnSchema.shape.effects;
 
-/** The same schema with `who` narrowed to the characters at the table. */
+/**
+ * What the model is asked to produce: `who` narrowed to the table, sound as
+ * plain strings (see `sanitizeSound`). Kept small on purpose: the API
+ * compiles it into a grammar.
+ */
 const sceneTurnSchemaFor = (characterIds: readonly string[]) => {
   const ids = [...characterIds] as [string, ...string[]];
-  return buildSceneTurnSchema(z.enum([...ids, BOTH]), z.enum(ids));
+  return buildSceneTurnSchema(
+    z.enum([...ids, BOTH]),
+    z.enum(ids),
+    looseSoundDirectionSchema,
+  );
 };
+
+/** Same narrowing of `who`, strict sound: what the app holds internally. */
+const strictSceneTurnSchemaFor = (characterIds: readonly string[]) => {
+  const ids = [...characterIds] as [string, ...string[]];
+  return buildSceneTurnSchema(
+    z.enum([...ids, BOTH]),
+    z.enum(ids),
+    soundDirectionSchema,
+  );
+};
+
+/** Narrows a model turn (loose sound) into the app's strict `SceneTurn`. */
+const narrowTurn = (
+  turn: z.infer<ReturnType<typeof sceneTurnSchemaFor>>,
+): SceneTurn => ({ ...turn, sound: sanitizeSound(turn.sound) });
 
 const rollResultSchema = rollRequestSchema.extend({
   modifier: z.number().int(),
@@ -348,9 +434,12 @@ export {
   rollRequestSchema,
   rollResultSchema,
   sceneTurnSchema,
+  narrowTurn,
+  sanitizeSound,
   sceneTurnSchemaFor,
   soundDirectionSchema,
   soundtrackSchema,
+  strictSceneTurnSchemaFor,
   turnRequestSchema,
   turnResponseSchema,
   whoSchema,

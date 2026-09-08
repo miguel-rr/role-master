@@ -4,7 +4,7 @@ import { applyEffects, newGameState } from '@/lib/game/party';
 import {
   type PlayerAction,
   type SceneTurn,
-  sceneTurnSchemaFor,
+  strictSceneTurnSchemaFor,
   type TurnRequest,
 } from '@/lib/game/schema';
 
@@ -21,7 +21,7 @@ const playThrough = (succeed: boolean) => {
     death: 'never',
     players,
   });
-  const schema = sceneTurnSchemaFor(players.map((p) => p.characterId));
+  const schema = strictSceneTurnSchemaFor(players.map((p) => p.characterId));
   const history: TurnRequest['history'] = [];
   let action: PlayerAction = { kind: 'start' };
   let characters = state.characters;

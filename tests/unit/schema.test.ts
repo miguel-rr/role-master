@@ -4,7 +4,7 @@ import { newGameState } from '@/lib/game/party';
 import {
   gameStateSchema,
   sceneTurnSchema,
-  sceneTurnSchemaFor,
+  strictSceneTurnSchemaFor,
   type TurnRequest,
 } from '@/lib/game/schema';
 
@@ -25,7 +25,7 @@ const request = (overrides: Partial<TurnRequest> = {}): TurnRequest => ({
 });
 
 describe('sceneTurnSchemaFor', () => {
-  const schema = sceneTurnSchemaFor(['dagna', 'corran']);
+  const schema = strictSceneTurnSchemaFor(['dagna', 'corran']);
   it('accepts the table ids and "both", rejects strangers', () => {
     const turn = mockTurn(request());
     expect(schema.safeParse(turn).success).toBe(true);
@@ -43,6 +43,39 @@ describe('sceneTurnSchemaFor', () => {
       effects: { hp: [{ who: 'both', delta: -1 }], gold: [], items: [] },
     };
     expect(schema.safeParse(bad).success).toBe(false);
+  });
+});
+
+describe('model-facing sound block', () => {
+  it('is three flat strings that narrow into the strict block', async () => {
+    const { sceneTurnSchemaFor, narrowTurn } = await import(
+      '@/lib/game/schema'
+    );
+    const loose = sceneTurnSchemaFor(['dagna', 'corran']);
+    const turn = mockTurn(request());
+    const parsed = loose.parse({
+      ...turn,
+      sound: {
+        music: 'exploration high',
+        ambience: 'forest night rain',
+        cues: ['1 owl', '2 nonsense'],
+      },
+    });
+    const strict = narrowTurn(parsed);
+    expect(strict.sound.music).toEqual({
+      situation: 'exploration',
+      tension: 'high',
+    });
+    expect(strict.sound.ambience).toEqual({
+      place: 'forest',
+      time: 'night',
+      weather: 'rain',
+    });
+    expect(strict.sound.cues).toEqual([{ beat: 1, sfx: 'owl' }]);
+    expect(
+      narrowTurn(loose.parse({ ...turn, sound: { music: 'lo que sea' } })).sound
+        .music.situation,
+    ).toBe('keep');
   });
 });
 

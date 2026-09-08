@@ -11,6 +11,7 @@ import {
 import { mockTurn } from '@/lib/game/mock-narrator';
 import { buildMessages, tableState, VOICE } from '@/lib/game/prompt';
 import {
+  narrowTurn,
   type SceneTurn,
   sceneTurnSchemaFor,
   type TurnRequest,
@@ -99,7 +100,7 @@ const narrateWithClaude = async (
   const usage = response.usage;
   return {
     ok: true,
-    turn: turn.data,
+    turn: narrowTurn(turn.data),
     usage: {
       input: usage.input_tokens,
       output: usage.output_tokens,
