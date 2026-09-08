@@ -245,21 +245,6 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
               background: `radial-gradient(ellipse at 50% 30%, ${scene.accent}55, transparent 70%)`,
             }}
           />
-          {/* Name plate hanging from the figure, only for characters */}
-          {scene.figureKind === 'character' ? (
-            <div
-              className={`absolute top-[9vh] ${right ? 'left-0 -translate-x-1/3' : 'right-0 translate-x-1/3'} animate-fade-in`}
-            >
-              <div className="flex flex-col items-start rounded-sm border border-brass/70 bg-charcoal-950/85 px-3 py-1.5 shadow-lg backdrop-blur">
-                <span className="font-caps text-brass-pale text-xl leading-none">
-                  {scene.speaker.name}
-                </span>
-                <span className="font-condensed text-[0.62rem] text-strapline uppercase tracking-wider">
-                  {scene.speaker.role}
-                </span>
-              </div>
-            </div>
-          ) : null}
         </div>
       ) : null}
 
@@ -316,37 +301,52 @@ const SceneStage = ({ scenes, party }: SceneStageProps) => {
       {/* Speech: the character's words come from the character */}
       {scene.figure && scene.figureKind === 'character' ? (
         <div
-          className={`absolute top-[20vh] w-[min(34vw,30rem)] transition-all duration-500 ${right ? 'right-[calc(4vw+min(46vw,62vh)-5vw)]' : 'left-[calc(4vw+min(46vw,62vh)-5vw)]'} ${speaking ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
+          className={`absolute top-[11vh] w-[min(36vw,32rem)] transition-all duration-500 ${right ? 'right-[calc(4vw+min(46vw,62vh)-6vw)]' : 'left-[calc(4vw+min(46vw,62vh)-6vw)]'} ${speaking ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
         >
+          {/* Name plate, on the edge nearest the figure */}
+          <div
+            className={`absolute -top-5 z-10 flex flex-col rounded-sm border border-brass/70 bg-charcoal-950 px-3 py-1.5 shadow-lg ${right ? 'right-5' : 'left-5'}`}
+          >
+            <span className="font-caps text-brass-pale text-xl leading-none">
+              {scene.speaker.name}
+            </span>
+            <span className="font-condensed text-[0.62rem] text-strapline uppercase tracking-wider">
+              {scene.speaker.role}
+            </span>
+          </div>
           <button
-            className="relative block w-full cursor-pointer rounded-lg border border-brass/50 bg-charcoal-950/80 px-6 py-5 text-left backdrop-blur-md"
+            className="relative block w-full cursor-pointer rounded-lg border border-brass/50 px-6 pt-8 pb-5 text-left"
             onClick={advance}
             style={{
-              boxShadow: `inset 0 0 0 1px rgba(255,255,255,0.04), 0 20px 50px rgba(0,0,0,0.55), 0 0 40px ${scene.accent}22`,
+              background:
+                'linear-gradient(180deg, rgba(20,24,28,0.96), rgba(12,14,18,0.96))',
+              boxShadow: `inset 0 0 0 1px rgba(255,255,255,0.04), 0 24px 60px rgba(0,0,0,0.6), 0 0 48px ${scene.accent}22`,
             }}
             type="button"
           >
             {/* Tail towards the figure */}
             <span
-              className={`absolute top-10 h-4 w-4 rotate-45 border-brass/50 bg-charcoal-950/80 ${right ? '-right-2 border-t border-r' : '-left-2 border-b border-l'}`}
+              className={`absolute top-14 h-4 w-4 rotate-45 border-brass/50 bg-[#14181c] ${right ? '-right-2 border-t border-r' : '-left-2 border-b border-l'}`}
             />
             <p className="font-book text-[1.25rem] text-parchment-text leading-[1.5]">
               {speaking ? visible : current.text}
             </p>
-            <div className="mt-3 flex items-center justify-between font-condensed text-[0.65rem] uppercase tracking-widest">
-              <span style={{ color: scene.accent }}>{scene.speaker.name}</span>
+            <div className="mt-4 flex items-center justify-between font-condensed text-[0.65rem] uppercase tracking-widest">
+              <span style={{ color: scene.accent }}>
+                Habla {scene.speaker.name}
+              </span>
               <span className="text-charcoal-400">{hint}</span>
             </div>
           </button>
         </div>
       ) : null}
 
-      {/* Narration on parchment */}
+      {/* Narration on parchment + choices, bottom column opposite the figure */}
       <div
-        className={`absolute bottom-[4.5rem] w-[min(60vw,58rem)] transition-all duration-500 ${right ? 'left-[4vw]' : 'right-[4vw]'} ${speaking ? 'opacity-60' : 'opacity-100'}`}
+        className={`absolute bottom-[4.5rem] flex w-[min(60vw,58rem)] flex-col justify-end ${right ? 'left-[4vw]' : 'right-[4vw]'}`}
       >
         <button
-          className="paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left"
+          className={`paper relative block w-full cursor-pointer rounded-[3px] px-9 pt-8 pb-7 text-left transition-all duration-500 ${speaking ? 'pointer-events-none max-h-0 translate-y-6 overflow-hidden opacity-0' : 'max-h-[60vh] opacity-100'}`}
           onClick={advance}
           type="button"
         >
