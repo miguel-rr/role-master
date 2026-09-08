@@ -190,9 +190,7 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   await nextTurn(page, 5);
   // Adabra's 25 gold on top of 15, minus the coin Toblen keeps if the
   // first Persuasion check failed: the dice are real, both paths are fine.
-  await expect(page.getByTestId('hud-stats-dagna')).toContainText(
-    /(39|40) po/,
-  );
+  await expect(page.getByTestId('hud-stats-dagna')).toContainText(/(39|40) po/);
   await readThrough(page);
   await page.getByTestId('hud-corran').click();
   await page.getByTestId('overlay-view-pack').click();
