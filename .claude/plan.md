@@ -210,6 +210,13 @@ orden:
 4. *La Maldición de Strahd* (3+): segunda campaña; Ismark e Ireena como
    compañeros y el aliado de la Tarokka como PJ de apoyo; Death House suavizada.
 Además, **campaña original** generada por la IA a partir de semillas.
+**Duración estimada** (campo `duration` de cada biblia; se muestra en el
+menú y en «La compañía»): no hay medición propia todavía; el cálculo parte
+de las cifras de mesa de la investigación (Pico Escarcha completo, 15-25
+sesiones) y asume una sesión de 2-3 horas por encargo para dos jugadores con
+narrador de IA. Acto I: 3-5 sesiones, 8-15 horas. Cuando haya partidas
+reales, sustituir por turnos y minutos medidos (`history[].turn` con
+`updatedAt` ya da la base).
 Escalado a dos PJ: multiplicador siguiente del DMG 2014, sanador o pociones
 siempre a mano, salida posible de cada combate.
 

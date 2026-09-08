@@ -67,6 +67,9 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   // ── Menu ─────────────────────────────────────────────────────────────
   await page.goto('/');
   await expect(page.getByText('Seis personajes esperan')).toBeVisible();
+  await expect(page.getByTestId('campaign-duration')).toContainText(
+    '3-5 sesiones',
+  );
   await page.getByTestId('model-claude-fable-5-1').click();
   await page.getByTestId('death-possible').click();
   await page.getByTestId('start-campaign').click();
@@ -117,7 +120,10 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   );
   await expect(page.getByTestId('company-dagna')).toContainText('Lon');
   await expect(page.getByTestId('company-corran')).toContainText('Jato');
-  await expect(page.getByText('Narrador Fable 5.1')).toBeVisible();
+  await expect(page.getByText(/Narrador Fable 5.1/)).toBeVisible();
+  await expect(page.getByText(/Duración estimada del acto/)).toContainText(
+    '8-15 horas',
+  );
   await page.screenshot({ path: `${SHOTS}/04-company.png` });
   // Jato can still change their mind from the company screen.
   await page.getByTestId('redo-jato').click();

@@ -67,6 +67,7 @@ const HomePage = () => {
           title: ICESPIRE_ACT1.title,
           tagline: ICESPIRE_ACT1.tagline,
           levelRange: ICESPIRE_ACT1.levelRange,
+          duration: ICESPIRE_ACT1.duration,
         }}
         roster={roster}
       />

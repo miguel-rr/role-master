@@ -49,7 +49,7 @@ const narrateWithClaude = async (
     { type: 'text', text: VOICE, cache_control: { type: 'ephemeral' } },
     {
       type: 'text',
-      text: `# BIBLIA DE CAMPAÑA: ${campaign.title}\n${campaign.tagline}\n${campaign.levelRange}\n\n${campaign.bible}`,
+      text: `# BIBLIA DE CAMPAÑA: ${campaign.title}\n${campaign.tagline}\n${campaign.levelRange}\nRitmo previsto: ${campaign.duration.sessions} de 2-3 horas (${campaign.duration.hours}). ${campaign.duration.note}\n\n${campaign.bible}`,
       cache_control: { type: 'ephemeral' },
     },
     {

@@ -11,6 +11,18 @@ type Campaign = {
   title: string;
   tagline: string;
   levelRange: string;
+  /**
+   * How long it takes at the table. Estimated, not measured: sessions of
+   * 2-3 hours for two players with an AI narrator (see .claude/plan.md §10).
+   */
+  duration: {
+    /** Short, for cards: "3-5 sesiones". */
+    sessions: string;
+    /** Total hours as a range: "8-15 horas". */
+    hours: string;
+    /** One line on how the estimate was made and what moves it. */
+    note: string;
+  };
   /** Free text the narrator reads as the truth of the world. */
   bible: string;
   /** The exact instructions for turn one. */
@@ -23,6 +35,11 @@ const ICESPIRE_ACT1: Campaign = {
   tagline:
     'Un pueblo minero con más problemas que vecinos y un dragón blanco que ha decidido que la montaña es suya.',
   levelRange: 'Niveles 1 a 3 (Acto I)',
+  duration: {
+    sessions: '3-5 sesiones',
+    hours: '8-15 horas',
+    note: 'Llegada a Phandalin, los tres encargos del tablón y el cierre del acto. Una sesión de 2-3 horas por encargo, más la primera; la aventura completa (niveles 1-6) ronda las 15-25 sesiones.',
+  },
   bible: `
 # EL DRAGÓN DEL PICO ESCARCHA — ACTO I
 

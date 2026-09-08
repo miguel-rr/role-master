@@ -8,7 +8,13 @@ import type { GameState } from '@/lib/game/schema';
 import { loadGame } from '@/lib/game/storage';
 
 type HomeMenuProps = {
-  campaign: { id: string; title: string; tagline: string; levelRange: string };
+  campaign: {
+    id: string;
+    title: string;
+    tagline: string;
+    levelRange: string;
+    duration: { sessions: string; hours: string; note: string };
+  };
   roster: {
     id: string;
     name: string;
@@ -84,6 +90,14 @@ const HomeMenu = ({ campaign, roster }: HomeMenuProps) => {
         </p>
         <p className="mt-1 font-scaly text-charcoal-400 text-sm">
           {campaign.levelRange}
+        </p>
+        <p
+          className="mt-1 font-scaly text-charcoal-400 text-sm"
+          data-testid="campaign-duration"
+          title={campaign.duration.note}
+        >
+          Duración estimada: {campaign.duration.sessions} de 2-3 horas (
+          {campaign.duration.hours}).
         </p>
 
         <div className="mt-6 grid gap-5 sm:grid-cols-2">

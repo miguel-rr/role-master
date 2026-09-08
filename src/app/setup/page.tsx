@@ -35,7 +35,11 @@ const SetupPage = async ({ searchParams }: { searchParams: SearchParams }) => {
 
   return (
     <SetupFlow
-      campaign={{ id: campaign.id, title: campaign.title }}
+      campaign={{
+        id: campaign.id,
+        title: campaign.title,
+        duration: campaign.duration,
+      }}
       coinArt={coinArt()}
       cover={byId('scenes/fr/triboar-trail-klaus-pillon')}
       death={death}

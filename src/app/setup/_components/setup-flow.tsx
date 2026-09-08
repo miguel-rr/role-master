@@ -18,7 +18,11 @@ import type { GameState } from '@/lib/game/schema';
 import { clearGame, saveGame } from '@/lib/game/storage';
 
 type SetupFlowProps = {
-  campaign: { id: string; title: string };
+  campaign: {
+    id: string;
+    title: string;
+    duration: { sessions: string; hours: string; note: string };
+  };
   model: GameState['model'];
   death: GameState['death'];
   roster: RosterEntry[];
@@ -479,7 +483,9 @@ const SetupFlow = ({
               ? 'no'
               : death === 'unlikely'
                 ? 'altamente improbable'
-                : 'puede pasar'}
+                : 'puede pasar'}{' '}
+            · Duración estimada del acto: {campaign.duration.sessions} (
+            {campaign.duration.hours})
           </p>
         </section>
       )}
