@@ -138,11 +138,32 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   await page.getByTestId('confirm-character').click();
   await expect(page.getByTestId('company-corran')).toContainText('Jato');
   await page.getByTestId('begin-adventure').click();
+
+  // ── Sound check: one click unlocks the desk, then into the tavern ────
+  await expect(page).toHaveURL(/\/soundcheck$/);
+  await expect(page.getByTestId('soundcheck-continue')).toBeDisabled();
+  await page.getByTestId('soundcheck-test').click();
+  await expect(page.getByText('Sonando', { exact: true })).toBeVisible();
+  await page.screenshot({ path: `${SHOTS}/04b-soundcheck.png` });
+  await page.getByTestId('mixer-music').fill('40');
+  await page.getByTestId('soundcheck-continue').click();
   await expect(page).toHaveURL(/\/play$/);
 
   // ── Turn 1: the tavern, Toblen speaks ────────────────────────────────
   await nextTurn(page, 1);
   await expect(page.getByTestId('place')).toContainText('Ciervo Dormido');
+  // The desk follows the scene: tavern music, tavern beds, the door cue.
+  const stage = page.getByTestId('game-stage');
+  await expect(stage).toHaveAttribute('data-sound', 'running');
+  await expect(stage).toHaveAttribute('data-music', /music\//);
+  await expect(stage).toHaveAttribute('data-ambience', /bed\//);
+  await expect(stage).toHaveAttribute('data-last-cue', 'door-wood-close');
+  const tavernMusic = await stage.getAttribute('data-music');
+  // The fader set on the sound check survived the navigation.
+  await page.getByTestId('sound-button').click();
+  await expect(page.getByTestId('mixer-music')).toHaveValue('40');
+  await page.keyboard.press('Escape');
+  await page.mouse.click(700, 300);
   await expect(page.getByTestId('backdrop')).not.toHaveAttribute(
     'data-background',
     '',
@@ -213,6 +234,9 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   // ── Turn 3: a new place, a free-text action ──────────────────────────
   await nextTurn(page, 3);
   await expect(page.getByTestId('place')).toContainText('Sendero de Triboar');
+  // New place, new situation: the music and the beds move on.
+  await expect(stage).not.toHaveAttribute('data-music', tavernMusic ?? '');
+  await expect(stage).toHaveAttribute('data-ambience', /bed\//);
   await readThrough(page);
   await page.getByTestId('custom-who-both').click();
   await page
@@ -223,6 +247,13 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   // ── Turn 4: the creature reveals itself ──────────────────────────────
   await nextTurn(page, 4);
   await expect(page.getByTestId('place')).toContainText('Colina Umbrage');
+  // M mutes the table and unmutes it.
+  await page.keyboard.press('m');
+  await page.getByTestId('sound-button').click();
+  await expect(page.getByTestId('mixer-toggle')).toContainText('Silenciado');
+  await page.keyboard.press('m');
+  await expect(page.getByTestId('mixer-toggle')).toContainText('Sonando');
+  await page.mouse.click(700, 300);
   await expect(lastDecision).toContainText('«Silbamos una canción');
   await readThrough(page);
   await expect(page.getByTestId('figure')).toBeVisible();

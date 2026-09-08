@@ -1,5 +1,6 @@
 import type { Campaign } from '@/data/campaigns/icespire-act1';
 import { type CharacterPreset, presetById } from '@/data/characters/presets';
+import { CUES, PLACES, SITUATIONS, WEATHERS } from '@/data/sound/vocabulary';
 import {
   ABILITIES,
   ABILITY_LABEL,
@@ -86,6 +87,13 @@ Devuelves exactamente un objeto con el esquema indicado. Guía:
   una línea para el diario.
 - Longitud: cada beat entre 40 y 120 palabras. Nada de listas ni títulos
   dentro de los textos.
+- "sound": la mesa tiene música, ambiente y efectos. Lo normal es "keep" en
+  música y en ambiente: solo cambias la música cuando cambia lo que pasa
+  (llega el combate, se acaba, entra la tristeza) y el ambiente cuando cambia
+  el lugar, la hora o el clima. "tension" sube dentro de la misma situación.
+  "cues": de cero a cuatro efectos puntuales ligados al índice del beat en que
+  ocurren (una puerta que se abre en el beat 1, un trueno en el 3). Úsalos
+  cuando el texto los nombra; no los inventes de relleno.
 `.trim();
 
 const sheetOf = (
@@ -177,6 +185,11 @@ Lugares ("sceneTags"): ${vocab.places.join(', ')}.
 Retratos de personaje ("race"): human, elf, dwarf, halfling, gnome, half-elf, half-orc, tiefling, dragonborn. ("gender"): male, female. ("tags"): fighter, rogue, wizard, cleric, ranger, paladin, barbarian, bard, druid, monk, sorcerer, warlock, noble, merchant, innkeeper, guard, soldier, commoner, priest, knight, pirate, bandit, cultist, scholar, hunter, blacksmith, child, elder.
 Criaturas ("monsterTag"): ${vocab.monsters.join(', ')}.
 Habilidades para "roll.skill": ${SKILLS.map((s) => s.name).join(', ')}; también "Salvación de <característica>" e "Iniciativa".
+
+## Vocabulario de sonido (usa SOLO estas etiquetas)
+Música ("sound.music.situation"): ${SITUATIONS.join(', ')}; o "keep" / "none".
+Ambiente ("sound.ambience.place"): ${PLACES.join(', ')}; o "keep" / "none". "time": day, night. "weather": ${WEATHERS.join(', ')}.
+Efectos ("sound.cues[].sfx"): ${CUES.join(', ')}.
 `.trim();
 };
 

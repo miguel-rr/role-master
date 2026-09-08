@@ -1,0 +1,719 @@
+{
+  "collection": "kenney",
+  "generatedAt": "2026-09-08T12:52:14.913Z",
+  "entries": [
+    {
+      "id": "sfx/bell",
+      "layer": "sfx",
+      "src": "/audio/sfx/bell.webm",
+      "duration": 1.5,
+      "gain": 0,
+      "lufs": -1.1,
+      "title": "Bell",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/impact-sounds"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "bell"
+      }
+    },
+    {
+      "id": "sfx/body-fall",
+      "layer": "sfx",
+      "src": "/audio/sfx/body-fall.webm",
+      "duration": 0.4,
+      "gain": 0,
+      "lufs": -0.1,
+      "title": "Drop",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "body-fall"
+      }
+    },
+    {
+      "id": "sfx/book-close",
+      "layer": "sfx",
+      "src": "/audio/sfx/book-close.webm",
+      "duration": 0.2,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Book close",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "book-close"
+      }
+    },
+    {
+      "id": "sfx/chain",
+      "layer": "sfx",
+      "src": "/audio/sfx/chain.webm",
+      "duration": 0.9,
+      "gain": 0,
+      "lufs": -1.1,
+      "title": "Mining",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/impact-sounds"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "chain"
+      }
+    },
+    {
+      "id": "sfx/coin",
+      "layer": "sfx",
+      "src": "/audio/sfx/coin.webm",
+      "duration": 0.3,
+      "gain": 0,
+      "lufs": -10.7,
+      "title": "Coin",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "coin"
+      }
+    },
+    {
+      "id": "sfx/coins-pour",
+      "layer": "sfx",
+      "src": "/audio/sfx/coins-pour.webm",
+      "duration": 0.8,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Coins",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "coins-pour"
+      }
+    },
+    {
+      "id": "sfx/door-iron",
+      "layer": "sfx",
+      "src": "/audio/sfx/door-iron.webm",
+      "duration": 0.5,
+      "gain": 0,
+      "lufs": -1,
+      "title": "Plate heavy",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/impact-sounds"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "door-iron"
+      }
+    },
+    {
+      "id": "sfx/door-wood-close",
+      "layer": "sfx",
+      "src": "/audio/sfx/door-wood-close.webm",
+      "duration": 0.7,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Door close",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "door-wood-close"
+      }
+    },
+    {
+      "id": "sfx/door-wood-open",
+      "layer": "sfx",
+      "src": "/audio/sfx/door-wood-open.webm",
+      "duration": 0.9,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Door open",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "door-wood-open"
+      }
+    },
+    {
+      "id": "sfx/footsteps-stone",
+      "layer": "sfx",
+      "src": "/audio/sfx/footsteps-stone.webm",
+      "duration": 0.2,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Footstep",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "footsteps-stone"
+      }
+    },
+    {
+      "id": "sfx/footsteps-wood",
+      "layer": "sfx",
+      "src": "/audio/sfx/footsteps-wood.webm",
+      "duration": 0.7,
+      "gain": 0,
+      "lufs": -6.7,
+      "title": "Creak",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "footsteps-wood"
+      }
+    },
+    {
+      "id": "sfx/glass-break",
+      "layer": "sfx",
+      "src": "/audio/sfx/glass-break.webm",
+      "duration": 0.2,
+      "gain": 0,
+      "lufs": -1.1,
+      "title": "Glass",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/impact-sounds"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "glass-break"
+      }
+    },
+    {
+      "id": "sfx/gong",
+      "layer": "sfx",
+      "src": "/audio/sfx/gong.webm",
+      "duration": 0.2,
+      "gain": 0,
+      "lufs": -0.9,
+      "title": "Metal heavy",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/impact-sounds"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "gong"
+      }
+    },
+    {
+      "id": "sfx/impact",
+      "layer": "sfx",
+      "src": "/audio/sfx/impact.webm",
+      "duration": 0.2,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Chop",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "impact"
+      }
+    },
+    {
+      "id": "sfx/lock",
+      "layer": "sfx",
+      "src": "/audio/sfx/lock.webm",
+      "duration": 0.3,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Latch",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "lock"
+      }
+    },
+    {
+      "id": "sfx/mug",
+      "layer": "sfx",
+      "src": "/audio/sfx/mug.webm",
+      "duration": 1.5,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Pot",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "mug"
+      }
+    },
+    {
+      "id": "sfx/parchment",
+      "layer": "sfx",
+      "src": "/audio/sfx/parchment.webm",
+      "duration": 0.7,
+      "gain": 0,
+      "lufs": -3.5,
+      "title": "Cloth",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "parchment"
+      }
+    },
+    {
+      "id": "sfx/rockfall",
+      "layer": "sfx",
+      "src": "/audio/sfx/rockfall.webm",
+      "duration": 0.3,
+      "gain": 0,
+      "lufs": -0.9,
+      "title": "Wood heavy",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/impact-sounds"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "rockfall"
+      }
+    },
+    {
+      "id": "sfx/sword-clash",
+      "layer": "sfx",
+      "src": "/audio/sfx/sword-clash.webm",
+      "duration": 0.6,
+      "gain": 0,
+      "lufs": -1.3,
+      "title": "Blade",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "sword-clash"
+      }
+    },
+    {
+      "id": "sfx/sword-draw",
+      "layer": "sfx",
+      "src": "/audio/sfx/sword-draw.webm",
+      "duration": 0.4,
+      "gain": 0,
+      "lufs": -24.3,
+      "title": "Blade drawn",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "sword-draw"
+      }
+    },
+    {
+      "id": "ui/click",
+      "layer": "ui",
+      "src": "/audio/ui/click.webm",
+      "duration": 0.1,
+      "gain": 0,
+      "lufs": -1.5,
+      "title": "Click",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/ui-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "choice"
+      }
+    },
+    {
+      "id": "ui/crit",
+      "layer": "ui",
+      "src": "/audio/ui/crit.webm",
+      "duration": 0.3,
+      "gain": 0,
+      "lufs": -0.9,
+      "title": "Confirmation",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/interface-sounds"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "crit"
+      }
+    },
+    {
+      "id": "ui/dice-land",
+      "layer": "ui",
+      "src": "/audio/ui/dice-land.webm",
+      "duration": 0.4,
+      "gain": 0,
+      "lufs": -6.9,
+      "title": "Land",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "dice-land"
+      }
+    },
+    {
+      "id": "ui/dice-rattle",
+      "layer": "ui",
+      "src": "/audio/ui/dice-rattle.webm",
+      "duration": 0.3,
+      "gain": 0,
+      "lufs": -3.3,
+      "title": "Rattle",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "dice-rattle"
+      }
+    },
+    {
+      "id": "ui/fumble",
+      "layer": "ui",
+      "src": "/audio/ui/fumble.webm",
+      "duration": 0.6,
+      "gain": 0,
+      "lufs": -1,
+      "title": "Punch",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/impact-sounds"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "fumble"
+      }
+    },
+    {
+      "id": "ui/page-turn",
+      "layer": "ui",
+      "src": "/audio/ui/page-turn.webm",
+      "duration": 0.4,
+      "gain": 0,
+      "lufs": -8.3,
+      "title": "Page turn",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/rpg-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "page-turn"
+      }
+    },
+    {
+      "id": "ui/reveal",
+      "layer": "ui",
+      "src": "/audio/ui/reveal.webm",
+      "duration": 0.4,
+      "gain": 0,
+      "lufs": -0.9,
+      "title": "Maximize",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/interface-sounds"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "reveal"
+      }
+    },
+    {
+      "id": "ui/rollover",
+      "layer": "ui",
+      "src": "/audio/ui/rollover.webm",
+      "duration": 0.1,
+      "gain": 0,
+      "lufs": -1.8,
+      "title": "Rollover",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/ui-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "item-card"
+      }
+    },
+    {
+      "id": "ui/soundcheck",
+      "layer": "ui",
+      "src": "/audio/ui/soundcheck.webm",
+      "duration": 0.1,
+      "gain": 0,
+      "lufs": -1,
+      "title": "Glass",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/interface-sounds"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "soundcheck"
+      }
+    },
+    {
+      "id": "ui/switch",
+      "layer": "ui",
+      "src": "/audio/ui/switch.webm",
+      "duration": 0.3,
+      "gain": 0,
+      "lufs": -1.8,
+      "title": "Switch",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/ui-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "open-sheet"
+      }
+    },
+    {
+      "id": "ui/switch-back",
+      "layer": "ui",
+      "src": "/audio/ui/switch-back.webm",
+      "duration": 0.4,
+      "gain": 0,
+      "lufs": 0,
+      "title": "Switch back",
+      "artist": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "kenney",
+        "page": "https://kenney.nl/assets/ui-audio"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": [],
+        "cue": "close-sheet"
+      }
+    }
+  ]
+}

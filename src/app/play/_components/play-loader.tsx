@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import type { ArtEntry } from '@/data/art/schema';
+import type { SoundEntry } from '@/data/sound/schema';
+import type { UiCue } from '@/data/sound/vocabulary';
 import { buildParty, type RosterEntry } from '@/lib/game/party';
 import type { GameState } from '@/lib/game/schema';
 import { loadGame } from '@/lib/game/storage';
@@ -15,11 +17,13 @@ const PlayLoader = ({
   itemArt,
   coinArt,
   cover,
+  ui,
 }: {
   roster: RosterEntry[];
   itemArt: Record<string, ArtEntry>;
   coinArt: CoinArt;
   cover: ArtEntry | undefined;
+  ui: Partial<Record<UiCue, SoundEntry>>;
 }) => {
   const router = useRouter();
   const [state, setState] = useState<GameState | null | undefined>(undefined);
@@ -47,6 +51,7 @@ const PlayLoader = ({
       initial={state}
       itemArt={itemArt}
       party={buildParty(state.players, roster)}
+      ui={ui}
     />
   );
 };

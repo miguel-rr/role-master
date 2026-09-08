@@ -1,5 +1,14 @@
 import { z } from 'zod';
 import { artEntrySchema } from '@/data/art/schema';
+import { soundEntrySchema } from '@/data/sound/schema';
+import {
+  CUES,
+  PLACES,
+  SITUATIONS,
+  TENSIONS,
+  TIMES,
+  WEATHERS,
+} from '@/data/sound/vocabulary';
 
 /**
  * The contract between the narrator (Claude) and the stage. Everything the
@@ -57,6 +66,32 @@ const figureSchema = z.discriminatedUnion('kind', [
     monsterTag: z.string().min(1),
   }),
 ]);
+
+/**
+ * What the scene should sound like. "keep" is the normal answer: music and
+ * ambience only move when the story does. Cues fire on a given beat.
+ */
+const soundDirectionSchema = z.object({
+  music: z
+    .object({
+      situation: z.enum([...SITUATIONS, 'keep', 'none']).default('keep'),
+      tension: z.enum(TENSIONS).default('low'),
+    })
+    .default({ situation: 'keep', tension: 'low' }),
+  ambience: z
+    .object({
+      place: z.enum([...PLACES, 'keep', 'none']).default('keep'),
+      time: z.enum(TIMES).default('day'),
+      weather: z.enum(WEATHERS).default('clear'),
+    })
+    .default({ place: 'keep', time: 'day', weather: 'clear' }),
+  cues: z
+    .array(
+      z.object({ beat: z.number().int().min(0).max(6), sfx: z.enum(CUES) }),
+    )
+    .max(4)
+    .default([]),
+});
 
 /** A character id, or "both" for a shared decision. */
 const whoSchema = z.string().min(1);
@@ -117,6 +152,11 @@ const buildSceneTurnSchema = <
     summary: z.string().min(1),
     /** True when the party reaches a natural stopping point. */
     sceneEnds: z.boolean().default(false),
+    sound: soundDirectionSchema.default({
+      music: { situation: 'keep', tension: 'low' },
+      ambience: { place: 'keep', time: 'day', weather: 'clear' },
+      cues: [],
+    }),
   });
 };
 
@@ -153,6 +193,34 @@ const playerActionSchema = z.discriminatedUnion('kind', [
   }),
 ]);
 
+/** Concrete pieces for the desk, resolved on the server. */
+const soundtrackSchema = z.object({
+  /** Situation actually playing (after "keep" is resolved). */
+  situation: z.string().optional(),
+  /** Place of the ambience actually playing. */
+  place: z.string().optional(),
+  time: z.enum(TIMES).optional(),
+  weather: z.enum(WEATHERS).optional(),
+  /** "keep" leaves the desk alone; null fades the music out. */
+  music: z.union([z.literal('keep'), soundEntrySchema.nullable()]),
+  ambience: z.union([
+    z.literal('keep'),
+    z
+      .object({
+        beds: z.array(soundEntrySchema),
+        spots: z.array(soundEntrySchema),
+      })
+      .nullable(),
+  ]),
+  cues: z.array(
+    z.object({
+      beat: z.number().int(),
+      sfx: z.string(),
+      entry: soundEntrySchema,
+    }),
+  ),
+});
+
 const resolvedTurnSchema = sceneTurnSchema.extend({
   id: z.string(),
   background: artEntrySchema.optional(),
@@ -160,6 +228,7 @@ const resolvedTurnSchema = sceneTurnSchema.extend({
   focus: z.string(),
   grade: z.string(),
   accent: z.string(),
+  soundtrack: soundtrackSchema.optional(),
 });
 
 const characterStateSchema = z.object({
@@ -218,7 +287,19 @@ const turnRequestSchema = z.object({
           choices: true,
           summary: true,
         })
-        .extend({ backgroundId: z.string().optional() }),
+        .extend({
+          backgroundId: z.string().optional(),
+          /** What was sounding, so "keep" and continuity work server-side. */
+          sound: z
+            .object({
+              situation: z.string().optional(),
+              place: z.string().optional(),
+              time: z.enum(TIMES).optional(),
+              weather: z.enum(WEATHERS).optional(),
+              musicId: z.string().optional(),
+            })
+            .optional(),
+        }),
     }),
   ),
   action: playerActionSchema,
@@ -246,6 +327,8 @@ type ResolvedTurn = z.infer<typeof resolvedTurnSchema>;
 type PlayerAction = z.infer<typeof playerActionSchema>;
 type CharacterState = z.infer<typeof characterStateSchema>;
 type Player = z.infer<typeof playerSchema>;
+type SoundDirection = z.infer<typeof soundDirectionSchema>;
+type Soundtrack = z.infer<typeof soundtrackSchema>;
 type GameState = z.infer<typeof gameStateSchema>;
 type TurnRequest = z.infer<typeof turnRequestSchema>;
 type TurnResponse = z.infer<typeof turnResponseSchema>;
@@ -266,6 +349,8 @@ export {
   rollResultSchema,
   sceneTurnSchema,
   sceneTurnSchemaFor,
+  soundDirectionSchema,
+  soundtrackSchema,
   turnRequestSchema,
   turnResponseSchema,
   whoSchema,
@@ -285,6 +370,8 @@ export type {
   RollRequest,
   RollResult,
   SceneTurn,
+  SoundDirection,
+  Soundtrack,
   TurnRequest,
   TurnResponse,
   Who,

@@ -17,6 +17,7 @@ import {
   type TurnResponse,
   turnRequestSchema,
 } from '@/lib/game/schema';
+import { resolveSound } from '@/lib/sound/resolver';
 
 // The narrator can take a while at high effort; give it room.
 export const maxDuration = 300;
@@ -147,8 +148,9 @@ export async function POST(request: Request) {
       req.npcArt,
       last ? { place: last.place, backgroundId: last.backgroundId } : undefined,
     );
+    const soundtrack = resolveSound(narrated.turn, `${id}:sound`, last?.sound);
     const payload: TurnResponse = {
-      turn: resolved,
+      turn: { ...resolved, soundtrack },
       npcArt,
       usage: narrated.usage,
     };

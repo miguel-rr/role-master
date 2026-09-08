@@ -21,6 +21,10 @@ type DiceModalProps = {
   request: DiceRequest;
   /** Called with every die value once the roll settles and the player accepts. */
   onDone: (values: number[]) => void;
+  /** The dice leave the hand. */
+  onRoll?: () => void;
+  /** The dice come to rest. */
+  onSettled?: (values: number[]) => void;
 };
 
 const ROLL_TIMEOUT_MS = 9000;
@@ -49,7 +53,7 @@ const randomInt = (sides: number) => 1 + Math.floor(Math.random() * sides);
  * The table's dice tray, opened when the narrator asks for a check. Rolls the
  * 3D dice (2D fallback), reads them, and hands the values back.
  */
-const DiceModal = ({ request, onDone }: DiceModalProps) => {
+const DiceModal = ({ request, onDone, onRoll, onSettled }: DiceModalProps) => {
   const boxRef = useRef<DiceBoxType | null>(null);
   const startedRef = useRef(false);
   const [engine, setEngine] = useState<'loading' | '3d' | '2d'>('loading');
@@ -124,13 +128,16 @@ const DiceModal = ({ request, onDone }: DiceModalProps) => {
       await new Promise((r) => setTimeout(r, 70));
     }
     setSpin(null);
-    setValues(expected.map((s) => randomInt(s)));
+    const vals = expected.map((s) => randomInt(s));
+    setValues(vals);
+    onSettled?.(vals);
   };
 
   const roll = async () => {
     if (rolling) return;
     setRolling(true);
     setValues(null);
+    onRoll?.();
     try {
       const box = boxRef.current;
       if (engine !== '3d' || !box || document.hidden) {
@@ -156,7 +163,9 @@ const DiceModal = ({ request, onDone }: DiceModalProps) => {
           ...expected.slice(vals.length).map((s) => randomInt(s)),
         ];
       }
-      setValues(vals.slice(0, expected.length));
+      const finalVals = vals.slice(0, expected.length);
+      setValues(finalVals);
+      onSettled?.(finalVals);
     } catch {
       await roll2d();
     } finally {

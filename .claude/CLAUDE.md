@@ -11,6 +11,9 @@ de tocar nada y actualízalo cuando se cierre una decisión.
 - Build: `pnpm build`
 - Lint + format: `pnpm check` (auto-fix: `pnpm check:write`)
 - Typecheck: `pnpm typecheck`
+- Audio: `pnpm audio:sync` (descarga, normaliza y transcodifica la biblioteca
+  a `public/audio`; necesita `ffmpeg` y `unzip`; `--job <nombre>` para una
+  fuente). Freesound necesita `FREESOUND_API_KEY` en `.env`.
 - Tests: `pnpm test` (`test:unit` con vitest, `test:e2e` con Playwright).
   El e2e construye y sirve la app en el puerto 3002 con el narrador de guion;
   nunca llama a Anthropic. Next solo permite un `next dev` por proyecto, por

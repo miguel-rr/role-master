@@ -17,6 +17,7 @@ const SECTIONS = [
   { href: '#dados', label: 'Dados' },
   { href: '#estilo', label: 'Estilo' },
   { href: '/design/scenes', label: 'Escenas' },
+  { href: '/design/sound', label: 'Sonido' },
 ];
 
 const DesignLayout = ({

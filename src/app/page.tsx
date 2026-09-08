@@ -202,9 +202,13 @@ const HomePage = () => {
           </ShelfRow>
         ))}
 
-        <footer className="mx-auto mt-10 max-w-[1600px] px-6 font-scaly text-charcoal-500 text-xs">
-          Las campañas anunciadas son portadas para probar la estantería: su
-          biblia aún no está escrita.
+        <footer className="mx-auto mt-10 flex max-w-[1600px] flex-wrap items-center justify-between gap-3 px-6 font-scaly text-charcoal-500 text-xs">
+          <span>
+            Las campañas anunciadas son portadas: su biblia aún no está escrita.
+          </span>
+          <Link className="hover:text-charcoal-300" href="/credits">
+            Créditos de música y sonido
+          </Link>
         </footer>
       </div>
     </main>

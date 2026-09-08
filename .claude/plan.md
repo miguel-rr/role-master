@@ -341,11 +341,35 @@ con `pnpm art:hd`. Este contrato de datos es el que emitirá el narrador.
 - Pendiente: creador de personajes propio, tablero táctico en combate,
   exportar/importar partida, streaming del texto para acortar la espera.
 
-## 15. Sonido — propuesta presentada (2026-09-08), pendiente de Miguel
-Investigación y diseño en `.claude/sound-proposal.md`: tres capas (música,
-ambiente con puntuales, efectos de escena) más interfaz y dados; motor
-propio sobre Web Audio con cuatro buses y fundidos; pantalla de comprobación
-de sonido antes de la partida; biblioteca con fuentes CC0 / CC BY (Freesound,
-Incompetech, Nakarada, Darren Curtis, OpenGameArt, Kenney, Sonniss) y
-manifiesto con créditos; bloque `sound` en el esquema del turno; tres fases.
-Ocho preguntas abiertas al final del documento.
+## 15. Sonido (2026-09-08) — fase 1 construida
+Propuesta completa en `.claude/sound-proposal.md` (Miguel aprobó: audio en
+el repo, motor propio, solo fuentes gratuitas, página de créditos, portátil
+y televisor, sin voz por ahora).
+- **Motor** `src/lib/sound/engine.ts`: Web Audio sin dependencias; buses
+  música / ambiente / efectos / interfaz → master con limitador; música por
+  dos `<audio>` alternos con fundido equal-power; camas decodificadas en bucle
+  sin hueco; puntuales aleatorios cada 12-42 s con tono y paneo variados;
+  mezcla en `localStorage["role-master:sound:v1"]`; `unlock()` en un gesto.
+- **Vocabulario** `src/data/sound/vocabulary.ts` (situaciones, lugares,
+  hora, clima, tensión, cues de escena, cues de interfaz). El turno lleva
+  `sound { music, ambience, cues }` con "keep" como valor normal; el
+  resolutor `src/lib/sound/resolver.ts` elige piezas con continuidad (evita
+  repetir la última pista; deriva el lugar de `sceneTags` si el narrador
+  calla) y devuelve `soundtrack` en el turno resuelto.
+- **Biblioteca**: `scripts/audio/sync.ts` + `scripts/audio/jobs.ts`
+  (Incompetech por reglas y lista de títulos, OpenGameArt por página, Kenney
+  por zip, Freesound por consulta CC0 con clave). Normaliza sonoridad por
+  capa (−18/−24/−20/−16 LUFS), Opus 96/64/48 kb/s + AAC de respaldo, camas
+  recortadas a 3 min. Manifiestos en `src/data/sound/manifests/`.
+- **Pantalla** `/soundcheck` entre «La compañía» y `/play`: «Probar el
+  sonido», mezcla, «Lo oigo, adelante» / «Seguir sin sonido». En partida:
+  altavoz en el HUD con la mesa, tecla M, pastilla «Activar sonido» si el
+  navegador suspende el audio; pasar página por turno, clic de decisión,
+  dados (traqueteo, caída, crítico, pifia), revelación de criatura, cues por
+  párrafo.
+- **Laboratorio** `/design/sound`: audición de la biblioteca por capa y
+  etiqueta para curar.
+- Pendiente (fase 2-3): Freesound cuando llegue la clave (camas de taberna,
+  lluvia, viento, cueva… y puntuales), curación de Miguel, página `/credits`,
+  tensión progresiva, día/noche automático, latido con pocos PV, sonidos de
+  carta de objeto.

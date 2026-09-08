@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { byId } from '@/data/art/catalog';
 import { coinArt, itemArtMap, rosterArt } from '@/lib/game/roster.server';
+import { uiSounds } from '@/lib/sound/library.server';
 import { PlayLoader } from './_components/play-loader';
 
 export const dynamic = 'force-dynamic';
@@ -17,6 +18,7 @@ const PlayPage = () => (
     cover={byId('scenes/fr/klauthen-vale')}
     itemArt={itemArtMap()}
     roster={rosterArt()}
+    ui={uiSounds()}
   />
 );
 

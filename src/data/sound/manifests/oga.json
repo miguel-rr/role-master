@@ -1,0 +1,235 @@
+{
+  "collection": "oga",
+  "generatedAt": "2026-09-08T12:52:12.780Z",
+  "entries": [
+    {
+      "id": "bed/crickets",
+      "layer": "bed",
+      "src": "/audio/bed/crickets.webm",
+      "duration": 22.9,
+      "gain": 0,
+      "lufs": -27.6,
+      "title": "Crickets (loop)",
+      "artist": "Wolfgang_",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "oga",
+        "page": "https://opengameart.org/content/crickets-ambient-noise-loopable"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [
+          "forest",
+          "road",
+          "camp",
+          "farm",
+          "swamp",
+          "lake",
+          "river",
+          "mill"
+        ],
+        "time": ["night"],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/crowd-murmur",
+      "layer": "bed",
+      "src": "/audio/bed/crowd-murmur.webm",
+      "duration": 27.4,
+      "gain": 0,
+      "lufs": -14.2,
+      "title": "Crowd Speaking Ambience",
+      "artist": "StarNinjas",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "oga",
+        "page": "https://opengameart.org/content/crowd-shoutingspeaking-ambience"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": ["tavern", "market", "town-day", "harbour"],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/dungeon-drips",
+      "layer": "bed",
+      "src": "/audio/bed/dungeon-drips.webm",
+      "duration": 180,
+      "gain": 0,
+      "lufs": -39.6,
+      "title": "Dungeon Ambience",
+      "artist": "yd",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "oga",
+        "page": "https://opengameart.org/content/dungeon-ambience"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": ["dungeon", "cave", "mine", "sewer"],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/dungeon-drone",
+      "layer": "bed",
+      "src": "/audio/bed/dungeon-drone.webm",
+      "duration": 94.3,
+      "gain": 0,
+      "lufs": -27.7,
+      "title": "Loopable Dungeon Ambience",
+      "artist": "JaggedStone",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "oga",
+        "page": "https://opengameart.org/content/loopable-dungeon-ambience"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": ["dungeon", "cave", "mine", "sewer", "underdark", "ruins"],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/feast",
+      "layer": "bed",
+      "src": "/audio/bed/feast.webm",
+      "duration": 16.6,
+      "gain": 0,
+      "lufs": -5.8,
+      "title": "The Messy Feast",
+      "artist": "Eldritch Grim",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "oga",
+        "page": "https://opengameart.org/content/the-messy-feast"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": ["tavern", "palace"],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/fireplace",
+      "layer": "bed",
+      "src": "/audio/bed/fireplace.webm",
+      "duration": 29.3,
+      "gain": 0,
+      "lufs": -40.5,
+      "title": "Fireplace Loop",
+      "artist": "PagDev",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "oga",
+        "page": "https://opengameart.org/content/fireplace-sound-loop"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": ["tavern", "inn-night", "camp", "interior", "farm"],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/forest-day",
+      "layer": "bed",
+      "src": "/audio/bed/forest-day.webm",
+      "duration": 44.7,
+      "gain": 0,
+      "lufs": -46.2,
+      "title": "Forest Ambience",
+      "artist": "TinyWorlds",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "oga",
+        "page": "https://opengameart.org/content/forest-ambience"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": ["forest", "road", "farm", "mill"],
+        "time": ["day"],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/nature-mix",
+      "layer": "bed",
+      "src": "/audio/bed/nature-mix.webm",
+      "duration": 180,
+      "gain": 0,
+      "lufs": -28.3,
+      "title": "Nature Ambient Pack Vol. 1",
+      "artist": "JC Sounds",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "oga",
+        "page": "https://opengameart.org/content/jc-sounds-nature-ambient-pack-vol-1"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": ["forest", "river", "lake", "road"],
+        "time": ["day"],
+        "weather": []
+      }
+    },
+    {
+      "id": "bed/thunderstorm",
+      "layer": "bed",
+      "src": "/audio/bed/thunderstorm.webm",
+      "duration": 180,
+      "gain": 0,
+      "lufs": -22.3,
+      "title": "Thunder Ambience",
+      "artist": "Gregor Quendel",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "oga",
+        "page": "https://opengameart.org/content/thunder-lightning-ambience-field-recording"
+      },
+      "tags": {
+        "situations": [],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": ["storm"]
+      }
+    },
+    {
+      "id": "bed/tomb",
+      "layer": "bed",
+      "src": "/audio/bed/tomb.webm",
+      "duration": 180,
+      "gain": 0,
+      "lufs": -21.4,
+      "title": "Forgotten Tomb Ambience",
+      "artist": "kindland",
+      "license": "CC0 1.0",
+      "source": {
+        "site": "oga",
+        "page": "https://opengameart.org/content/forgoten-tomb-ambience"
+      },
+      "tags": {
+        "situations": [],
+        "moods": ["dark"],
+        "places": ["graveyard", "ruins", "dungeon", "temple"],
+        "time": [],
+        "weather": []
+      }
+    }
+  ]
+}

@@ -99,6 +99,11 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
         ],
         effects: { hp: [], gold: [], items: [] },
         memory: ['Toblen cobra cinco piezas de plata por cama y cena.'],
+        sound: {
+          music: { situation: 'tavern', tension: 'low' },
+          ambience: { place: 'tavern', time: 'night', weather: 'rain' },
+          cues: [{ beat: 0, sfx: 'door-wood-close' }],
+        },
         summary: 'La compañía llega al Ciervo Dormido bajo la lluvia.',
         sceneEnds: false,
       };
@@ -167,6 +172,11 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
           'El Alcaide Harbin Wester paga 50 po por la mantícora de la Colina Umbrage.',
           'Adabra Gwynn, la partera de la Colina Umbrage, lleva una semana sin bajar al pueblo.',
         ],
+        sound: {
+          music: { situation: 'keep', tension: 'low' },
+          ambience: { place: 'keep', time: 'night', weather: 'rain' },
+          cues: [{ beat: 0, sfx: 'coins-pour' }],
+        },
         summary: hit
           ? 'Toblen habla: hay una mantícora en la Colina Umbrage y una recompensa.'
           : 'Toblen no suelta prenda; el tablón sí: una mantícora en la Colina Umbrage.',
@@ -216,6 +226,11 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
         memory: [
           'La bestia de la Colina Umbrage deja huellas de cuatro dedos y cola.',
         ],
+        sound: {
+          music: { situation: 'travel', tension: 'low' },
+          ambience: { place: 'road', time: 'day', weather: 'fog' },
+          cues: [{ beat: 1, sfx: 'crow' }],
+        },
         summary:
           'La compañía sube por el Sendero de Triboar hasta la Colina Umbrage.',
         sceneEnds: false,
@@ -282,6 +297,14 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
         memory: [
           'La mantícora de la Colina Umbrage habla y disfruta haciéndolo.',
         ],
+        sound: {
+          music: { situation: 'combat-heavy', tension: 'high' },
+          ambience: { place: 'mountain', time: 'day', weather: 'wind' },
+          cues: [
+            { beat: 1, sfx: 'wings' },
+            { beat: 1, sfx: 'roar' },
+          ],
+        },
         summary: 'La mantícora ataca en el patio del molino.',
         sceneEnds: false,
       };
@@ -345,6 +368,11 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
           'Adabra Gwynn está viva y debe 25 po al Alcaide por su rescate.',
           'La mantícora huía de algo blanco y grande que voló hacia el Pico Escarcha.',
         ],
+        sound: {
+          music: { situation: 'rest', tension: 'low' },
+          ambience: { place: 'mill', time: 'day', weather: 'clear' },
+          cues: [{ beat: 1, sfx: 'door-wood-open' }],
+        },
         summary: 'Adabra está viva; la mantícora huye hacia el este.',
         sceneEnds: true,
       };
@@ -388,6 +416,11 @@ const mockTurn = (req: TurnRequest): SceneTurn => {
           items: [],
         },
         memory: [],
+        sound: {
+          music: { situation: 'epilogue', tension: 'low' },
+          ambience: { place: 'town-day', time: 'night', weather: 'clear' },
+          cues: [{ beat: 1, sfx: 'wings' }],
+        },
         summary: 'La compañía vuelve a Phandalin al atardecer.',
         sceneEnds: true,
       };

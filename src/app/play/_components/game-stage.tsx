@@ -4,9 +4,12 @@ import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Atmosphere } from '@/app/design/scenes/_components/atmosphere';
 import { DiceModal, type DiceRequest } from '@/components/dice/dice-modal';
+import { SoundButton } from '@/components/sound/mixer';
 import { Caps } from '@/components/theme/display';
 import { TaperedRule } from '@/components/theme/tapered-rule';
 import type { ArtEntry } from '@/data/art/schema';
+import type { SoundEntry } from '@/data/sound/schema';
+import type { UiCue } from '@/data/sound/vocabulary';
 import { applyEffects, type PartyMember } from '@/lib/game/party';
 import { modifierFor, rollerFor, scoreRoll } from '@/lib/game/rolls';
 import {
@@ -21,6 +24,8 @@ import {
   type Who,
 } from '@/lib/game/schema';
 import { saveGame } from '@/lib/game/storage';
+import { soundEngine } from '@/lib/sound/engine';
+import { useSound } from '@/lib/sound/use-sound';
 import { type CoinArt, PartyOverlay } from './party-overlay';
 
 type GameStageProps = {
@@ -30,6 +35,8 @@ type GameStageProps = {
   cover: ArtEntry | undefined;
   itemArt: Record<string, ArtEntry>;
   coinArt: CoinArt;
+  /** Interface sounds by cue. */
+  ui: Partial<Record<UiCue, SoundEntry>>;
 };
 
 const TYPE_MS = 16;
@@ -91,7 +98,11 @@ const GameStage = ({
   cover,
   itemArt,
   coinArt,
+  ui,
 }: GameStageProps) => {
+  const sound = useSound();
+  const engine = soundEngine();
+  const firedCues = useRef(new Set<string>());
   const [state, setState] = useState<GameState>(initial);
   const [step, setStep] = useState(0);
   const [thinking, setThinking] = useState(false);
@@ -196,6 +207,40 @@ const GameStage = ({
     [],
   );
 
+  // ── Sound: the desk follows the scene ──────────────────────────────
+  // biome-ignore lint/correctness/useExhaustiveDependencies: a new turn id is the cue; the rest is stable
+  useEffect(() => {
+    if (!turn) return;
+    const st = turn.soundtrack;
+    if (state.history.length > 1) engine.playUi(ui['page-turn']);
+    if (!st) return;
+    if (st.music !== 'keep') engine.playMusic(st.music, { fade: 5 });
+    if (st.ambience !== 'keep') engine.setAmbience(st.ambience, { fade: 3 });
+    engine.preload(st.cues.map((c) => c.entry));
+  }, [turn?.id]);
+
+  useEffect(() => {
+    if (!turn?.soundtrack) return;
+    for (const c of turn.soundtrack.cues) {
+      const key = `${turn.id}:${c.beat}:${c.sfx}`;
+      if (c.beat === step && !firedCues.current.has(key)) {
+        firedCues.current.add(key);
+        engine.playSfx(c.entry);
+      }
+    }
+  }, [turn, step, engine]);
+
+  const creatureShown = useRef<string | null>(null);
+  useEffect(() => {
+    if (!turn || turn.figure.kind !== 'creature' || !figureVisible) return;
+    if (creatureShown.current === turn.id) return;
+    creatureShown.current = turn.id;
+    engine.playUi(ui.reveal);
+  }, [turn, figureVisible, engine, ui.reveal]);
+
+  // Leaving the table stops the desk.
+  useEffect(() => () => engine.stopAll(), [engine]);
+
   // First turn of a fresh campaign.
   useEffect(() => {
     if (startedRef.current) return;
@@ -207,6 +252,7 @@ const GameStage = ({
   // ── Decisions ─────────────────────────────────────────────────────────
   const choose = (choice: Choice) => {
     if (thinking) return;
+    engine.playUi(ui.choice);
     if (choice.roll) {
       // The tray opens; nothing is rolled until a player presses "Tirar".
       const roller = rollerFor(choice.who, choice.roll.skill, ids);
@@ -274,6 +320,8 @@ const GameStage = ({
         advance();
       } else if (e.key === 'i' || e.key === 'f') {
         setOverlay(ids[0] ?? null);
+      } else if (e.key === 'm') {
+        engine.setEnabled(!sound.mix.enabled);
       }
     };
     window.addEventListener('keydown', onKey);
@@ -294,6 +342,11 @@ const GameStage = ({
     };
   }, []);
 
+  const openOverlay = (id: string | null) => {
+    engine.playUi(id ? ui['open-sheet'] : ui['close-sheet']);
+    setOverlay(id);
+  };
+
   const showChoices = !!turn && done && atEnd && !thinking && !dice;
   const hint = !done
     ? 'Pulsa para leer todo'
@@ -306,6 +359,10 @@ const GameStage = ({
   return (
     <div
       className="fixed inset-0 z-50 overflow-hidden bg-charcoal-950 text-white"
+      data-ambience={sound.bedIds.join(',')}
+      data-last-cue={sound.lastCue ?? ''}
+      data-music={sound.musicId ?? ''}
+      data-sound={sound.status}
       data-testid="game-stage"
       data-turn={state.history.length}
     >
@@ -442,7 +499,7 @@ const GameStage = ({
                 className="group flex items-center gap-2 rounded-md px-2 py-1 text-left transition hover:bg-white/10"
                 data-testid={`hud-${p.id}`}
                 key={p.id}
-                onClick={() => setOverlay(p.id)}
+                onClick={() => openOverlay(p.id)}
                 title={`Ficha e inventario de ${p.name}`}
                 type="button"
               >
@@ -499,8 +556,22 @@ const GameStage = ({
             <br />
             tecla I
           </span>
+          <SoundButton />
         </div>
       </header>
+      {sound.mix.enabled &&
+      sound.status !== 'running' &&
+      sound.status !== 'unsupported' ? (
+        <button
+          className="pointer-events-auto absolute top-24 right-6 flex items-center gap-2 rounded-md border border-brass/60 bg-charcoal-950/85 px-3 py-2 font-caps text-base text-brass-pale backdrop-blur transition hover:border-brass"
+          data-testid="sound-unlock"
+          onClick={() => void engine.unlock()}
+          type="button"
+        >
+          <span className="h-2 w-2 animate-ember rounded-full bg-brass" />
+          Activar sonido
+        </button>
+      ) : null}
 
       {/* Speech */}
       {turn?.figureArt && turn.figure.kind === 'character' ? (
@@ -756,21 +827,35 @@ const GameStage = ({
         </span>
         <button
           className="btn-ghost px-3 py-1.5 text-[0.65rem] uppercase backdrop-blur"
-          onClick={() => setOverlay(ids[0] ?? null)}
+          onClick={() => openOverlay(ids[0] ?? null)}
           type="button"
         >
           Turno {state.history.length} · Fichas
         </button>
       </nav>
 
-      {dice ? <DiceModal onDone={onDice} request={dice} /> : null}
+      {dice ? (
+        <DiceModal
+          onDone={onDice}
+          onRoll={() => engine.playUi(ui['dice-rattle'])}
+          onSettled={(values) => {
+            engine.playUi(ui['dice-land']);
+            const kept = dice.choice.roll
+              ? scoreRoll(dice.choice.roll, values, dice.modifier).result
+              : values[0];
+            if (kept === 20) engine.playUi(ui.crit);
+            else if (kept === 1) engine.playUi(ui.fumble);
+          }}
+          request={dice}
+        />
+      ) : null}
       {overlay ? (
         <PartyOverlay
           characters={state.characters}
           coinArt={coinArt}
           focus={overlay}
           itemArt={itemArt}
-          onClose={() => setOverlay(null)}
+          onClose={() => openOverlay(null)}
           party={party}
         />
       ) : null}

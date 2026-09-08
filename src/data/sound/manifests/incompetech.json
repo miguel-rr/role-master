@@ -1,0 +1,2877 @@
+{
+  "collection": "incompetech",
+  "generatedAt": "2026-09-08T12:51:33.191Z",
+  "entries": [
+    {
+      "id": "music/km-a-very-brady-special",
+      "layer": "music",
+      "src": "/audio/music/km-a-very-brady-special.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -30.4,
+      "title": "A Very Brady Special",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["rest", "travel"],
+        "moods": ["warm", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-achaidh-cheide",
+      "layer": "music",
+      "src": "/audio/music/km-achaidh-cheide.webm",
+      "duration": 134.1,
+      "gain": 0,
+      "lufs": -16.4,
+      "title": "Achaidh Cheide",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tavern"],
+        "moods": ["warm", "gold", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-adventure-meme",
+      "layer": "music",
+      "src": "/audio/music/km-adventure-meme.webm",
+      "duration": 101.1,
+      "gain": 0,
+      "lufs": -9.2,
+      "title": "Adventure Meme",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["arrival"],
+        "moods": ["blood", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-adventures-in-adventureland",
+      "layer": "music",
+      "src": "/audio/music/km-adventures-in-adventureland.webm",
+      "duration": 261.3,
+      "gain": 0,
+      "lufs": -13.1,
+      "title": "Adventures in Adventureland",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light", "chase"],
+        "moods": ["blood"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-almost-new",
+      "layer": "music",
+      "src": "/audio/music/km-almost-new.webm",
+      "duration": 202.6,
+      "gain": 0,
+      "lufs": -23.4,
+      "title": "Almost New",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["epilogue"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-ancient-mystery-waltz-allegro",
+      "layer": "music",
+      "src": "/audio/music/km-ancient-mystery-waltz-allegro.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -15.3,
+      "title": "Ancient Mystery Waltz (Allegro)",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration", "mystery"],
+        "moods": ["cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-ancient-mystery-waltz-presto",
+      "layer": "music",
+      "src": "/audio/music/km-ancient-mystery-waltz-presto.webm",
+      "duration": 197.9,
+      "gain": 0,
+      "lufs": -13.9,
+      "title": "Ancient Mystery Waltz (Presto)",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration", "mystery"],
+        "moods": ["cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-ancient-mystery-waltz-vivace",
+      "layer": "music",
+      "src": "/audio/music/km-ancient-mystery-waltz-vivace.webm",
+      "duration": 266.7,
+      "gain": 0,
+      "lufs": -14.7,
+      "title": "Ancient Mystery Waltz (Vivace)",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration", "mystery"],
+        "moods": ["cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-ancient-rite",
+      "layer": "music",
+      "src": "/audio/music/km-ancient-rite.webm",
+      "duration": 113.2,
+      "gain": 0,
+      "lufs": -16.1,
+      "title": "Ancient Rite",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration", "ritual"],
+        "moods": ["cold", "green", "warm"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-angevin",
+      "layer": "music",
+      "src": "/audio/music/km-angevin.webm",
+      "duration": 280.6,
+      "gain": 0,
+      "lufs": -15.3,
+      "title": "Angevin",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["court"],
+        "moods": ["warm", "gold", "dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-anxiety",
+      "layer": "music",
+      "src": "/audio/music/km-anxiety.webm",
+      "duration": 110.9,
+      "gain": 0,
+      "lufs": -22.8,
+      "title": "Anxiety",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension"],
+        "moods": ["dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-awkward-meeting",
+      "layer": "music",
+      "src": "/audio/music/km-awkward-meeting.webm",
+      "duration": 84.1,
+      "gain": 0,
+      "lufs": -24.3,
+      "title": "Awkward Meeting",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": [
+          "combat-heavy",
+          "tension",
+          "stealth",
+          "exploration",
+          "mystery"
+        ],
+        "moods": ["blood", "dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-black-vortex",
+      "layer": "music",
+      "src": "/audio/music/km-black-vortex.webm",
+      "duration": 169.7,
+      "gain": 0,
+      "lufs": -15.5,
+      "title": "Black Vortex",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["boss"],
+        "moods": ["blood", "gold", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-canon-in-d-for-autoharp",
+      "layer": "music",
+      "src": "/audio/music/km-canon-in-d-for-autoharp.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -18.6,
+      "title": "Canon in D for Autoharp",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tavern", "rest", "travel", "arrival", "epilogue"],
+        "moods": ["warm", "gold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-canon-in-d-for-two-harps",
+      "layer": "music",
+      "src": "/audio/music/km-canon-in-d-for-two-harps.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -18.7,
+      "title": "Canon in D for Two Harps",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["rest", "travel", "arrival", "epilogue"],
+        "moods": ["warm", "green", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-canon-in-d-for-two-renaissance-harps",
+      "layer": "music",
+      "src": "/audio/music/km-canon-in-d-for-two-renaissance-harps.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -14.9,
+      "title": "Canon in D for Two Renaissance Harps",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tavern", "rest", "travel", "arrival", "epilogue"],
+        "moods": ["warm", "gold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-canon-in-d-interstellar-mix",
+      "layer": "music",
+      "src": "/audio/music/km-canon-in-d-interstellar-mix.webm",
+      "duration": 287.6,
+      "gain": 0,
+      "lufs": -11,
+      "title": "Canon In D Interstellar Mix",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["rest", "travel", "arrival", "epilogue"],
+        "moods": ["warm", "green", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-celtic-impulse",
+      "layer": "music",
+      "src": "/audio/music/km-celtic-impulse.webm",
+      "duration": 158.2,
+      "gain": 0,
+      "lufs": -16.9,
+      "title": "Celtic Impulse",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tavern"],
+        "moods": ["warm", "gold", "dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-clash-defiant",
+      "layer": "music",
+      "src": "/audio/music/km-clash-defiant.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -11.2,
+      "title": "Clash Defiant",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["travel"],
+        "moods": ["blood", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-clenched-teeth",
+      "layer": "music",
+      "src": "/audio/music/km-clenched-teeth.webm",
+      "duration": 91.2,
+      "gain": 0,
+      "lufs": -12.2,
+      "title": "Clenched Teeth",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": [
+          "combat-heavy",
+          "combat-light",
+          "chase",
+          "boss",
+          "victory"
+        ],
+        "moods": ["blood", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-cortosis",
+      "layer": "music",
+      "src": "/audio/music/km-cortosis.webm",
+      "duration": 153.2,
+      "gain": 0,
+      "lufs": -14.2,
+      "title": "Cortosis",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-heavy", "combat-light", "chase"],
+        "moods": ["blood"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-cretaceous-dawn",
+      "layer": "music",
+      "src": "/audio/music/km-cretaceous-dawn.webm",
+      "duration": 245.1,
+      "gain": 0,
+      "lufs": -13.3,
+      "title": "Cretaceous Dawn\r\n\r\n",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light", "chase"],
+        "moods": ["blood"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-crossing-the-chasm",
+      "layer": "music",
+      "src": "/audio/music/km-crossing-the-chasm.webm",
+      "duration": 196.9,
+      "gain": 0,
+      "lufs": -12.9,
+      "title": "Crossing the Chasm",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration"],
+        "moods": ["blood", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-crossing-the-divide",
+      "layer": "music",
+      "src": "/audio/music/km-crossing-the-divide.webm",
+      "duration": 193.1,
+      "gain": 0,
+      "lufs": -19.8,
+      "title": "Crossing the Divide",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["boss"],
+        "moods": ["warm", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-crowd-hammer",
+      "layer": "music",
+      "src": "/audio/music/km-crowd-hammer.webm",
+      "duration": 207.4,
+      "gain": 0,
+      "lufs": -14.8,
+      "title": "Crowd Hammer",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["court", "mystery", "rest", "travel"],
+        "moods": ["warm", "gold", "dark", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-crusade",
+      "layer": "music",
+      "src": "/audio/music/km-crusade.webm",
+      "duration": 198.7,
+      "gain": 0,
+      "lufs": -12.8,
+      "title": "Crusade",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light"],
+        "moods": ["gold", "dark", "cold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-crypto",
+      "layer": "music",
+      "src": "/audio/music/km-crypto.webm",
+      "duration": 204.1,
+      "gain": 0,
+      "lufs": -17.6,
+      "title": "Crypto",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["boss"],
+        "moods": ["dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-curse-of-the-scarab",
+      "layer": "music",
+      "src": "/audio/music/km-curse-of-the-scarab.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -16.9,
+      "title": "Curse of the Scarab",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-heavy"],
+        "moods": ["blood", "gold", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-dark-fog",
+      "layer": "music",
+      "src": "/audio/music/km-dark-fog.webm",
+      "duration": 239,
+      "gain": 0,
+      "lufs": -13.2,
+      "title": "Dark Fog",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-darkest-child",
+      "layer": "music",
+      "src": "/audio/music/km-darkest-child.webm",
+      "duration": 238.7,
+      "gain": 0,
+      "lufs": -12.6,
+      "title": "Darkest Child",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["boss"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-day-of-chaos",
+      "layer": "music",
+      "src": "/audio/music/km-day-of-chaos.webm",
+      "duration": 249.7,
+      "gain": 0,
+      "lufs": -20.5,
+      "title": "Day of Chaos",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension", "stealth", "exploration", "mystery"],
+        "moods": ["dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-dentaneosuchus-hunt",
+      "layer": "music",
+      "src": "/audio/music/km-dentaneosuchus-hunt.webm",
+      "duration": 246.5,
+      "gain": 0,
+      "lufs": -13.6,
+      "title": "Dentaneosuchus Hunt\r\n\r\n",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light", "chase"],
+        "moods": ["blood"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-dhaka",
+      "layer": "music",
+      "src": "/audio/music/km-dhaka.webm",
+      "duration": 248.2,
+      "gain": 0,
+      "lufs": -19.1,
+      "title": "Dhaka",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["ritual"],
+        "moods": ["cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-dragon-and-toast",
+      "layer": "music",
+      "src": "/audio/music/km-dragon-and-toast.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -21.3,
+      "title": "Dragon and Toast",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["boss"],
+        "moods": ["dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-dreams-become-real",
+      "layer": "music",
+      "src": "/audio/music/km-dreams-become-real.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -24.4,
+      "title": "Dreams Become Real",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["rest"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-drums-of-the-deep",
+      "layer": "music",
+      "src": "/audio/music/km-drums-of-the-deep.webm",
+      "duration": 174.2,
+      "gain": 0,
+      "lufs": -22.7,
+      "title": "Drums of the Deep",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension", "stealth"],
+        "moods": ["dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-enchanted-valley",
+      "layer": "music",
+      "src": "/audio/music/km-enchanted-valley.webm",
+      "duration": 190.3,
+      "gain": 0,
+      "lufs": -17.6,
+      "title": "Enchanted Valley",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["mystery"],
+        "moods": ["cold", "green", "warm", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-eternal-terminal",
+      "layer": "music",
+      "src": "/audio/music/km-eternal-terminal.webm",
+      "duration": 197.5,
+      "gain": 0,
+      "lufs": -13.9,
+      "title": "Eternal Terminal",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["boss", "victory", "mystery"],
+        "moods": ["gold", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-evening-of-chaos",
+      "layer": "music",
+      "src": "/audio/music/km-evening-of-chaos.webm",
+      "duration": 282.1,
+      "gain": 0,
+      "lufs": -18.6,
+      "title": "Evening of Chaos",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension", "stealth", "exploration", "mystery"],
+        "moods": ["dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-exotic-battle",
+      "layer": "music",
+      "src": "/audio/music/km-exotic-battle.webm",
+      "duration": 168.6,
+      "gain": 0,
+      "lufs": -20.9,
+      "title": "Exotic Battle",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": [
+          "combat-heavy",
+          "combat-light",
+          "chase",
+          "boss",
+          "victory",
+          "mystery",
+          "exploration"
+        ],
+        "moods": ["blood", "gold", "dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-fantasia-fantasia",
+      "layer": "music",
+      "src": "/audio/music/km-fantasia-fantasia.webm",
+      "duration": 151.6,
+      "gain": 0,
+      "lufs": -10.7,
+      "title": "Fantasia Fantasia",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["arrival"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-final-battle-of-the-dark-wizards",
+      "layer": "music",
+      "src": "/audio/music/km-final-battle-of-the-dark-wizards.webm",
+      "duration": 271.6,
+      "gain": 0,
+      "lufs": -9.9,
+      "title": "Final Battle of the Dark Wizards",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-heavy"],
+        "moods": ["blood", "gold", "dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-fireflies-and-stardust",
+      "layer": "music",
+      "src": "/audio/music/km-fireflies-and-stardust.webm",
+      "duration": 255.1,
+      "gain": 0,
+      "lufs": -13.1,
+      "title": "Fireflies and Stardust",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["rest"],
+        "moods": ["warm", "green", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-five-armies",
+      "layer": "music",
+      "src": "/audio/music/km-five-armies.webm",
+      "duration": 155.8,
+      "gain": 0,
+      "lufs": -10.7,
+      "title": "Five Armies",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-heavy"],
+        "moods": ["blood", "gold", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-folk-round",
+      "layer": "music",
+      "src": "/audio/music/km-folk-round.webm",
+      "duration": 183.7,
+      "gain": 0,
+      "lufs": -19,
+      "title": "Folk Round",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tavern"],
+        "moods": ["warm", "gold", "dark", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-frost-waltz",
+      "layer": "music",
+      "src": "/audio/music/km-frost-waltz.webm",
+      "duration": 135.5,
+      "gain": 0,
+      "lufs": -15.9,
+      "title": "Frost Waltz",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["travel"],
+        "moods": ["cold", "green", "warm"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-guzheng-city",
+      "layer": "music",
+      "src": "/audio/music/km-guzheng-city.webm",
+      "duration": 114.1,
+      "gain": 0,
+      "lufs": -17.1,
+      "title": "Guzheng City",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["rest", "travel", "arrival", "epilogue"],
+        "moods": ["warm", "green", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-heartbreaking",
+      "layer": "music",
+      "src": "/audio/music/km-heartbreaking.webm",
+      "duration": 96,
+      "gain": 0,
+      "lufs": -31.3,
+      "title": "Heartbreaking",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["sorrow"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-heavy-interlude",
+      "layer": "music",
+      "src": "/audio/music/km-heavy-interlude.webm",
+      "duration": 52.9,
+      "gain": 0,
+      "lufs": -7.7,
+      "title": "Heavy Interlude",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-heroic-age",
+      "layer": "music",
+      "src": "/audio/music/km-heroic-age.webm",
+      "duration": 97.5,
+      "gain": 0,
+      "lufs": -12.1,
+      "title": "Heroic Age",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["victory"],
+        "moods": ["blood", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-hidden-agenda",
+      "layer": "music",
+      "src": "/audio/music/km-hidden-agenda.webm",
+      "duration": 135,
+      "gain": 0,
+      "lufs": -21.7,
+      "title": "Hidden Agenda",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["arrival"],
+        "moods": ["dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-hidden-past",
+      "layer": "music",
+      "src": "/audio/music/km-hidden-past.webm",
+      "duration": 192.1,
+      "gain": 0,
+      "lufs": -12.6,
+      "title": "Hidden Past",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["court", "mystery", "exploration", "sorrow"],
+        "moods": ["warm", "gold", "dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-hiding-your-reality",
+      "layer": "music",
+      "src": "/audio/music/km-hiding-your-reality.webm",
+      "duration": 193,
+      "gain": 0,
+      "lufs": -15.4,
+      "title": "Hiding Your Reality",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light", "chase", "boss", "victory"],
+        "moods": ["blood", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-hillbilly-swing",
+      "layer": "music",
+      "src": "/audio/music/km-hillbilly-swing.webm",
+      "duration": 167.2,
+      "gain": 0,
+      "lufs": -13.1,
+      "title": "Hillbilly Swing",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["arrival", "epilogue"],
+        "moods": ["gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-hitman",
+      "layer": "music",
+      "src": "/audio/music/km-hitman.webm",
+      "duration": 200.8,
+      "gain": 0,
+      "lufs": -12.6,
+      "title": "Hitman",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-heavy"],
+        "moods": ["blood", "gold", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-hot-pursuit",
+      "layer": "music",
+      "src": "/audio/music/km-hot-pursuit.webm",
+      "duration": 169.2,
+      "gain": 0,
+      "lufs": -15.1,
+      "title": "Hot Pursuit",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light", "chase"],
+        "moods": ["blood"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-immersed",
+      "layer": "music",
+      "src": "/audio/music/km-immersed.webm",
+      "duration": 249,
+      "gain": 0,
+      "lufs": -21.5,
+      "title": "Immersed",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["travel", "sorrow"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-industrial-cinematic",
+      "layer": "music",
+      "src": "/audio/music/km-industrial-cinematic.webm",
+      "duration": 244.4,
+      "gain": 0,
+      "lufs": -17.9,
+      "title": "Industrial Cinematic",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["stealth", "tension"],
+        "moods": ["dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-interloper",
+      "layer": "music",
+      "src": "/audio/music/km-interloper.webm",
+      "duration": 262.7,
+      "gain": 0,
+      "lufs": -21.1,
+      "title": "Interloper",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["sorrow"],
+        "moods": ["blood", "gold", "dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-jet-fueled-vixen",
+      "layer": "music",
+      "src": "/audio/music/km-jet-fueled-vixen.webm",
+      "duration": 159.7,
+      "gain": 0,
+      "lufs": -13.1,
+      "title": "Jet Fueled Vixen",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light", "chase"],
+        "moods": ["blood"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-journey-to-ascend",
+      "layer": "music",
+      "src": "/audio/music/km-journey-to-ascend.webm",
+      "duration": 219.4,
+      "gain": 0,
+      "lufs": -10.9,
+      "title": "Journey To Ascend",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration", "mystery"],
+        "moods": ["cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-kalimba-relaxation-music",
+      "layer": "music",
+      "src": "/audio/music/km-kalimba-relaxation-music.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -15.8,
+      "title": "Kalimba Relaxation Music",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["epilogue"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-killers",
+      "layer": "music",
+      "src": "/audio/music/km-killers.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -12.8,
+      "title": "Killers",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-heavy"],
+        "moods": ["blood", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-lightless-dawn",
+      "layer": "music",
+      "src": "/audio/music/km-lightless-dawn.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -24.3,
+      "title": "Lightless Dawn",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-long-note-four",
+      "layer": "music",
+      "src": "/audio/music/km-long-note-four.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -27.3,
+      "title": "Long Note Four",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["sorrow"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-long-note-one",
+      "layer": "music",
+      "src": "/audio/music/km-long-note-one.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -19.7,
+      "title": "Long note One",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-long-note-two",
+      "layer": "music",
+      "src": "/audio/music/km-long-note-two.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -25.6,
+      "title": "Long Note Two",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-long-road-ahead",
+      "layer": "music",
+      "src": "/audio/music/km-long-road-ahead.webm",
+      "duration": 146.1,
+      "gain": 0,
+      "lufs": -14.2,
+      "title": "Long Road Ahead",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["travel"],
+        "moods": ["warm", "gold", "blood", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-lord-of-the-land",
+      "layer": "music",
+      "src": "/audio/music/km-lord-of-the-land.webm",
+      "duration": 186.5,
+      "gain": 0,
+      "lufs": -24.1,
+      "title": "Lord of the Land",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["court"],
+        "moods": ["warm", "gold", "dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-lost-frontier",
+      "layer": "music",
+      "src": "/audio/music/km-lost-frontier.webm",
+      "duration": 264.9,
+      "gain": 0,
+      "lufs": -26.9,
+      "title": "Lost Frontier",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": [
+          "court",
+          "tension",
+          "stealth",
+          "exploration",
+          "mystery",
+          "sorrow"
+        ],
+        "moods": ["warm", "gold", "dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-magistar",
+      "layer": "music",
+      "src": "/audio/music/km-magistar.webm",
+      "duration": 192,
+      "gain": 0,
+      "lufs": -14.7,
+      "title": "Magistar",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["boss", "victory", "exploration", "mystery"],
+        "moods": ["gold", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-malicious",
+      "layer": "music",
+      "src": "/audio/music/km-malicious.webm",
+      "duration": 222.9,
+      "gain": 0,
+      "lufs": -12.5,
+      "title": "Malicious",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["mystery", "ritual"],
+        "moods": ["dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-master-of-the-feast",
+      "layer": "music",
+      "src": "/audio/music/km-master-of-the-feast.webm",
+      "duration": 228.3,
+      "gain": 0,
+      "lufs": -15.8,
+      "title": "Master of the Feast",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tavern"],
+        "moods": ["warm", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-meditation-impromptu-01",
+      "layer": "music",
+      "src": "/audio/music/km-meditation-impromptu-01.webm",
+      "duration": 212.8,
+      "gain": 0,
+      "lufs": -23.3,
+      "title": "Meditation Impromptu 01",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["rest"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-midnight-tale",
+      "layer": "music",
+      "src": "/audio/music/km-midnight-tale.webm",
+      "duration": 161.6,
+      "gain": 0,
+      "lufs": -17.5,
+      "title": "Midnight Tale",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["court", "rest", "travel"],
+        "moods": ["warm", "gold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-minstrel-guild",
+      "layer": "music",
+      "src": "/audio/music/km-minstrel-guild.webm",
+      "duration": 185.8,
+      "gain": 0,
+      "lufs": -11.2,
+      "title": "Minstrel Guild",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tavern"],
+        "moods": ["warm", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-monkeys-spinning-monkeys",
+      "layer": "music",
+      "src": "/audio/music/km-monkeys-spinning-monkeys.webm",
+      "duration": 125.1,
+      "gain": 0,
+      "lufs": -17.2,
+      "title": "Monkeys Spinning Monkeys",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tavern", "arrival", "epilogue", "ritual"],
+        "moods": ["warm", "gold", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-movement-proposition",
+      "layer": "music",
+      "src": "/audio/music/km-movement-proposition.webm",
+      "duration": 141,
+      "gain": 0,
+      "lufs": -11.7,
+      "title": "Movement Proposition",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": [
+          "combat-heavy",
+          "combat-light",
+          "chase",
+          "boss",
+          "victory"
+        ],
+        "moods": ["blood", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-myst-on-the-moor",
+      "layer": "music",
+      "src": "/audio/music/km-myst-on-the-moor.webm",
+      "duration": 229,
+      "gain": 0,
+      "lufs": -20.4,
+      "title": "Myst on the Moor",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["court", "mystery", "exploration"],
+        "moods": ["warm", "gold", "dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-mystery-bazaar",
+      "layer": "music",
+      "src": "/audio/music/km-mystery-bazaar.webm",
+      "duration": 158.5,
+      "gain": 0,
+      "lufs": -20.7,
+      "title": "Mystery Bazaar",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["mystery"],
+        "moods": ["blood", "dark", "cold", "green", "warm"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-mystery-sax",
+      "layer": "music",
+      "src": "/audio/music/km-mystery-sax.webm",
+      "duration": 275.4,
+      "gain": 0,
+      "lufs": -11.6,
+      "title": "Mystery Sax",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light", "chase", "exploration", "mystery"],
+        "moods": ["blood", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-night-cave",
+      "layer": "music",
+      "src": "/audio/music/km-night-cave.webm",
+      "duration": 110.2,
+      "gain": 0,
+      "lufs": -21,
+      "title": "Night Cave",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["mystery"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-night-vigil",
+      "layer": "music",
+      "src": "/audio/music/km-night-vigil.webm",
+      "duration": 288.3,
+      "gain": 0,
+      "lufs": -14.7,
+      "title": "Night Vigil",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration", "mystery", "sorrow"],
+        "moods": ["cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-ossuary-1-a-beginning",
+      "layer": "music",
+      "src": "/audio/music/km-ossuary-1-a-beginning.webm",
+      "duration": 188.1,
+      "gain": 0,
+      "lufs": -19.9,
+      "title": "Ossuary 1 - A Beginning",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-ossuary-2-turn",
+      "layer": "music",
+      "src": "/audio/music/km-ossuary-2-turn.webm",
+      "duration": 288.1,
+      "gain": 0,
+      "lufs": -15.7,
+      "title": "Ossuary 2 - Turn",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["ritual"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-ossuary-5-rest",
+      "layer": "music",
+      "src": "/audio/music/km-ossuary-5-rest.webm",
+      "duration": 235.8,
+      "gain": 0,
+      "lufs": -18.1,
+      "title": "Ossuary 5 - Rest",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["sorrow"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-ossuary-6-air",
+      "layer": "music",
+      "src": "/audio/music/km-ossuary-6-air.webm",
+      "duration": 250.1,
+      "gain": 0,
+      "lufs": -22.5,
+      "title": "Ossuary 6 - Air",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["mystery"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-outfoxing-the-fox",
+      "layer": "music",
+      "src": "/audio/music/km-outfoxing-the-fox.webm",
+      "duration": 175.5,
+      "gain": 0,
+      "lufs": -11.1,
+      "title": "Outfoxing the Fox",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light", "chase"],
+        "moods": ["blood"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-peaceful-desolation",
+      "layer": "music",
+      "src": "/audio/music/km-peaceful-desolation.webm",
+      "duration": 91.2,
+      "gain": 0,
+      "lufs": -18.4,
+      "title": "Peaceful Desolation",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["rest"],
+        "moods": ["cold", "warm", "green", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-pippin-the-hunchback",
+      "layer": "music",
+      "src": "/audio/music/km-pippin-the-hunchback.webm",
+      "duration": 193.3,
+      "gain": 0,
+      "lufs": -16.7,
+      "title": "Pippin the Hunchback",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["court"],
+        "moods": ["warm", "gold", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-ranz-des-vaches",
+      "layer": "music",
+      "src": "/audio/music/km-ranz-des-vaches.webm",
+      "duration": 85,
+      "gain": 0,
+      "lufs": -13.6,
+      "title": "Ranz des Vaches",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["travel"],
+        "moods": ["warm", "green", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-return-of-the-mummy",
+      "layer": "music",
+      "src": "/audio/music/km-return-of-the-mummy.webm",
+      "duration": 169.8,
+      "gain": 0,
+      "lufs": -13.7,
+      "title": "Return of the Mummy",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["victory"],
+        "moods": ["dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-rising-game",
+      "layer": "music",
+      "src": "/audio/music/km-rising-game.webm",
+      "duration": 112.1,
+      "gain": 0,
+      "lufs": -11.6,
+      "title": "Rising Game",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["victory"],
+        "moods": ["gold", "dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-river-fire",
+      "layer": "music",
+      "src": "/audio/music/km-river-fire.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -17.5,
+      "title": "River Fire",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration", "mystery", "ritual"],
+        "moods": ["cold", "green", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-river-of-io",
+      "layer": "music",
+      "src": "/audio/music/km-river-of-io.webm",
+      "duration": 249.3,
+      "gain": 0,
+      "lufs": -15.6,
+      "title": "River of Io",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": [
+          "stealth",
+          "tension",
+          "exploration",
+          "mystery",
+          "ritual"
+        ],
+        "moods": ["dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-royal-coupling",
+      "layer": "music",
+      "src": "/audio/music/km-royal-coupling.webm",
+      "duration": 134,
+      "gain": 0,
+      "lufs": -11.9,
+      "title": "Royal Coupling",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["rest", "travel", "arrival", "epilogue"],
+        "moods": ["warm", "green", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-rynos-theme",
+      "layer": "music",
+      "src": "/audio/music/km-rynos-theme.webm",
+      "duration": 185.7,
+      "gain": 0,
+      "lufs": -12.5,
+      "title": "Rynos Theme",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": [
+          "combat-light",
+          "chase",
+          "boss",
+          "victory",
+          "stealth",
+          "tension"
+        ],
+        "moods": ["blood", "gold", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-sad-trio",
+      "layer": "music",
+      "src": "/audio/music/km-sad-trio.webm",
+      "duration": 251.6,
+      "gain": 0,
+      "lufs": -36.4,
+      "title": "Sad Trio",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["sorrow"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-sauropod-spotting",
+      "layer": "music",
+      "src": "/audio/music/km-sauropod-spotting.webm",
+      "duration": 225.2,
+      "gain": 0,
+      "lufs": -14.2,
+      "title": "Sauropod Spotting\r\n\r\n",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light", "chase"],
+        "moods": ["blood"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-scp-x5x-outer-thoughts",
+      "layer": "music",
+      "src": "/audio/music/km-scp-x5x-outer-thoughts.webm",
+      "duration": 216.1,
+      "gain": 0,
+      "lufs": -19.9,
+      "title": "SCP-x5x (Outer Thoughts)",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["mystery", "exploration", "sorrow"],
+        "moods": ["dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-scp-x6x-hopes",
+      "layer": "music",
+      "src": "/audio/music/km-scp-x6x-hopes.webm",
+      "duration": 209.5,
+      "gain": 0,
+      "lufs": -19.3,
+      "title": "SCP-x6x (Hopes)",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["mystery", "exploration", "sorrow"],
+        "moods": ["dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-scp-x7x-6th-floor",
+      "layer": "music",
+      "src": "/audio/music/km-scp-x7x-6th-floor.webm",
+      "duration": 161.9,
+      "gain": 0,
+      "lufs": -18,
+      "title": "SCP-x7x (6th Floor)",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["mystery", "exploration"],
+        "moods": ["dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-send-for-the-horses",
+      "layer": "music",
+      "src": "/audio/music/km-send-for-the-horses.webm",
+      "duration": 185.2,
+      "gain": 0,
+      "lufs": -15.8,
+      "title": "Send for the Horses",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["mystery", "exploration", "sorrow"],
+        "moods": ["dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-shadowlands-1-horizon",
+      "layer": "music",
+      "src": "/audio/music/km-shadowlands-1-horizon.webm",
+      "duration": 220.1,
+      "gain": 0,
+      "lufs": -15.8,
+      "title": "Shadowlands 1 - Horizon",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["ritual"],
+        "moods": ["dark", "cold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-shadowlands-4-breath",
+      "layer": "music",
+      "src": "/audio/music/km-shadowlands-4-breath.webm",
+      "duration": 230.1,
+      "gain": 0,
+      "lufs": -13,
+      "title": "Shadowlands 4 - Breath",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["mystery"],
+        "moods": ["dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-shadowlands-5-antechamber",
+      "layer": "music",
+      "src": "/audio/music/km-shadowlands-5-antechamber.webm",
+      "duration": 178.1,
+      "gain": 0,
+      "lufs": -15.4,
+      "title": "Shadowlands 5 - Antechamber",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension"],
+        "moods": ["dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-shadowlands-6-the-pit",
+      "layer": "music",
+      "src": "/audio/music/km-shadowlands-6-the-pit.webm",
+      "duration": 206.1,
+      "gain": 0,
+      "lufs": -12.2,
+      "title": "Shadowlands 6 - The Pit",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension"],
+        "moods": ["dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-skye-cuillin",
+      "layer": "music",
+      "src": "/audio/music/km-skye-cuillin.webm",
+      "duration": 193.4,
+      "gain": 0,
+      "lufs": -13.5,
+      "title": "Skye Cuillin",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tavern"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-sneaky-snitch",
+      "layer": "music",
+      "src": "/audio/music/km-sneaky-snitch.webm",
+      "duration": 136.6,
+      "gain": 0,
+      "lufs": -17.5,
+      "title": "Sneaky Snitch",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["arrival"],
+        "moods": ["dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-spirit-of-the-girl",
+      "layer": "music",
+      "src": "/audio/music/km-spirit-of-the-girl.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -25.6,
+      "title": "Spirit of the Girl",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration", "mystery", "ritual"],
+        "moods": ["cold", "green", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-stay-the-course",
+      "layer": "music",
+      "src": "/audio/music/km-stay-the-course.webm",
+      "duration": 272.1,
+      "gain": 0,
+      "lufs": -21.5,
+      "title": "Stay the Course",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension", "stealth", "rest", "travel"],
+        "moods": ["dark", "warm", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-sunday-dub",
+      "layer": "music",
+      "src": "/audio/music/km-sunday-dub.webm",
+      "duration": 209.5,
+      "gain": 0,
+      "lufs": -10.9,
+      "title": "Sunday Dub",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-suonatore-di-liuto",
+      "layer": "music",
+      "src": "/audio/music/km-suonatore-di-liuto.webm",
+      "duration": 144.5,
+      "gain": 0,
+      "lufs": -32.5,
+      "title": "Suonatore di Liuto",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["court"],
+        "moods": ["warm", "gold", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-symmetry",
+      "layer": "music",
+      "src": "/audio/music/km-symmetry.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -18.3,
+      "title": "Symmetry",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension", "stealth"],
+        "moods": ["dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-take-a-chance",
+      "layer": "music",
+      "src": "/audio/music/km-take-a-chance.webm",
+      "duration": 37.3,
+      "gain": 0,
+      "lufs": -7.8,
+      "title": "Take a Chance",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-teller-of-the-tales",
+      "layer": "music",
+      "src": "/audio/music/km-teller-of-the-tales.webm",
+      "duration": 212.4,
+      "gain": 0,
+      "lufs": -22.4,
+      "title": "Teller of the Tales",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tavern"],
+        "moods": ["cold", "green", "warm"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-temple-of-the-manes",
+      "layer": "music",
+      "src": "/audio/music/km-temple-of-the-manes.webm",
+      "duration": 155.6,
+      "gain": 0,
+      "lufs": -18.9,
+      "title": "Temple of the Manes",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["ritual"],
+        "moods": ["dark", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-tempting-secrets",
+      "layer": "music",
+      "src": "/audio/music/km-tempting-secrets.webm",
+      "duration": 182.2,
+      "gain": 0,
+      "lufs": -18,
+      "title": "Tempting Secrets",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": [
+          "court",
+          "boss",
+          "victory",
+          "mystery",
+          "sorrow",
+          "arrival",
+          "epilogue",
+          "ritual"
+        ],
+        "moods": ["warm", "gold", "dark", "cold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-the-britons",
+      "layer": "music",
+      "src": "/audio/music/km-the-britons.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -12.3,
+      "title": "The Britons",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tavern"],
+        "moods": ["warm", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-the-descent",
+      "layer": "music",
+      "src": "/audio/music/km-the-descent.webm",
+      "duration": 191.8,
+      "gain": 0,
+      "lufs": -13.8,
+      "title": "The Descent",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension"],
+        "moods": ["blood", "gold", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-thinking-music",
+      "layer": "music",
+      "src": "/audio/music/km-thinking-music.webm",
+      "duration": 195.9,
+      "gain": 0,
+      "lufs": -20.5,
+      "title": "Thinking Music",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["tension", "stealth"],
+        "moods": ["dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-truth-of-the-legend",
+      "layer": "music",
+      "src": "/audio/music/km-truth-of-the-legend.webm",
+      "duration": 93,
+      "gain": 0,
+      "lufs": -10.7,
+      "title": "Truth of the Legend",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["victory"],
+        "moods": ["blood", "gold", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-undaunted",
+      "layer": "music",
+      "src": "/audio/music/km-undaunted.webm",
+      "duration": 212.5,
+      "gain": 0,
+      "lufs": -18.1,
+      "title": "Undaunted",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light", "chase", "boss", "victory"],
+        "moods": ["blood", "gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-unholy-knight",
+      "layer": "music",
+      "src": "/audio/music/km-unholy-knight.webm",
+      "duration": 154.4,
+      "gain": 0,
+      "lufs": -10.8,
+      "title": "Unholy Knight",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light", "chase", "exploration", "mystery"],
+        "moods": ["blood", "cold", "green"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-urban-gauntlet",
+      "layer": "music",
+      "src": "/audio/music/km-urban-gauntlet.webm",
+      "duration": 209,
+      "gain": 0,
+      "lufs": -16.7,
+      "title": "Urban Gauntlet",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["boss", "victory"],
+        "moods": ["gold"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-virtutes-instrumenti",
+      "layer": "music",
+      "src": "/audio/music/km-virtutes-instrumenti.webm",
+      "duration": 262.1,
+      "gain": 0,
+      "lufs": -16.2,
+      "title": "Virtutes Instrumenti",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["exploration"],
+        "moods": ["cold", "green", "warm", "gold", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-volatile-reaction",
+      "layer": "music",
+      "src": "/audio/music/km-volatile-reaction.webm",
+      "duration": 165.4,
+      "gain": 0,
+      "lufs": -7.9,
+      "title": "Volatile Reaction",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["combat-light"],
+        "moods": ["blood", "dark"],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    },
+    {
+      "id": "music/km-wind-of-the-rainforest",
+      "layer": "music",
+      "src": "/audio/music/km-wind-of-the-rainforest.webm",
+      "duration": 300,
+      "gain": 0,
+      "lufs": -45.4,
+      "title": "Wind of the Rainforest",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "license": "CC BY 4.0",
+      "source": {
+        "site": "incompetech",
+        "page": "https://incompetech.com/music/royalty-free/music.html"
+      },
+      "tags": {
+        "situations": ["epilogue"],
+        "moods": [],
+        "places": [],
+        "time": [],
+        "weather": []
+      }
+    }
+  ]
+}

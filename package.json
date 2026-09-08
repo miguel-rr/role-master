@@ -22,7 +22,8 @@
     "test": "pnpm test:unit && pnpm test:e2e",
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
-    "dev:mock": "MOCK_NARRATOR=1 next dev -p 3001"
+    "dev:mock": "MOCK_NARRATOR=1 next dev -p 3001",
+    "audio:sync": "tsx scripts/audio/sync.ts"
   },
   "dependencies": {
     "@3d-dice/dice-box": "^1.1.4",

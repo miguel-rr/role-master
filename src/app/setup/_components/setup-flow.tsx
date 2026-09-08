@@ -142,7 +142,7 @@ const SetupFlow = ({
       })),
     });
     saveGame(state);
-    router.push('/play');
+    router.push('/soundcheck');
   };
 
   const slotsOf = (c: CharacterPreset): Slot[] =>
