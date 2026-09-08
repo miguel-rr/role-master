@@ -183,15 +183,17 @@ const turnRequestSchema = z.object({
   history: z.array(
     z.object({
       action: playerActionSchema,
-      turn: sceneTurnSchema.pick({
-        place: true,
-        chapter: true,
-        time: true,
-        figure: true,
-        beats: true,
-        choices: true,
-        summary: true,
-      }),
+      turn: sceneTurnSchema
+        .pick({
+          place: true,
+          chapter: true,
+          time: true,
+          figure: true,
+          beats: true,
+          choices: true,
+          summary: true,
+        })
+        .extend({ backgroundId: z.string().optional() }),
     }),
   ),
   action: playerActionSchema,

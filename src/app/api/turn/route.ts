@@ -98,7 +98,13 @@ export async function POST(request: Request) {
     }
 
     const id = `t${Date.now().toString(36)}`;
-    const { resolved, npcArt } = resolveTurn(turn.data, id, req.npcArt);
+    const last = req.history.at(-1)?.turn;
+    const { resolved, npcArt } = resolveTurn(
+      turn.data,
+      id,
+      req.npcArt,
+      last ? { place: last.place, backgroundId: last.backgroundId } : undefined,
+    );
     const usage = response.usage;
     const payload: TurnResponse = {
       turn: resolved,

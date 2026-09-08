@@ -94,12 +94,27 @@ const monsterVocabulary = (min = 3): string[] => {
 const resolveBackground = (
   turn: SceneTurn,
   seed: string,
+  previous?: { place: string; backgroundId?: string },
 ): ArtEntry | undefined => {
+  // Same place as the last turn: keep the same picture. Continuity beats variety.
+  if (
+    previous?.backgroundId &&
+    previous.place.trim().toLowerCase() === turn.place.trim().toLowerCase()
+  ) {
+    const kept = byId(previous.backgroundId);
+    if (kept) return kept;
+  }
   const good = (e: ArtEntry) =>
-    e.width >= 1100 && !e.tags.includes('duplicate');
+    e.width >= 1100 &&
+    e.width >= e.height * 0.95 &&
+    !e.tags.includes('duplicate') &&
+    !e.tags.includes('mono');
   for (const tag of turn.sceneTags) {
     const pool = artWithTags([tag], { within: ['scenes-fr'] }).filter(good);
-    if (pool.length > 0) return pickArt(pool, seed);
+    if (pool.length === 0) continue;
+    // Painted 5e-era art first; older editions only if that is all there is.
+    const modern = pool.filter((e) => e.tags.includes('5e'));
+    return pickArt(modern.length >= 3 ? modern : pool, seed);
   }
   const any = collection('scenes-fr').filter(good);
   return pickArt(any, seed);
@@ -162,8 +177,9 @@ const resolveTurn = (
   turn: SceneTurn,
   id: string,
   npcArt: Record<string, string>,
+  previous?: { place: string; backgroundId?: string },
 ): { resolved: ResolvedTurn; npcArt: Record<string, string> } => {
-  const background = resolveBackground(turn, `${id}:bg`);
+  const background = resolveBackground(turn, `${id}:bg`, previous);
   const fig = resolveFigure(turn.figure, npcArt, `${id}:fig`);
   const style = MOOD_STYLE[turn.mood];
   return {

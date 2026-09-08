@@ -143,6 +143,7 @@ const GameStage = ({ initial, party, cover }: GameStageProps) => {
             beats: h.turn.beats,
             choices: h.turn.choices,
             summary: h.turn.summary,
+            backgroundId: h.turn.background?.id,
           },
         })),
         action,

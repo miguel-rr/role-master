@@ -14,7 +14,9 @@ import { artManifestSchema } from '../../src/data/art/schema';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(here, '../..');
 const MANIFESTS = ['portraits-fr', 'npcs-fr', 'monsters-fr'];
+const SCENE_MANIFESTS = ['scenes-fr'];
 const TAG = 'white-bg';
+const MONO = 'mono';
 
 /** Mean luminance (0-255) of a small patch at each corner. */
 const cornerLuminance = async (file: string) => {
@@ -41,7 +43,50 @@ const cornerLuminance = async (file: string) => {
   return values;
 };
 
+/** Mean colour saturation (0-255) over a thumbnail: line art scores near 0. */
+const saturation = async (file: string) => {
+  const { data, info } = await sharp(file)
+    .resize(64, 64, { fit: 'fill' })
+    .removeAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  let sum = 0;
+  const n = info.width * info.height;
+  for (let i = 0; i < n; i += 1) {
+    const r = data[i * 3] ?? 0;
+    const g = data[i * 3 + 1] ?? 0;
+    const b = data[i * 3 + 2] ?? 0;
+    sum += Math.max(r, g, b) - Math.min(r, g, b);
+  }
+  return sum / n;
+};
+
 const main = async () => {
+  for (const name of SCENE_MANIFESTS) {
+    const file = path.join(ROOT, 'src/data/art/manifests', `${name}.json`);
+    const manifest = artManifestSchema.parse(
+      JSON.parse(await readFile(file, 'utf8')),
+    );
+    let flagged = 0;
+    for (const entry of manifest.entries) {
+      let sat: number;
+      try {
+        sat = await saturation(path.join(ROOT, 'public', entry.src));
+      } catch {
+        continue;
+      }
+      entry.tags = entry.tags.filter((t) => t !== MONO);
+      if (sat < 14) {
+        entry.tags.push(MONO);
+        flagged += 1;
+      }
+    }
+    manifest.generatedAt = new Date().toISOString();
+    await writeFile(file, `${JSON.stringify(manifest, null, 2)}\n`);
+    console.log(
+      `${name}: ${flagged}/${manifest.entries.length} en blanco y negro`,
+    );
+  }
   for (const name of MANIFESTS) {
     const file = path.join(ROOT, 'src/data/art/manifests', `${name}.json`);
     const manifest = artManifestSchema.parse(
