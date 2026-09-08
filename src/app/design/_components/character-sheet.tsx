@@ -1,3 +1,4 @@
+import { ItemTile } from '@/components/items/item-tile';
 import { ArtImage } from '@/components/theme/art';
 import { Paper } from '@/components/theme/paper';
 import type { ArtEntry } from '@/data/art/schema';
@@ -330,23 +331,12 @@ const CharacterSheet = ({
           <Box className="flex-1" title="Equipo">
             <div className="grid grid-cols-6 gap-1.5">
               {c.inventory.slice(0, 12).map((it) => (
-                <div
-                  className={`relative aspect-square overflow-hidden rounded-sm ${it.equipped ? 'bg-paper-stat ring-1 ring-maroon-2/60' : 'bg-paper-light ring-1 ring-gold-page/40'}`}
+                <ItemTile
+                  art={itemArt.get(it.icon)}
+                  item={it}
                   key={it.name}
-                  title={it.name}
-                >
-                  <ArtImage
-                    alt={it.name}
-                    art={itemArt.get(it.icon)}
-                    className="h-full w-full p-0.5"
-                    fit="contain"
-                  />
-                  {it.qty && it.qty > 1 ? (
-                    <span className="absolute right-0 bottom-0 bg-maroon px-0.5 text-[0.55rem] text-paper-light">
-                      ×{it.qty}
-                    </span>
-                  ) : null}
-                </div>
+                  variant="sheet"
+                />
               ))}
             </div>
             <div className="mt-2 flex justify-between text-[0.72rem] text-ink">

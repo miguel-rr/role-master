@@ -150,11 +150,28 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   await expect(overlay).toContainText('Dagna Yunquebronce');
   await expect(overlay).toContainText('Puntos de golpe');
   await page.screenshot({ path: `${SHOTS}/06-overlay-sheet.png` });
+  // Objects open their card, on the sheet and in the pack.
+  await page.getByTestId('item-tile').first().click();
+  const card = page.getByTestId('item-card');
+  await expect(card).toContainText('Martillo de guerra');
+  await expect(card).toContainText('1d8 contundente');
+  await page.keyboard.press('Escape');
+  await expect(card).toHaveCount(0);
+  await expect(overlay).toBeVisible();
   await page.getByTestId('overlay-view-pack').click();
   await expect(overlay).toContainText('Mochila de Dagna');
   await page.getByTestId('overlay-tab-corran').click();
   await expect(overlay).toContainText('Mochila de Corran');
+  await page.getByRole('button', { name: 'Arco largo' }).click();
+  await expect(card).toContainText('Arma marcial a distancia');
+  await expect(card).toContainText('Munición (45/183 m)');
   await page.screenshot({ path: `${SHOTS}/07-overlay-pack.png` });
+  await page.keyboard.press('Escape');
+  await expect(card).toHaveCount(0);
+  await page.getByRole('button', { name: 'Flechas' }).click();
+  await expect(card).toContainText('Flechas');
+  await page.mouse.click(5, 450);
+  await expect(card).toHaveCount(0);
   await page.keyboard.press('Escape');
   await expect(overlay).toHaveCount(0);
 

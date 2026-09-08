@@ -308,6 +308,11 @@ con `pnpm art:hd`. Este contrato de datos es el que emitirá el narrador.
 - **En partida**: retratos del HUD, tecla I o el botón «Fichas» abren la
   superposición con la ficha en papel y la mochila ilustrada con PV, oro y
   objetos vivos (`party-overlay.tsx`, `liveCharacter`).
+- **Cartas de objeto**: en la ficha y en la mochila, pulsar un objeto abre
+  su carta junto al icono (`src/components/items/item-tile.tsx`): tipo,
+  rareza, precio, propiedades y una línea de descripción, desde
+  `src/data/items/lore.ts` (por nombre en español; lo que el narrador
+  reparte sin entrada conocida sale con una carta genérica).
 - **Narrador de guion sin API** (`src/lib/game/mock-narrator.ts`,
   `MOCK_NARRATOR=1`): historia corta completa (taberna con Toblen, sendero,
   mantícora con revelación, Adabra, epílogo) con ramas por éxito/fallo,

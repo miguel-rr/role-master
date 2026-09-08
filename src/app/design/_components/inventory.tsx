@@ -1,9 +1,7 @@
+import { ItemTile, type Slot } from '@/components/items/item-tile';
 import { ArtImage } from '@/components/theme/art';
 import { Paper } from '@/components/theme/paper';
 import type { ArtEntry } from '@/data/art/schema';
-import type { InventoryItem } from '@/data/demo/characters';
-
-type Slot = { item: InventoryItem; art: ArtEntry | undefined };
 
 type InventoryProps = {
   owner: string;
@@ -15,53 +13,6 @@ type InventoryProps = {
     cp: ArtEntry | undefined;
   };
 };
-
-const RARITY_RING: Record<NonNullable<InventoryItem['rarity']>, string> = {
-  common: 'ring-charcoal-500/40',
-  uncommon: 'ring-rarity-uncommon/70',
-  rare: 'ring-rarity-rare/70',
-  'very-rare': 'ring-rarity-very-rare/70',
-  legendary: 'ring-rarity-legendary/80',
-};
-
-/** One slot of the pack: bg3 icon on a parchment tile, rarity ring, quantity. */
-const ItemTile = ({ item, art }: Slot) => (
-  <div
-    className={`group relative flex aspect-square flex-col items-center justify-end overflow-hidden rounded-[3px] ring-1 ${
-      item.rarity ? RARITY_RING[item.rarity] : 'ring-gold-page/35'
-    } ${item.equipped ? 'bg-paper-stat' : 'bg-paper-light/70'}`}
-    title={item.name}
-  >
-    <div
-      aria-hidden="true"
-      className="absolute inset-0"
-      style={{
-        background:
-          'radial-gradient(ellipse at 50% 40%, rgba(255,250,235,0.75), rgba(238,229,206,0) 70%)',
-      }}
-    />
-    <ArtImage
-      alt={item.name}
-      art={art}
-      className="relative h-[74%] w-[74%] drop-shadow-[0_6px_6px_rgba(40,25,5,0.45)]"
-      fit="contain"
-    />
-    <div className="relative w-full truncate px-1.5 pb-1 text-center font-scaly text-[0.68rem] text-ink leading-tight">
-      {item.name}
-    </div>
-    {item.qty && item.qty > 1 ? (
-      <span className="absolute top-1 right-1 rounded-sm bg-maroon px-1 font-bold font-scaly text-[0.68rem] text-paper-light">
-        ×{item.qty}
-      </span>
-    ) : null}
-    {item.equipped ? (
-      <span
-        className="absolute top-1 left-1 h-2 w-2 rounded-full bg-maroon-2 ring-2 ring-paper"
-        title="Equipado"
-      />
-    ) : null}
-  </div>
-);
 
 const Coin = ({
   art,
@@ -126,7 +77,7 @@ const Inventory = ({ owner, slots, coins, coinArt }: InventoryProps) => (
     <div className="my-4 h-[2px] bg-gold-rule" />
     <div className="grid grid-cols-4 gap-2.5 sm:grid-cols-6">
       {slots.map((s) => (
-        <ItemTile key={s.item.name} {...s} />
+        <ItemTile key={s.item.name} {...s} variant="pack" />
       ))}
       {Array.from({ length: Math.max(0, 18 - slots.length) }).map((_, i) => (
         <div
@@ -145,7 +96,7 @@ const Inventory = ({ owner, slots, coins, coinArt }: InventoryProps) => (
         )}{' '}
         lb
       </span>
-      <span>Toca un objeto para ver su carta</span>
+      <span>Pulsa un objeto para ver su carta</span>
     </div>
   </Paper>
 );
