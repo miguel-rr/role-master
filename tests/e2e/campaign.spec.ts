@@ -75,22 +75,31 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   // ── Lon chooses ──────────────────────────────────────────────────────
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Lon');
   await page.screenshot({ path: `${SHOTS}/01-setup-gallery.png` });
+  // A card selects without confirming; "Seleccionar otro" goes back.
+  await page.getByTestId('card-bram').click();
+  const selection = page.getByTestId('selection');
+  await expect(selection).toContainText('Bram Piedrahonda');
+  await expect(page.getByTestId('seat-Lon')).not.toContainText('Bram');
+  await page.getByTestId('select-other').click();
+  await expect(selection).toHaveCount(0);
   await page.getByTestId('card-dagna').click();
+  await expect(selection).toContainText('Dagna Yunquebronce');
+  await page.screenshot({ path: `${SHOTS}/02-selection.png` });
+  // The sheet, the story and the pack, all before confirming.
+  await page.getByTestId('view-sheet').click();
   const dossier = page.getByTestId('dossier');
-  await expect(dossier).toBeVisible();
-  await expect(dossier).toContainText('Lo que la campaña le guarda');
-  await expect(dossier).toContainText('Dazlyn');
-  await page.screenshot({ path: `${SHOTS}/02-dossier-story.png` });
-  await page.getByTestId('dossier-sheet').click();
   await expect(dossier).toContainText('Puntos de golpe');
   await expect(dossier).toContainText('Dominio de la Vida');
-  await page.screenshot({
-    path: `${SHOTS}/03-dossier-sheet.png`,
-    fullPage: false,
-  });
+  await page.screenshot({ path: `${SHOTS}/03-dossier-sheet.png` });
+  await page.getByTestId('dossier-story').click();
+  await expect(dossier).toContainText('Lo que la campaña le guarda');
+  await expect(dossier).toContainText('Dazlyn');
   await page.getByTestId('dossier-pack').click();
   await expect(dossier).toContainText('Mochila de Dagna');
-  await page.getByTestId('pick-character').click();
+  await page.getByTestId('dossier-close').click();
+  await expect(dossier).toHaveCount(0);
+  await expect(selection).toBeVisible();
+  await page.getByTestId('confirm-character').click();
   await expect(page.getByTestId('seat-Lon')).toContainText('Dagna');
 
   // ── Jato chooses ─────────────────────────────────────────────────────
@@ -98,6 +107,8 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   await expect(page.getByTestId('card-dagna')).toBeDisabled();
   await expect(page.getByTestId('card-dagna')).toContainText('Elegido por Lon');
   await page.getByTestId('card-corran').click();
+  // Confirming from inside the dossier works too.
+  await page.getByTestId('view-story').click();
   await page.getByTestId('pick-character').click();
 
   // ── The company ──────────────────────────────────────────────────────
@@ -108,6 +119,13 @@ test('Lon and Jato play a complete short story', async ({ page }) => {
   await expect(page.getByTestId('company-corran')).toContainText('Jato');
   await expect(page.getByText('Narrador Fable 5.1')).toBeVisible();
   await page.screenshot({ path: `${SHOTS}/04-company.png` });
+  // Jato can still change their mind from the company screen.
+  await page.getByTestId('redo-jato').click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Jato');
+  await expect(page.getByTestId('seat-Lon')).toContainText('Dagna');
+  await page.getByTestId('card-corran').click();
+  await page.getByTestId('confirm-character').click();
+  await expect(page.getByTestId('company-corran')).toContainText('Jato');
   await page.getByTestId('begin-adventure').click();
   await expect(page).toHaveURL(/\/play$/);
 

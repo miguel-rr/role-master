@@ -70,6 +70,8 @@ const SetupFlow = ({
   const router = useRouter();
   const [picks, setPicks] = useState<string[]>([]);
   const [open, setOpen] = useState<string | null>(null);
+  /** Chosen on the gallery but not confirmed yet. */
+  const [selected, setSelected] = useState<string | null>(null);
   const [dossierView, setDossierView] = useState<'story' | 'sheet' | 'pack'>(
     'story',
   );
@@ -89,24 +91,40 @@ const SetupFlow = ({
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(null);
+      if (e.key !== 'Escape') return;
+      // Escape closes the dossier first; a second one goes back to the gallery.
+      if (open) setOpen(null);
+      else setSelected(null);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  }, [open]);
 
   const pick = (id: string) => {
     if (!choosing || picks.includes(id)) return;
     setPicks([...picks, id]);
+    setSelected(null);
     setOpen(null);
     setDossierView('story');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const undo = () => {
-    setPicks(picks.slice(0, -1));
+  /** Back to the gallery for the given seat (0 = Lon, 1 = Jato). */
+  const redo = (seatIndex: number) => {
+    setPicks(picks.slice(0, seatIndex));
+    setSelected(null);
     setOpen(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const openDossier = (id: string, view: 'story' | 'sheet' | 'pack') => {
+    setOpen(id);
+    setDossierView(view);
+  };
+
+  const selection = selected
+    ? CHARACTER_PRESETS.find((c) => c.id === selected)
+    : null;
 
   const begin = () => {
     clearGame();
@@ -204,16 +222,121 @@ const SetupFlow = ({
         </h1>
         <TaperedRule className="mx-auto mt-4 h-4 w-[min(80vw,36rem)] text-red-bright drop-shadow" />
         <p className="mx-auto mt-4 max-w-2xl font-book text-[1.1rem] text-parchment-text leading-relaxed">
-          {choosing
-            ? seat === 0
-              ? 'Seis aventureros de nivel 1 han llegado a Phandalin esta semana. Cada uno trae una historia y una razón para quedarse. Abre a quien te llame la atención: verás su ficha completa y lo que la campaña le guarda.'
-              : `Lon ya ha elegido. Ahora te toca a ti, ${player}: el personaje que escojas será el tuyo durante toda la campaña.`
-            : 'Dos personajes, dos historias que se cruzan en el Ciervo Dormido. Si todo está en orden, la partida empieza.'}
+          {choosing && selection
+            ? `${player}, ${selection.shortName} está elegido pero aún no confirmado. Mira su ficha, su historia y su mochila con calma; si no te convence, selecciona otro.`
+            : choosing
+              ? seat === 0
+                ? 'Seis aventureros de nivel 1 han llegado a Phandalin esta semana. Cada uno trae una historia y una razón para quedarse. Abre a quien te llame la atención: verás su ficha completa y lo que la campaña le guarda.'
+                : `Lon ya ha elegido. Ahora te toca a ti, ${player}: el personaje que escojas será el tuyo durante toda la campaña.`
+              : 'Dos personajes, dos historias que se cruzan en el Ciervo Dormido. Si todo está en orden, la partida empieza.'}
         </p>
       </section>
 
+      {/* Selected, not yet confirmed */}
+      {choosing && selection ? (
+        <section
+          className="mx-auto max-w-6xl px-6 pb-16"
+          data-testid="selection"
+        >
+          <div className="grid gap-6 overflow-hidden rounded-lg border border-brass/50 bg-charcoal-950/75 backdrop-blur md:grid-cols-[minmax(0,22rem)_1fr]">
+            <div className="relative aspect-[3/4] md:aspect-auto">
+              <Portrait
+                alt={selection.name}
+                art={portraitOf(selection.id)}
+                className="h-full w-full"
+              />
+              <div
+                className="absolute top-3 left-3 rounded-sm px-2 py-0.5 font-condensed text-[0.65rem] text-charcoal-950 uppercase tracking-wider"
+                style={{ background: seatColor(seat) }}
+              >
+                {player}
+              </div>
+            </div>
+            <div className="flex flex-col p-6 md:p-8">
+              <div className="font-condensed text-[0.65rem] text-strapline uppercase tracking-widest">
+                {selection.race} · {selection.className} {selection.level} ·{' '}
+                {selection.background}
+              </div>
+              <div className="mt-1 font-nodesto text-4xl text-brass-pale uppercase leading-none">
+                <Caps>{selection.name}</Caps>
+              </div>
+              <p className="mt-2 font-caps text-brass-pale text-lg">
+                {selection.pitch}
+              </p>
+              <p className="mt-3 font-book text-[1.02rem] text-parchment-text leading-snug">
+                {selection.backstory.split('\n\n')[0]}
+              </p>
+              <p className="mt-3 font-book text-[1.02rem] text-parchment-text leading-snug">
+                <span className="font-caps text-brass-pale">
+                  En esta campaña.{' '}
+                </span>
+                {selection.hook}
+              </p>
+              <div className="mt-4 flex flex-wrap items-center gap-4 font-scaly text-charcoal-300 text-xs">
+                <span>PV {selection.hp.max}</span>
+                <span>CA {selection.armorClass}</span>
+                <span>Velocidad {selection.speed}</span>
+                <span>{selection.coins.gp} po</span>
+                {selection.strengths.map((st) => (
+                  <span
+                    className="rounded-sm border border-white/15 px-1.5 py-0.5 font-condensed text-[0.6rem] text-charcoal-200 uppercase tracking-wider"
+                    key={st}
+                  >
+                    {st}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-5 flex flex-wrap gap-2">
+                <button
+                  className="btn-ghost px-3 py-2 text-xs uppercase"
+                  data-testid="view-sheet"
+                  onClick={() => openDossier(selection.id, 'sheet')}
+                  type="button"
+                >
+                  Ver la ficha
+                </button>
+                <button
+                  className="btn-ghost px-3 py-2 text-xs uppercase"
+                  data-testid="view-story"
+                  onClick={() => openDossier(selection.id, 'story')}
+                  type="button"
+                >
+                  Leer la historia
+                </button>
+                <button
+                  className="btn-ghost px-3 py-2 text-xs uppercase"
+                  data-testid="view-pack"
+                  onClick={() => openDossier(selection.id, 'pack')}
+                  type="button"
+                >
+                  Ver la mochila
+                </button>
+              </div>
+              <div className="mt-auto flex flex-wrap items-center gap-4 pt-6">
+                <button
+                  className="btn-beyond px-6 py-3 text-base uppercase"
+                  data-testid="confirm-character"
+                  onClick={() => pick(selection.id)}
+                  type="button"
+                >
+                  Confirmar: {player} juega con {selection.shortName}
+                </button>
+                <button
+                  className="font-condensed text-[0.75rem] text-brass-pale uppercase tracking-widest underline-offset-4 hover:underline"
+                  data-testid="select-other"
+                  onClick={() => setSelected(null)}
+                  type="button"
+                >
+                  ← Seleccionar otro
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {/* Gallery or company */}
-      {choosing ? (
+      {choosing && selection ? null : choosing ? (
         <section className="mx-auto grid max-w-7xl gap-5 px-6 pb-16 sm:grid-cols-2 lg:grid-cols-3">
           {CHARACTER_PRESETS.map((c) => {
             const taken = picks.indexOf(c.id);
@@ -225,8 +348,8 @@ const SetupFlow = ({
                 disabled={!!takenBy}
                 key={c.id}
                 onClick={() => {
-                  setOpen(c.id);
-                  setDossierView('story');
+                  setSelected(c.id);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 type="button"
               >
@@ -312,10 +435,7 @@ const SetupFlow = ({
                       <span>{c.coins.gp} po</span>
                       <button
                         className="btn-ghost ml-auto px-2 py-1 text-[0.65rem] uppercase"
-                        onClick={() => {
-                          setOpen(c.id);
-                          setDossierView('sheet');
-                        }}
+                        onClick={() => openDossier(c.id, 'sheet')}
                         type="button"
                       >
                         Ver ficha
@@ -337,10 +457,19 @@ const SetupFlow = ({
             </button>
             <button
               className="btn-ghost px-4 py-3 text-sm uppercase"
-              onClick={undo}
+              data-testid="redo-lon"
+              onClick={() => redo(0)}
               type="button"
             >
-              Cambiar el personaje de Jato
+              Lon elige otro
+            </button>
+            <button
+              className="btn-ghost px-4 py-3 text-sm uppercase"
+              data-testid="redo-jato"
+              onClick={() => redo(1)}
+              type="button"
+            >
+              Jato elige otro
             </button>
           </div>
           <p className="mt-4 text-center font-scaly text-charcoal-400 text-xs">
@@ -359,7 +488,8 @@ const SetupFlow = ({
         <div className="fixed bottom-4 left-4">
           <button
             className="btn-ghost px-3 py-1.5 text-[0.65rem] uppercase backdrop-blur"
-            onClick={undo}
+            data-testid="redo-lon"
+            onClick={() => redo(0)}
             type="button"
           >
             ← Lon vuelve a elegir
@@ -410,7 +540,7 @@ const SetupFlow = ({
                   onClick={() => pick(opened.id)}
                   type="button"
                 >
-                  {player} juega con {opened.shortName}
+                  Confirmar: {player} juega con {opened.shortName}
                 </button>
               ) : null}
               <button
